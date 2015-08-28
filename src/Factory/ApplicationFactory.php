@@ -8,6 +8,9 @@ class ApplicationFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container)
     {
-        return AppFactory::create($container);
+        return AppFactory::create(
+            $container,
+            $container->get('router')
+        );
     }
 }

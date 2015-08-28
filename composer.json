@@ -22,12 +22,15 @@
     "require": {
         "zendframework/zend-expressive": "^0.1.0",
         "zendframework/zend-servicemanager": "^2.6",
-        "zendframework/zend-config": "^2.5"
+        "zendframework/zend-config": "^2.5",
+        "aura/router": "^2.3",
+        "twig/twig": "^1.21"
     },
     "require-dev": {
         "php": ">=5.5",
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "^2.3",
-        "vlucas/phpdotenv": "^2.0"
+        "vlucas/phpdotenv": "^2.0",
+        "symfony/var-dumper": "^2.7"
     }
 }

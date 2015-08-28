@@ -12,8 +12,8 @@ require __DIR__ . '/../vendor/autoload.php';
 // Load environment variables
 if (class_exists(Dotenv::class)) {
     $dotenv = new Dotenv(__DIR__ . '/..');
-    $dotenv->required('APP_ENV')->allowedValues(['pro', 'dev']);
     $dotenv->load();
+    $dotenv->required('APP_ENV')->allowedValues(['pro', 'dev']);
 }
 
 // Set error reporting
