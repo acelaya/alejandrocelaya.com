@@ -1,0 +1,31 @@
+{
+    "name": "acelaya/mywebsite-expressive",
+    "description": "My personal website built on top of Zend Expressive",
+    "type": "Project",
+    "require": {
+        "zendframework/zend-expressive": "^0.1.0",
+        "zendframework/zend-servicemanager": "^2.6",
+        "zendframework/zend-config": "^2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alejandro Celaya",
+            "email": "alejandro@alejandrocelaya.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Acelaya\\Website\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AcelayaTest\\Website\\": "tests"
+        }
+    }
+}
