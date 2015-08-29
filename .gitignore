@@ -3,3 +3,7 @@ vendor
 .idea
 build
 .env
+.sass-cache
+node_modules
+public/css/main.min.css
+public/js/main.min.js
