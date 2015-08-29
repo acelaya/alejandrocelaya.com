@@ -6,10 +6,10 @@ use Zend\Expressive\Application;
 chdir(dirname(__DIR__));
 
 // Setup autoloading
-require __DIR__ . '/../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 /** @var ContainerInterface $container */
-$container = include __DIR__ . '/../config/container.php';
+$container = include 'config/container.php';
 /** @var Application $app */
 $app = $container->get(Application::class);
 $app->run();
