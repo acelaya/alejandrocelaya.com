@@ -1,0 +1,661 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZendSkeletonApplication\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 13:08+0100\n"
+"PO-Revision-Date: 2014-11-23 13:09+0100\n"
+"Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
+"Language-Team: ZF Contributors <zf-devteam@zend.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/Controller/ContactController.php:83
+msgid "Contact properly sent. Thanks!"
+msgstr "Contacto correctamente enviado. ¡Gracias!"
+
+#: ../src/Controller/ContactController.php:88
+msgid "An error occured while sending the message. Please try again later."
+msgstr ""
+"Se produjo un error al enviar el mensaje. Por favor vuelva a intentarlo más "
+"tarde."
+
+#: ../src/Controller/ContactController.php:95
+msgid "Information provided is not valid. Review form data and send it again."
+msgstr ""
+"La información proporcionada no es válida. Revise los datos del formulario y "
+"vuelva a enviarlo."
+
+#: ../src/Form/ContactFieldset.php:57 ../src/Form/ContactFieldset.php:61
+msgid "Name"
+msgstr "Nombre"
+
+#: ../src/Form/ContactFieldset.php:68 ../src/Form/ContactFieldset.php:70
+msgid "Email"
+msgstr "Email"
+
+#: ../src/Form/ContactFieldset.php:80 ../src/Form/ContactFieldset.php:82
+msgid "Subject"
+msgstr "Asunto"
+
+#: ../src/Form/ContactFieldset.php:92 ../src/Form/ContactFieldset.php:94
+msgid "Comments"
+msgstr "Comentarios"
+
+#: ../src/Form/ContactFieldset.php:145
+#, fuzzy
+msgid "The email address must be set."
+msgstr "El email debe ser proporcionado."
+
+#: ../src/Form/ContactFieldset.php:149
+msgid "The email address does not have a proper format."
+msgstr "El email no tiene el formato adecuado."
+
+#: ../src/Form/ContactFieldset.php:155
+msgid "The name must be set."
+msgstr "El nombre debe ser proporcionado."
+
+#: ../src/Form/ContactFieldset.php:157
+msgid "The subject must be set."
+msgstr "El asunto debe ser proporcionado"
+
+#: ../src/Form/ContactFieldset.php:158
+msgid "The comments must be set."
+msgstr "Los comentarios deben ser proporcionados."
+
+#: ../src/Form/ContactForm.php:46
+msgid "Submit"
+msgstr "Enviar"
+
+#: ../src/Form/ContactForm.php:49
+msgid "Sending..."
+msgstr "Enviando"
+
+#: ../src/Form/ContactForm.php:55
+msgid "Set the value"
+msgstr "Establecer el valor"
+
+#: ../config/navigation.config.php:9
+msgid "Skills"
+msgstr "Habilidades"
+
+#: ../config/navigation.config.php:16
+msgid "Projects"
+msgstr "Proyectos"
+
+#: ../config/navigation.config.php:23
+msgid "Contact"
+msgstr "Contactar"
+
+#: ../config/navigation.config.php:30
+msgid "Blog"
+msgstr "Blog"
+
+#: ../view/layout/layout.phtml:7
+msgid "Alejandro Celaya Alastrue - PHP and Java developer"
+msgstr "Alejandro Celaya Alastrué - Programador PHP y Java"
+
+#: ../view/layout/layout.phtml:12
+msgid ""
+"Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I "
+"have worked with web applications, web services and e-commerce"
+msgstr ""
+"Alejandro Celaya, programador web PHP y programador Java en Zaragoza, "
+"España. He trabajado con aplicaciones web, web services y comercio "
+"electrónico"
+
+#: ../view/layout/partials/footer.phtml:6
+#, php-format
+msgid "Powered by %sZend Framework 2%s and %sBootstrap 3%s"
+msgstr "Powered by %sZend Framework 2%s y %sBootstrap 3%s"
+
+#: ../view/layout/partials/header.phtml:9
+#: ../view/layout/partials/aside.phtml:8
+msgid "Alejandro Celaya"
+msgstr "Alejandro Celaya"
+
+#: ../view/layout/partials/header.phtml:17
+msgid "Language"
+msgstr "Idioma"
+
+#: ../view/layout/partials/aside.phtml:4
+msgid "Alejandro Celaya Alastrue"
+msgstr "Alejandro Celaya Alastrué"
+
+#: ../view/layout/partials/aside.phtml:9
+msgid "PHP and Java developer"
+msgstr "Programador PHP y Java"
+
+#: ../view/layout/partials/aside.phtml:13
+msgid "Zend Certified Engineer PHP 5.3"
+msgstr "Zend Certified Engineer PHP 5.3"
+
+#: ../view/layout/partials/aside.phtml:16
+msgid "Zend Framework 2 Certified Architect"
+msgstr "Zend Framework 2 Certified Architect"
+
+#: ../view/error/404.phtml:4
+msgid "Error 404"
+msgstr "Error 404"
+
+#: ../view/error/404.phtml:6
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: ../view/error/404.phtml:7
+msgid ""
+"The page you requested could not be found. Use your browser's Back button to "
+"navigate to the page you have previously come from or just press this button."
+msgstr ""
+"La página solicitada no pudo ser encontrada. Utiliza el botón Atrás de tu "
+"navegador para volver a la página de la que ha llegado previamente o "
+"símplemente presione este botón."
+
+#: ../view/error/404.phtml:9
+msgid "Home"
+msgstr "Inicio"
+
+#: ../view/error/404.phtml:19
+msgid "The requested controller was unable to dispatch the request."
+msgstr "El controlador solicitado no pudo ejecutar la petición."
+
+#: ../view/error/404.phtml:22
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+"El controlador solicitado no se pudo mapear con una clase de controlador "
+"existente."
+
+#: ../view/error/404.phtml:25
+msgid "The requested controller was not dispatchable."
+msgstr "El controlador solicitado no es ejecutable."
+
+#: ../view/error/404.phtml:28
+msgid "The requested URL could not be matched by routing."
+msgstr "El ruteador no ha encontrado la ruta para la URL solicitada."
+
+#: ../view/error/404.phtml:31
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr "No pudimos determinar por qué un error 404 ha sido generado."
+
+#: ../view/error/404.phtml:43
+msgid "Controller"
+msgstr "Controller"
+
+#: ../view/error/404.phtml:50
+#, php-format
+msgid "resolves to %s"
+msgstr "se resuelve a %s"
+
+#: ../view/error/404.phtml:62 ../view/error/index.phtml:8
+msgid "Additional information"
+msgstr "Información adicional"
+
+#: ../view/error/404.phtml:65 ../view/error/404.phtml:89
+#: ../view/error/index.phtml:11 ../view/error/index.phtml:35
+msgid "File"
+msgstr "Archivo"
+
+#: ../view/error/404.phtml:69 ../view/error/404.phtml:93
+#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
+msgid "Message"
+msgstr "Mensaje"
+
+#: ../view/error/404.phtml:73 ../view/error/404.phtml:97
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
+msgid "Stack trace"
+msgstr "Seguimiento de la pila (stack trace)"
+
+#: ../view/error/404.phtml:83 ../view/error/index.phtml:29
+msgid "Previous exceptions"
+msgstr "Excepciones anteriores"
+
+#: ../view/error/404.phtml:112 ../view/error/index.phtml:58
+msgid "No Exception available"
+msgstr "No hay ninguna Excepción disponible."
+
+#: ../view/error/index.phtml:1
+msgid "An error occurred"
+msgstr "Ha ocurrido un error"
+
+#: ../view/acelaya/skills.phtml:3
+msgid "Web back-end"
+msgstr "Lado del servidor en web"
+
+#: ../view/acelaya/skills.phtml:7
+msgid "PHP"
+msgstr "PHP"
+
+#: ../view/acelaya/skills.phtml:11
+msgid "Zend Framework"
+msgstr "Zend Framework"
+
+#: ../view/acelaya/skills.phtml:15
+msgid "Zend Framework 2"
+msgstr "Zend Framework 2"
+
+#: ../view/acelaya/skills.phtml:20
+msgid "Web front-end"
+msgstr "Interfaz de usuario en web"
+
+#: ../view/acelaya/skills.phtml:24
+msgid "HTML5"
+msgstr "HTML5"
+
+#: ../view/acelaya/skills.phtml:28
+msgid "CSS3"
+msgstr "CSS3"
+
+#: ../view/acelaya/skills.phtml:32
+msgid "Javascript"
+msgstr "Javascript"
+
+#: ../view/acelaya/skills.phtml:37
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+#: ../view/acelaya/skills.phtml:41
+msgid "Sass"
+msgstr "Sass"
+
+#: ../view/acelaya/skills.phtml:45
+msgid "jQuery"
+msgstr "jQuery"
+
+#: ../view/acelaya/skills.phtml:50
+msgid "Good practices"
+msgstr "Buenas prácticas"
+
+#: ../view/acelaya/skills.phtml:54
+msgid "Continuous integration"
+msgstr "Integración continua"
+
+#: ../view/acelaya/skills.phtml:58
+msgid "Task automation"
+msgstr "Automatización de tareas"
+
+#: ../view/acelaya/skills.phtml:62
+msgid "Test Driven Development"
+msgstr "Desarrollo dirigido por pruebas"
+
+#: ../view/acelaya/skills.phtml:67
+msgid "Version control"
+msgstr "Control de versiones"
+
+#: ../view/acelaya/skills.phtml:72
+msgid "Git"
+msgstr "Git"
+
+#: ../view/acelaya/skills.phtml:76
+msgid "Subversion"
+msgstr "Subversion"
+
+#: ../view/acelaya/skills.phtml:81
+msgid "Others"
+msgstr "Otros"
+
+#: ../view/acelaya/skills.phtml:85
+msgid "Scrum"
+msgstr "Scrum"
+
+#: ../view/acelaya/skills.phtml:89
+msgid "SEO"
+msgstr "SEO"
+
+#: ../view/acelaya/skills.phtml:93
+msgid "Java SE"
+msgstr "Java SE"
+
+#: ../view/acelaya/contact.phtml:3
+msgid "Please contact me and I'll answer as soon as possible."
+msgstr "Por favor contacta conmigo y te responderé lo antes posible."
+
+#: ../view/acelaya/contact.phtml:37
+#, php-format
+msgid ""
+"You can send me an email to %smoc.ayalecordnajela@ordnajela%s if you prefer."
+msgstr ""
+"Puedes enviarme un  email a %smoc.ayalecordnajela@ordnajela%s si lo "
+"prefieres."
+
+#: ../view/acelaya/projects.phtml:3
+msgid "My projects"
+msgstr "Mis proyectos"
+
+#: ../view/acelaya/projects.phtml:11
+msgid "Subclient"
+msgstr "Subclient"
+
+#: ../view/acelaya/projects.phtml:15
+#, php-format
+msgid ""
+"%sSubclient%s is a cross-platform audio and video streaming application that "
+"works as a %sSubsonic%s client."
+msgstr ""
+"%sSubclient%s es una aplicación multiplataforma para streaming de audio y "
+"video que funciona como un cliente de %sSubsonic%s."
+
+#: ../view/acelaya/projects.phtml:24
+msgid ""
+"It is currently available on Windows and Linux, and I am working on MacOS "
+"version too. I would also like to make an Android version in the future."
+msgstr ""
+"Actualmente está disponible en Windows y Linux, y también estoy trabajando "
+"en la versión de MacOS. También me gustaría hacer una versión para Android "
+"en el futuro."
+
+#: ../view/acelaya/projects.phtml:27
+msgid ""
+"Subclient uses a library, Subconnector, that works as a Java SDK to "
+"establish connections with Subsonic servers that can be downloaded from the "
+"website too."
+msgstr ""
+"Subclient utiliza una librería, Subconnector, que funciona como un SDK de "
+"Java para establecer conexiones con servidores Subsonic que también puede "
+"ser descargada del sitio web."
+
+#: ../view/acelaya/projects.phtml:32
+#, php-format
+msgid ""
+"Both Subclient and Subconnector are licensed under the %sGNU General public "
+"license v3%s."
+msgstr ""
+"Tanto Subclient como Subconnector están licenciados bajo %sGNU General "
+"public license v3%s."
+
+#: ../view/acelaya/projects.phtml:45
+msgid "Zend Framework modules"
+msgstr "Módulos de Zend Framework"
+
+#: ../view/acelaya/projects.phtml:49
+#, php-format
+msgid ""
+"I have published some Zend Framework modules in my %sGithub%s account. They "
+"are registered in the %sZend Framework modules%s page and %spackagist%s, so "
+"they can be installed with %scomposer%s."
+msgstr ""
+"He publicado algunos módulos de Zend Framework en mi cuenta de %sGithub%s. "
+"Todos están registrados en la página de %smódulos de Zend Framework%s y "
+"%spackagist%s, por lo que pueden ser instalados con %scomposer%s."
+
+#: ../view/acelaya/projects.phtml:62
+msgid "Just these by the moment:"
+msgstr "Son estos por el momento:"
+
+#: ../view/acelaya/projects.phtml:66
+msgid "a fully-featured module to send emails."
+msgstr "un módulo con muchas funcionalidades para el envío de emails."
+
+#: ../view/acelaya/projects.phtml:72
+#, php-format
+msgid "a module to generate QR codes based on the %sEndroid QR code%s library."
+msgstr ""
+"un módulo para generar códigos QR basado en la librería %sEndroid QR code%s"
+
+#: ../view/acelaya/projects.phtml:80
+msgid "a very simple module to manage assets."
+msgstr "un módulo muy simple para gestionar assets."
+
+#: ../view/acelaya/projects.phtml:84
+msgid "a module to render yaml responses."
+msgstr "un módulo para renderizar respuestas yaml."
+
+#: ../view/acelaya/projects.phtml:95
+msgid "Sculpin blog"
+msgstr "Blog Sculpin"
+
+#: ../view/acelaya/projects.phtml:99
+#, php-format
+msgid ""
+"Some time ago I started to write a blog. In the past my blogging platform "
+"was Wordpress, but I didn't really like it so I changed to %sSculpin%s."
+msgstr ""
+"Hace algún tiempo empecé a escribir un blog. En el pasado mi plataforma de "
+"blogging era Wordpress, pero realmente no me gustaba así que cambié a "
+"%sSculpin%s."
+
+#: ../view/acelaya/projects.phtml:106
+msgid ""
+"Sculpin is a static site generator based on Symfony components that allowed "
+"me to create a blazing fast and very SEO-friendly blog."
+msgstr ""
+"Sculpin es un generador de sitios estáticos basado en componentes de Symfony "
+"que me permitió crear un blog ultra rápido y amigable con el SEO."
+
+#: ../view/acelaya/projects.phtml:111
+#, php-format
+msgid "The contents of my blog are open source and can be found %shere%s."
+msgstr ""
+"Los contenidos de mi blog son de código abierto y se pueden encontrar %saquí"
+"%s."
+
+#: ../view/acelaya/projects.phtml:124
+msgid "Websites"
+msgstr "Páginas web"
+
+#: ../view/acelaya/projects.phtml:128
+#, php-format
+msgid ""
+"I have made both Subclient website and this website using %sZend Framework%s "
+"for the back-end and %sBootstrap%s in the front-end."
+msgstr ""
+"He hecho tanto la web de Subclient como esta web usando %sZend Framework%s "
+"para la parte de servidor y %sBootstrap%s en el interfaz de usuario."
+
+#: ../view/acelaya/projects.phtml:137
+msgid ""
+"I use to use Zend Framework and Bootstrap in web applications. They are "
+"powerful frameworks that guarantee a very professional result."
+msgstr ""
+"Suelo utilizar Zend Framework y Bootstrap en aplicaciones web. Son poderosos "
+"frameworks que garantizan un resultado muy profesional."
+
+#: ../view/acelaya/projects.phtml:140
+msgid ""
+"Probably Zend Framework is not the most suitable option for this kind of "
+"simple webpages, but it is a good oportunity to apply best practices and "
+"test modules and libraries you don't usually use in your daily work."
+msgstr ""
+"Probablemente Zend Framework no es la opción más adecuada para este tipo de "
+"páginas simples, pero es una buena oportunidad de aplicar buenas prácticas y "
+"probar módulos y librerías que normalmente no usas en tu trabajo diario."
+
+#: ../view/acelaya/projects.phtml:149
+msgid "Other projects"
+msgstr "Otros proyectos"
+
+#: ../view/acelaya/projects.phtml:151
+msgid ""
+"I have worked in other minor projects too. Tiny CSS libraries, other Zend "
+"Framework modules and such."
+msgstr ""
+"También he trabajado en otros proyectos más pequeños. Pequeñas librerías de "
+"CSS, otros módulos para Zend Framework y demás."
+
+#: ../view/acelaya/projects.phtml:154
+#, php-format
+msgid "All of them can be found on my %sGithub%s profile page."
+msgstr "Todos ellos pueden ser encontrados en mi perfil de %sGithub%s."
+
+#: ../view/acelaya/projects.phtml:157
+msgid ""
+"I will keep adding more of them to the list. Maybe jQuery plugins, Bootstrap "
+"customizations or even java and PHP libraries. Time will tell."
+msgstr ""
+"Seguiré añadiendo más a la lista. Quizás algún plugin de jQuery, "
+"personalizaciones para Bootstrap o incluso librerías de java y PHP. El "
+"tiempo dirá."
+
+#: ../view/acelaya/index.phtml:2
+msgid "About me"
+msgstr "Acerca de mi"
+
+#: ../view/acelaya/index.phtml:4
+msgid "Hello! My name is Alejandro Celaya."
+msgstr "¡Hola! Mi nombre es Alejandro Celaya."
+
+#: ../view/acelaya/index.phtml:7
+msgid "I live in Zaragoza, Spain, and I am a PHP web developer since 2010."
+msgstr "Vivo en Zaragoza, España, y soy programador web PHP desde 2010."
+
+#: ../view/acelaya/index.phtml:12
+#, php-format
+msgid ""
+"I have worked in many kind of projects. From simple static webpages to fully "
+"managed web applications and web services, as well as eCommerce "
+"applications. For this projects I use %sZend Framework 2%s and I have some "
+"experience on front end design and usability."
+msgstr ""
+"He trabajado en muchas clases de proyectos. Desde simples páginas estáticas "
+"hasta aplicaciones web completamente gestionables y web services, así como "
+"aplicaciones de comercio electrónico. Para estos proyectos utilizo %sZend "
+"Framework 2%s y tengo experiencia en diseño de interfaces de usuario y "
+"usabilidad."
+
+#: ../view/acelaya/index.phtml:19
+msgid ""
+"I am experienced in Java Standard Edition too, wich I use for desktop "
+"application development, allowing me to include a cross-platform desktop "
+"client for any web application."
+msgstr ""
+"También tengo experiencia en Java Standard Edition, que uso para desarrollar "
+"aplicaciones de escritorio, lo que me permite incluir clientes de escritorio "
+"multiplataforma para cualquier aplicación web."
+
+#: ../view/acelaya/index.phtml:24
+#, php-format
+msgid ""
+"In January 2013 I was included in the %sZend Certified Engineers%s group by "
+"passing the official certification exam (PHP 5.3). In May 2014 I passed the "
+"%sZend Framework 2 Certified Architect%s exam too."
+msgstr ""
+"En Enero de 2013 fui incluido en el grupo %sZend Certified Engineers%s al "
+"aprobar el examen oficial de certificación (PHP 5.3). En Mayo de 2014 "
+"también aprobé el examen de %sZend Framework 2 Certified Architect%s."
+
+#: ../view/acelaya/index.phtml:35
+#, php-format
+msgid ""
+"I have a personal open source project too, %sSubclient%s, an audio and video "
+"streaming application that works as a %sSubsonic%s desktop client. Subsonic "
+"is an awesome server-side audio and video streamer I use for music playback "
+"while I'm programming."
+msgstr ""
+"Tengo también un proyecto personal de código abierto, %sSubclient%s, una "
+"aplicación de streaming de audio y video que funciona como cliente de "
+"escritorio de %sSubsonic%s. Subsonic es una increible aplicación de "
+"streaming que utilizo para reproducir música mientras programo."
+
+#~ msgid "Captcha"
+#~ msgstr "Captcha"
+
+#~ msgid "PHP Language"
+#~ msgstr "Lenguage PHP"
+
+#~ msgid "Scrum Manager Certified"
+#~ msgstr "Scrum Manager Certified"
+
+#~ msgid "Bootstrap 3"
+#~ msgstr "Bootstrap 3"
+
+#~ msgid "HTML 5 and CSS 3"
+#~ msgstr "HTML 5 y CSS 3"
+
+#~ msgid "Java"
+#~ msgstr "Java"
+
+#~ msgid "A 404 error occurred"
+#~ msgstr "Ha ocurrido un error 404"
+
+#~ msgid "Less"
+#~ msgstr "Less"
+
+#~ msgid ""
+#~ "The email address does not match the pattern '/^[a-zA-Z0-9.!#$%&'*+\\/=?"
+#~ "^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/'."
+#~ msgstr ""
+#~ "La dirección de correo no cumple el patrón '/^[a-zA-Z0-9.!#$%&'*+\\/=?"
+#~ "^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/'."
+
+#~ msgid "Skeleton Application"
+#~ msgstr "Aplicación Esqueleto"
+
+#~ msgid "All rights reserved."
+#~ msgstr "Todos los derechos reservados"
+
+#~ msgid ""
+#~ "Congratulations! You have successfully installed the %sZF2 Skeleton "
+#~ "Application%s. You are currently running Zend Framework version %s. This "
+#~ "skeleton can serve as a simple starting point for you to begin building "
+#~ "your application on ZF2."
+#~ msgstr ""
+#~ "¡Felicitaciones! Haz instalado correctamente el %sla aplicación esqueleto "
+#~ "del ZF2%s. Estás corriendo la versión %s del Zend Framework. Este "
+#~ "esqueleto te servirá como un punto de inicio sencillo para empezar a "
+#~ "construir tu aplicación con el ZF2."
+
+#~ msgid "Fork Zend Framework 2 on GitHub"
+#~ msgstr "Hacer un Fork del Zend Framework 2 en GitHub"
+
+#~ msgid "Follow Development"
+#~ msgstr "Seguir el Desarrollo"
+
+#~ msgid ""
+#~ "Zend Framework 2 is under active development. If you are interested in "
+#~ "following the development of ZF2, there is a special ZF2 portal on the "
+#~ "official Zend Framework website which provides links to the ZF2 %swiki%s, "
+#~ "%sdev blog%s, %sissue tracker%s, and much more. This is a great resource "
+#~ "for staying up to date with the latest developments!"
+#~ msgstr ""
+#~ "El Zend Framework 2 está en pleno desarrollo. Si estás interesado en "
+#~ "seguir el desarrollo del ZF2, existe un portal especial para el ZF2 en el "
+#~ "sitio web oficial del Zend Framework el cual provee enlaces %sa la Wiki"
+#~ "%s, %sal Blog de desarrollo%s, %sal issue tracker%s y mucho más. Este es "
+#~ "un gran recurso para mantenerte al día con los últimos avances en el "
+#~ "desarrollo!"
+
+#~ msgid "ZF2 Development Portal"
+#~ msgstr "Portal de Desarrollo del ZF2"
+
+#~ msgid "Discover Modules"
+#~ msgstr "Descubre Módulos"
+
+#~ msgid ""
+#~ "The community is working on developing a community site to serve as a "
+#~ "repository and gallery for ZF2 modules. The project is available %son "
+#~ "GitHub%s. The site is currently live and currently contains a list of "
+#~ "some of the modules already available for ZF2."
+#~ msgstr ""
+#~ "La comunidad está trabajando en el desarrollo de una web comunitaria que "
+#~ "servirá de repositorio y galería de los módulos del ZF2. El proyecto está "
+#~ "disponible %sen GitHub%s. El sitio web está en línea y actualmente posee "
+#~ "una lista de algunos módulos que ya están disponibles para el ZF2."
+
+#~ msgid "Explore ZF2 Modules"
+#~ msgstr "Explora los módulos del ZF2"
+
+#~ msgid "Help &amp; Support"
+#~ msgstr "Ayuda &amp; Soporte"
+
+#~ msgid ""
+#~ "If you need any help or support while developing with ZF2, you may reach "
+#~ "us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or "
+#~ "feedback you may have regarding the beta releases. Alternatively, you may "
+#~ "subscribe and post questions to the %smailing lists%s."
+#~ msgstr ""
+#~ "Si necesitas alguna ayuda o soporte mientras estás desarrollando con el "
+#~ "ZF2, puedes encontrarnos via IRC: %s#zftalk en Freenode%s. Nos encantaría "
+#~ "leer tus preguntas o cualquier feedback que puedas tener en relación a "
+#~ "los lanzamientos de las versiones beta. También puedes subscribirte y "
+#~ "enviar preguntas %sa la lista de correos%s"
+
+#~ msgid "Ping us on IRC"
+#~ msgstr "Escríbenos en el IRC"
+
+#~ msgid "Exception"
+#~ msgstr "Excepción"

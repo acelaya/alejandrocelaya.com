@@ -1,0 +1,489 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZendSkeletonApplication\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 13:08+0100\n"
+"PO-Revision-Date: 2014-11-23 13:08+0100\n"
+"Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
+"Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/Controller/ContactController.php:83
+msgid "Contact properly sent. Thanks!"
+msgstr ""
+
+#: ../src/Controller/ContactController.php:88
+msgid "An error occured while sending the message. Please try again later."
+msgstr ""
+
+#: ../src/Controller/ContactController.php:95
+msgid "Information provided is not valid. Review form data and send it again."
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:57 ../src/Form/ContactFieldset.php:61
+msgid "Name"
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:68 ../src/Form/ContactFieldset.php:70
+msgid "Email"
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:80 ../src/Form/ContactFieldset.php:82
+msgid "Subject"
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:92 ../src/Form/ContactFieldset.php:94
+msgid "Comments"
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:145
+msgid "The email address must be set."
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:149
+msgid "The email address does not have a proper format."
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:155
+msgid "The name must be set."
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:157
+msgid "The subject must be set."
+msgstr ""
+
+#: ../src/Form/ContactFieldset.php:158
+msgid "The comments must be set."
+msgstr ""
+
+#: ../src/Form/ContactForm.php:46
+msgid "Submit"
+msgstr ""
+
+#: ../src/Form/ContactForm.php:49
+msgid "Sending..."
+msgstr ""
+
+#: ../src/Form/ContactForm.php:55
+msgid "Set the value"
+msgstr ""
+
+#: ../config/navigation.config.php:9
+msgid "Skills"
+msgstr ""
+
+#: ../config/navigation.config.php:16
+msgid "Projects"
+msgstr ""
+
+#: ../config/navigation.config.php:23
+msgid "Contact"
+msgstr ""
+
+#: ../config/navigation.config.php:30
+msgid "Blog"
+msgstr ""
+
+#: ../view/layout/layout.phtml:7
+msgid "Alejandro Celaya Alastrue - PHP and Java developer"
+msgstr "Alejandro Celaya Alastrué - PHP and Java developer"
+
+#: ../view/layout/layout.phtml:12
+msgid ""
+"Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I "
+"have worked with web applications, web services and e-commerce"
+msgstr ""
+
+#: ../view/layout/partials/footer.phtml:6
+#, php-format
+msgid "Powered by %sZend Framework 2%s and %sBootstrap 3%s"
+msgstr ""
+
+#: ../view/layout/partials/header.phtml:9
+#: ../view/layout/partials/aside.phtml:8
+msgid "Alejandro Celaya"
+msgstr ""
+
+#: ../view/layout/partials/header.phtml:17
+msgid "Language"
+msgstr ""
+
+#: ../view/layout/partials/aside.phtml:4
+msgid "Alejandro Celaya Alastrue"
+msgstr "Alejandro Celaya Alastrué"
+
+#: ../view/layout/partials/aside.phtml:9
+msgid "PHP and Java developer"
+msgstr ""
+
+#: ../view/layout/partials/aside.phtml:13
+msgid "Zend Certified Engineer PHP 5.3"
+msgstr ""
+
+#: ../view/layout/partials/aside.phtml:16
+msgid "Zend Framework 2 Certified Architect"
+msgstr ""
+
+#: ../view/error/404.phtml:4
+msgid "Error 404"
+msgstr ""
+
+#: ../view/error/404.phtml:6
+msgid "Page not found"
+msgstr ""
+
+#: ../view/error/404.phtml:7
+msgid ""
+"The page you requested could not be found. Use your browser's Back button to "
+"navigate to the page you have previously come from or just press this button."
+msgstr ""
+
+#: ../view/error/404.phtml:9
+msgid "Home"
+msgstr ""
+
+#: ../view/error/404.phtml:19
+msgid "The requested controller was unable to dispatch the request."
+msgstr ""
+
+#: ../view/error/404.phtml:22
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+
+#: ../view/error/404.phtml:25
+msgid "The requested controller was not dispatchable."
+msgstr ""
+
+#: ../view/error/404.phtml:28
+msgid "The requested URL could not be matched by routing."
+msgstr ""
+
+#: ../view/error/404.phtml:31
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr ""
+
+#: ../view/error/404.phtml:43
+msgid "Controller"
+msgstr ""
+
+#: ../view/error/404.phtml:50
+#, php-format
+msgid "resolves to %s"
+msgstr ""
+
+#: ../view/error/404.phtml:62 ../view/error/index.phtml:8
+msgid "Additional information"
+msgstr ""
+
+#: ../view/error/404.phtml:65 ../view/error/404.phtml:89
+#: ../view/error/index.phtml:11 ../view/error/index.phtml:35
+msgid "File"
+msgstr ""
+
+#: ../view/error/404.phtml:69 ../view/error/404.phtml:93
+#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
+msgid "Message"
+msgstr ""
+
+#: ../view/error/404.phtml:73 ../view/error/404.phtml:97
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
+msgid "Stack trace"
+msgstr ""
+
+#: ../view/error/404.phtml:83 ../view/error/index.phtml:29
+msgid "Previous exceptions"
+msgstr ""
+
+#: ../view/error/404.phtml:112 ../view/error/index.phtml:58
+msgid "No Exception available"
+msgstr ""
+
+#: ../view/error/index.phtml:1
+msgid "An error occurred"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:3
+msgid "Web back-end"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:7
+msgid "PHP"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:11
+msgid "Zend Framework"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:15
+msgid "Zend Framework 2"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:20
+msgid "Web front-end"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:24
+msgid "HTML5"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:28
+msgid "CSS3"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:32
+msgid "Javascript"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:37
+msgid "Bootstrap"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:41
+msgid "Sass"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:45
+msgid "jQuery"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:50
+msgid "Good practices"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:54
+msgid "Continuous integration"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:58
+msgid "Task automation"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:62
+msgid "Test Driven Development"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:67
+msgid "Version control"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:72
+msgid "Git"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:76
+msgid "Subversion"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:81
+msgid "Others"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:85
+msgid "Scrum"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:89
+msgid "SEO"
+msgstr ""
+
+#: ../view/acelaya/skills.phtml:93
+msgid "Java SE"
+msgstr ""
+
+#: ../view/acelaya/contact.phtml:3
+msgid "Please contact me and I'll answer as soon as possible."
+msgstr ""
+
+#: ../view/acelaya/contact.phtml:37
+#, php-format
+msgid ""
+"You can send me an email to %smoc.ayalecordnajela@ordnajela%s if you prefer."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:3
+msgid "My projects"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:11
+msgid "Subclient"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:15
+#, php-format
+msgid ""
+"%sSubclient%s is a cross-platform audio and video streaming application that "
+"works as a %sSubsonic%s client."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:24
+msgid ""
+"It is currently available on Windows and Linux, and I am working on MacOS "
+"version too. I would also like to make an Android version in the future."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:27
+msgid ""
+"Subclient uses a library, Subconnector, that works as a Java SDK to "
+"establish connections with Subsonic servers that can be downloaded from the "
+"website too."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:32
+#, php-format
+msgid ""
+"Both Subclient and Subconnector are licensed under the %sGNU General public "
+"license v3%s."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:45
+msgid "Zend Framework modules"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:49
+#, php-format
+msgid ""
+"I have published some Zend Framework modules in my %sGithub%s account. They "
+"are registered in the %sZend Framework modules%s page and %spackagist%s, so "
+"they can be installed with %scomposer%s."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:62
+msgid "Just these by the moment:"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:66
+msgid "a fully-featured module to send emails."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:72
+#, php-format
+msgid "a module to generate QR codes based on the %sEndroid QR code%s library."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:80
+msgid "a very simple module to manage assets."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:84
+msgid "a module to render yaml responses."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:95
+msgid "Sculpin blog"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:99
+#, php-format
+msgid ""
+"Some time ago I started to write a blog. In the past my blogging platform "
+"was Wordpress, but I didn't really like it so I changed to %sSculpin%s."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:106
+msgid ""
+"Sculpin is a static site generator based on Symfony components that allowed "
+"me to create a blazing fast and very SEO-friendly blog."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:111
+#, php-format
+msgid "The contents of my blog are open source and can be found %shere%s."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:124
+msgid "Websites"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:128
+#, php-format
+msgid ""
+"I have made both Subclient website and this website using %sZend Framework%s "
+"for the back-end and %sBootstrap%s in the front-end."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:137
+msgid ""
+"I use to use Zend Framework and Bootstrap in web applications. They are "
+"powerful frameworks that guarantee a very professional result."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:140
+msgid ""
+"Probably Zend Framework is not the most suitable option for this kind of "
+"simple webpages, but it is a good oportunity to apply best practices and "
+"test modules and libraries you don't usually use in your daily work."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:149
+msgid "Other projects"
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:151
+msgid ""
+"I have worked in other minor projects too. Tiny CSS libraries, other Zend "
+"Framework modules and such."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:154
+#, php-format
+msgid "All of them can be found on my %sGithub%s profile page."
+msgstr ""
+
+#: ../view/acelaya/projects.phtml:157
+msgid ""
+"I will keep adding more of them to the list. Maybe jQuery plugins, Bootstrap "
+"customizations or even java and PHP libraries. Time will tell."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:2
+msgid "About me"
+msgstr ""
+
+#: ../view/acelaya/index.phtml:4
+msgid "Hello! My name is Alejandro Celaya."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:7
+msgid "I live in Zaragoza, Spain, and I am a PHP web developer since 2010."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:12
+#, php-format
+msgid ""
+"I have worked in many kind of projects. From simple static webpages to fully "
+"managed web applications and web services, as well as eCommerce "
+"applications. For this projects I use %sZend Framework 2%s and I have some "
+"experience on front end design and usability."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:19
+msgid ""
+"I am experienced in Java Standard Edition too, wich I use for desktop "
+"application development, allowing me to include a cross-platform desktop "
+"client for any web application."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:24
+#, php-format
+msgid ""
+"In January 2013 I was included in the %sZend Certified Engineers%s group by "
+"passing the official certification exam (PHP 5.3). In May 2014 I passed the "
+"%sZend Framework 2 Certified Architect%s exam too."
+msgstr ""
+
+#: ../view/acelaya/index.phtml:35
+#, php-format
+msgid ""
+"I have a personal open source project too, %sSubclient%s, an audio and video "
+"streaming application that works as a %sSubsonic%s desktop client. Subsonic "
+"is an awesome server-side audio and video streamer I use for music playback "
+"while I'm programming."
+msgstr ""

@@ -1,11 +1,12 @@
 <?php
 namespace Acelaya\Website\Action;
 
+use Acelaya\Website\Middleware\MiddlewareInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Zend\Expressive\Template\TemplateInterface;
 
-abstract class AbstractAction
+abstract class AbstractAction implements MiddlewareInterface
 {
     /**
      * @var TemplateInterface

@@ -1,1 +1,34 @@
-{#{% extends 'layout.html.twig' %}#}
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <fieldset id="about-me">
+        <legend>{{ translate("About me") }}</legend>
+        <p>{{ translate("Hello! My name is Alejandro Celaya.") }}</p>
+        <p>{{ translate("I live in Zaragoza, Spain, and I am a PHP web developer since 2010.") }}</p>
+        <p>{{
+            translate("I have worked in many kind of projects. From simple static webpages to fully managed web applications and web services, as well as eCommerce applications. For this projects I use %sZend Framework 2%s and I have some experience on front end design and usability.") | format(
+                "<a target='_blank' href='http://framework.zend.com/'>",
+                "</a>"
+            ) | raw
+        }}</p>
+        <p>
+            {{ translate("I am experienced in Java Standard Edition too, wich I use for desktop application development, allowing me to include a cross-platform desktop client for any web application.") }}
+        </p>
+        <p>{{
+            translate("In January 2013 I was included in the %sZend Certified Engineers%s group by passing the official certification exam (PHP 5.3). In May 2014 I passed the %sZend Framework 2 Certified Architect%s exam too.") | format(
+                "<a target='_blank' href='http://www.zend.com/en/yellow-pages/ZEND021590'>",
+                "</a>",
+                "<a target='_blank' href='http://www.zend.com/en/yellow-pages/ZEND021590'>",
+                "</a>"
+            ) | raw
+        }}</p>
+        <p>{{
+            translate("I have a personal open source project too, %sSubclient%s, an audio and video streaming application that works as a %sSubsonic%s desktop client. Subsonic is an awesome server-side audio and video streamer I use for music playback while I'm programming.") | format(
+                "<a target='_blank' href='http://www.subclient.net'>",
+                "</a>",
+                "<a target='_blank' href='http://www.subsonic.org/'>",
+                "</a>"
+            ) | raw
+        }}</p>
+    </fieldset>
+{% endblock %}
