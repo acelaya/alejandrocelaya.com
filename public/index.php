@@ -7,7 +7,7 @@ use Dotenv\Dotenv;
 chdir(dirname(__DIR__));
 
 // Setup autoloading
-require __DIR__ . '/../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 // Load environment variables
 if (class_exists(Dotenv::class)) {
@@ -23,7 +23,7 @@ if (getenv('APP_ENV') === 'dev') {
 }
 
 /** @var ContainerInterface $container */
-$container = include __DIR__ . '/../config/container.php';
+$container = include 'config/container.php';
 /** @var Application $app */
 $app = $container->get(Application::class);
 $app->run();
