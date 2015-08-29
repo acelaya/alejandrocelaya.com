@@ -1,0 +1,16 @@
+
+#skills {
+  fieldset {
+    margin-bottom: 30px;
+  }
+  [class*="col"] {
+    text-align: center;
+    label {
+      display: block;
+      font-weight: normal;
+    }
+  }
+  .knob {
+    display: none;
+  }
+}

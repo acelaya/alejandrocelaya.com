@@ -1,0 +1,14 @@
+
+#projects {
+  legend {
+    padding-right: $main-padding;
+  }
+  .media {
+    > .pull-left {
+      margin-right: 30px;
+    }
+    > .pull-right {
+      margin-left: 30px;
+    }
+  }
+}
