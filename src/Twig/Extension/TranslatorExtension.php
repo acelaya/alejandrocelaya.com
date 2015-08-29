@@ -30,6 +30,7 @@ class TranslatorExtension extends \Twig_Extension implements TranslatorInterface
         return [
             new \Twig_SimpleFunction('translate', [$this, 'translate']),
             new \Twig_SimpleFunction('translate_plural', [$this, 'translatePlural']),
+            new \Twig_SimpleFunction('locale', [$this, 'getLocale']),
         ];
     }
 
@@ -64,5 +65,10 @@ class TranslatorExtension extends \Twig_Extension implements TranslatorInterface
         $locale = null
     ) {
         return $this->translator->translatePlural($singular, $plural, $number, $textDomain, $locale);
+    }
+
+    public function getLocale()
+    {
+        return $this->translator->getLocale();
     }
 }
