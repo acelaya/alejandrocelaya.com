@@ -1,27 +1,27 @@
 <?php
-namespace Acelaya\Website\Action;
+namespace Acelaya\Website\Middleware;
 
 use Doctrine\Common\Cache\Cache;
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Router\RouterInterface;
 use Zend\Stratigility\MiddlewareInterface;
 
-abstract class AbstractAction implements MiddlewareInterface
+class CacheMiddleware implements MiddlewareInterface
 {
     /**
-     * @var TemplateInterface
+     * @var RouterInterface
      */
-    protected $renderer;
+    protected $router;
     /**
      * @var Cache
      */
     protected $cache;
 
-    public function __construct(TemplateInterface $renderer, Cache $cache)
+    public function __construct(Cache $cache, RouterInterface $router)
     {
-        $this->renderer = $renderer;
         $this->cache = $cache;
+        $this->router = $router;
     }
 
     /**
@@ -45,14 +45,21 @@ abstract class AbstractAction implements MiddlewareInterface
      * later middleware will return a response.
      *
      * @param Request $request
-     * @param ResponseInterface $response
+     * @param Response $response
      * @param null|callable $out
-     * @return null|ResponseInterface
+     * @return null|Response
      */
-    public function __invoke(Request $request, ResponseInterface $response, callable $out = null)
+    public function __invoke(Request $request, Response $response, callable $out = null)
     {
-        return $this->dispatch($request, $response, $out);
-    }
+        $currentRoute = $this->router->match($request);
+        $currentRoutePath = $request->getUri()->getPath();
 
-    abstract public function dispatch(Request $request, ResponseInterface $response, callable $next);
+        // If current route is a success route and it has been previously cached, write cached content and retur
+        if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
+            $response->getBody()->write($this->cache->fetch($currentRoutePath));
+            return $response;
+        }
+
+        return $out($request, $response);
+    }
 }
