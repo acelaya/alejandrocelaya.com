@@ -3,7 +3,7 @@ namespace Acelaya\Website\Action;
 
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Template\TemplateInterface;
 use Zend\Stratigility\MiddlewareInterface;
 
@@ -44,15 +44,30 @@ abstract class AbstractAction implements MiddlewareInterface
      * Often, middleware will `return $out();`, with the assumption that a
      * later middleware will return a response.
      *
-     * @param Request $request
+     * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @param null|callable $out
      * @return null|ResponseInterface
      */
-    public function __invoke(Request $request, ResponseInterface $response, callable $out = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $out = null)
     {
-        return $this->dispatch($request, $response, $out);
+        $renderedContent = $this->dispatch($request, $response, $out);
+
+        // Cache content for further requests
+        $this->cache->save($request->getUri()->getPath(), $renderedContent);
+
+        // Write the content in the response
+        $response->getBody()->write($renderedContent);
+        return $response;
     }
 
-    abstract public function dispatch(Request $request, ResponseInterface $response, callable $next);
+    /**
+     * Returns the content to render
+     *
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param callable $next
+     * @return string
+     */
+    abstract public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next);
 }
