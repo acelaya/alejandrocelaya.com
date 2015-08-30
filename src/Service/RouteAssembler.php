@@ -30,7 +30,7 @@ class RouteAssembler implements RouteAssemblerInterface
      * @param bool $inherit Tells if route and query params should be inherited from current route
      * @return string
      */
-    public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = true)
+    public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false)
     {
         $routeResult = $this->router->match($this->request);
         $name = $name ?: $routeResult->getMatchedRouteName();
