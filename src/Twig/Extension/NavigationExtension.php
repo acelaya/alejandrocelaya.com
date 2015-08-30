@@ -34,14 +34,12 @@ class NavigationExtension extends AbstractExtension
         $pages = [
             [
                 'label' => $this->translator->translate('Skills'),
-//                'route' => 'skills',
-                'route' => 'home',
+                'route' => 'skills',
                 'icon'  => 'fa-tags',
             ],
             [
                 'label' => $this->translator->translate('Projects'),
-//                'route' => 'projects',
-                'route' => 'home',
+                'route' => 'projects',
                 'icon'  => 'fa-cog',
             ],
             [

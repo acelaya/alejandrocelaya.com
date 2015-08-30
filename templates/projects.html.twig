@@ -1,0 +1,147 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div id="projects">
+        <fieldset>
+            <legend>{{ translate("My projects") }}</legend>
+
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-right" href="http://www.subclient.net" target="_blank">
+                        <img class="media-object" src="/img/projects/subclient.png" alt="Subclient project">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate("Subclient") }}</h4>
+                        <p>{{
+                            translate("%sSubclient%s is a cross-platform audio and video streaming application that works as a %sSubsonic%s client.") | format(
+                                "<a target='_blank' href='http://www.subclient.net'>",
+                                "</a>",
+                                "<a target='_blank' href='http://www.subsonic.org'>",
+                                "</a>"
+                            ) | raw
+                        }}</p>
+                        <p>
+                            {{ translate("It is currently available on Windows and Linux, and I am working on MacOS version too. I would also like to make an Android version in the future.") }}
+                        </p>
+                        <p>
+                            {{ translate("Subclient uses a library, Subconnector, that works as a Java SDK to establish connections with Subsonic servers that can be downloaded from the website too.") }}
+                        </p>
+                        <p>{{
+                            translate("Both Subclient and Subconnector are licensed under the %sGNU General public license v3%s.") | format(
+                                "<a target='_blank' href='http://www.gnu.org/licenses/gpl.html'>",
+                                "</a>"
+                            ) | raw
+                        }}</p>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="pull-right">
+                        <img class="media-object" src="/img/projects/zf2-logo.png" alt="ZF2 logo">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate('Zend Framework modules') }}</h4>
+                        <p>{{
+                            translate('I have published some Zend Framework modules in my %sGithub%s account. They are registered in the %sZend Framework modules%s page and %spackagist%s, so they can be installed with %scomposer%s.') | format(
+                                '<a href="https://github.com/acelaya/" target="_blank">',
+                                '</a>',
+                                '<a href="http://modules.zendframework.com/" target="_blank">',
+                                '</a>',
+                                '<a href="https://packagist.org/" target="_blank">',
+                                '</a>',
+                                '<a href="https://getcomposer.org/" target="_blank">',
+                                '</a>'
+                            ) | raw
+                        }}</p>
+                        <p>
+                            {{ translate('Just these by the moment:') }}
+                        <ul>
+                            <li>
+                                <a href="https://github.com/acelaya/ZF2-AcMailer" target="_blank">ZF2-AcMailer</a>:
+                                {{ translate('a fully-featured module to send emails.') }}
+                            </li>
+                            <li>
+                                <a href="https://github.com/acelaya/ZF2-AcQrCode" target="_blank">ZF2-AcQrCode</a>:
+                                {{ translate('a module to generate QR codes based on the %sEndroid QR code%s library.') | format(
+                                    '<a href="https://github.com/endroid/QrCode" target="_blank">',
+                                    '</a>'
+                                ) | raw }}
+                            </li>
+                            <li>
+                                <a href="https://github.com/acelaya/ZF2-AcAssets" target="_blank">ZF2-AcAssets</a>:
+                                {{ translate('a very simple module to manage assets.') }}
+                            </li>
+                            <li>
+                                <a href="https://github.com/acelaya/ZF2-AcYaml" target="_blank">ZF2-AcYaml</a>:
+                                {{ translate('a module to render yaml responses.') }}
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a class="pull-right" href="http://blog.alejandrocelaya.com/" target="_blank">
+                        <img class="media-object" src="/img/projects/sculpin-logo.png" alt="Sculpin">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate('Sculpin blog') }}</h4>
+                        <p>{{
+                            translate('Some time ago I started to write a blog. In the past my blogging platform was Wordpress, but I didn\'t really like it so I changed to %sSculpin%s.') | format(
+                                '<a href="https://sculpin.io/" target="_blank">',
+                                '</a>'
+                            ) | raw
+                        }}</p>
+                        <p>
+                            {{ translate('Sculpin is a static site generator based on Symfony components that allowed me to create a blazing fast and very SEO-friendly blog.') }}
+                        </p>
+                        <p>{{
+                            translate('The contents of my blog are open source and can be found %shere%s.') | format(
+                                '<a href="https://github.com/acelaya/blog" target="_blank">',
+                                '</a>'
+                            ) | raw
+                        }}</p>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="pull-right">
+                        <img class="media-object" src="/img/projects/webs.jpg" alt="Websites">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate("Websites") }}</h4>
+                        <p>{{
+                            translate("I have made both Subclient website and this website using %sZend Framework%s for the back-end and %sBootstrap%s in the front-end.") | format(
+                                "<a target='_blank' href='http://framework.zend.com/'>",
+                                "</a>",
+                                "<a target='_blank' href='http://getbootstrap.com/'>",
+                                "</a>"
+                            ) | raw
+                        }}</p>
+                        <p>
+                            {{ translate("I use to use Zend Framework and Bootstrap in web applications. They are powerful frameworks that guarantee a very professional result.") }}
+                        </p>
+                        <p>
+                            {{ translate("Probably Zend Framework is not the most suitable option for this kind of simple webpages, but it is a good oportunity to apply best practices and test modules and libraries you don't usually use in your daily work.") }}
+                        </p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a class="pull-right" href="https://github.com/acelaya/" target="_blank">
+                        <img class="media-object" src="/img/projects/github.png" alt="Websites">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate("Other projects") }}</h4>
+                        <p>
+                            {{ translate("I have worked in other minor projects too. Tiny CSS libraries, other Zend Framework modules and such.") }}
+                        </p>
+                        <p>
+                            {{ translate("All of them can be found on my %sGithub%s profile page.") | format("<a href='https://github.com/acelaya/' target='_blank'>", "</a>") | raw }}
+                        </p>
+                        <p>
+                            {{ translate("I will keep adding more of them to the list. Maybe jQuery plugins, Bootstrap customizations or even java and PHP libraries. Time will tell.") }}
+                        </p>
+                    </div>
+                </li>
+            </ul>
+
+        </fieldset>
+    </div>
+{% endblock %}
