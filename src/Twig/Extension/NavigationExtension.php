@@ -1,7 +1,7 @@
 <?php
 namespace Acelaya\Website\Twig\Extension;
 
-use Zend\Expressive\Router\RouterInterface;
+use Acelaya\Website\Service\RouteAssemblerInterface;
 use Zend\I18n\Translator\TranslatorInterface;
 
 class NavigationExtension extends AbstractExtension
@@ -11,14 +11,14 @@ class NavigationExtension extends AbstractExtension
      */
     protected $translator;
     /**
-     * @var RouterInterface
+     * @var RouteAssemblerInterface
      */
-    protected $router;
+    protected $routeAssembler;
     
-    public function __construct(TranslatorInterface $translator, RouterInterface $router)
+    public function __construct(TranslatorInterface $translator, RouteAssemblerInterface $routeAssembler)
     {
         $this->translator = $translator;
-        $this->router = $router;
+        $this->routeAssembler = $routeAssembler;
     }
     
     public function getFunctions()
@@ -64,7 +64,7 @@ class NavigationExtension extends AbstractExtension
         foreach ($pages as $page) {
             $active = ''; // TODO Check current route in order to set element as active
             $target = isset($page['target']) ? 'target="_blank"' : '';
-            $route = isset($page['uri']) ? $page['uri'] : $this->router->generateUri($page['route']);
+            $route = isset($page['uri']) ? $page['uri'] : $this->routeAssembler->assembleUrl($page['route'], true);
 
             $listElements[] = sprintf(
                 $elementPattern,
@@ -106,7 +106,7 @@ class NavigationExtension extends AbstractExtension
                 '<a href="%s" class="%s">%s</a>' .
             '</li>';
         foreach ($pages as $page) {
-            $route = $this->router->generateUri($page['route'], $page['params']);
+            $route = $this->routeAssembler->assembleUrl($page['route'], $page['params']);
 
             $listElements[] = sprintf(
                 $elementPattern,
