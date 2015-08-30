@@ -1,8 +1,10 @@
 <?php
 namespace Acelaya\Website\Factory;
 
+use Acelaya\Website\Twig\Extension\NavigationExtension;
 use Acelaya\Website\Twig\Extension\TranslatorExtension;
 use Interop\Container\ContainerInterface;
+use Zend\Expressive\Router\RouterInterface;
 use Zend\Expressive\Template\Twig;
 
 class RendererFactory implements FactoryInterface
@@ -16,6 +18,9 @@ class RendererFactory implements FactoryInterface
 
         // Add extensions
         $twig->addExtension(new TranslatorExtension($container->get('translator')));
+        $twig->addExtension(
+            new NavigationExtension($container->get('translator'), $container->get(RouterInterface::class))
+        );
 
         return new Twig($twig);
     }

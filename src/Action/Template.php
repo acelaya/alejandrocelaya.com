@@ -4,7 +4,7 @@ namespace Acelaya\Website\Action;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class Home extends AbstractAction
+class Template extends AbstractAction
 {
     /**
      * Returns the content to render
@@ -16,6 +16,7 @@ class Home extends AbstractAction
      */
     public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
-        return $this->renderer->render('home.html.twig');
+        $template = $request->getAttribute('template', 'errors/404.html.twig');
+        return $this->renderer->render($template);
     }
 }

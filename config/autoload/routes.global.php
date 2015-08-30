@@ -1,34 +1,28 @@
 <?php
-use Acelaya\Website\Action\Home;
+use Acelaya\Website\Action\Template;
+use Zend\Stdlib\ArrayUtils;
+
+$home = [
+    'name' => 'home',
+    'path' => '/',
+    'allowed_methods' => ['GET'],
+    'middleware' => Template::class,
+    'options' => [
+        'values' => [
+            'lang' => 'en',
+            'template' => 'home.html.twig'
+        ],
+    ]
+];
 
 return [
 
     'routes' => [
-        [
-            'name' => 'home',
-            'path' => '/',
-            'allowed_methods' => ['GET'],
-            'middleware' => Home::class,
-            'options' => [
-                'values' => [
-                    'lang' => 'en'
-                ],
-            ]
-        ],
-        [
+        $home,
+        ArrayUtils::merge($home, [
             'name' => 'lang',
             'path' => '/{lang}',
-            'allowed_methods' => ['GET'],
-            'middleware' => Home::class,
-            'options' => [
-                'values' => [
-                    'lang' => 'en'
-                ],
-                'tokens' => [
-                    'lang' => 'en|es'
-                ]
-            ]
-        ]
+        ]),
     ]
 
 ];
