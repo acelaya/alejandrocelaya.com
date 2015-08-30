@@ -69,5 +69,9 @@ abstract class AbstractAction implements MiddlewareInterface
      * @param callable $next
      * @return string
      */
-    abstract public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next);
+    abstract public function dispatch(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        callable $next = null
+    );
 }

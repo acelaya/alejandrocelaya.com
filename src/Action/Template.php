@@ -14,7 +14,7 @@ class Template extends AbstractAction
      * @param callable $next
      * @return string
      */
-    public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
         $template = $request->getAttribute('template', 'errors/404.html.twig');
         return $this->renderer->render($template);
