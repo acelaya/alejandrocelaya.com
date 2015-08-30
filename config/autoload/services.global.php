@@ -6,6 +6,8 @@ use Acelaya\Website\Factory\RouterFactory;
 use Acelaya\Website\Factory\TranslatorFactory;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\Factory\CacheMiddlewareFactory;
+use Acelaya\Website\Middleware\Factory\LanguageMiddlewareFactory;
+use Acelaya\Website\Middleware\LanguageMiddleware;
 use Doctrine\Common\Cache\Cache;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
@@ -17,11 +19,16 @@ return [
     'service_manager' => [
         'factories' => [
             Application::class => ApplicationFactory::class,
+
+            // Services
             'renderer' => RendererFactory::class,
             Translator::class => TranslatorFactory::class,
             RouterInterface::class => RouterFactory::class,
+            Cache::class => CacheFactory::class,
+
+            // Middleware
             CacheMiddleware::class => CacheMiddlewareFactory::class,
-            Cache::class => CacheFactory::class
+            LanguageMiddleware::class => LanguageMiddlewareFactory::class,
         ],
         'abstract_factories' => [
             ActionAbstractFactory::class
