@@ -3,7 +3,7 @@ namespace Acelaya\Website\Twig\Extension;
 
 use Zend\I18n\Translator\TranslatorInterface;
 
-class TranslatorExtension extends \Twig_Extension implements TranslatorInterface
+class TranslatorExtension extends AbstractExtension implements TranslatorInterface
 {
     /**
      * @var TranslatorInterface
@@ -13,16 +13,6 @@ class TranslatorExtension extends \Twig_Extension implements TranslatorInterface
     public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
-    }
-
-    /**
-     * Returns the name of the extension.
-     *
-     * @return string The extension name
-     */
-    public function getName()
-    {
-        return self::class;
     }
 
     public function getFunctions()
