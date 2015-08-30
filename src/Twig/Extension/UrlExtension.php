@@ -3,7 +3,7 @@ namespace Acelaya\Website\Twig\Extension;
 
 use Acelaya\Website\Service\RouteAssemblerInterface;
 
-class UrlExtension extends AbstractExtension
+class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
 {
     /**
      * @var RouteAssemblerInterface
@@ -29,7 +29,7 @@ class UrlExtension extends AbstractExtension
      * @param bool|true $inherit
      * @return string
      */
-    public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = true)
+    public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false)
     {
         return $this->routeAssembler->assembleUrl($name, $routeParams, $queryParams, $inherit);
     }
