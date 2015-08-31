@@ -2,8 +2,8 @@
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RouterFactory;
+use Acelaya\Website\Router\ZF2;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\Expressive\Router\Aura;
 use Zend\ServiceManager\ServiceManager;
 
 class RouterFactoryTest extends TestCase
@@ -21,6 +21,6 @@ class RouterFactoryTest extends TestCase
     public function testInvoke()
     {
         $instance = $this->factory->__invoke(new ServiceManager());
-        $this->assertInstanceOf(Aura::class, $instance);
+        $this->assertInstanceOf(ZF2::class, $instance);
     }
 }
