@@ -85,7 +85,7 @@ class NavigationExtension extends AbstractExtension
             [
                 'label'    => 'Español',
                 'class'    => 'es',
-                'route'    => 'lang',
+                'route'    => 'home',
                 'params'   => [
                     'lang' => 'es'
                 ]
@@ -93,7 +93,7 @@ class NavigationExtension extends AbstractExtension
             [
                 'label'    => 'English',
                 'class'    => 'en',
-                'route'    => 'lang',
+                'route'    => 'home',
                 'params'   => [
                     'lang' => 'en'
                 ]

@@ -2,45 +2,66 @@
 use Acelaya\Website\Action\Template;
 use Zend\Stdlib\ArrayUtils;
 
-$home = [
-    'name' => 'home',
-    'path' => '/',
-    'allowed_methods' => ['GET'],
-    'middleware' => Template::class,
-    'options' => [
-        'values' => [
-            'lang' => 'en',
-            'template' => 'home.html.twig'
-        ],
-    ]
-];
-
 return [
 
     'routes' => [
-        $home,
-        ArrayUtils::merge($home, [
-            'name' => 'lang',
-            'path' => '/{lang}',
-        ]),
-        ArrayUtils::merge($home, [
+
+        [
+            'name' => 'home',
+            'path' => '/[:lang/]',
+            'allowed_methods' => ['GET'],
+            'middleware' => Template::class,
+            'options' => [
+                'constraints' => [
+                    'lang' => 'en|es'
+                ],
+                'defaults' => [
+                    'template' => 'home.html.twig',
+                    'lang' => 'en'
+                ],
+                'skippable' => [
+                    'lang' => true
+                ]
+            ]
+        ],
+
+        [
             'name' => 'skills',
-            'path' => '{/lang}/skills',
+            'path' => '/[:lang/]skills/',
+            'allowed_methods' => ['GET'],
+            'middleware' => Template::class,
             'options' => [
-                'values' => [
-                    'template' => 'skills.html.twig'
+                'constraints' => [
+                    'lang' => 'en|es'
+                ],
+                'defaults' => [
+                    'template' => 'skills.html.twig',
+                    'lang' => 'en'
+                ],
+                'skippable' => [
+                    'lang' => true
                 ]
             ]
-        ]),
-        ArrayUtils::merge($home, [
+        ],
+
+        [
             'name' => 'projects',
-            'path' => '{/lang}/projects',
+            'path' => '/[:lang/]projects/',
+            'allowed_methods' => ['GET'],
+            'middleware' => Template::class,
             'options' => [
-                'values' => [
-                    'template' => 'projects.html.twig'
+                'constraints' => [
+                    'lang' => 'en|es'
+                ],
+                'defaults' => [
+                    'template' => 'projects.html.twig',
+                    'lang' => 'en'
+                ],
+                'skippable' => [
+                    'lang' => true
                 ]
             ]
-        ]),
+        ],
     ]
 
 ];
