@@ -44,8 +44,7 @@ class NavigationExtension extends AbstractExtension
             ],
             [
                 'label' => $this->translator->translate('Contact'),
-//                'route' => 'contact',
-                'route' => 'home',
+                'route' => 'contact',
                 'icon'  => 'fa fa-envelope',
             ],
             [
@@ -61,8 +60,9 @@ class NavigationExtension extends AbstractExtension
             '<li class="%s">' .
                 '<a href="%s" %s><i class="fa %s"></i> %s</a>' .
             '</li>';
+        $currentRoute = $this->routeAssembler->getCurrentRouteResult();
         foreach ($pages as $page) {
-            $active = ''; // TODO Check current route in order to set element as active
+            $active = isset($page['route']) && $currentRoute->getMatchedRouteName() === $page['route'] ? 'active' : '';
             $target = isset($page['target']) ? 'target="_blank"' : '';
             $route = isset($page['uri']) ? $page['uri'] : $this->routeAssembler->assembleUrl($page['route'], true);
 
@@ -85,7 +85,6 @@ class NavigationExtension extends AbstractExtension
             [
                 'label'    => 'Español',
                 'class'    => 'es',
-                'route'    => 'home',
                 'params'   => [
                     'lang' => 'es'
                 ]
@@ -93,7 +92,6 @@ class NavigationExtension extends AbstractExtension
             [
                 'label'    => 'English',
                 'class'    => 'en',
-                'route'    => 'home',
                 'params'   => [
                     'lang' => 'en'
                 ]
@@ -106,7 +104,7 @@ class NavigationExtension extends AbstractExtension
                 '<a href="%s" class="%s">%s</a>' .
             '</li>';
         foreach ($pages as $page) {
-            $route = $this->routeAssembler->assembleUrl($page['route'], $page['params']);
+            $route = $this->routeAssembler->assembleUrl(null, $page['params']);
 
             $listElements[] = sprintf(
                 $elementPattern,

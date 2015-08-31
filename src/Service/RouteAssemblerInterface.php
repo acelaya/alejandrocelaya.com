@@ -1,6 +1,9 @@
 <?php
 namespace Acelaya\Website\Service;
 
+use Zend\Expressive\Router\RouteResult;
+use Zend\Expressive\Router\RouterInterface;
+
 interface RouteAssemblerInterface
 {
     /**
@@ -13,4 +16,9 @@ interface RouteAssemblerInterface
      * @return string
      */
     public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false);
+
+    /**
+     * @return RouteResult
+     */
+    public function getCurrentRouteResult();
 }

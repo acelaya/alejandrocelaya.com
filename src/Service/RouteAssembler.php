@@ -2,6 +2,7 @@
 namespace Acelaya\Website\Service;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
 
 class RouteAssembler implements RouteAssemblerInterface
@@ -32,7 +33,7 @@ class RouteAssembler implements RouteAssemblerInterface
      */
     public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false)
     {
-        $routeResult = $this->router->match($this->request);
+        $routeResult = $this->getCurrentRouteResult();
         $name = $name ?: $routeResult->getMatchedRouteName();
 
         if (is_bool($routeParams)) {
@@ -52,5 +53,13 @@ class RouteAssembler implements RouteAssemblerInterface
 
         $queryString = empty($queryParams) ? '' : sprintf('?%s', http_build_query($queryParams));
         return $this->router->generateUri($name, $routeParams) . $queryString;
+    }
+
+    /**
+     * @return RouteResult
+     */
+    public function getCurrentRouteResult()
+    {
+        return $this->router->match($this->request);
     }
 }

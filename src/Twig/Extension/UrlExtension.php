@@ -2,6 +2,7 @@
 namespace Acelaya\Website\Twig\Extension;
 
 use Acelaya\Website\Service\RouteAssemblerInterface;
+use Zend\Expressive\Router\RouteResult;
 
 class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
 {
@@ -32,5 +33,13 @@ class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
     public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false)
     {
         return $this->routeAssembler->assembleUrl($name, $routeParams, $queryParams, $inherit);
+    }
+
+    /**
+     * @return RouteResult
+     */
+    public function getCurrentRouteResult()
+    {
+        return $this->routeAssembler->getCurrentRouteResult();
     }
 }
