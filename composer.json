@@ -28,7 +28,8 @@
         "zendframework/zend-i18n": "^2.5",
         "doctrine/cache": "^1.4",
         "zendframework/zend-mvc": "^2.5",
-        "zendframework/zend-psr7bridge": "^0.1.1"
+        "zendframework/zend-psr7bridge": "^0.1.1",
+        "filp/whoops": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",

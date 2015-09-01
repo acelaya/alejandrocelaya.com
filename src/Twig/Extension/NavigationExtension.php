@@ -72,8 +72,12 @@ class NavigationExtension extends AbstractExtension
             '<li>' .
                 '<a href="%s" class="%s">%s</a>' .
             '</li>';
+        $pageResult = $this->routeAssembler->getCurrentRouteResult();
+
         foreach ($pages as $page) {
-            $route = $this->routeAssembler->assembleUrl(null, $page['params']);
+            // Inherit current route if it is not an error page
+            $routeName = $pageResult->isSuccess() ? null : 'home';
+            $route = $this->routeAssembler->assembleUrl($routeName, $page['params']);
 
             $listElements[] = sprintf(
                 $elementPattern,

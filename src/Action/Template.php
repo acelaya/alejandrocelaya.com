@@ -3,6 +3,7 @@ namespace Acelaya\Website\Action;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Expressive\Exception\RuntimeException;
 
 class Template extends AbstractAction
 {
