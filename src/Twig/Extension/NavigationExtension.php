@@ -14,11 +14,19 @@ class NavigationExtension extends AbstractExtension
      * @var RouteAssemblerInterface
      */
     protected $routeAssembler;
+    /**
+     * @var array
+     */
+    protected $config;
     
-    public function __construct(TranslatorInterface $translator, RouteAssemblerInterface $routeAssembler)
-    {
+    public function __construct(
+        TranslatorInterface $translator,
+        RouteAssemblerInterface $routeAssembler,
+        array $config = []
+    ) {
         $this->translator = $translator;
         $this->routeAssembler = $routeAssembler;
+        $this->config = $config;
     }
     
     public function getFunctions()
@@ -31,30 +39,7 @@ class NavigationExtension extends AbstractExtension
 
     public function renderMenu()
     {
-        $pages = [
-            [
-                'label' => $this->translator->translate('Skills'),
-                'route' => 'skills',
-                'icon'  => 'fa-tags',
-            ],
-            [
-                'label' => $this->translator->translate('Projects'),
-                'route' => 'projects',
-                'icon'  => 'fa-cog',
-            ],
-            [
-                'label' => $this->translator->translate('Contact'),
-                'route' => 'contact',
-                'icon'  => 'fa fa-envelope',
-            ],
-            [
-                'label'     => $this->translator->translate('Blog'),
-                'uri'       => 'http://blog.alejandrocelaya.com',
-                'icon'      => 'fa-book',
-                'target'    => true,
-            ]
-        ];
-
+        $pages = isset($this->config['menu']) ? $this->config['menu'] : [];
         $listElements = [];
         $elementPattern =
             '<li class="%s">' .
@@ -81,23 +66,7 @@ class NavigationExtension extends AbstractExtension
 
     public function renderLanguagesMenu()
     {
-        $pages = [
-            [
-                'label'    => 'Español',
-                'class'    => 'es',
-                'params'   => [
-                    'lang' => 'es'
-                ]
-            ],
-            [
-                'label'    => 'English',
-                'class'    => 'en',
-                'params'   => [
-                    'lang' => 'en'
-                ]
-            ],
-        ];
-
+        $pages = isset($this->config['lang_menu']) ? $this->config['lang_menu'] : [];
         $listElements = [];
         $elementPattern =
             '<li>' .

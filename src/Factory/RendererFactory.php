@@ -20,9 +20,11 @@ class RendererFactory implements FactoryInterface
         // Add extensions
         $twig->addExtension(new TranslatorExtension($container->get('translator')));
         $twig->addExtension(new UrlExtension($container->get(RouteAssembler::class)));
-        $twig->addExtension(
-            new NavigationExtension($container->get('translator'), $container->get(RouteAssembler::class))
-        );
+        $twig->addExtension(new NavigationExtension(
+            $container->get('translator'),
+            $container->get(RouteAssembler::class),
+            $container->get('config')['navigation']
+        ));
 
         return new Twig($twig);
     }
