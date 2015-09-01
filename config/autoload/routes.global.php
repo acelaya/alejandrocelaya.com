@@ -13,7 +13,8 @@ $home = [
         ],
         'defaults' => [
             'template' => 'home.html.twig',
-            'lang' => 'en'
+            'lang' => 'en',
+            'cacheable' => true
         ],
         'skippable' => [
             'lang' => true
@@ -50,6 +51,7 @@ return [
             'options' => [
                 'defaults' => [
                     'template' => 'contact.html.twig',
+                    'cacheable' => false
                 ],
             ]
         ]),
