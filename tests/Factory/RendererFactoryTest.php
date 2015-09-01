@@ -25,6 +25,7 @@ class RendererFactoryTest extends TestCase
         $this->factory = new RendererFactory();
         $this->container = $this->prophesize(ContainerInterface::class);
         $this->container->get('translator')->willReturn(Translator::factory([]));
+        $this->container->get('config')->willReturn(['navigation' => []]);
         $this->container->get(RouteAssembler::class)->willReturn($this->prophesize(RouteAssembler::class)->reveal());
     }
 
