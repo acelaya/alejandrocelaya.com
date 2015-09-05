@@ -66,4 +66,19 @@ class CacheMiddlewareTest extends TestCase
         $this->middleware->__invoke($this->request, $response, $next);
         $this->assertFalse($invoked);
     }
+
+    public function testWithNoCacheResponseIsCached()
+    {
+        $response = new Response();
+        $next = function ($req, $resp) {
+            return $resp;
+        };
+        $this->router->match($this->request)->willReturn(
+            RouteResult::fromRouteMatch('home', $next, ['cacheable' => true])
+        );
+
+        $this->assertFalse($this->cache->contains('/foo'));
+        $this->middleware->__invoke($this->request, $response, $next);
+        $this->assertTrue($this->cache->contains('/foo'));
+    }
 }

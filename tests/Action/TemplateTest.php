@@ -23,7 +23,8 @@ class TemplateTest extends TestCase
      * @var array
      */
     protected $templatesContentMap = [
-        'foo.html.twig' => '<h1>{{ "Hello!!" }}</h1>'
+        'foo.html.twig' => '<h1>{{ "Hello!!" }}</h1>',
+        'errors/404.html.twig' => 'Error'
     ];
 
     public function setUp()
@@ -37,5 +38,25 @@ class TemplateTest extends TestCase
         $request = (new ServerRequest())->withAttribute('template', 'foo.html.twig');
         $resp = $this->template->dispatch($request, new Response());
         $this->assertEquals('<h1>Hello!!</h1>', $resp->getBody()->__toString());
+        $this->assertEquals(200, $resp->getStatusCode());
+    }
+
+    public function testDispatchWithoutTemplate()
+    {
+        $resp = $this->template->dispatch(new ServerRequest(), new Response());
+        $this->assertEquals('Error', $resp->getBody()->__toString());
+        $this->assertEquals(404, $resp->getStatusCode());
+    }
+
+    public function testDispatchAndInvokeAreTheSame()
+    {
+        $request = (new ServerRequest())->withAttribute('template', 'foo.html.twig');
+        $firstResp = $this->template->dispatch($request, new Response());
+        $this->assertEquals('<h1>Hello!!</h1>', $firstResp->getBody()->__toString());
+        $this->assertEquals(200, $firstResp->getStatusCode());
+
+        $secondResp = $this->template->__invoke($request, new Response());
+        $this->assertEquals('<h1>Hello!!</h1>', $secondResp->getBody()->__toString());
+        $this->assertEquals(200, $secondResp->getStatusCode());
     }
 }
