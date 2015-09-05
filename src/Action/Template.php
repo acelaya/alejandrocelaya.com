@@ -19,6 +19,17 @@ class Template extends AbstractAction
      */
     public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
+        return $this->createTemplateResponse($request);
+    }
+
+    /**
+     * Creates an HtmlResponse rendering current route's template
+     *
+     * @param ServerRequestInterface $request
+     * @return HtmlResponse
+     */
+    protected function createTemplateResponse(ServerRequestInterface $request)
+    {
         $template = $request->getAttribute('template', self::NOT_FOUND_TEMPLATE);
         $status = $template === self::NOT_FOUND_TEMPLATE ? 404 : 200;
         return new HtmlResponse($this->renderer->render($template), $status);

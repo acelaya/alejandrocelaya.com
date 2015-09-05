@@ -9,7 +9,9 @@
         {# TODO Render message if any #}
         {#{{ render_message(message | default(null), code | default(null)) }}#}
 
-        <form  action="{{ assemble_url('contact', true) }}" name="contactForm" id="contactForm" method="post">
+        {% set currentRoute = assemble_url('contact', true) %}
+        <form  action="{{ currentRoute }}" name="contactForm" id="contactForm" method="post">
+            <input type="hidden" name="currentRoute" value="{{ currentRoute }}">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group ">
@@ -27,6 +29,15 @@
             </div>
             <div class="form-group ">
                 <textarea name="contact[comments]" placeholder="Comments" class="form-control" id="comments" rows="10"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-6 text-right">
+                    <div class="form-group ">
+                        <button type="submit" name="submit" class="btn btn-primary" data-loading-text="{{ translate('Sending...') }}">{{ translate('Submit') }}</button>
+                    </div>
+                </div>
             </div>
         </form>
 

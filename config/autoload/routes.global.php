@@ -1,4 +1,5 @@
 <?php
+use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Template;
 use Zend\Stdlib\ArrayUtils;
 
@@ -48,6 +49,8 @@ return [
         ArrayUtils::merge($home, [
             'name' => 'contact',
             'path' => '/[:lang/]contact/',
+            'allowed_methods' => ['GET', 'POST'],
+            'middleware' => Contact::class,
             'options' => [
                 'defaults' => [
                     'template' => 'contact.html.twig',
