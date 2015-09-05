@@ -15,20 +15,24 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group ">
-                        <input type="text" name="contact[name]" placeholder="Name" class="form-control" id="name">
+                        <input type="text" name="contact[{{ constant('Acelaya\\Website\\Form\\ContactFilter::NAME') }}]"
+                               placeholder="Name" class="form-control" id="name">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group ">
-                        <input type="email" name="contact[email]" placeholder="Email" class="form-control" id="email">
+                        <input type="email" name="contact[{{ constant('Acelaya\\Website\\Form\\ContactFilter::EMAIL') }}]"
+                               placeholder="Email" class="form-control" id="email">
                     </div>
                 </div>
             </div>
             <div class="form-group ">
-                <input type="text" name="contact[subject]" placeholder="Subject" class="form-control" id="subject">
+                <input type="text" name="contact[{{ constant('Acelaya\\Website\\Form\\ContactFilter::SUBJECT') }}]"
+                       placeholder="Subject" class="form-control" id="subject">
             </div>
             <div class="form-group ">
-                <textarea name="contact[comments]" placeholder="Comments" class="form-control" id="comments" rows="10"></textarea>
+                <textarea name="contact[{{ constant('Acelaya\\Website\\Form\\ContactFilter::COMMENTS') }}]"
+                          placeholder="Comments" class="form-control" id="comments" rows="10"></textarea>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
