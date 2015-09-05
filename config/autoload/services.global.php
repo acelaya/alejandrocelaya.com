@@ -1,14 +1,19 @@
 <?php
+use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Factory\ActionAbstractFactory;
+use Acelaya\Website\Action\Factory\ContactFactory;
 use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\Website\Factory\RendererFactory;
 use Acelaya\Website\Factory\RequestFactory;
 use Acelaya\Website\Factory\RouterFactory;
+use Acelaya\Website\Factory\SwiftMailerFactory;
 use Acelaya\Website\Factory\TranslatorFactory;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\Factory\CacheMiddlewareFactory;
 use Acelaya\Website\Middleware\Factory\LanguageMiddlewareFactory;
 use Acelaya\Website\Middleware\LanguageMiddleware;
+use Acelaya\Website\Service\ContactService;
+use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use Acelaya\Website\Service\Factory\RouteAssemblerFactory;
 use Acelaya\Website\Service\RouteAssembler;
 use Doctrine\Common\Cache\Cache;
@@ -29,13 +34,18 @@ return [
         'factories' => [
             Application::class => ApplicationFactory::class,
 
+            // Actions
+            Contact::class => ContactFactory::class,
+
             // Services
             TemplateInterface::class => RendererFactory::class,
             ServerRequestInterface::class => RequestFactory::class,
+            \Swift_Mailer::class => SwiftMailerFactory::class,
             Translator::class => TranslatorFactory::class,
             RouterInterface::class => RouterFactory::class,
             Cache::class => CacheFactory::class,
             RouteAssembler::class => RouteAssemblerFactory::class,
+            ContactService::class => ContactServiceFactory::class,
             'Zend\Expressive\FinalHandler' => getenv('APP_ENV') === 'dev'
                 ? WhoopsErrorHandlerFactory::class
                 : TemplatedErrorHandlerFactory::class,

@@ -7,11 +7,20 @@
         </p>
 
         {# TODO Render message if any #}
-        {#{{ render_message(message | default(null), code | default(null)) }}#}
+        {% if errors is defined %}
+            <div class="alert alert-danger fade in">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                <span class="fa fa-times"></span>{{ translate('Information provided is not valid. Review form data and send it again.') }}
+            </div>
+        {% elseif success is defined %}
+            <div class="alert alert-success fade in">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                <span class="fa fa-check"></span>{{ translate('Contact properly sent. Thanks!') }}
+            </div>
+        {% endif %}
 
         {% set currentRoute = assemble_url('contact', true) %}
         <form  action="{{ currentRoute }}" name="contactForm" id="contactForm" method="post">
-            <input type="hidden" name="currentRoute" value="{{ currentRoute }}">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group ">
