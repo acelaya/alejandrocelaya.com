@@ -51,14 +51,7 @@ abstract class AbstractAction implements MiddlewareInterface
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $out = null)
     {
-        $renderedContent = $this->dispatch($request, $response, $out);
-
-        // Cache content for further requests
-        $this->cache->save($request->getUri()->getPath(), $renderedContent);
-
-        // Write the content in the response
-        $response->getBody()->write($renderedContent);
-        return $response;
+        return $this->dispatch($request, $response, $out);
     }
 
     /**
@@ -66,8 +59,8 @@ abstract class AbstractAction implements MiddlewareInterface
      *
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
-     * @param callable $next
-     * @return string
+     * @param null|callable $next
+     * @return null|ResponseInterface
      */
     abstract public function dispatch(
         ServerRequestInterface $request,

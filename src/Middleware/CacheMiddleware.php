@@ -60,6 +60,26 @@ class CacheMiddleware implements MiddlewareInterface
             return $response;
         }
 
-        return $out($request, $response);
+        // If the response is not cached, process the next middleware and get its response, then cache it
+        $resp = $out($request, $response);
+        if ($resp instanceof Response && $this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
+            $this->cache->save($request->getUri()->getPath(), $resp->getBody()->__toString());
+        }
+
+        return $resp;
+    }
+
+    /**
+     * Tells if a response is cacheable based on its status and current route params
+     *
+     * @param Response $resp
+     * @param array $routeParams
+     * @return bool
+     */
+    protected function isResponseCacheable(Response $resp, array $routeParams = [])
+    {
+        return $resp->getStatusCode() === 200
+            && isset($routeParams['cacheable'])
+            && $routeParams['cacheable'] === true;
     }
 }
