@@ -34,8 +34,6 @@ class ActionAbstractFactory implements AbstractFactoryInterface
     {
         /** @var TemplateInterface $renderer */
         $renderer = $serviceLocator->get('renderer');
-        /** @var Cache $cache */
-        $cache = $serviceLocator->get(Cache::class);
-        return new $requestedName($renderer, $cache);
+        return new $requestedName($renderer);
     }
 }

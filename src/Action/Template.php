@@ -14,8 +14,8 @@ class Template extends AbstractAction
      *
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
-     * @param callable $next
-     * @return string
+     * @param null|callable $next
+     * @return null|ResponseInterface
      */
     public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {

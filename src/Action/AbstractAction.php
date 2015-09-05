@@ -18,10 +18,9 @@ abstract class AbstractAction implements MiddlewareInterface
      */
     protected $cache;
 
-    public function __construct(TemplateInterface $renderer, Cache $cache)
+    public function __construct(TemplateInterface $renderer)
     {
         $this->renderer = $renderer;
-        $this->cache = $cache;
     }
 
     /**

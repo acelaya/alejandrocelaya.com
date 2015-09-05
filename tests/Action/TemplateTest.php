@@ -29,24 +29,13 @@ class TemplateTest extends TestCase
     public function setUp()
     {
         $templates = new Twig(new \Twig_Environment(new \Twig_Loader_Array($this->templatesContentMap)));
-        $this->cache = new ArrayCache();
-        $this->template = new Template($templates, $this->cache);
+        $this->template = new Template($templates);
     }
 
     public function testDispatch()
     {
         $request = (new ServerRequest())->withAttribute('template', 'foo.html.twig');
-        $content = $this->template->dispatch($request, new Response());
-        $this->assertEquals('<h1>Hello!!</h1>', $content);
-    }
-
-    public function testCacheIsSet()
-    {
-        $request = (new ServerRequest([], [], '/foo'))->withAttribute('template', 'foo.html.twig');
-
-        $this->assertFalse($this->cache->contains('/foo'));
-        $response = $this->template->__invoke($request, new Response());
-        $this->assertTrue($this->cache->contains('/foo'));
-        $this->assertEquals('<h1>Hello!!</h1>', $this->cache->fetch('/foo'));
+        $resp = $this->template->dispatch($request, new Response());
+        $this->assertEquals('<h1>Hello!!</h1>', $resp->getBody()->__toString());
     }
 }
