@@ -28,7 +28,8 @@ module.exports = function(grunt) {
             minified: {
                 options: {
                     style: 'compressed',
-                    compass: true
+                    compass: true,
+                    sourcemap: 'none'
                 },
                 files: cssFilesTemplate
             }
