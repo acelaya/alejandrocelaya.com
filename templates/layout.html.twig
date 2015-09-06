@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ locale() }}">
+    <head>
+        <title>{{ translate('Alejandro Celaya Alastrue - PHP and Java developer') }}</title>
+        <meta charset="utf-8">
+        <meta name="description" content="{{ translate('Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alejandro Celaya Alastrué">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        {% include 'partials/stylesheets.html.twig' %}
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="/js/respond.min.js"></script>
+            <script type="text/javascript" src="/js/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <header id="header">
+            {% include 'partials/header.html.twig' %}
+        </header>
+        <div id="wrap">
+            <div class="pull"></div>
+            <div id="logos">
+                <div class="image"></div>
+            </div>
+            <div class="container" id="content">
+                <div class="row">
+                    <div class="col-md-3">
+                        <aside id="aside" data-spy="affix" data-offset-top="160">
+                            {% include 'partials/aside.html.twig' %}
+                        </aside>
+                    </div>
+                    <div id="main" class="col-md-9">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div id="push"></div>
+        </div>
+        <footer id="footer">
+            {% include 'partials/footer.html.twig' %}
+        </footer>
+
+        {% include 'partials/javascripts.html.twig' %}
+    </body>
+</html>

@@ -1,0 +1,66 @@
+// VARS
+$footerHeight: 40px;
+$footer-inner-height: 39px;
+$main-font-color: #333333;
+$main-padding: 15px;
+$lang-menu-color: lighten(#222, 10%);
+$light-grey: lighten(#b2b2b2, 15%);
+$footer-color: lighten($light-grey, 10%);
+$social-grey: lighten(#b2b2b2, 10%);
+$hover-link-color: #C33;
+$error-color: #b94a48;
+$logos-color: #2972b0;
+// SCREEN SIZES
+$max-xs-size: 767px;
+$min-sm-size: 768px;
+$max-sm-size: 991px;
+$min-md-size: 992px;
+$max-md-size: 1199px;
+$min-lg-size: 1200px; 
+
+// MIXINS
+/**
+ * Generates border radius on element
+ * @param $radius Border radius size. Default is 5px
+ */
+@mixin rounded-borders($radius: 5px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+/**
+ * Adds a background linear gradient to the element
+ * @param $color Base color to generate the gradient
+ */
+@mixin background-gradient($color) {
+  background-image: -webkit-gradient(linear,left 0,left 100%,from(lighten($color, 12%)),to(darken($color, 12%)));
+  background-image: -webkit-linear-gradient(top,lighten($color, 12%),0%,darken($color, 12%),100%);
+  background-image: -moz-linear-gradient(top,lighten($color, 12%) 0,darken($color, 12%) 100%);
+  background-image: linear-gradient(to bottom,lighten($color, 12%) 0,darken($color, 12%) 100%);
+  background-repeat: repeat-x;
+  border-color: #2d6ca2;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lighten($color, 12%)',endColorstr='darken($color, 12%)',GradientType=0);
+}
+
+/**
+ * Sets opacity on a given element
+ * @param $opacity Opacity level from 0 to 1. Default is 1
+ */
+@mixin opacity($opacity: 1) {
+  $msOpacity: $opacity * 100;
+  filter: alpha(opacity=$msOpacity);
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+
+/**
+ * Mixin used in language menu, to create all flag image backgrounds
+ */
+@mixin background-flag($flag-path) {
+  background-image: url($flag-path);
+  background-repeat: no-repeat;
+  background-position: 128px 0;
+  &:hover {
+    background-position: 128px -26px;
+  }
+}

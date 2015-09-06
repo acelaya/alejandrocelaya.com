@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="well error-not-found text-center">
+        <h3 class="pull-right error-type">{{ translate('Error 404') }}</h3>
+        <div class="clearfix"></div>
+        <h1><b>{{ translate('Page not found') }}</b></h1>
+        <h3>{{ translate('The page you requested could not be found. Use your browser\'s Back button to navigate to the page you have previously come from or just press this button.') }}</h3>
+        <a class="btn btn-primary btn-lg" href="{{ assemble_url('home') }}">
+            <span class="fa fa-home"></span> {{ translate('Home') }}
+        </a>
+    </div>
+{% endblock %}

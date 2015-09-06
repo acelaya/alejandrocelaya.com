@@ -1,0 +1,43 @@
+#contact {
+
+  // Inputs
+  [type=text], [type=email], textarea {
+    margin-bottom: 10px;
+  }
+  textarea {
+    resize: vertical;
+  }
+  label {
+    text-align: right;
+    display: block;
+    margin-bottom: 2px;
+    padding-right: 10px;
+    font-size: 12px;
+  }
+  
+  // Legends
+  .contact-legend {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $light-grey;
+  }
+  .contact-footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid $light-grey;
+    .backwards {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+    }
+  }
+  
+  // Captcha image
+  img {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+  
+  
+}

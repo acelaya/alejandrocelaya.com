@@ -2,12 +2,12 @@
 namespace Acelaya\Website\Factory;
 
 use Interop\Container\ContainerInterface;
-use Zend\Expressive\AppFactory;
+use Acelaya\Website\Router\ZF2;
 
-class ApplicationFactory implements FactoryInterface
+class RouterFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container)
     {
-        return AppFactory::create($container);
+        return new ZF2();
     }
 }

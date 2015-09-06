@@ -1,0 +1,303 @@
+@import "base";
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+// Resets
+* {outline: none !important;}
+body, html {height: 100%; color: $main-font-color;}
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+a {
+  &:hover, &:focus {
+    color: $hover-link-color;
+  }
+}
+.alert {
+  .fa {
+    margin-right: 5px;
+    font-size: 16px;
+  }
+}
+.nav > li > a {
+  @media screen and (min-width: $min-sm-size) and (max-width: $max-sm-size) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+// Wrap
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto;
+  margin-bottom: -$footerHeight;
+  #push {
+    height: $footerHeight + 20px;
+  }
+  .pull {
+    height: 51px;
+  }
+}
+// Footer
+#footer {
+  height: $footer-inner-height;
+  background-color: $footer-color;
+  border-top: 1px solid darken($footer-color, 10%);
+  color: darken($footer-color, 30%);
+  overflow: hidden;
+  p {
+    line-height: $footer-inner-height;
+    margin: 0;
+  }
+}
+
+// Header
+#header {
+  .header-container {
+    position: relative;
+  }
+  .preloader {
+    position: absolute;
+    top: 14px;
+    left: 166px;
+    width: 22px;
+    height: 22px;
+    background: url(../img/preloader.gif);
+    display: none;
+  }
+  .main-menu {
+    .fa {
+      margin-right: 4px;
+      font-size: 18px;
+    }
+  }
+  .langs-menu {
+    > li {
+      > a {
+        &.es {
+          @include background-flag('../img/spain.png');
+        }
+        &.en {
+          @include background-flag('../img/usa.png');
+        }
+      }
+      &.active {
+        a {
+          background-color: $lang-menu-color;
+        }
+      }
+    }
+  }
+}
+
+#logos {
+  height: 350px;
+  background: $logos-color;
+  @media screen and (min-width: $min-md-size) and (max-width: $max-md-size) {
+    height: 288px;
+  }
+  @media screen and (max-width: $max-sm-size) {
+    height: 150px;
+  }
+
+  .image {
+    height: 100%;
+    width: $min-lg-size;
+    margin: 0 auto;
+    background: url(../img/logos.png) no-repeat center center;
+    background-size: cover;
+    @media screen and (min-width: $min-md-size) and (max-width: $max-md-size) {
+      width: $min-md-size;
+    }
+    @media screen and (max-width: $max-sm-size) {
+      display: none;
+    }
+  }
+
+}
+
+// Content
+#content {
+  margin-top:20px;
+}
+
+fieldset {
+  legend {
+    text-align: center;
+  }
+}
+
+// Aside
+#aside {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $min-lg-size) {
+    width: 263px;
+  }
+  @media screen and (min-width: $min-md-size) and (max-width: $max-md-size) {
+    width: 213px;
+  }
+  @media screen and (max-width: $max-xs-size) {
+    margin-top: -90px;
+  }
+
+  &.affix {
+    position: static;
+
+    @media screen and (min-width: $min-lg-size) {
+      position: fixed;
+      top: 260px;
+    }
+    @media screen and (min-width: $min-md-size) and (max-width: $max-md-size) {
+      position: fixed;
+      top: 200px;
+    }
+  }
+
+
+  img.me {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    @media screen and (min-width: $min-lg-size) {
+      margin-top: -180px;
+    }
+    @media screen and (min-width: $min-md-size) and (max-width: $max-md-size) {
+      margin-top: -120px;
+    }
+    @media screen and (min-width: $min-sm-size) and (max-width: $max-sm-size) {
+      margin-top: -100px;
+    }
+  }
+
+  .certification-badges {
+    margin-top: 30px;
+    @media screen and (max-width: $max-sm-size) {
+      display: none;
+    }
+  }
+
+  h3 {
+    font-weight: bold;
+    @media screen and (min-width: $min-sm-size) and (max-width: $max-sm-size) {
+      font-size: 30px;
+      line-height: 33px;
+    }
+    @media screen and (max-width: $max-xs-size) {
+      font-size: 20px;
+      line-height: 22px;
+      margin-top: 5px;
+    }
+    @media screen and (max-width: $max-xs-size) {
+      color: white;
+    }
+  }
+  p {
+    @media screen and (max-width: $max-xs-size) {
+      color: white;
+    }
+  }
+
+  .profile-info {
+    text-align: center;
+
+    @media screen and (max-width: $max-sm-size) {
+      text-align: right;
+    }
+  }
+
+  //Social media icons
+  .social-list {
+    margin-top: $main-padding;
+    border-top: 1px solid #e5e5e5;
+    padding-top: $main-padding;
+
+    @media screen and (max-width: $max-xs-size) {
+      border-color: transparent;
+    }
+
+    .social-element {
+      display: inline-block;
+      margin-left: 1px;
+      width: 34px;
+      height: 34px;
+      background-color: $social-grey;
+      @include rounded-borders(20px);
+      @include transition(background-color 300ms linear, transform 100ms ease-in);
+      
+      @media screen and (max-width: $max-xs-size) {
+        width: 28px;
+        height: 28px;
+        margin-left: 5px;
+        @include rounded-borders(16px);
+      }
+
+      // Scale on hover
+      &:hover {
+        @include transform(scale(1.1));
+      }
+      // Individual hover colors
+      &#linkedin:hover {
+        background-color: #236197;
+      }
+      &#php:hover {
+        background-color: #2175A2;
+      }
+      &#github:hover {
+        background-color: #333333;
+      }
+      &#sourceforge:hover {
+        background-color: #eacb59;
+      }
+      &#google:hover {
+        background-color: #D44330;
+      }
+      &#facebook:hover {
+        background-color: #3B5998;
+      }
+      &#twitter:hover {
+        background-color: #00acee;
+      }
+
+      i {
+        color: white !important;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 34px * 0.65;
+        line-height: 34px;
+        @media screen and (max-width: $max-xs-size) {
+          font-size: 28px * 0.65;
+          line-height: 28px;
+        }
+      }
+      
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+iframe[src="about:blank"] {
+  display: none!important;
+}
+
+// Cover section
+@import "cover";
+// Skills section
+@import "skills";
+// Projects section
+@import "projects";
+// Contact section
+@import "contact";
+// Error section
+@import "error";
+// Responsive recaptcha customization
+@import "recaptcha";
+
