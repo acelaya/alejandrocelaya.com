@@ -17,8 +17,8 @@ before_script:
 
 script:
   - mkdir build
-  - ./vendor/bin/phpunit -c tests/phpunit.xml --coverage-clover build/clover.xml
-  - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/ ./config ./public/index.php
+  - make phpunit
+  - make phpcs
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
