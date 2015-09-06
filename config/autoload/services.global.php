@@ -3,6 +3,7 @@ use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Factory\ActionAbstractFactory;
 use Acelaya\Website\Action\Factory\ContactFactory;
 use Acelaya\Website\Factory\CacheFactory;
+use Acelaya\Website\Factory\RecaptchaFactory;
 use Acelaya\Website\Factory\RendererFactory;
 use Acelaya\Website\Factory\RequestFactory;
 use Acelaya\Website\Factory\RouterFactory;
@@ -18,6 +19,7 @@ use Acelaya\Website\Service\Factory\RouteAssemblerFactory;
 use Acelaya\Website\Service\RouteAssembler;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
+use ReCaptcha\ReCaptcha;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Container\TemplatedErrorHandlerFactory;
@@ -44,6 +46,7 @@ return [
             Translator::class => TranslatorFactory::class,
             RouterInterface::class => RouterFactory::class,
             Cache::class => CacheFactory::class,
+            ReCaptcha::class => RecaptchaFactory::class,
             RouteAssembler::class => RouteAssemblerFactory::class,
             ContactService::class => ContactServiceFactory::class,
             'Zend\Expressive\FinalHandler' => getenv('APP_ENV') === 'dev'

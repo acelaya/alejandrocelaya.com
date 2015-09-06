@@ -13,13 +13,10 @@ class ContactFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container)
     {
-        $recaptchaConfig = $container->get('config')['recaptcha'];
-        $recaptcha = new ReCaptcha($recaptchaConfig['private_key']);
-
         return new Contact(
             $container->get(TemplateInterface::class),
             $container->get(ContactService::class),
-            new ContactFilter($recaptcha)
+            new ContactFilter($container->get(ReCaptcha::class))
         );
     }
 }
