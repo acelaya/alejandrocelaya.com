@@ -54,8 +54,8 @@ module.exports = function(grunt) {
             },
             main: {
                 src: [
-                    'public/css/bootstrap.min.css',
                     'public/css/font-awesome.min.css',
+                    'public/css/bootstrap.min.css',
                     cssFile
                 ],
                 dest: cssFile
