@@ -41,7 +41,8 @@ class Contact extends Template
         $filter->setData($params['contact']);
         if (! $filter->isValid()) {
             return $this->createTemplateResponse($request, [
-                'errors' => $filter->getMessages()
+                'errors' => $filter->getMessages(),
+                'currentData' => $params['contact']
             ]);
         }
 
