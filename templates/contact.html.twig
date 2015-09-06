@@ -51,10 +51,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
+                    {{ recaptcha_input(locale()) }}
                 </div>
                 <div class="col-lg-8 col-md-6 col-sm-6 text-right">
                     <div class="form-group ">
-                        <button type="submit" name="submit" class="btn btn-primary" data-loading-text="{{ translate('Sending...') }}">{{ translate('Submit') }}</button>
+                        <button type="submit" name="submit" class="btn btn-primary" data-loading-text="{{ translate('Sending...') }}">
+                            {{ translate('Submit') }}
+                        </button>
                     </div>
                 </div>
             </div>

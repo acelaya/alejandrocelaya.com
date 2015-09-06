@@ -13,11 +13,19 @@ class Contact extends Template
      * @var ContactServiceInterface
      */
     protected $contactService;
+    /**
+     * @var ContactFilter
+     */
+    protected $contactFilter;
 
-    public function __construct(TemplateInterface $renderer, ContactServiceInterface $contactService)
-    {
+    public function __construct(
+        TemplateInterface $renderer,
+        ContactServiceInterface $contactService,
+        ContactFilter $contactFilter
+    ) {
         parent::__construct($renderer);
         $this->contactService = $contactService;
+        $this->contactFilter = $contactFilter;
     }
 
     /**
@@ -37,7 +45,7 @@ class Contact extends Template
 
         // On POST requests, process the form data
         $params = $request->getParsedBody();
-        $filter = new ContactFilter();
+        $filter = $this->contactFilter;
         $filter->setData($params['contact']);
         if (! $filter->isValid()) {
             return $this->createTemplateResponse($request, [

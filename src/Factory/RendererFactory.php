@@ -3,6 +3,7 @@ namespace Acelaya\Website\Factory;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\NavigationExtension;
+use Acelaya\Website\Twig\Extension\RecaptchaExtension;
 use Acelaya\Website\Twig\Extension\TranslatorExtension;
 use Acelaya\Website\Twig\Extension\UrlExtension;
 use Interop\Container\ContainerInterface;
@@ -25,6 +26,7 @@ class RendererFactory implements FactoryInterface
             $container->get(RouteAssembler::class),
             $container->get('config')['navigation']
         ));
+        $twig->addExtension(new RecaptchaExtension($container->get('config')['recaptcha']));
 
         return new Twig($twig);
     }

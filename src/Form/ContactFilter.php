@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Form;
 
+use ReCaptcha\ReCaptcha;
 use Zend\Filter\StringTrim;
 use Zend\Filter\StripTags;
 use Zend\InputFilter\Input;
@@ -12,9 +13,16 @@ class ContactFilter extends InputFilter
     const EMAIL = 'email';
     const SUBJECT = 'subject';
     const COMMENTS = 'comments';
+    const RECAPTCHA = 'g-recaptcha-response';
 
-    public function __construct()
+    /**
+     * @var Recaptcha
+     */
+    protected $recaptcha;
+
+    public function __construct(Recaptcha $recaptcha)
     {
+        $this->recaptcha = $recaptcha;
         $this->init();
     }
 
@@ -24,6 +32,10 @@ class ContactFilter extends InputFilter
         $this->add($this->createInput(self::EMAIL));
         $this->add($this->createInput(self::SUBJECT));
         $this->add($this->createInput(self::COMMENTS));
+
+        $recaptchaInput = $this->createInput(self::RECAPTCHA);
+        $recaptchaInput->getValidatorChain()->attach(new RecaptchaValidator($this->recaptcha));
+        $this->add($recaptchaInput);
     }
 
     /**
