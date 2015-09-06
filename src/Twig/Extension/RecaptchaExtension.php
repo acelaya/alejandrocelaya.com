@@ -26,8 +26,13 @@ class RecaptchaExtension extends AbstractExtension
     public function renderInput($lang = 'en')
     {
         return '
-            <script src="https://www.google.com/recaptcha/api.js?hl=' . $lang . '"></script>
-            <div class="g-recaptcha" data-sitekey="' . $this->getRecapcthaPublicKey() . '"></div>
+            <script
+            src="https://www.google.com/recaptcha/api.js?hl=' . $lang . '">
+            </script>
+            <div class="g-recaptcha"
+                 data-sitekey="' . $this->getRecapcthaPublicKey() . '"
+                 data-callback="recaptchaCallaback">
+            </div>
         ';
     }
 }

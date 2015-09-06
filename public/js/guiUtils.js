@@ -3,17 +3,12 @@
  */
 acelaya.guiUtils = {
 
-    init : function() {
+    init: function() {
         this.initTooltips();
-        this.initCarouselAnimation();
     },
 
-    initTooltips : function() {
-        $("[data-toggle=tooltip]").tooltip();
-    },
-
-    initCarouselAnimation : function() {
-        $(".carousel").carousel();
+    initTooltips: function() {
+        $('[data-toggle=tooltip]').tooltip();
     }
 
 };

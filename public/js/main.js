@@ -8,3 +8,7 @@ $(document).ready(function() {
     acelaya.skills.init();
     acelaya.contact.init();
 });
+
+function recaptchaCallaback (value) {
+    acelaya.contact.initRecaptcha(value);
+}
