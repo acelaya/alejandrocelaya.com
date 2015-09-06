@@ -27,10 +27,13 @@ rm -rf node_modules
 rm -rf .env*
 rm -rf .git*
 rm -rf .idea
+rm -rf .travis.yml
+rm -rf .scrutinizer.yml
 rm -rf composer.*
 rm -rf package.json
 rm -rf README.md
 rm -rf LICENSE
+rm -rf Makefile
 rm -rf Gruntfile.js
 rm -rf config/autoload/*.local.php
 rm -rf config/autoload/*.local.php.dist
@@ -43,6 +46,9 @@ rm -rf public/js/jquery.knob.js
 rm -rf public/js/jquery.min.js
 rm -rf public/js/main.js
 rm -rf public/js/skills.js
+rm -rf tests
+rm -rf build
+rm -rf bin
 
 
 ## REMOTE OPERATIONS
