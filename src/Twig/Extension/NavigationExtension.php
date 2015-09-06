@@ -57,7 +57,7 @@ class NavigationExtension extends AbstractExtension
                 $route,
                 $target,
                 $page['icon'],
-                $page['label']
+                $this->translator->translate($page['label'])
             );
         }
 
