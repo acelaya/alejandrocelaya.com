@@ -46,11 +46,11 @@ class Contact extends Template
         // On POST requests, process the form data
         $params = $request->getParsedBody();
         $filter = $this->contactFilter;
-        $filter->setData($params['contact']);
+        $filter->setData($params);
         if (! $filter->isValid()) {
             return $this->createTemplateResponse($request, [
                 'errors' => $filter->getMessages(),
-                'currentData' => $params['contact']
+                'currentData' => $params
             ]);
         }
 
