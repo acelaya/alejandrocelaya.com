@@ -63,6 +63,9 @@ module.exports = function(grunt) {
         },
 
         processhtml: {
+            options: {
+                // Task-specific options go here.
+            },
             files: {
                 'templates/partials/javascripts.html.twig': ['templates/partials/javascripts.html.twig'],
                 'templates/partials/stylesheets.html.twig': ['templates/partials/stylesheets.html.twig']
