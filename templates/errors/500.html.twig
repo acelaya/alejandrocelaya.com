@@ -1,5 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    500
+    <div class="well error-not-found text-center">
+        <h3 class="pull-right error-type">{{ translate('Error') }}</h3>
+        <div class="clearfix"></div>
+        <h1><b>{{ translate('Unexpected error') }}</b></h1>
+        <h3>{{ translate('The page you requested has produced an unexpected error. Use your browser\'s Back button to navigate to the page you have previously come from or just press this button.') }}</h3>
+        <a class="btn btn-primary btn-lg" href="{{ assemble_url('home') }}">
+            <span class="fa fa-home"></span> {{ translate('Home') }}
+        </a>
+    </div>
 {% endblock %}
