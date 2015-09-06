@@ -3,6 +3,8 @@ namespace AcelayaTest\Website\Form;
 
 use Acelaya\Website\Form\ContactFilter;
 use PHPUnit_Framework_TestCase as TestCase;
+use ReCaptcha\ReCaptcha;
+use ReCaptcha\Response;
 
 class ContactFilterTest extends TestCase
 {
@@ -13,7 +15,10 @@ class ContactFilterTest extends TestCase
 
     public function setUp()
     {
-        $this->filter = new ContactFilter();
+        $recaptcha = $this->prophesize(ReCaptcha::class);
+        $recaptcha->verify('foo')->willReturn(new Response(true));
+
+        $this->filter = new ContactFilter($recaptcha->reveal());
     }
 
     public function testWithEmptyValues()
@@ -29,6 +34,7 @@ class ContactFilterTest extends TestCase
             ContactFilter::EMAIL => 'email',
             ContactFilter::SUBJECT => 'subject',
             ContactFilter::COMMENTS => 'comments',
+            ContactFilter::RECAPTCHA => 'foo',
         ]);
         $this->assertTrue($this->filter->isValid());
     }
@@ -40,6 +46,7 @@ class ContactFilterTest extends TestCase
             ContactFilter::EMAIL => 'email  <br>',
             ContactFilter::SUBJECT => 'subject <script></script>  ',
             ContactFilter::COMMENTS => '  <p>Hi!</p> comments',
+            ContactFilter::RECAPTCHA => 'foo',
         ]);
         $this->assertTrue($this->filter->isValid());
         $this->assertEquals([
@@ -47,6 +54,7 @@ class ContactFilterTest extends TestCase
             ContactFilter::EMAIL => 'email',
             ContactFilter::SUBJECT => 'subject',
             ContactFilter::COMMENTS => 'Hi! comments',
+            ContactFilter::RECAPTCHA => 'foo',
         ], $this->filter->getValues());
     }
 }

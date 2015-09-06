@@ -5,6 +5,8 @@ use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
 use PHPUnit_Framework_TestCase as TestCase;
+use ReCaptcha\ReCaptcha;
+use ReCaptcha\Response as RecaptchaResponse;
 use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\Response;
@@ -29,7 +31,8 @@ class ContactTest extends TestCase
         ContactFilter::NAME => 'Alejandro Celaya',
         ContactFilter::EMAIL => 'alejandro@alejandrocelaya.com',
         ContactFilter::SUBJECT => 'My contact',
-        ContactFilter::COMMENTS => 'Hello!!'
+        ContactFilter::COMMENTS => 'Hello!!',
+        ContactFilter::RECAPTCHA => 'good'
     ];
 
     public function setUp()
@@ -48,7 +51,11 @@ class ContactTest extends TestCase
 EOF
         ])));
 
-        $this->contact = new Contact($this->renderer, $service->reveal());
+        $recaptcha = $this->prophesize(ReCaptcha::class);
+        $recaptcha->verify('good')->willReturn(new RecaptchaResponse(true));
+        $recaptcha->verify('bad')->willReturn(new RecaptchaResponse(false));
+
+        $this->contact = new Contact($this->renderer, $service->reveal(), new ContactFilter($recaptcha->reveal()));
     }
 
     public function testGetRequestJustReturnsTheTemplate()
@@ -65,7 +72,7 @@ EOF
 
     public function testInvalidPostDataReturnsErrorResponse()
     {
-        $request = ServerRequestFactory::fromGlobals(null, null, ['contact' => []])
+        $request = ServerRequestFactory::fromGlobals(null, null, [])
                                        ->withMethod('POST')
                                        ->withAttribute('template', 'contact.html.twig');
         $resp = $this->contact->dispatch($request, new Response());
@@ -79,7 +86,7 @@ EOF
 
     public function testValidPostSendsContactAndReturnsSuccess()
     {
-        $request = ServerRequestFactory::fromGlobals(null, null, ['contact' => $this->fullData])
+        $request = ServerRequestFactory::fromGlobals(null, null, $this->fullData)
             ->withMethod('POST')
             ->withAttribute('template', 'contact.html.twig');
         $resp = $this->contact->dispatch($request, new Response());

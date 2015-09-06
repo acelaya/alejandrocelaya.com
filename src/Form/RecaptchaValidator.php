@@ -31,7 +31,7 @@ class RecaptchaValidator extends AbstractValidator
      */
     public function isValid($value)
     {
-        $resp = $this->recaptcha->verify($value, $_SERVER['REMOTE_ADDR']); // TODO Don't use global $_SERVER
+        $resp = $this->recaptcha->verify($value);
         return $resp->isSuccess();
     }
 }
