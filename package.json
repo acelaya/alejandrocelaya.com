@@ -1,0 +1,32 @@
+{
+    "name": "acelaya-website-expressive",
+    "description": "Alejandro Celaya website",
+    "author": "Alejandro Celaya Alastrué",
+    "readmeFilename": "README.md",
+    "license": "MIT",
+    "keywords": [
+        "zend",
+        "expressive",
+        "php",
+        "web",
+        "java",
+        "html5",
+        "css3",
+        "sass",
+        "tdd",
+        "git",
+        "continuous integration"
+    ],
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/acelaya/website-expressive"
+    },
+    "devDependencies": {
+        "grunt": "~0.4",
+        "grunt-contrib-concat": "~0.5",
+        "grunt-contrib-uglify": "~0.9",
+        "grunt-contrib-clean": "~0.6",
+        "grunt-contrib-sass": "~0.9",
+        "grunt-processhtml": "~0.3"
+    }
+}
