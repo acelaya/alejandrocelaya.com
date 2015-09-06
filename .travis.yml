@@ -14,11 +14,13 @@ php:
 before_script:
   - composer self-update
   - composer install --no-interaction
+  - npm install
 
 script:
   - mkdir build
   - make phpunit
   - make phpcs
+  - grunt
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
