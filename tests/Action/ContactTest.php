@@ -5,14 +5,19 @@ use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
 use PHPUnit_Framework_TestCase as TestCase;
+use Prophecy\Prophecy\ObjectProphecy;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\Response as RecaptchaResponse;
+use Symfony\Component\Intl\Data\Util\ArrayAccessibleResourceBundle;
 use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
+use Zend\Diactoros\Uri;
 use Zend\Expressive\Template\TemplateInterface;
 use Zend\Expressive\Template\Twig;
+use Zend\Session\Container;
 
 class ContactTest extends TestCase
 {
@@ -24,6 +29,10 @@ class ContactTest extends TestCase
      * @var TemplateInterface
      */
     protected $renderer;
+    /**
+     * @var \ArrayAccess;
+     */
+    protected $session;
     /**
      * @var array
      */
@@ -37,6 +46,8 @@ class ContactTest extends TestCase
 
     public function setUp()
     {
+        $this->session = new \ArrayObject();
+
         $service = $this->prophesize(ContactService::class);
         $service->send($this->fullData)->willReturn(true);
 
@@ -55,7 +66,12 @@ EOF
         $recaptcha->verify('good')->willReturn(new RecaptchaResponse(true));
         $recaptcha->verify('bad')->willReturn(new RecaptchaResponse(false));
 
-        $this->contact = new Contact($this->renderer, $service->reveal(), new ContactFilter($recaptcha->reveal()));
+        $this->contact = new Contact(
+            $this->renderer,
+            $service->reveal(),
+            new ContactFilter($recaptcha->reveal()),
+            $this->session
+        );
     }
 
     public function testGetRequestJustReturnsTheTemplate()
@@ -70,12 +86,27 @@ EOF
         $this->assertEquals('content', $document->getAttribute('class'));
     }
 
+    public function testPostRequestSavesPostDataInSessionAndReturnsRedirect()
+    {
+        $request = ServerRequestFactory::fromGlobals(null, null, $this->fullData)
+                                       ->withMethod('POST')
+                                       ->withUri(new Uri('/foo/bar'));
+
+        $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
+        $resp = $this->contact->dispatch($request, new Response());
+        $this->assertInstanceOf(RedirectResponse::class, $resp);
+        $this->assertEquals(['/foo/bar'], $resp->getHeader('Location'));
+
+        $this->assertTrue($this->session->offsetExists(Contact::PRG_DATA));
+    }
+
     public function testInvalidPostDataReturnsErrorResponse()
     {
-        $request = ServerRequestFactory::fromGlobals(null, null, [])
-                                       ->withMethod('POST')
-                                       ->withAttribute('template', 'contact.html.twig');
+        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
+        $this->session->offsetSet(Contact::PRG_DATA, []);
         $resp = $this->contact->dispatch($request, new Response());
+        $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
+
         $this->assertInstanceOf(HtmlResponse::class, $resp);
         $document = new \DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
@@ -86,10 +117,11 @@ EOF
 
     public function testValidPostSendsContactAndReturnsSuccess()
     {
-        $request = ServerRequestFactory::fromGlobals(null, null, $this->fullData)
-            ->withMethod('POST')
-            ->withAttribute('template', 'contact.html.twig');
+        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
+        $this->session->offsetSet(Contact::PRG_DATA, $this->fullData);
         $resp = $this->contact->dispatch($request, new Response());
+        $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
+
         $this->assertInstanceOf(HtmlResponse::class, $resp);
         $document = new \DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
