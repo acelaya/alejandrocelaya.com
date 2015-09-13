@@ -7,3 +7,4 @@ build
 node_modules
 public/css/main.min.css
 public/js/main.min.js
+config/autoload/*.local.php

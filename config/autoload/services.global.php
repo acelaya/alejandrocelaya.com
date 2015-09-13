@@ -13,6 +13,8 @@ use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\Factory\CacheMiddlewareFactory;
 use Acelaya\Website\Middleware\Factory\LanguageMiddlewareFactory;
 use Acelaya\Website\Middleware\LanguageMiddleware;
+use Acelaya\Website\Options\Factory\MailOptionsFactory;
+use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use Acelaya\Website\Service\Factory\RouteAssemblerFactory;
@@ -23,7 +25,6 @@ use ReCaptcha\ReCaptcha;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Container\TemplatedErrorHandlerFactory;
-use Zend\Expressive\Container\WhoopsErrorHandlerFactory;
 use Zend\Expressive\Container\WhoopsFactory;
 use Zend\Expressive\Container\WhoopsPageHandlerFactory;
 use Zend\Expressive\Router\RouterInterface;
@@ -49,11 +50,12 @@ return [
             ReCaptcha::class => RecaptchaFactory::class,
             RouteAssembler::class => RouteAssemblerFactory::class,
             ContactService::class => ContactServiceFactory::class,
-            'Zend\Expressive\FinalHandler' => getenv('APP_ENV') === 'dev'
-                ? WhoopsErrorHandlerFactory::class
-                : TemplatedErrorHandlerFactory::class,
+            'Zend\Expressive\FinalHandler' => TemplatedErrorHandlerFactory::class,
             'Zend\Expressive\Whoops' => WhoopsFactory::class,
             'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
+
+            // Options
+            MailOptions::class => MailOptionsFactory::class,
 
             // Middleware
             CacheMiddleware::class => CacheMiddlewareFactory::class,

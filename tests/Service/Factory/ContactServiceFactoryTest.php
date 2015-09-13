@@ -1,6 +1,7 @@
 <?php
 namespace AcelayaTest\Website\Service\Factory;
 
+use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -26,9 +27,7 @@ class ContactServiceFactoryTest extends TestCase
             'services' => [
                 \Swift_Mailer::class => $this->prophesize(\Swift_Mailer::class)->reveal(),
                 TemplateInterface::class => $this->prophesize(TemplateInterface::class)->reveal(),
-                'config' => [
-                    'mail' => []
-                ],
+                MailOptions::class => new MailOptions(),
             ]
         ]));
         $instance = $this->factory->__invoke($sm);

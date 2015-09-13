@@ -1,6 +1,7 @@
 <?php
 namespace AcelayaTest\Website\Service;
 
+use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Expressive\Template\Twig;
@@ -33,7 +34,7 @@ class ContactServiceTest extends TestCase
             ContactService::TEMPLATE => '<p>{{ email }}</p>'
         ])));
 
-        $this->service = new ContactService($mailer, $renderer, $this->config);
+        $this->service = new ContactService($mailer, $renderer, new MailOptions($this->config));
     }
 
     public function testSend()
