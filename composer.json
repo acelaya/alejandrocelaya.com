@@ -34,7 +34,7 @@
         "swiftmailer/swiftmailer": "^5.4",
         "twig/twig": "^1.21",
         "zendframework/zend-config": "^2.5",
-        "zendframework/zend-expressive": "^0.1.0",
+        "zendframework/zend-expressive": "^0.2.0",
         "zendframework/zend-filter": "^2.5",
         "zendframework/zend-i18n": "^2.5",
         "zendframework/zend-mvc": "^2.5",
