@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Service;
 
+use Acelaya\Website\Options\MailOptions;
 use Zend\Expressive\Template\TemplateInterface;
 
 class ContactService implements ContactServiceInterface
@@ -16,15 +17,15 @@ class ContactService implements ContactServiceInterface
      */
     protected $renderer;
     /**
-     * @var array
+     * @var MailOptions
      */
-    protected $config;
+    protected $options;
 
-    public function __construct(\Swift_Mailer $mailer, TemplateInterface $renderer, array $config)
+    public function __construct(\Swift_Mailer $mailer, TemplateInterface $renderer, MailOptions $options)
     {
         $this->mailer = $mailer;
         $this->renderer = $renderer;
-        $this->config = $config;
+        $this->options = $options;
     }
 
     /**
@@ -41,9 +42,9 @@ class ContactService implements ContactServiceInterface
 
     private function createMessage(array $messageData)
     {
-        return \Swift_Message::newInstance($this->config['subject'])
-                             ->setTo($this->config['to'])
-                             ->setFrom($this->config['from'])
+        return \Swift_Message::newInstance($this->options->getSubject())
+                             ->setTo($this->options->getTo())
+                             ->setFrom($this->options->getFrom())
                              ->setReplyTo($messageData['email'])
                              ->setBody($this->composeBody($messageData), 'text/html');
     }

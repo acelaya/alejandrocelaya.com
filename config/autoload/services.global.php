@@ -13,6 +13,8 @@ use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\Factory\CacheMiddlewareFactory;
 use Acelaya\Website\Middleware\Factory\LanguageMiddlewareFactory;
 use Acelaya\Website\Middleware\LanguageMiddleware;
+use Acelaya\Website\Options\Factory\MailOptionsFactory;
+use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use Acelaya\Website\Service\Factory\RouteAssemblerFactory;
@@ -51,6 +53,9 @@ return [
             'Zend\Expressive\FinalHandler' => TemplatedErrorHandlerFactory::class,
             'Zend\Expressive\Whoops' => WhoopsFactory::class,
             'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
+
+            // Options
+            MailOptions::class => MailOptionsFactory::class,
 
             // Middleware
             CacheMiddleware::class => CacheMiddlewareFactory::class,
