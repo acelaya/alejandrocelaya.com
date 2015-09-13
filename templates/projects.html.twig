@@ -52,9 +52,7 @@
                                 '</a>'
                             ) | raw
                         }}</p>
-                        <p>
-                            {{ translate('Just these by the moment:') }}
-                        <ul>
+                        <ul style="margin-bottom: 10px">
                             <li>
                                 <a href="https://github.com/acelaya/ZF2-AcMailer" target="_blank">ZF2-AcMailer</a>:
                                 {{ translate('a fully-featured module to send emails.') }}
@@ -75,7 +73,6 @@
                                 {{ translate('a module to render yaml responses.') }}
                             </li>
                         </ul>
-                        </p>
                     </div>
                 </li>
                 <li class="media">
@@ -108,18 +105,23 @@
                     <div class="media-body">
                         <h4 class="media-heading">{{ translate("Websites") }}</h4>
                         <p>{{
-                            translate("I have made both Subclient website and this website using %sZend Framework%s for the back-end and %sBootstrap%s in the front-end.") | format(
+                            translate('When I created Subclient\'s website, I used %sZend Framework%s for the back-end and %sBootstrap 2%s in the front-end.') | format(
                                 "<a target='_blank' href='http://framework.zend.com/'>",
                                 "</a>",
-                                "<a target='_blank' href='http://getbootstrap.com/'>",
+                                "<a target='_blank' href='http://getbootstrap.com/2.3.2/'>",
                                 "</a>"
                             ) | raw
                         }}</p>
+                        <p>{{
+                            translate('This website however, is made with %sZend Expressive%s and %sBootstrap 3%s. Expressive is a microframework more suitable for small projects.') | format(
+                                '<a target="_blank" href="http://zend-expressive.readthedocs.org/en/stable/">',
+                                '</a>',
+                                '<a target="_blank" href="http://getbootstrap.com/">',
+                                '</a>'
+                            ) | raw
+                        }}</p>
                         <p>
-                            {{ translate("I use to use Zend Framework and Bootstrap in web applications. They are powerful frameworks that guarantee a very professional result.") }}
-                        </p>
-                        <p>
-                            {{ translate("Probably Zend Framework is not the most suitable option for this kind of simple webpages, but it is a good oportunity to apply best practices and test modules and libraries you don't usually use in your daily work.") }}
+                            {{ translate('I use to use Zend Framework and Bootstrap in web applications. They are powerful frameworks that guarantee a very professional result.') }}
                         </p>
                     </div>
                 </li>
