@@ -50,6 +50,7 @@ class Slim implements RouterInterface
         if (isset($options['conditions']) && is_array($options['conditions'])) {
             $slimRoute->setConditions($options['conditions']);
         }
+        // The middleware is merged with the rest of the route params
         $params = [
             'middleware' => $route->getMiddleware()
         ];
@@ -80,8 +81,11 @@ class Slim implements RouterInterface
         /** @var \Slim\Route $matchedRoute */
         $matchedRoute = array_shift($matchedRoutes);
         $params = $matchedRoute->getParams();
+
+        // Get the middleware from the route params and remove it
         $middleware = $params['middleware'];
         unset($params['middleware']);
+
         return RouteResult::fromRouteMatch(
             $matchedRoute->getName(),
             $middleware,
