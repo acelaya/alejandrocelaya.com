@@ -14,7 +14,6 @@ $home = [
         ],
         'defaults' => [
             'template' => 'home.html.twig',
-            'lang' => 'en',
             'cacheable' => true
         ],
     ]
