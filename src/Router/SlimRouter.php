@@ -8,7 +8,7 @@ use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
 
-class Slim implements RouterInterface
+class SlimRouter implements RouterInterface
 {
     /**
      * @var Router

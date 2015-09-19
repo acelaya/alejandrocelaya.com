@@ -37,9 +37,8 @@
         "twig/twig": "^1.21",
         "zendframework/zend-config": "^2.5",
         "zendframework/zend-expressive": "^0.2.0",
-        "zendframework/zend-filter": "^2.5",
         "zendframework/zend-i18n": "^2.5",
-        "zendframework/zend-mvc": "^2.5",
+        "zendframework/zend-inputfilter": "^2.5",
         "zendframework/zend-psr7bridge": "^0.1.1",
         "zendframework/zend-servicemanager": "^2.6",
         "zendframework/zend-session": "^2.5"
