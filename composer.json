@@ -32,6 +32,7 @@
         "php": ">=5.5",
         "doctrine/cache": "^1.4",
         "google/recaptcha": "~1.1",
+        "slim/slim": "^2.6",
         "swiftmailer/swiftmailer": "^5.4",
         "twig/twig": "^1.21",
         "zendframework/zend-config": "^2.5",
