@@ -9,6 +9,10 @@
 * [12: Move SlimRouter to a separated composer package](https://github.com/acelaya/website-expressive/issues/12)
 * [13: Update to Zend Expressive 0.3](https://github.com/acelaya/website-expressive/issues/13)
 
+**Bugfixes:**
+
+* [10: Add translations for contact form placeholders](https://github.com/acelaya/website-expressive/issues/10)
+
 ### 1.1.0
 
 **Enhancements:**
