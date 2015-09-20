@@ -1,4 +1,5 @@
 <?php
+use Acelaya\Expressive\Factory\SlimRouterFactory;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Factory\ActionAbstractFactory;
 use Acelaya\Website\Action\Factory\ContactFactory;
@@ -6,7 +7,6 @@ use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\Website\Factory\RecaptchaFactory;
 use Acelaya\Website\Factory\RendererFactory;
 use Acelaya\Website\Factory\RequestFactory;
-use Acelaya\Website\Factory\RouterFactory;
 use Acelaya\Website\Factory\SwiftMailerFactory;
 use Acelaya\Website\Factory\TranslatorFactory;
 use Acelaya\Website\Middleware\CacheMiddleware;
@@ -45,7 +45,7 @@ return [
             ServerRequestInterface::class => RequestFactory::class,
             \Swift_Mailer::class => SwiftMailerFactory::class,
             Translator::class => TranslatorFactory::class,
-            RouterInterface::class => RouterFactory::class,
+            RouterInterface::class => SlimRouterFactory::class,
             Cache::class => CacheFactory::class,
             ReCaptcha::class => RecaptchaFactory::class,
             RouteAssembler::class => RouteAssemblerFactory::class,

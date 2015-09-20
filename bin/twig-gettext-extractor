@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-use Acelaya\Website\Router\ZF2;
+use Acelaya\Expressive\Router\SlimRouter;
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\NavigationExtension;
 use Acelaya\Website\Twig\Extension\RecaptchaExtension;
@@ -21,7 +21,7 @@ $twig = new Twig_Environment(new Twig\Gettext\Loader\Filesystem('/'), [
     'auto_reload' => true
 ]);
 // You can add more extensions here.
-$routeAssembler = new RouteAssembler(new ZF2(), ServerRequestFactory::fromGlobals());
+$routeAssembler = new RouteAssembler(new SlimRouter(), ServerRequestFactory::fromGlobals());
 $translator = Translator::factory([]);
 $twig->addExtension(new NavigationExtension($translator, $routeAssembler, []));
 $twig->addExtension(new UrlExtension($routeAssembler));
