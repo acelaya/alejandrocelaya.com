@@ -4,13 +4,13 @@ namespace Acelaya\Website\Action;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Stratigility\MiddlewareInterface;
 
 abstract class AbstractAction implements MiddlewareInterface
 {
     /**
-     * @var TemplateInterface
+     * @var TemplateRendererInterface
      */
     protected $renderer;
     /**
@@ -18,7 +18,7 @@ abstract class AbstractAction implements MiddlewareInterface
      */
     protected $cache;
 
-    public function __construct(TemplateInterface $renderer)
+    public function __construct(TemplateRendererInterface $renderer)
     {
         $this->renderer = $renderer;
     }

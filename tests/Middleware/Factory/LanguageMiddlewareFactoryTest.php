@@ -26,7 +26,7 @@ class LanguageMiddlewareFactoryTest extends TestCase
         $sm->setService(Translator::class, Translator::factory([]));
         $sm->setService(RouterInterface::class, $this->prophesize(RouterInterface::class)->reveal());
 
-        $instance = $this->factory->__invoke($sm);
+        $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(LanguageMiddleware::class, $instance);
     }
 }

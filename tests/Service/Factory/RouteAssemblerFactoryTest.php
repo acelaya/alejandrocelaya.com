@@ -26,7 +26,7 @@ class RouteAssemblerFactoryTest extends TestCase
         $sm->setService(RouterInterface::class, $this->prophesize(RouterInterface::class)->reveal());
         $sm->setService(ServerRequestInterface::class, $this->prophesize(ServerRequestInterface::class)->reveal());
 
-        $instance = $this->factory->__invoke($sm);
+        $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(RouteAssembler::class, $instance);
     }
 }

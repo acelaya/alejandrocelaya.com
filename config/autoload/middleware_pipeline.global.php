@@ -5,17 +5,10 @@ use Acelaya\Website\Middleware\LanguageMiddleware;
 return [
 
     'middleware_pipeline' => [
-        'pre_routing' => [
-            [
-                'middleware' => CacheMiddleware::class
-            ],
-            [
-                'middleware' => LanguageMiddleware::class
-            ]
-        ],
-        'post_routing' => [
-
-        ]
+        ['middleware' => CacheMiddleware::class],
+        ['middleware' => LanguageMiddleware::class],
+        Zend\Expressive\Container\ApplicationFactory::ROUTING_MIDDLEWARE,
+        Zend\Expressive\Container\ApplicationFactory::DISPATCH_MIDDLEWARE,
     ]
 
 ];

@@ -15,8 +15,8 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
-use Zend\Expressive\Template\TemplateInterface;
-use Zend\Expressive\Template\Twig;
+use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\Expressive\Twig\TwigRenderer;
 use Zend\Session\Container;
 
 class ContactTest extends TestCase
@@ -26,7 +26,7 @@ class ContactTest extends TestCase
      */
     protected $contact;
     /**
-     * @var TemplateInterface
+     * @var TemplateRendererInterface
      */
     protected $renderer;
     /**
@@ -51,7 +51,7 @@ class ContactTest extends TestCase
         $service = $this->prophesize(ContactService::class);
         $service->send($this->fullData)->willReturn(true);
 
-        $this->renderer = new Twig(new \Twig_Environment(new \Twig_Loader_Array([
+        $this->renderer = new TwigRenderer(new \Twig_Environment(new \Twig_Loader_Array([
             'contact.html.twig' => <<<EOF
 {% if errors is defined %}
     <p class="error-message">Error</p>

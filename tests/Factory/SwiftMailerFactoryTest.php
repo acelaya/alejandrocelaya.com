@@ -33,7 +33,7 @@ class SwiftMailerFactoryTest extends TestCase
         ]);
 
         /** @var \Swift_Mailer $mailer */
-        $mailer = $this->factory->__invoke($sm);
+        $mailer = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(\Swift_Mailer::class, $mailer);
         $this->assertInstanceOf(\Swift_SmtpTransport::class, $mailer->getTransport());
     }
