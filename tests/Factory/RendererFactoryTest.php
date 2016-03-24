@@ -6,7 +6,7 @@ use Acelaya\Website\Service\RouteAssembler;
 use Interop\Container\ContainerInterface;
 use PHPUnit_Framework_TestCase as TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
-use Zend\Expressive\Template\Twig;
+use Zend\Expressive\Twig\TwigRenderer;
 use Zend\I18n\Translator\Translator;
 
 class RendererFactoryTest extends TestCase
@@ -35,6 +35,6 @@ class RendererFactoryTest extends TestCase
     public function testInvoke()
     {
         $instance = $this->factory->__invoke($this->container->reveal());
-        $this->assertInstanceOf(Twig::class, $instance);
+        $this->assertInstanceOf(TwigRenderer::class, $instance);
     }
 }

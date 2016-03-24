@@ -2,12 +2,11 @@
 namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Template;
-use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache;
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
-use Zend\Expressive\Template\Twig;
+use Zend\Expressive\Twig\TwigRenderer;
 
 class TemplateTest extends TestCase
 {
@@ -29,7 +28,7 @@ class TemplateTest extends TestCase
 
     public function setUp()
     {
-        $templates = new Twig(new \Twig_Environment(new \Twig_Loader_Array($this->templatesContentMap)));
+        $templates = new TwigRenderer(new \Twig_Environment(new \Twig_Loader_Array($this->templatesContentMap)));
         $this->template = new Template($templates);
     }
 
