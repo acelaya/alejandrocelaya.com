@@ -25,7 +25,7 @@ class TranslatorFactoryTest extends TestCase
             'translator' => []
         ]);
 
-        $instance = $this->factory->__invoke($sm);
+        $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(Translator::class, $instance);
     }
 }

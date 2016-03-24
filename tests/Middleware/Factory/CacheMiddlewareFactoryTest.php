@@ -26,7 +26,7 @@ class CacheMiddlewareFactoryTest extends TestCase
         $sm->setService(Cache::class, $this->prophesize(Cache::class)->reveal());
         $sm->setService(RouterInterface::class, $this->prophesize(RouterInterface::class)->reveal());
 
-        $instance = $this->factory->__invoke($sm);
+        $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(CacheMiddleware::class, $instance);
     }
 }

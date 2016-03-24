@@ -24,10 +24,10 @@ class ActionAbstractFactoryTest extends TestCase
     public function testCanCreateServiceWithName()
     {
         $sm = new ServiceManager();
-        $this->assertFalse($this->factory->canCreateServiceWithName($sm, '', ''));
-        $this->assertFalse($this->factory->canCreateServiceWithName($sm, '', 'invalid'));
-        $this->assertFalse($this->factory->canCreateServiceWithName($sm, '', \stdClass::class));
-        $this->assertTrue($this->factory->canCreateServiceWithName($sm, '', Template::class));
+        $this->assertFalse($this->factory->canCreate($sm, ''));
+        $this->assertFalse($this->factory->canCreate($sm, 'invalid'));
+        $this->assertFalse($this->factory->canCreate($sm, \stdClass::class));
+        $this->assertTrue($this->factory->canCreate($sm, Template::class));
     }
 
     public function testCreateServiceWithName()
@@ -36,7 +36,7 @@ class ActionAbstractFactoryTest extends TestCase
         $sm->setService(Cache::class, new ArrayCache());
         $sm->setService('renderer', $this->prophesize(TemplateRendererInterface::class)->reveal());
 
-        $service = $this->factory->createServiceWithName($sm, '', Template::class);
+        $service = $this->factory->__invoke($sm, Template::class);
         $this->assertInstanceOf(Template::class, $service);
     }
 }

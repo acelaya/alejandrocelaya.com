@@ -34,7 +34,7 @@ class RendererFactoryTest extends TestCase
 
     public function testInvoke()
     {
-        $instance = $this->factory->__invoke($this->container->reveal());
+        $instance = $this->factory->__invoke($this->container->reveal(), '');
         $this->assertInstanceOf(TwigRenderer::class, $instance);
     }
 }

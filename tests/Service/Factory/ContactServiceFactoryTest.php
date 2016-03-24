@@ -6,7 +6,6 @@ use Acelaya\Website\Service\ContactService;
 use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Expressive\Template\TemplateRendererInterface;
-use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 
 class ContactServiceFactoryTest extends TestCase
@@ -23,14 +22,14 @@ class ContactServiceFactoryTest extends TestCase
 
     public function testInvoke()
     {
-        $sm = new ServiceManager(new Config([
+        $sm = new ServiceManager([
             'services' => [
                 \Swift_Mailer::class => $this->prophesize(\Swift_Mailer::class)->reveal(),
                 TemplateRendererInterface::class => $this->prophesize(TemplateRendererInterface::class)->reveal(),
                 MailOptions::class => new MailOptions(),
             ]
-        ]));
-        $instance = $this->factory->__invoke($sm);
+        ]);
+        $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(ContactService::class, $instance);
     }
 }
