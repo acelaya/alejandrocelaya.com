@@ -29,7 +29,7 @@
         }
     },
     "require": {
-        "php": ">=5.5",
+        "php": "^5.6|^7.0",
         "acelaya/expressive-slim-router": "^2.0",
         "doctrine/cache": "^1.4",
         "google/recaptcha": "~1.1",
