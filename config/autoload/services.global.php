@@ -25,8 +25,6 @@ use ReCaptcha\ReCaptcha;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Container\TemplatedErrorHandlerFactory;
-use Zend\Expressive\Container\WhoopsFactory;
-use Zend\Expressive\Container\WhoopsPageHandlerFactory;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\Expressive\Template\TemplateInterface;
 use Zend\I18n\Translator\Translator;
@@ -51,8 +49,6 @@ return [
             RouteAssembler::class => RouteAssemblerFactory::class,
             ContactService::class => ContactServiceFactory::class,
             'Zend\Expressive\FinalHandler' => TemplatedErrorHandlerFactory::class,
-            'Zend\Expressive\Whoops' => WhoopsFactory::class,
-            'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
 
             // Options
             MailOptions::class => MailOptionsFactory::class,
