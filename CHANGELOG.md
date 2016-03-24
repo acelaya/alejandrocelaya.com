@@ -1,5 +1,13 @@
 ## CHANGELOG
 
+### 2.0.0
+
+**Enhancements:**
+
+* [15: Update to expressive 1.0](https://github.com/acelaya/website-expressive/issues/15)
+* [9: Update to ServiceManager v3](https://github.com/acelaya/website-expressive/issues/9)
+* [14: Move whoops service declarations to services.local file](https://github.com/acelaya/website-expressive/issues/14)
+
 ### 1.2.0
 
 **Enhancements:**
