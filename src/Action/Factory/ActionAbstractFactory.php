@@ -2,8 +2,7 @@
 namespace Acelaya\Website\Action\Factory;
 
 use Acelaya\Website\Action\AbstractAction;
-use Doctrine\Common\Cache\Cache;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -32,7 +31,7 @@ class ActionAbstractFactory implements AbstractFactoryInterface
      */
     public function createServiceWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName)
     {
-        /** @var TemplateInterface $renderer */
+        /** @var TemplateRendererInterface $renderer */
         $renderer = $serviceLocator->get('renderer');
         return new $requestedName($renderer);
     }

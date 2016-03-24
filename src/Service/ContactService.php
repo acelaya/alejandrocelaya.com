@@ -2,7 +2,7 @@
 namespace Acelaya\Website\Service;
 
 use Acelaya\Website\Options\MailOptions;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactService implements ContactServiceInterface
 {
@@ -13,7 +13,7 @@ class ContactService implements ContactServiceInterface
      */
     protected $mailer;
     /**
-     * @var TemplateInterface
+     * @var TemplateRendererInterface
      */
     protected $renderer;
     /**
@@ -21,7 +21,7 @@ class ContactService implements ContactServiceInterface
      */
     protected $options;
 
-    public function __construct(\Swift_Mailer $mailer, TemplateInterface $renderer, MailOptions $options)
+    public function __construct(\Swift_Mailer $mailer, TemplateRendererInterface $renderer, MailOptions $options)
     {
         $this->mailer = $mailer;
         $this->renderer = $renderer;

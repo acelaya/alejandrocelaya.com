@@ -6,7 +6,7 @@ use Acelaya\Website\Action\Factory\ContactFactory;
 use Acelaya\Website\Service\ContactService;
 use PHPUnit_Framework_TestCase as TestCase;
 use ReCaptcha\ReCaptcha;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 
@@ -26,7 +26,7 @@ class ContactFactoryTest extends TestCase
     {
         $sm = new ServiceManager(new Config([
             'services' => [
-                TemplateInterface::class => $this->prophesize(TemplateInterface::class)->reveal(),
+                TemplateRendererInterface::class => $this->prophesize(TemplateRendererInterface::class)->reveal(),
                 ContactService::class => $this->prophesize(ContactService::class)->reveal(),
                 ReCaptcha::class => $this->prophesize(ReCaptcha::class)->reveal()
             ]

@@ -5,7 +5,7 @@ use Acelaya\Website\Factory\FactoryInterface;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use Interop\Container\ContainerInterface;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactServiceFactory implements FactoryInterface
 {
@@ -13,7 +13,7 @@ class ContactServiceFactory implements FactoryInterface
     {
         return new ContactService(
             $container->get(\Swift_Mailer::class),
-            $container->get(TemplateInterface::class),
+            $container->get(TemplateRendererInterface::class),
             $container->get(MailOptions::class)
         );
     }

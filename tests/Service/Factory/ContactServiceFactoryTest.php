@@ -5,7 +5,7 @@ use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use Acelaya\Website\Service\Factory\ContactServiceFactory;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 
@@ -26,7 +26,7 @@ class ContactServiceFactoryTest extends TestCase
         $sm = new ServiceManager(new Config([
             'services' => [
                 \Swift_Mailer::class => $this->prophesize(\Swift_Mailer::class)->reveal(),
-                TemplateInterface::class => $this->prophesize(TemplateInterface::class)->reveal(),
+                TemplateRendererInterface::class => $this->prophesize(TemplateRendererInterface::class)->reveal(),
                 MailOptions::class => new MailOptions(),
             ]
         ]));

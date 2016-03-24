@@ -7,14 +7,14 @@ use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
 use Interop\Container\ContainerInterface;
 use ReCaptcha\ReCaptcha;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container)
     {
         return new Contact(
-            $container->get(TemplateInterface::class),
+            $container->get(TemplateRendererInterface::class),
             $container->get(ContactService::class),
             new ContactFilter($container->get(ReCaptcha::class))
         );

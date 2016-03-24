@@ -6,7 +6,7 @@ use Acelaya\Website\Action\Template;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\ServiceManager;
 
 class ActionAbstractFactoryTest extends TestCase
@@ -34,7 +34,7 @@ class ActionAbstractFactoryTest extends TestCase
     {
         $sm = new ServiceManager();
         $sm->setService(Cache::class, new ArrayCache());
-        $sm->setService('renderer', $this->prophesize(TemplateInterface::class)->reveal());
+        $sm->setService('renderer', $this->prophesize(TemplateRendererInterface::class)->reveal());
 
         $service = $this->factory->createServiceWithName($sm, '', Template::class);
         $this->assertInstanceOf(Template::class, $service);

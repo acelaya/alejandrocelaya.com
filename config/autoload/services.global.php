@@ -26,7 +26,7 @@ use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Container\TemplatedErrorHandlerFactory;
 use Zend\Expressive\Router\RouterInterface;
-use Zend\Expressive\Template\TemplateInterface;
+use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\I18n\Translator\Translator;
 
 return [
@@ -39,7 +39,7 @@ return [
             Contact::class => ContactFactory::class,
 
             // Services
-            TemplateInterface::class => RendererFactory::class,
+            TemplateRendererInterface::class => RendererFactory::class,
             ServerRequestInterface::class => RequestFactory::class,
             \Swift_Mailer::class => SwiftMailerFactory::class,
             Translator::class => TranslatorFactory::class,
@@ -63,7 +63,7 @@ return [
         'aliases' => [
             'translator' => Translator::class,
             'request' => ServerRequestInterface::class,
-            'renderer' => TemplateInterface::class
+            'renderer' => TemplateRendererInterface::class
         ]
     ]
 

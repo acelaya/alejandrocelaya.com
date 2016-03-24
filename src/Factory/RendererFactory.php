@@ -7,7 +7,7 @@ use Acelaya\Website\Twig\Extension\RecaptchaExtension;
 use Acelaya\Website\Twig\Extension\TranslatorExtension;
 use Acelaya\Website\Twig\Extension\UrlExtension;
 use Interop\Container\ContainerInterface;
-use Zend\Expressive\Template\Twig;
+use Zend\Expressive\Twig\TwigRenderer;
 
 class RendererFactory implements FactoryInterface
 {
@@ -28,6 +28,6 @@ class RendererFactory implements FactoryInterface
         ));
         $twig->addExtension(new RecaptchaExtension($container->get('config')['recaptcha']));
 
-        return new Twig($twig);
+        return new TwigRenderer($twig);
     }
 }
