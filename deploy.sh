@@ -54,7 +54,7 @@ rm -rf bin
 ## REMOTE OPERATIONS
 
 # Deploy application
-remotepath='/home/alejandro/web_projects/alejandrocelaya/website'
+remotepath='/home/alejandro/apps/alejandrocelaya/website'
 temp="$remotepath-temp"
 now=`date +'%Y-%m-%d_%T'`
 ssh root@alejandrocelaya.com "mkdir $temp"
