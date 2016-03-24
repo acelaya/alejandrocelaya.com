@@ -1,11 +1,15 @@
 <?php
 use Zend\Expressive\Container\WhoopsErrorHandlerFactory;
+use Zend\Expressive\Container\WhoopsFactory;
+use Zend\Expressive\Container\WhoopsPageHandlerFactory;
 
 return [
 
     'service_manager' => [
         'factories' => [
             'Zend\Expressive\FinalHandler' => WhoopsErrorHandlerFactory::class,
+            'Zend\Expressive\Whoops' => WhoopsFactory::class,
+            'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
         ]
     ]
 

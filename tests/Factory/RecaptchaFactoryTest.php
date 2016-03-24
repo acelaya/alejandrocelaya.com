@@ -26,7 +26,7 @@ class RecaptchaFactoryTest extends TestCase
                 'private_key' => 'foo'
             ]
         ]);
-        $instance = $this->factory->__invoke($sm);
-        $this->assertInstanceOf(Recaptcha::class, $instance);
+        $instance = $this->factory->__invoke($sm, '');
+        $this->assertInstanceOf(ReCaptcha::class, $instance);
     }
 }

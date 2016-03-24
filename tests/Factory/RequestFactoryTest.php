@@ -20,7 +20,7 @@ class RequestFactoryTest extends TestCase
 
     public function testInvoke()
     {
-        $instance = $this->factory->__invoke(new ServiceManager());
+        $instance = $this->factory->__invoke(new ServiceManager(), '');
         $this->assertInstanceOf(ServerRequestInterface::class, $instance);
     }
 }
