@@ -7,6 +7,7 @@
 * [18: Drop simple service factories and use annotated services instead](https://github.com/acelaya/website-expressive/issues/18)
 * [19: Use apcu instead of filesystem for cache](https://github.com/acelaya/website-expressive/issues/19)
 * [20: Enable twig cache](https://github.com/acelaya/website-expressive/issues/20)
+* [21: Change profile image](https://github.com/acelaya/website-expressive/issues/21)
 
 ### 2.0.0
 
