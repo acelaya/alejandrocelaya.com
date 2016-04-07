@@ -1,7 +1,7 @@
 <?php
 use Acelaya\Expressive\Factory\SlimRouterFactory;
 use Acelaya\Website\Action\Contact;
-use Acelaya\Website\Action\Factory\ActionAbstractFactory;
+use Acelaya\Website\Action\Template;
 use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\Website\Factory\RecaptchaFactory;
 use Acelaya\Website\Factory\RendererFactory;
@@ -35,6 +35,7 @@ return [
 
             // Actions
             Contact::class => AnnotatedFactory::class,
+            Template::class => AnnotatedFactory::class,
 
             // Services
             TemplateRendererInterface::class => RendererFactory::class,
@@ -55,9 +56,6 @@ return [
             // Middleware
             CacheMiddleware::class => AnnotatedFactory::class,
             LanguageMiddleware::class => AnnotatedFactory::class,
-        ],
-        'abstract_factories' => [
-            ActionAbstractFactory::class
         ],
         'aliases' => [
             'translator' => Translator::class,
