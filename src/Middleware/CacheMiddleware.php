@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Middleware;
 
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -18,6 +19,13 @@ class CacheMiddleware implements MiddlewareInterface
      */
     protected $cache;
 
+    /**
+     * CacheMiddleware constructor.
+     * @param Cache $cache
+     * @param RouterInterface $router
+     *
+     * @Inject({Cache::class, RouterInterface::class})
+     */
     public function __construct(Cache $cache, RouterInterface $router)
     {
         $this->cache = $cache;

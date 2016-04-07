@@ -32,7 +32,9 @@ class RendererFactory implements FactoryInterface
         // Create the twig environment
         $twig = new \Twig_Environment(new \Twig_Loader_Filesystem([
             __DIR__ . '/../../templates'
-        ]));
+        ]), [
+            'cache' => getenv('APP_ENV') === 'pro' ? __DIR__ . '/../../data/cache' : false,
+        ]);
 
         // Add extensions
         $twig->addExtension(new TranslatorExtension($container->get('translator')));

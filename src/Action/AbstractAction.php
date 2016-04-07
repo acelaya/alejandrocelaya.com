@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Action;
 
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,6 +19,12 @@ abstract class AbstractAction implements MiddlewareInterface
      */
     protected $cache;
 
+    /**
+     * AbstractAction constructor.
+     * @param TemplateRendererInterface $renderer
+     *
+     * @Inject({"renderer"})
+     */
     public function __construct(TemplateRendererInterface $renderer)
     {
         $this->renderer = $renderer;
