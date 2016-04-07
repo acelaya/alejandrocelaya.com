@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Middleware;
 
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Router\RouterInterface;
@@ -18,6 +19,13 @@ class LanguageMiddleware implements MiddlewareInterface
      */
     protected $router;
 
+    /**
+     * LanguageMiddleware constructor.
+     * @param TranslatorInterface $translator
+     * @param RouterInterface $router
+     *
+     * @Inject({"translator", RouterInterface::class})
+     */
     public function __construct(TranslatorInterface $translator, RouterInterface $router)
     {
         $this->translator = $translator;
