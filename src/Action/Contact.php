@@ -3,6 +3,7 @@ namespace Acelaya\Website\Action;
 
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactServiceInterface;
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response\RedirectResponse;
@@ -26,6 +27,15 @@ class Contact extends Template
      */
     protected $session;
 
+    /**
+     * Contact constructor.
+     * @param TemplateRendererInterface $renderer
+     * @param ContactServiceInterface $contactService
+     * @param ContactFilter $contactFilter
+     * @param \ArrayAccess|null $session
+     *
+     * @Inject({TemplateRendererInterface::class, ContactServiceInterface::class, ContactFilter::class})
+     */
     public function __construct(
         TemplateRendererInterface $renderer,
         ContactServiceInterface $contactService,

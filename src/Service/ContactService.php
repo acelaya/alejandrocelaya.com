@@ -2,6 +2,8 @@
 namespace Acelaya\Website\Service;
 
 use Acelaya\Website\Options\MailOptions;
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
+use Swift_Mailer;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactService implements ContactServiceInterface
@@ -9,7 +11,7 @@ class ContactService implements ContactServiceInterface
     const TEMPLATE = 'emails/contact.html.twig';
 
     /**
-     * @var \Swift_Mailer
+     * @var Swift_Mailer
      */
     protected $mailer;
     /**
@@ -21,7 +23,15 @@ class ContactService implements ContactServiceInterface
      */
     protected $options;
 
-    public function __construct(\Swift_Mailer $mailer, TemplateRendererInterface $renderer, MailOptions $options)
+    /**
+     * ContactService constructor.
+     * @param Swift_Mailer $mailer
+     * @param TemplateRendererInterface $renderer
+     * @param MailOptions $options
+     *
+     * @Inject({Swift_Mailer::class, TemplateRendererInterface::class, MailOptions::class})
+     */
+    public function __construct(Swift_Mailer $mailer, TemplateRendererInterface $renderer, MailOptions $options)
     {
         $this->mailer = $mailer;
         $this->renderer = $renderer;

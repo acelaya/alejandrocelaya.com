@@ -1,6 +1,5 @@
 <?php
 use Zend\Config\Factory;
-use Zend\Config\Writer\PhpArray;
 
 $env = getenv('APP_ENV') ?: 'dev';
 $mergedConfigFile = __DIR__ . '/../data/cache/config_cache.php';
@@ -11,14 +10,11 @@ if ($env === 'pro' && is_file($mergedConfigFile)) {
 }
 
 // Merge configuration files
-$mergedConfig = Factory::fromFiles(
-    glob(__DIR__ . '/autoload/{,*.}{global,local}.php', GLOB_BRACE)
-);
+$mergedConfig = Factory::fromFiles(glob(__DIR__ . '/autoload/{,*.}{global,local}.php', GLOB_BRACE));
 
 // If in production, cache merged config
 if ($env === 'pro') {
-    $writer = new PhpArray();
-    $writer->toFile($mergedConfigFile, $mergedConfig);
+    Factory::toFile($mergedConfigFile, $mergedConfig);
 }
 
 // Finally, Return the merged configuration

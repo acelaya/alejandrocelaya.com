@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Form;
 
+use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use ReCaptcha\ReCaptcha;
 use Zend\Filter\StringTrim;
 use Zend\Filter\StripTags;
@@ -20,7 +21,13 @@ class ContactFilter extends InputFilter
      */
     protected $recaptcha;
 
-    public function __construct(Recaptcha $recaptcha)
+    /**
+     * ContactFilter constructor.
+     * @param ReCaptcha $recaptcha
+     *
+     * @Inject({ReCaptcha::class})
+     */
+    public function __construct(ReCaptcha $recaptcha)
     {
         $this->recaptcha = $recaptcha;
         $this->init();
