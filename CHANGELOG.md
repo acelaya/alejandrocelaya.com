@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+### 2.1.0
+
+**Enhancements:**
+
+* [18: Drop simple service factories and use annotated services instead](https://github.com/acelaya/website-expressive/issues/18)
+
 ### 2.0.0
 
 **Enhancements:**
