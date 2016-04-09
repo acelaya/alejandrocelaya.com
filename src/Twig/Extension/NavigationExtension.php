@@ -18,7 +18,7 @@ class NavigationExtension extends AbstractExtension
      * @var array
      */
     protected $config;
-    
+
     public function __construct(
         TranslatorInterface $translator,
         RouteAssemblerInterface $routeAssembler,
@@ -28,7 +28,7 @@ class NavigationExtension extends AbstractExtension
         $this->routeAssembler = $routeAssembler;
         $this->config = $config;
     }
-    
+
     public function getFunctions()
     {
         return [

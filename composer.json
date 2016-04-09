@@ -45,11 +45,22 @@
         "zendframework/zend-session": "^2.6"
     },
     "require-dev": {
-        "filp/whoops": "^1.1",
+        "filp/whoops": "^2.0",
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "^2.3",
         "symfony/var-dumper": "^2.7",
         "umpirsky/twig-gettext-extractor": "^1.1",
         "vlucas/phpdotenv": "^2.0"
+    },
+    "scripts": {
+        "check": [
+            "@cs",
+            "@test"
+        ],
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "serve": "php -S 0.0.0.0:8000 -t public/",
+        "test": "phpunit -c tests/phpunit.xml --coverage-clover build/clover.xml",
+        "pretty-test": "phpunit -c tests/phpunit.xml --coverage-html build/coverage"
     }
 }
