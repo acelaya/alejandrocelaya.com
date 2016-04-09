@@ -6,10 +6,21 @@ use Zend\Expressive\Container\ApplicationFactory;
 return [
 
     'middleware_pipeline' => [
-        ['middleware' => CacheMiddleware::class],
-        ['middleware' => LanguageMiddleware::class],
-        ApplicationFactory::ROUTING_MIDDLEWARE,
-        ApplicationFactory::DISPATCH_MIDDLEWARE,
+        'always' => [
+            'middleware' => [
+                CacheMiddleware::class,
+                LanguageMiddleware::class,
+            ],
+            'priority' => 10000,
+        ],
+
+        'routing' => [
+            'middleware' => [
+                ApplicationFactory::ROUTING_MIDDLEWARE,
+                ApplicationFactory::DISPATCH_MIDDLEWARE,
+            ],
+            'priority' => 1,
+        ],
     ]
 
 ];
