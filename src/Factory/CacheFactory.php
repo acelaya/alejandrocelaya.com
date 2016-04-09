@@ -1,8 +1,8 @@
 <?php
 namespace Acelaya\Website\Factory;
 
+use Doctrine\Common\Cache\ApcuCache;
 use Doctrine\Common\Cache\ArrayCache;
-use Doctrine\Common\Cache\FilesystemCache;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
@@ -25,8 +25,6 @@ class CacheFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return getenv('APP_ENV') === 'pro'
-            ? new FilesystemCache(__DIR__ . '/../../data/cache')
-            : new ArrayCache();
+        return getenv('APP_ENV') === 'pro' ? new ApcuCache() : new ArrayCache();
     }
 }

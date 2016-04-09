@@ -2,8 +2,8 @@
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\CacheFactory;
+use Doctrine\Common\Cache\ApcuCache;
 use Doctrine\Common\Cache\ArrayCache;
-use Doctrine\Common\Cache\FilesystemCache;
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\ServiceManager\ServiceManager;
 
@@ -23,7 +23,7 @@ class CacheFactoryTest extends TestCase
     {
         putenv('APP_ENV=pro');
         $instance = $this->factory->__invoke(new ServiceManager(), '');
-        $this->assertInstanceOf(FilesystemCache::class, $instance);
+        $this->assertInstanceOf(ApcuCache::class, $instance);
     }
 
     public function testCachInDevelopment()
