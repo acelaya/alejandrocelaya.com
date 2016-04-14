@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Alejandro Celaya website\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-20 12:10+0100\n"
-"PO-Revision-Date: 2015-09-20 12:10+0100\n"
+"POT-Creation-Date: 2016-04-14 21:01+0200\n"
+"PO-Revision-Date: 2016-04-14 21:01+0200\n"
 "Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -12,29 +12,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ../../src\n"
 "X-Poedit-SearchPath-1: ../../config\n"
 "X-Poedit-SearchPath-2: ../../templates\n"
 
-#: ../../config/autoload/navigation.global.php:9
 msgid "Skills"
 msgstr "Habilidades"
 
-#: ../../config/autoload/navigation.global.php:14
 msgid "Projects"
 msgstr "Proyectos"
 
-#: ../../config/autoload/navigation.global.php:19
 msgid "Contact"
 msgstr "Contactar"
 
-#: ../../config/autoload/navigation.global.php:24
 msgid "Blog"
 msgstr "Blog"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:50
 #, php-format
 msgid ""
 "%sSubclient%s is a cross-platform audio and video streaming application that "
@@ -43,24 +38,18 @@ msgstr ""
 "%sSubclient%s es una aplicación multiplataforma para streaming de audio y "
 "video que funciona como un cliente de %sSubsonic%s."
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:34
 msgid "About me"
 msgstr "Acerca de mi"
 
-#: /tmp/cache/2/e/2edbec6e32d88e00e88f25e83f75e70d9d1c43e89e935cfcb8c6f21b42cfdf65.php:34
-#: /tmp/cache/2/6/26229f1d26217697da2d24553a3f41c22c05c6c4ca663ba4a0cd931347ee9b52.php:31
 msgid "Alejandro Celaya"
 msgstr "Alejandro Celaya"
 
-#: /tmp/cache/2/e/2edbec6e32d88e00e88f25e83f75e70d9d1c43e89e935cfcb8c6f21b42cfdf65.php:27
 msgid "Alejandro Celaya Alastrue"
 msgstr "Alejandro Celaya Alastrué"
 
-#: /tmp/cache/6/d/6dfc6cdfe758ec3b806e03b7fa682ed439365862df37dbe9b37c154522c17909.php:28
 msgid "Alejandro Celaya Alastrue - PHP and Java developer"
 msgstr "Alejandro Celaya Alastrué - Programador PHP y Java"
 
-#: /tmp/cache/6/d/6dfc6cdfe758ec3b806e03b7fa682ed439365862df37dbe9b37c154522c17909.php:33
 msgid ""
 "Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I "
 "have worked with web applications, web services and e-commerce"
@@ -69,16 +58,13 @@ msgstr ""
 "España. He trabajado con aplicaciones web, web services y comercio "
 "electrónico"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:191
 #, php-format
 msgid "All of them can be found on my %sGithub%s profile page."
 msgstr "Todos ellos pueden ser encontrados en mi perfil de %sGithub%s."
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:93
 msgid "Bootstrap"
 msgstr "Bootstrap"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:67
 #, php-format
 msgid ""
 "Both Subclient and Subconnector are licensed under the %sGNU General public "
@@ -87,56 +73,42 @@ msgstr ""
 "Tanto Subclient como Subconnector están licenciados bajo %sGNU General "
 "public license v3%s."
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:78
 msgid "CSS3"
 msgstr "CSS3"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:147
 msgid "Comments"
 msgstr "Comentarios"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:72
 msgid "Contact properly sent. Thanks!"
 msgstr "Contacto correctamente enviado. ¡Gracias!"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:122
 msgid "Continuous integration"
 msgstr "Integración continua"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:115
 msgid "Email"
 msgstr "Email"
 
-#: /tmp/cache/0/7/07eb646bb4d0b74a18e6f3b456254a0b12a4a06c63ff86d68964251b2463d6b3.php:34
 msgid "Error"
 msgstr "Error"
 
-#: /tmp/cache/c/9/c964dff3ad6f8ba2e93790f4ceca7d7a08b30035f46b11f9de2a1043626f16c5.php:34
 msgid "Error 404"
 msgstr "Error 404"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:152
 msgid "Git"
 msgstr "Git"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:115
 msgid "Good practices"
 msgstr "Buenas prácticas"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:71
 msgid "HTML5"
 msgstr "HTML5"
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:38
 msgid "Hello! My name is Alejandro Celaya."
 msgstr "¡Hola! Mi nombre es Alejandro Celaya."
 
-#: /tmp/cache/c/9/c964dff3ad6f8ba2e93790f4ceca7d7a08b30035f46b11f9de2a1043626f16c5.php:51
-#: /tmp/cache/0/7/07eb646bb4d0b74a18e6f3b456254a0b12a4a06c63ff86d68964251b2463d6b3.php:51
 msgid "Home"
 msgstr "Inicio"
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:52
 msgid ""
 "I am experienced in Java Standard Edition too, wich I use for desktop "
 "application development, allowing me to include a cross-platform desktop "
@@ -146,7 +118,6 @@ msgstr ""
 "aplicaciones de escritorio, lo que me permite incluir clientes de escritorio "
 "multiplataforma para cualquier aplicación web."
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:62
 #, php-format
 msgid ""
 "I have a personal open source project too, %sSubclient%s, an audio and video "
@@ -159,7 +130,6 @@ msgstr ""
 "escritorio de %sSubsonic%s. Subsonic es una increible aplicación de "
 "streaming que utilizo para reproducir música mientras programo."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:83
 #, php-format
 msgid ""
 "I have published some Zend Framework modules in my %sGithub%s account. They "
@@ -170,7 +140,6 @@ msgstr ""
 "Todos están registrados en la página de %smódulos de Zend Framework%s y "
 "%spackagist%s, por lo que pueden ser instalados con %scomposer%s."
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:46
 #, php-format
 msgid ""
 "I have worked in many kind of projects. From simple static webpages to fully "
@@ -184,7 +153,6 @@ msgstr ""
 "Framework 2%s y tengo experiencia en diseño de interfaces de usuario y "
 "usabilidad."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:185
 msgid ""
 "I have worked in other minor projects too. Tiny CSS libraries, other Zend "
 "Framework modules and such."
@@ -192,11 +160,9 @@ msgstr ""
 "También he trabajado en otros proyectos más pequeños. Pequeñas librerías de "
 "CSS, otros módulos para Zend Framework y demás."
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:42
 msgid "I live in Zaragoza, Spain, and I am a PHP web developer since 2010."
 msgstr "Vivo en Zaragoza, España, y soy programador web PHP desde 2010."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:168
 msgid ""
 "I use to use Zend Framework and Bootstrap in web applications. They are "
 "powerful frameworks that guarantee a very professional result."
@@ -204,7 +170,6 @@ msgstr ""
 "Suelo utilizar Zend Framework y Bootstrap en aplicaciones web. Son poderosos "
 "frameworks que garantizan un resultado muy profesional."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:197
 msgid ""
 "I will keep adding more of them to the list. Maybe jQuery plugins, Bootstrap "
 "customizations or even java and PHP libraries. Time will tell."
@@ -213,7 +178,6 @@ msgstr ""
 "personalizaciones para Bootstrap o incluso librerías de java y PHP. El "
 "tiempo dirá."
 
-#: /tmp/cache/a/c/acd564fad38f8c2d9c7d7f8efd8c64a1b3cceb0355ba36288160336b64316c6d.php:57
 #, php-format
 msgid ""
 "In January 2013 I was included in the %sZend Certified Engineers%s group by "
@@ -224,13 +188,11 @@ msgstr ""
 "aprobar el examen oficial de certificación (PHP 5.3). En Mayo de 2014 "
 "también aprobé el examen de %sZend Framework 2 Certified Architect%s."
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:58
 msgid "Information provided is not valid. Review form data and send it again."
 msgstr ""
 "La información proporcionada no es válida. Revise los datos del formulario y "
 "vuelva a enviarlo."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:56
 msgid ""
 "It is currently available on Windows and Linux, and I am working on MacOS "
 "version too. I would also like to make an Android version in the future."
@@ -239,72 +201,55 @@ msgstr ""
 "en la versión de MacOS. También me gustaría hacer una versión para Android "
 "en el futuro."
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:188
 msgid "Java SE"
 msgstr "Java SE"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:85
 msgid "Javascript"
 msgstr "Javascript"
 
-#: /tmp/cache/2/6/26229f1d26217697da2d24553a3f41c22c05c6c4ca663ba4a0cd931347ee9b52.php:45
 msgid "Language"
 msgstr "Idioma"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:35
 msgid "My projects"
 msgstr "Mis proyectos"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:98
 msgid "Name"
 msgstr "Nombre"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:180
 msgid "Other projects"
 msgstr "Otros proyectos"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:167
 msgid "Others"
 msgstr "Otros"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:42
 msgid "PHP"
 msgstr "PHP"
 
-#: /tmp/cache/2/e/2edbec6e32d88e00e88f25e83f75e70d9d1c43e89e935cfcb8c6f21b42cfdf65.php:38
 msgid "PHP and Java developer"
 msgstr "Programador PHP y Java"
 
-#: /tmp/cache/c/9/c964dff3ad6f8ba2e93790f4ceca7d7a08b30035f46b11f9de2a1043626f16c5.php:39
 msgid "Page not found"
 msgstr "Página no encontrada"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:35
 msgid "Please contact me and I'll answer as soon as possible."
 msgstr "Por favor contacta conmigo y te responderé lo antes posible."
 
-#: /tmp/cache/8/e/8ef8ded4f0075eeb8a0bb46521c58294c0610252e263c0bedfc555ec49be6255.php:24
 #, php-format
 msgid "Powered by %sZend Expressive%s and %sBootstrap 3%s"
 msgstr "Powered by %sZend Expressive%s y %sBootstrap 3%s"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:181
 msgid "SEO"
 msgstr "SEO"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:100
 msgid "Sass"
 msgstr "Sass"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:174
 msgid "Scrum"
 msgstr "Scrum"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:126
 msgid "Sculpin blog"
 msgstr "Blog Sculpin"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:136
 msgid ""
 "Sculpin is a static site generator based on Symfony components that allowed "
 "me to create a blazing fast and very SEO-friendly blog."
@@ -312,11 +257,9 @@ msgstr ""
 "Sculpin es un generador de sitios estáticos basado en componentes de Symfony "
 "que me permitió crear un blog ultra rápido y amigable con el SEO."
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:166
 msgid "Sending..."
 msgstr "Enviando"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:130
 #, php-format
 msgid ""
 "Some time ago I started to write a blog. In the past my blogging platform "
@@ -326,17 +269,14 @@ msgstr ""
 "blogging era Wordpress, pero realmente no me gustaba así que cambié a "
 "%sSculpin%s."
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:52
 msgid "Something went wrong while sending the email. Try again later."
 msgstr ""
 "Algo no ha ido bien al enviar el mensaje. Por favor vuelve a intentarlo más "
 "tarde."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:46
 msgid "Subclient"
 msgstr "Subclient"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:62
 msgid ""
 "Subclient uses a library, Subconnector, that works as a Java SDK to "
 "establish connections with Subsonic servers that can be downloaded from the "
@@ -346,34 +286,27 @@ msgstr ""
 "Java para establecer conexiones con servidores Subsonic que también puede "
 "ser descargada del sitio web."
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:132
 msgid "Subject"
 msgstr "Asunto"
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:170
 msgid "Submit"
 msgstr "Enviar"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:159
 msgid "Subversion"
 msgstr "Subversion"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:129
 msgid "Task automation"
 msgstr "Automatización de tareas"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:136
 msgid "Test Driven Development"
 msgstr "Desarrollo dirigido por pruebas"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:141
 #, php-format
 msgid "The contents of my blog are open source and can be found %shere%s."
 msgstr ""
 "Los contenidos de mi blog son de código abierto y se pueden encontrar %saquí"
 "%s."
 
-#: /tmp/cache/c/9/c964dff3ad6f8ba2e93790f4ceca7d7a08b30035f46b11f9de2a1043626f16c5.php:43
 msgid ""
 "The page you requested could not be found. Use your browser's Back button to "
 "navigate to the page you have previously come from or just press this button."
@@ -382,7 +315,6 @@ msgstr ""
 "navegador para volver a la página de la que ha llegado previamente o "
 "símplemente presione este botón."
 
-#: /tmp/cache/0/7/07eb646bb4d0b74a18e6f3b456254a0b12a4a06c63ff86d68964251b2463d6b3.php:43
 msgid ""
 "The page you requested has produced an unexpected error. Use your browser's "
 "Back button to navigate to the page you have previously come from or just "
@@ -392,7 +324,6 @@ msgstr ""
 "tu navegador para volver a la página de la que ha llegado previamente o "
 "símplemente presione este botón."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:162
 #, php-format
 msgid ""
 "This website however, is made with %sZend Expressive%s and %sBootstrap 3%s. "
@@ -402,27 +333,21 @@ msgstr ""
 "%sBootstrap 3%s. Expressive es un microframework más adecuado para proyectos "
 "pequeños."
 
-#: /tmp/cache/0/7/07eb646bb4d0b74a18e6f3b456254a0b12a4a06c63ff86d68964251b2463d6b3.php:39
 msgid "Unexpected error"
 msgstr "Error inesperado"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:144
 msgid "Version control"
 msgstr "Control de versiones"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:35
 msgid "Web back-end"
 msgstr "Lado del servidor en web"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:64
 msgid "Web front-end"
 msgstr "Interfaz de usuario en web"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:153
 msgid "Websites"
 msgstr "Páginas web"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:157
 #, php-format
 msgid ""
 "When I created Subclient's website, I used %sZend Framework%s for the back-"
@@ -431,7 +356,6 @@ msgstr ""
 "Cuando creé la web de Subclient, usé %sZend Framework%s para la parte de "
 "servidor y %sBootstrap 2%s en el interfaz de usuario."
 
-#: /tmp/cache/e/e/ee09b43d8b8b7f3a5a81828df1fc739af6c618272540752941349849e7df9c0d.php:181
 #, php-format
 msgid ""
 "You can send me an email to %smoc.ayalecordnajela@ordnajela%s if you prefer."
@@ -439,45 +363,35 @@ msgstr ""
 "Puedes enviarme un  email a %smoc.ayalecordnajela@ordnajela%s si lo "
 "prefieres."
 
-#: /tmp/cache/2/e/2edbec6e32d88e00e88f25e83f75e70d9d1c43e89e935cfcb8c6f21b42cfdf65.php:49
 msgid "Zend Certified Engineer PHP 5.3"
 msgstr "Zend Certified Engineer PHP 5.3"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:49
 msgid "Zend Framework"
 msgstr "Zend Framework"
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:56
 msgid "Zend Framework 2"
 msgstr "Zend Framework 2"
 
-#: /tmp/cache/2/e/2edbec6e32d88e00e88f25e83f75e70d9d1c43e89e935cfcb8c6f21b42cfdf65.php:55
 msgid "Zend Framework 2 Certified Architect"
 msgstr "Zend Framework 2 Certified Architect"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:79
 msgid "Zend Framework modules"
 msgstr "Módulos de Zend Framework"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:91
 msgid "a fully-featured module to send emails."
 msgstr "un módulo con muchas funcionalidades para el envío de emails."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:98
 #, php-format
 msgid "a module to generate QR codes based on the %sEndroid QR code%s library."
 msgstr ""
 "un módulo para generar códigos QR basado en la librería %sEndroid QR code%s"
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:113
 msgid "a module to render yaml responses."
 msgstr "un módulo para renderizar respuestas yaml."
 
-#: /tmp/cache/5/4/54e4fb112936469ec0f78d768aba676bc22ec3775030b66f9301ab9d4212ac83.php:106
 msgid "a very simple module to manage assets."
 msgstr "un módulo muy simple para gestionar assets."
 
-#: /tmp/cache/4/2/4219dd84c3098976faf9e2bb0634a1fbed8a0a1728249ad1182038e7c3d64439.php:107
 msgid "jQuery"
 msgstr "jQuery"
 
