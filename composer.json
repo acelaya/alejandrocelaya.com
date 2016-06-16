@@ -29,7 +29,7 @@
         }
     },
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": "^7.0",
         "acelaya/expressive-slim-router": "^2.0",
         "acelaya/zsm-annotated-services": "^0.1",
         "doctrine/cache": "^1.4",

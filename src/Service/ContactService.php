@@ -44,13 +44,17 @@ class ContactService implements ContactServiceInterface
      * @param array $messageData
      * @return bool
      */
-    public function send(array $messageData)
+    public function send(array $messageData): bool
     {
         $result = $this->mailer->send($this->createMessage($messageData));
         return $result === 1;
     }
 
-    private function createMessage(array $messageData)
+    /**
+     * @param array $messageData
+     * @return \Swift_Mime_MimePart
+     */
+    private function createMessage(array $messageData): \Swift_Mime_MimePart
     {
         return \Swift_Message::newInstance($this->options->getSubject())
                              ->setTo($this->options->getTo())
@@ -59,7 +63,11 @@ class ContactService implements ContactServiceInterface
                              ->setBody($this->composeBody($messageData), 'text/html');
     }
 
-    private function composeBody(array $messageData)
+    /**
+     * @param array $messageData
+     * @return string
+     */
+    private function composeBody(array $messageData): string
     {
         return $this->renderer->render(self::TEMPLATE, $messageData);
     }

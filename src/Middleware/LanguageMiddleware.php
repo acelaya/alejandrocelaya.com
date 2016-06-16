@@ -57,13 +57,13 @@ class LanguageMiddleware implements MiddlewareInterface
      * @param null|callable $out
      * @return null|Response
      */
-    public function __invoke(Request $request, Response $response, callable $out = null)
+    public function __invoke(Request $request, Response $response, callable $out = null): Response
     {
         $matchedRoute = $this->router->match($request);
         $params = $matchedRoute->getMatchedParams();
 
         // Determine the language to use based on the lang parameter
-        $lang = isset($params['lang']) ? $params['lang'] : 'en';
+        $lang = $params['lang'] ?? 'en';
         $this->translator->setLocale($lang);
         return $out($request, $response);
     }

@@ -29,7 +29,7 @@ class NavigationExtension extends AbstractExtension
         $this->config = $config;
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction('render_menu', [$this, 'renderMenu'], ['is_safe' => ['html']]),
@@ -37,7 +37,7 @@ class NavigationExtension extends AbstractExtension
         ];
     }
 
-    public function renderMenu()
+    public function renderMenu(): string
     {
         $pages = isset($this->config['menu']) ? $this->config['menu'] : [];
         $listElements = [];
@@ -49,7 +49,7 @@ class NavigationExtension extends AbstractExtension
         foreach ($pages as $page) {
             $active = isset($page['route']) && $currentRoute->getMatchedRouteName() === $page['route'] ? 'active' : '';
             $target = isset($page['target']) ? 'target="_blank"' : '';
-            $route = isset($page['uri']) ? $page['uri'] : $this->routeAssembler->assembleUrl($page['route'], true);
+            $route = $page['uri'] ?? $this->routeAssembler->assembleUrl($page['route'], true);
 
             $listElements[] = sprintf(
                 $elementPattern,
@@ -64,9 +64,9 @@ class NavigationExtension extends AbstractExtension
         return sprintf('<ul class="nav navbar-nav main-menu">%s</ul>', implode('', $listElements));
     }
 
-    public function renderLanguagesMenu()
+    public function renderLanguagesMenu(): string
     {
-        $pages = isset($this->config['lang_menu']) ? $this->config['lang_menu'] : [];
+        $pages = $this->config['lang_menu'] ?? [];
         $listElements = [];
         $elementPattern =
             '<li>' .

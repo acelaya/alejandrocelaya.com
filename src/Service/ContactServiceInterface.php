@@ -9,5 +9,5 @@ interface ContactServiceInterface
      * @param array $messageData
      * @return bool
      */
-    public function send(array $messageData);
+    public function send(array $messageData): bool;
 }

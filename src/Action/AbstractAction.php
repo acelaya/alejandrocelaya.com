@@ -3,8 +3,8 @@ namespace Acelaya\Website\Action;
 
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Stratigility\MiddlewareInterface;
 
@@ -50,12 +50,12 @@ abstract class AbstractAction implements MiddlewareInterface
      * Often, middleware will `return $out();`, with the assumption that a
      * later middleware will return a response.
      *
-     * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
+     * @param Request $request
+     * @param Response $response
      * @param null|callable $out
-     * @return null|ResponseInterface
+     * @return null|Response
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $out = null)
+    public function __invoke(Request $request, Response $response, callable $out = null): Response
     {
         return $this->dispatch($request, $response, $out);
     }
@@ -63,14 +63,10 @@ abstract class AbstractAction implements MiddlewareInterface
     /**
      * Returns the content to render
      *
-     * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
+     * @param Request $request
+     * @param Response $response
      * @param null|callable $next
-     * @return null|ResponseInterface
+     * @return null|Response
      */
-    abstract public function dispatch(
-        ServerRequestInterface $request,
-        ResponseInterface $response,
-        callable $next = null
-    );
+    abstract public function dispatch(Request $request, Response $response, callable $next = null): Response;
 }

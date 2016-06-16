@@ -8,7 +8,7 @@ abstract class AbstractExtension extends \Twig_Extension
      *
      * @return string The extension name
      */
-    public function getName()
+    public function getName(): string
     {
         return static::class;
     }

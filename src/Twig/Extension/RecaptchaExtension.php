@@ -3,6 +3,9 @@ namespace Acelaya\Website\Twig\Extension;
 
 class RecaptchaExtension extends AbstractExtension
 {
+    /**
+     * @var array
+     */
     protected $config;
 
     public function __construct(array $config)
@@ -10,7 +13,7 @@ class RecaptchaExtension extends AbstractExtension
         $this->config = $config;
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction('recaptcha_public', [$this, 'getRecapcthaPublicKey']),
@@ -18,12 +21,12 @@ class RecaptchaExtension extends AbstractExtension
         ];
     }
 
-    public function getRecapcthaPublicKey()
+    public function getRecapcthaPublicKey(): string
     {
         return $this->config['public_key'];
     }
 
-    public function renderInput($lang = 'en')
+    public function renderInput(string $lang = 'en'): string
     {
         return '
             <script

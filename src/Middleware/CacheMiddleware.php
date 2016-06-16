@@ -57,7 +57,7 @@ class CacheMiddleware implements MiddlewareInterface
      * @param null|callable $out
      * @return null|Response
      */
-    public function __invoke(Request $request, Response $response, callable $out = null)
+    public function __invoke(Request $request, Response $response, callable $out = null): Response
     {
         $currentRoute = $this->router->match($request);
         $currentRoutePath = $request->getUri()->getPath();
@@ -84,7 +84,7 @@ class CacheMiddleware implements MiddlewareInterface
      * @param array $routeParams
      * @return bool
      */
-    protected function isResponseCacheable(Response $resp, array $routeParams = [])
+    protected function isResponseCacheable(Response $resp, array $routeParams = []): bool
     {
         return $resp->getStatusCode() === 200
             && isset($routeParams['cacheable'])

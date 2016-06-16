@@ -29,7 +29,7 @@ class SmtpOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getServer()
+    public function getServer(): string
     {
         return $this->server;
     }
@@ -38,7 +38,7 @@ class SmtpOptions extends AbstractOptions
      * @param string $server
      * @return SmtpOptions
      */
-    public function setServer($server)
+    public function setServer(string $server): SmtpOptions
     {
         $this->server = $server;
         return $this;
@@ -47,7 +47,7 @@ class SmtpOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getSsl()
+    public function getSsl(): string
     {
         return $this->ssl;
     }
@@ -56,7 +56,7 @@ class SmtpOptions extends AbstractOptions
      * @param string $ssl
      * @return SmtpOptions
      */
-    public function setSsl($ssl)
+    public function setSsl(string $ssl): SmtpOptions
     {
         $this->ssl = $ssl;
         return $this;
@@ -65,7 +65,7 @@ class SmtpOptions extends AbstractOptions
     /**
      * @return int
      */
-    public function getPort()
+    public function getPort(): int
     {
         return $this->port;
     }
@@ -74,7 +74,7 @@ class SmtpOptions extends AbstractOptions
      * @param int $port
      * @return SmtpOptions
      */
-    public function setPort($port)
+    public function setPort(int $port): SmtpOptions
     {
         $this->port = $port;
         return $this;
@@ -83,7 +83,7 @@ class SmtpOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -92,7 +92,7 @@ class SmtpOptions extends AbstractOptions
      * @param string $username
      * @return SmtpOptions
      */
-    public function setUsername($username)
+    public function setUsername(string $username): SmtpOptions
     {
         $this->username = $username;
         return $this;
@@ -101,7 +101,7 @@ class SmtpOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -110,7 +110,7 @@ class SmtpOptions extends AbstractOptions
      * @param string $password
      * @return SmtpOptions
      */
-    public function setPassword($password)
+    public function setPassword(string $password): SmtpOptions
     {
         $this->password = $password;
         return $this;

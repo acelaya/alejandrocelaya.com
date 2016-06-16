@@ -15,7 +15,7 @@ class TranslatorExtension extends AbstractExtension implements TranslatorInterfa
         $this->translator = $translator;
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction('translate', [$this, 'translate']),
@@ -32,7 +32,7 @@ class TranslatorExtension extends AbstractExtension implements TranslatorInterfa
      * @param  string $locale
      * @return string
      */
-    public function translate($message, $textDomain = 'default', $locale = null)
+    public function translate($message, $textDomain = 'default', $locale = null): string
     {
         return $this->translator->translate($message, $textDomain, $locale);
     }
@@ -53,11 +53,11 @@ class TranslatorExtension extends AbstractExtension implements TranslatorInterfa
         $number,
         $textDomain = 'default',
         $locale = null
-    ) {
+    ): string {
         return $this->translator->translatePlural($singular, $plural, $number, $textDomain, $locale);
     }
 
-    public function getLocale()
+    public function getLocale(): string
     {
         return $this->translator->getLocale();
     }

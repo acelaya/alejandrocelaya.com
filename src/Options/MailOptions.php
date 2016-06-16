@@ -25,16 +25,16 @@ class MailOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getSubject()
+    public function getSubject(): string
     {
         return $this->subject;
     }
 
     /**
      * @param string $subject
-     * @return $this
+     * @return $this|MailOptions
      */
-    public function setSubject($subject)
+    public function setSubject(string $subject): MailOptions
     {
         $this->subject = $subject;
         return $this;
@@ -43,16 +43,16 @@ class MailOptions extends AbstractOptions
     /**
      * @return SmtpOptions|null
      */
-    public function getSmtp()
+    public function getSmtp(): SmtpOptions
     {
         return $this->smtp;
     }
 
     /**
      * @param SmtpOptions|array $smtp
-     * @return $this
+     * @return $this|MailOptions
      */
-    public function setSmtp($smtp)
+    public function setSmtp($smtp): MailOptions
     {
         $this->smtp = is_array($smtp) ? new SmtpOptions($smtp) : $smtp;
         return $this;
@@ -61,16 +61,16 @@ class MailOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getFrom()
+    public function getFrom(): string
     {
         return $this->from;
     }
 
     /**
      * @param string $from
-     * @return $this
+     * @return $this|MailOptions
      */
-    public function setFrom($from)
+    public function setFrom(string $from): MailOptions
     {
         $this->from = $from;
         return $this;
@@ -79,16 +79,16 @@ class MailOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getTo()
+    public function getTo(): string
     {
         return $this->to;
     }
 
     /**
      * @param string $to
-     * @return $this
+     * @return $this|MailOptions
      */
-    public function setTo($to)
+    public function setTo(string $to): MailOptions
     {
         $this->to = $to;
         return $this;
