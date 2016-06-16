@@ -8,11 +8,11 @@ use Zend\Validator\Exception;
 class RecaptchaValidator extends AbstractValidator
 {
     /**
-     * @var Recaptcha
+     * @var ReCaptcha
      */
     protected $recaptcha;
 
-    public function __construct(Recaptcha $recaptcha)
+    public function __construct(ReCaptcha $recaptcha)
     {
         parent::__construct();
         $this->recaptcha = $recaptcha;
@@ -29,7 +29,7 @@ class RecaptchaValidator extends AbstractValidator
      * @return bool
      * @throws Exception\RuntimeException If validation of $value is impossible
      */
-    public function isValid($value)
+    public function isValid($value): bool
     {
         $resp = $this->recaptcha->verify($value);
         return $resp->isSuccess();
