@@ -4,8 +4,8 @@ namespace Acelaya\Website\Action;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactServiceInterface;
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Session\Container;
@@ -51,12 +51,12 @@ class Contact extends Template
     /**
      * Returns the content to render
      *
-     * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
+     * @param Request $request
+     * @param Response $response
      * @param null|callable $next
-     * @return null|ResponseInterface
+     * @return null|Response
      */
-    public function dispatch(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
+    public function dispatch(Request $request, Response $response, callable $next = null): Response
     {
         // On GET requests that are not comming from PRG, just return the template
         if ($request->getMethod() === 'GET' && ! $this->session->offsetExists(self::PRG_DATA)) {

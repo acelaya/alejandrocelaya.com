@@ -50,7 +50,7 @@ class ContactFilter extends InputFilter
      * @param bool|true $required
      * @return Input
      */
-    protected function createInput($name, $required = true)
+    protected function createInput($name, $required = true): Input
     {
         $input = new Input($name);
         $input->setRequired($required)

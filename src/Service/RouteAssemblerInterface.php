@@ -15,10 +15,15 @@ interface RouteAssemblerInterface
      * @param bool $inherit Tells if route and query params should be inherited from current route
      * @return string
      */
-    public function assembleUrl($name = null, $routeParams = [], $queryParams = [], $inherit = false);
+    public function assembleUrl(
+        string $name = null,
+        $routeParams = [],
+        $queryParams = [],
+        bool $inherit = false
+    ): string;
 
     /**
      * @return RouteResult
      */
-    public function getCurrentRouteResult();
+    public function getCurrentRouteResult(): RouteResult;
 }
