@@ -16,15 +16,15 @@ class MailOptionsFactory implements FactoryInterface
      * @param  ContainerInterface $container
      * @param  string $requestedName
      * @param  null|array $options
-     * @return object
+     * @return MailOptions|object
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
      *     creating a service.
      * @throws ContainerException if any other error occurs
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): MailOptions
     {
         $config = $container->get('config');
-        return new MailOptions(isset($config['mail']) ? $config['mail'] : []);
+        return new MailOptions($config['mail'] ?? []);
     }
 }
