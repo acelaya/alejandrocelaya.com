@@ -7,6 +7,44 @@
 
             <ul class="media-list">
                 <li class="media">
+                    <a class="pull-right" href="http://shlink.io" target="_blank">
+                        <img class="media-object" src="/img/projects/shlink-logo.png" alt="Subclient project">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ translate("Shlink") }}</h4>
+                        <p>{{
+                            translate("%sShlink%s is a self-hosted URL shortener built with PHP, using %sZend Expressive%s as the base framework and then using %scomposer%s to add other useful tools like %sDoctrine ORM%s, %sSymfony console%s or %sTwig%s.") | format(
+                            "<a target='_blank' href='http://shlink.io'>",
+                            "</a>",
+                            "<a target='_blank' href='https://docs.zendframework.com/zend-expressive'>",
+                            "</a>",
+                            "<a target='_blank' href='https://getcomposer.org'>",
+                            "</a>",
+                            "<a target='_blank' href='http://www.doctrine-project.org/projects/orm.html'>",
+                            "</a>",
+                            "<a target='_blank' href='http://symfony.com/doc/current/components/console.html'>",
+                            "</a>",
+                            "<a target='_blank' href='http://twig.sensiolabs.org/'>",
+                            "</a>"
+                            ) | raw
+                            }}</p>
+                        <p>
+                            {{ translate("Shlink generates unique short codes that you can use to share longer URLs under your own short domain. It tracks all the visits and then redirects the visitor to the long URL.") }}
+                        </p>
+                        <p>
+                            {{ translate("All the information is exposed through a command line interface and an easy to integrate REST API.") }}
+                        </p>
+                        <p>{{
+                            translate("Shlink is an open source project licensed under the %sMIT license%s and hosted on %sGithub%s.") | format(
+                            "<a target='_blank' href='https://opensource.org/licenses/MIT'>",
+                            "</a>",
+                            "<a target='_blank' href='https://github.com/shlinkio/shlink'>",
+                            "</a>"
+                            ) | raw
+                            }}</p>
+                    </div>
+                </li>
+                <li class="media">
                     <a class="pull-right" href="http://www.subclient.net" target="_blank">
                         <img class="media-object" src="/img/projects/subclient.png" alt="Subclient project">
                     </a>
@@ -21,7 +59,7 @@
                             ) | raw
                         }}</p>
                         <p>
-                            {{ translate("It is currently available on Windows and Linux, and I am working on MacOS version too. I would also like to make an Android version in the future.") }}
+                            {{ translate("It is currently available on Windows and Linux. I would also like to make an Android version in the future.") }}
                         </p>
                         <p>
                             {{ translate("Subclient uses a library, Subconnector, that works as a Java SDK to establish connections with Subsonic servers that can be downloaded from the website too.") }}
@@ -66,11 +104,11 @@
                             </li>
                             <li>
                                 <a href="https://github.com/acelaya/ZF2-AcAssets" target="_blank">ZF2-AcAssets</a>:
-                                {{ translate('a very simple module to manage assets.') }}
+                                {{ translate('a very simple module to manage assets. This is currently deprecated, since there are better front-end tools to manage the assets workflow.') }}
                             </li>
                             <li>
                                 <a href="https://github.com/acelaya/ZF2-AcYaml" target="_blank">ZF2-AcYaml</a>:
-                                {{ translate('a module to render yaml responses.') }}
+                                {{ translate('a module to render yaml responses. This module is currently deprecated, since it is very rare that you need to render yaml responses.') }}
                             </li>
                         </ul>
                     </div>
