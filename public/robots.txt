@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://www.alejandrocelaya.com/Sitemap.xml
+Sitemap: https://www.alejandrocelaya.com/Sitemap.xml
