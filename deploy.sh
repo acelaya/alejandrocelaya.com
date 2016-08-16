@@ -1,6 +1,9 @@
 #!/bin/sh
+set -e
 
-## LOCAL OPERATIONS
+######################
+## LOCAL OPERATIONS ##
+######################
 
 deploycontent=$(readlink -f '../website_deploy')
 projectdir=$(pwd)
@@ -50,8 +53,9 @@ rm -rf tests
 rm -rf build
 rm -rf bin
 
-
-## REMOTE OPERATIONS
+#######################
+## REMOTE OPERATIONS ##
+#######################
 
 # Deploy application
 remotepath='/home/alejandro/apps/alejandrocelaya/website'
@@ -64,6 +68,10 @@ ssh root@alejandrocelaya.com "mv $temp $remotepath"
 
 # Set write access
 ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
+
+# Restart nginx and php-fpm
+ssh root@alejandrocelaya.com "service php7.0-fpm restart"
+ssh root@alejandrocelaya.com "service nginx restart"
 
 # Delete deploy artifacts
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"

@@ -22,7 +22,7 @@ return [
             ],
             [
                 'label'     => FakeTranslator::translate('Blog'),
-                'uri'       => 'http://blog.alejandrocelaya.com',
+                'uri'       => 'https://blog.alejandrocelaya.com',
                 'icon'      => 'fa-book',
                 'target'    => true,
             ]
