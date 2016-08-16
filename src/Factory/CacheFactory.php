@@ -26,6 +26,9 @@ class CacheFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null): Cache
     {
-        return getenv('APP_ENV') === 'pro' ? new ApcuCache() : new ArrayCache();
+        $adapter = getenv('APP_ENV') === 'pro' ? new ApcuCache() : new ArrayCache();
+        $adapter->setNamespace('https://www.alejandrocelaya.com');
+
+        return $adapter;
     }
 }
