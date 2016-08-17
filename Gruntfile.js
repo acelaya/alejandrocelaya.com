@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         cssFilesTemplate    = {},
         jsFilesTemplate     = {};
 
-    cssFilesTemplate[cssFile]   = 'public/sass/main.min.scss';
+    cssFilesTemplate[cssFile]   = 'public/sass/main.scss';
     jsFilesTemplate[jsFile]     = [
         'public/js/jquery.min.js',
         'public/js/bootstrap.min.js',
@@ -32,6 +32,13 @@ module.exports = function(grunt) {
                     sourcemap: 'none'
                 },
                 files: cssFilesTemplate
+            }
+        },
+
+        watch: {
+            sass: {
+                files: 'public/sass/*.scss',
+                tasks: ['sass']
             }
         },
 
@@ -80,6 +87,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-processhtml');
 
     // Default task.
