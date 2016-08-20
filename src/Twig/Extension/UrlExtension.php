@@ -19,7 +19,8 @@ class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
     public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('assemble_url', [$this, 'assembleUrl'])
+            new \Twig_SimpleFunction('assemble_url', [$this, 'assembleUrl']),
+            new \Twig_SimpleFunction('current_route', [$this, 'getCurrentRouteName']),
         ];
     }
 
@@ -45,5 +46,14 @@ class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
     public function getCurrentRouteResult(): RouteResult
     {
         return $this->routeAssembler->getCurrentRouteResult();
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentRouteName(): string
+    {
+        $routeResult = $this->getCurrentRouteResult();
+        return $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : '';
     }
 }

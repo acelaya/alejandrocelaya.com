@@ -19,15 +19,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/acelaya/website-expressive"
+    "url": "https://github.com/acelaya/alejandrocelaya.com"
   },
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-contrib-clean": "~0.6",
-    "grunt-contrib-concat": "~0.5",
-    "grunt-contrib-sass": "~0.9",
-    "grunt-contrib-uglify": "~0.9",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-processhtml": "~0.3"
+    "grunt": "^1.0",
+    "grunt-contrib-uglify": "^1.0",
+    "grunt-contrib-cssmin": "^1.0",
+    "grunt-processhtml": "^0.4",
+    "grunt-string-replace": "^1.0"
   }
 }

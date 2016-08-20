@@ -66,9 +66,10 @@ class NavigationExtensionTest extends TestCase
     public function testGetFunctions()
     {
         $funcs = $this->extension->getFunctions();
-        $this->assertCount(2, $funcs);
+        $this->assertCount(3, $funcs);
         $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[0]);
         $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[1]);
+        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[2]);
     }
 
     public function testRenderMenu()
@@ -102,9 +103,7 @@ class NavigationExtensionTest extends TestCase
             $this->assertEquals('li', $child->tagName);
         }
 
-        $this->assertEquals('es', $document->firstChild->firstChild->getAttribute('class'));
         $this->assertEquals('/es', $document->firstChild->firstChild->getAttribute('href'));
-        $this->assertEquals('en', $document->lastChild->firstChild->getAttribute('class'));
         $this->assertEquals('/en', $document->lastChild->firstChild->getAttribute('href'));
     }
 }

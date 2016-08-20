@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Alejandro Celaya website\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 10:48+0200\n"
-"PO-Revision-Date: 2016-08-04 10:56+0200\n"
+"POT-Creation-Date: 2016-08-20 14:41+0200\n"
+"PO-Revision-Date: 2016-08-20 14:56+0200\n"
 "Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -18,8 +18,8 @@ msgstr ""
 "X-Poedit-SearchPath-1: ../../config\n"
 "X-Poedit-SearchPath-2: ../../templates\n"
 
-msgid "Skills"
-msgstr "Habilidades"
+msgid "Home"
+msgstr "Inicio"
 
 msgid "Projects"
 msgstr "Proyectos"
@@ -30,146 +30,72 @@ msgstr "Contactar"
 msgid "Blog"
 msgstr "Blog"
 
-#, php-format
-msgid ""
-"%sShlink%s is a self-hosted URL shortener built with PHP, using %sZend "
-"Expressive%s as the base framework and then using %scomposer%s to add other "
-"useful tools like %sDoctrine ORM%s, %sSymfony console%s or %sTwig%s."
-msgstr ""
-"%sShlink%s es un acortador de enlaces auto alojado creado con PHP, usando "
-"%sZend Expressive%s como framework de base y aprovechando %scomposer%s para "
-"añdir otras herramientas útiles como %sDoctrine ORM%s, %sSymfony console%s o "
-"%sTwig%s."
+msgid "404. Page not found."
+msgstr "404. Página no encontrada"
 
-#, php-format
-msgid ""
-"%sSubclient%s is a cross-platform audio and video streaming application that "
-"works as a %sSubsonic%s client."
-msgstr ""
-"%sSubclient%s es una aplicación multiplataforma para streaming de audio y "
-"video que funciona como un cliente de %sSubsonic%s."
-
-msgid "About me"
-msgstr "Acerca de mi"
-
-msgid "Alejandro Celaya"
-msgstr "Alejandro Celaya"
-
-msgid "Alejandro Celaya Alastrue"
-msgstr "Alejandro Celaya Alastrué"
-
-msgid "Alejandro Celaya Alastrue - PHP and Java developer"
-msgstr "Alejandro Celaya Alastrué - Programador PHP y Java"
+msgid "Alejandro Celaya Alastrué &mdash; Full-stack Developer"
+msgstr "Alejandro Celaya Alastrué &mdash; Full-stack Developer"
 
 msgid ""
-"Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I "
-"have worked with web applications, web services and e-commerce"
+"Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have "
+"worked with web applications, web services and e-commerce"
 msgstr ""
-"Alejandro Celaya, programador web PHP y programador Java en Zaragoza, "
-"España. He trabajado con aplicaciones web, web services y comercio "
-"electrónico"
+"Alejandro Celaya, full-stack developer (PHP/JS) en Zaragoza, España. He "
+"trabajado con aplicaciones web, web services y comercio electrónico"
 
 #, php-format
-msgid "All of them can be found on my %sGithub%s profile page."
+msgid "All of them can be found on my %sGithub%s profile."
 msgstr "Todos ellos pueden ser encontrados en mi perfil de %sGithub%s."
 
-msgid ""
-"All the information is exposed through a command line interface and an easy "
-"to integrate REST API."
-msgstr ""
-"Toda la información es expuesta a través de un interfaz en linea de comandos "
-"y una API REST fácil de integrar."
-
-msgid "Bootstrap"
-msgstr "Bootstrap"
-
-#, php-format
-msgid ""
-"Both Subclient and Subconnector are licensed under the %sGNU General public "
-"license v3%s."
-msgstr ""
-"Tanto Subclient como Subconnector están licenciados bajo %sGNU General "
-"public license v3%s."
-
-msgid "CSS3"
-msgstr "CSS3"
-
-msgid "Comments"
-msgstr "Comentarios"
+msgid "Contact me"
+msgstr "Contáctame"
 
 msgid "Contact properly sent. Thanks!"
 msgstr "Contacto correctamente enviado. ¡Gracias!"
 
-msgid "Continuous integration"
-msgstr "Integración continua"
-
 msgid "Email"
 msgstr "Email"
 
-msgid "Error"
-msgstr "Error"
-
-msgid "Error 404"
-msgstr "Error 404"
-
-msgid "Git"
-msgstr "Git"
-
-msgid "Good practices"
-msgstr "Buenas prácticas"
-
-msgid "HTML5"
-msgstr "HTML5"
-
-msgid "Hello! My name is Alejandro Celaya."
-msgstr "¡Hola! Mi nombre es Alejandro Celaya."
-
-msgid "Home"
-msgstr "Inicio"
-
-msgid ""
-"I am experienced in Java Standard Edition too, wich I use for desktop "
-"application development, allowing me to include a cross-platform desktop "
-"client for any web application."
-msgstr ""
-"También tengo experiencia en Java Standard Edition, que uso para desarrollar "
-"aplicaciones de escritorio, lo que me permite incluir clientes de escritorio "
-"multiplataforma para cualquier aplicación web."
+msgid "Follow me"
+msgstr "Sígueme"
 
 #, php-format
 msgid ""
-"I have a personal open source project too, %sSubclient%s, an audio and video "
-"streaming application that works as a %sSubsonic%s desktop client. Subsonic "
-"is an awesome server-side audio and video streamer I use for music playback "
-"while I'm programming."
+"For the front-end I use tools like %sbootstrap%s with %ssass%s, and always "
+"applaying the latest web standards, like %sHTML5%s."
 msgstr ""
-"Tengo también un proyecto personal de código abierto, %sSubclient%s, una "
-"aplicación de streaming de audio y video que funciona como cliente de "
-"escritorio de %sSubsonic%s. Subsonic es una increible aplicación de "
-"streaming que utilizo para reproducir música mientras programo."
+"For el front-end utilizo herramientas como %sbootstrap%s con %ssass%s, y "
+"siempre aplicando los últimos estándares web, como %sHTML5%s."
+
+msgid "Full-stack developer (PHP/JS)"
+msgstr "Full-stack developer (PHP/JS)"
+
+msgid "Hello!<br>My name is Alejandro Celaya."
+msgstr "¡Hola!<br>Mi nombre es Alejandro Celaya."
 
 #, php-format
 msgid ""
-"I have published some Zend Framework modules in my %sGithub%s account. They "
-"are registered in the %sZend Framework modules%s page and %spackagist%s, so "
-"they can be installed with %scomposer%s."
+"I am focused on %1$sPHP%2$s and %1$sJavascript%2$s, but I've also worked "
+"with other technologies, like %1$sJava%2$s and %1$sAndroid%2$s."
 msgstr ""
-"He publicado algunos módulos de Zend Framework en mi cuenta de %sGithub%s. "
-"Todos están registrados en la página de %smódulos de Zend Framework%s y "
-"%spackagist%s, por lo que pueden ser instalados con %scomposer%s."
+"Estoy centrado en %1$sPHP%2$s y %1$sJavascript%2$s, pero también he "
+"trabajado con otras tecnologías, como %1$sJava%2$s y %1$sAndroid%2$s."
 
 #, php-format
+msgid ""
+"I have published some ZF modules that can be installed with %scomposer%s. "
+"These are the most remarkable:"
+msgstr ""
+"He publicado algunos módulos de ZF que pueden ser instalados con %scomposer"
+"%s. Estos son los más destacables:"
+
 msgid ""
 "I have worked in many kind of projects. From simple static webpages to fully "
-"managed web applications and web services, as well as eCommerce "
-"applications. For this projects I use %sZend Framework 2%s and I have some "
-"experience on front end design and usability."
+"managed web applications, web services or eCommerce applications."
 msgstr ""
-"He trabajado en muchas clases de proyectos. Desde simples páginas estáticas "
-"hasta aplicaciones web completamente gestionables y web services, así como "
-"aplicaciones de comercio electrónico. Para estos proyectos utilizo %sZend "
-"Framework 2%s y tengo experiencia en diseño de interfaces de usuario y "
-"usabilidad."
+"He trabajado en muchos tipos de proyectos. Desde simples páginas estáticas "
+"hasta aplicaciones web completamente gestionables, web services o "
+"aplicaciones de comercio electrónico. "
 
 msgid ""
 "I have worked in other minor projects too. Tiny CSS libraries, other Zend "
@@ -178,55 +104,65 @@ msgstr ""
 "También he trabajado en otros proyectos más pequeños. Pequeñas librerías de "
 "CSS, otros módulos para Zend Framework y demás."
 
-msgid "I live in Zaragoza, Spain, and I am a PHP web developer since 2010."
-msgstr "Vivo en Zaragoza, España, y soy programador web PHP desde 2010."
-
-msgid ""
-"I use to use Zend Framework / Zend Expressive and Bootstrap in web "
-"applications. They are powerful frameworks that guarantee a very "
-"professional result."
-msgstr ""
-"Suelo utilizar Zend Framework /Zend Expressive y Bootstrap en aplicaciones "
-"web. Son poderosos frameworks que garantizan un resultado muy profesional."
-
-msgid ""
-"I will keep adding more of them to the list. Maybe jQuery plugins, Bootstrap "
-"customizations or even java and PHP libraries. Time will tell."
-msgstr ""
-"Seguiré añadiendo más a la lista. Quizás algún plugin de jQuery, "
-"personalizaciones para Bootstrap o incluso librerías de java y PHP. El "
-"tiempo dirá."
+msgid "I live in Zaragoza, Spain, and I am a web developer since 2010."
+msgstr "Vivo en Zaragoza, España, y soy programador web desde 2010."
 
 #, php-format
 msgid ""
-"In January 2013 I was included in the %sZend Certified Engineers%s group by "
-"passing the official certification exam (PHP 5.3). In May 2014 I passed the "
-"%sZend Framework 2 Certified Architect%s exam too."
+"I love open source software, and I contribute with it whenever I can, "
+"providing new features, bug fixes or improving documentation. I've created "
+"my own OSS projects too, that can be found in my %sGithub%s account."
 msgstr ""
-"En Enero de 2013 fui incluido en el grupo %sZend Certified Engineers%s al "
-"aprobar el examen oficial de certificación (PHP 5.3). En Mayo de 2014 "
-"también aprobé el examen de %sZend Framework 2 Certified Architect%s."
+"Amo el software libre, y contribuyo en proyectos OSS siempre que puedo, "
+"proporcionando nuevas funcionalidades, corrección de errors o mejorando la "
+"documentación. También he creado mis propios proyectos open source, que "
+"pueden encontrarse en mi cuenta de %sGithub%s."
+
+#, php-format
+msgid ""
+"I tend to use %1$sZend Expressive%2$s for all the websites I create. It is a "
+"microframework that allows fast development and prototyping, but scales so "
+"well that it is never too small."
+msgstr ""
+"Tiendo a utilizar %1$sZend Expressive%2$s para todas las webs que creo. Es "
+"un microframework que permite un desarrollo y prototipado muy rápidos, pero "
+"escala tan bien que nunca se queda corto."
+
+msgid "I'll get back to you as soon as possible."
+msgstr "Me pondré en contacto contigo tan pronto como sea posible."
+
+msgid ""
+"I'm a passionate programmer. I love my job and always give my best. I'm very "
+"committed with what I do, and always try to learn new things and be active."
+msgstr ""
+"Soy un programador apasionado. Amo mi trabajo y siempre doy lo mejor de mi "
+"mismo. Estoy muy comprometido con lo que hago, y siempre intento aprender "
+"cosas nuevas y estar muy activo."
+
+msgid "If you need to contact me for any reason, feel free to do it."
+msgstr ""
+"Si necesitas contactar conmigo por cualquier razón, no dudes en hacerlo."
+
+#, php-format
+msgid ""
+"In January 2013 I was included in the %1$sZend Certified Engineers%2$s group "
+"by passing the official certification exam (PHP 5.3). In May 2014 I passed "
+"the %1$sZend Framework 2 Certified Architect%2$s exam too."
+msgstr ""
+"En Enero de 2013 fui incluido en el grupo %1$sZend Certified Engineers%2$s "
+"al aprobar el examen oficial de certificación (PHP 5.3). En Mayo de 2014 "
+"también aprobé el examen de %1$sZend Framework 2 Certified Architect%2$s."
+
+msgid "In the last years I have worked in many projects."
+msgstr "En los últimos años he trabajado en muchos proyectos."
 
 msgid "Information provided is not valid. Review form data and send it again."
 msgstr ""
 "La información proporcionada no es válida. Revise los datos del formulario y "
 "vuelva a enviarlo."
 
-msgid ""
-"It is currently available on Windows and Linux. I would also like to make an "
-"Android version in the future."
-msgstr ""
-"Actualmente está disponible en Windows y Linux. También me gustaría hacer "
-"una versión para Android en el futuro."
-
-msgid "Java SE"
-msgstr "Java SE"
-
-msgid "Javascript"
-msgstr "Javascript"
-
-msgid "Language"
-msgstr "Idioma"
+msgid "Message"
+msgstr "Mensaje"
 
 msgid "My projects"
 msgstr "Mis proyectos"
@@ -234,46 +170,14 @@ msgstr "Mis proyectos"
 msgid "Name"
 msgstr "Nombre"
 
+msgid "Oops!"
+msgstr "¡Vaya!"
+
 msgid "Other projects"
 msgstr "Otros proyectos"
 
-msgid "Others"
-msgstr "Otros"
-
-msgid "PHP"
-msgstr "PHP"
-
-msgid "PHP and Java developer"
-msgstr "Programador PHP y Java"
-
-msgid "Page not found"
-msgstr "Página no encontrada"
-
-msgid "Please contact me and I'll answer as soon as possible."
-msgstr "Por favor contacta conmigo y te responderé lo antes posible."
-
-#, php-format
-msgid "Powered by %sZend Expressive%s and %sBootstrap 3%s"
-msgstr "Powered by %sZend Expressive%s y %sBootstrap 3%s"
-
-msgid "SEO"
-msgstr "SEO"
-
-msgid "Sass"
-msgstr "Sass"
-
-msgid "Scrum"
-msgstr "Scrum"
-
 msgid "Sculpin blog"
 msgstr "Blog Sculpin"
-
-msgid ""
-"Sculpin is a static site generator based on Symfony components that allowed "
-"me to create a blazing fast and very SEO-friendly blog."
-msgstr ""
-"Sculpin es un generador de sitios estáticos basado en componentes de Symfony "
-"que me permitió crear un blog ultra rápido y amigable con el SEO."
 
 msgid "Sending..."
 msgstr "Enviando"
@@ -281,38 +185,30 @@ msgstr "Enviando"
 msgid "Shlink"
 msgstr "Shlink"
 
-msgid ""
-"Shlink generates unique short codes that you can use to share longer URLs "
-"under your own short domain. It tracks all the visits and then redirects the "
-"visitor to the long URL."
-msgstr ""
-"Shlink genera códigos cortos únicos que puedes usar para compartir URLs más "
-"largas bajo tu propio dominio corto. Hace un seguimiento de todas las "
-"visitas y después redirige al visitante a la URL larga."
-
 #, php-format
 msgid ""
-"Shlink is an open source project licensed under the %sMIT license%s and "
-"hosted on %sGithub%s."
+"Shlink is a self-hosted URL shortener built with PHP, using %1$sZend "
+"Expressive%2$s as the base framework and then using %1$scomposer%2$s to add "
+"other useful tools like %1$sDoctrine ORM%2$s, %1$sSymfony console%2$s or "
+"%1$sTwig%2$s."
 msgstr ""
-"Shlink es un projecto de código abierto bajo la %slicencia MIT%s, y alojado "
-"en %sGithub%s."
-
-msgid ""
-"Shlink's website is also made with Zend Expressive and a modern and "
-"responsive HTML5 template."
-msgstr ""
-"El sitio web de Shlink también está hecho con Zend Expressive y una "
-"plantilla HTML5 moderna y responsive."
+"Shlink es un acortador de enlaces auto alojado creado con PHP, usando "
+"%1$sZend Expressive%2$s como framework de base y aprovechando %1$scomposer"
+"%2$s para añadir otras herramientas útiles como %1$sDoctrine ORM%2$s, "
+"%1$sSymfony console%2$s o %1$sTwig%2$s."
 
 #, php-format
 msgid ""
 "Some time ago I started to write a blog. In the past my blogging platform "
-"was Wordpress, but I didn't really like it so I changed to %sSculpin%s."
+"was Wordpress, but I didn't feel comfortable with it, so I changed to "
+"%1$sSculpin%2$s, a static site generater based on %1$sSymfony%2$s components "
+"with which I've created a blazing fast and SEO-friendly blog."
 msgstr ""
 "Hace algún tiempo empecé a escribir un blog. En el pasado mi plataforma de "
-"blogging era Wordpress, pero realmente no me gustaba así que cambié a "
-"%sSculpin%s."
+"blogging era Wordpress, perono me sentía cómodo con ella, así que cambié a "
+"%1$sSculpin%2$s, un generador de sitios estáticos basado en componentes de "
+"%1$sSymfony%2$s con el que he creado un blog super rápido y amigable con el "
+"SEO."
 
 msgid "Something went wrong while sending the email. Try again later."
 msgstr ""
@@ -322,35 +218,21 @@ msgstr ""
 msgid "Subclient"
 msgstr "Subclient"
 
+#, php-format
 msgid ""
-"Subclient uses a library, Subconnector, that works as a Java SDK to "
-"establish connections with Subsonic servers that can be downloaded from the "
-"website too."
+"Subclient is a cross-platform audio and video streaming application that "
+"works as a %1$sSubsonic%2$s client. it is Created with Java Swing and makes "
+"use of %1$sSubconnector%2$s to connect with servers."
 msgstr ""
-"Subclient utiliza una librería, Subconnector, que funciona como un SDK de "
-"Java para establecer conexiones con servidores Subsonic que también puede "
-"ser descargada del sitio web."
+"Subclient es una aplicación multiplataforma para streaming de audio y vídeo "
+"que funciona como un cliente de %1$sSubsonic%2$s. Está creado con Java Swing "
+"y hace uso de %1$sSubconnector%2$s para conectarse con servidores."
 
 msgid "Subject"
 msgstr "Asunto"
 
 msgid "Submit"
 msgstr "Enviar"
-
-msgid "Subversion"
-msgstr "Subversion"
-
-msgid "Task automation"
-msgstr "Automatización de tareas"
-
-msgid "Test Driven Development"
-msgstr "Desarrollo dirigido por pruebas"
-
-#, php-format
-msgid "The contents of my blog are open source and can be found %shere%s."
-msgstr ""
-"Los contenidos de mi blog son de código abierto y se pueden encontrar %saquí"
-"%s."
 
 msgid ""
 "The page you requested could not be found. Use your browser's Back button to "
@@ -369,56 +251,18 @@ msgstr ""
 "tu navegador para volver a la página de la que ha llegado previamente o "
 "símplemente presione este botón."
 
-#, php-format
-msgid ""
-"This website however, is made with %sZend Expressive%s and %sBootstrap 3%s. "
-"Expressive is a microframework more suitable for small projects."
+msgid "This is just a small sample of the projects that I still maintain."
 msgstr ""
-"Esta página web, sin embargo, está hecha con %sZend Expressive%s y "
-"%sBootstrap 3%s. Expressive es un microframework más adecuado para proyectos "
-"pequeños."
+"Esta es sólo una pequeña muestra de los proyectos que mantengo hoy en día."
 
-msgid "Unexpected error"
-msgstr "Error inesperado"
+msgid "Unexpected error."
+msgstr "Error inesperado."
 
-msgid "Version control"
-msgstr "Control de versiones"
-
-msgid "Web back-end"
-msgstr "Lado del servidor en web"
-
-msgid "Web front-end"
-msgstr "Interfaz de usuario en web"
+msgid "Website"
+msgstr "Sitio web"
 
 msgid "Websites"
 msgstr "Páginas web"
-
-#, php-format
-msgid ""
-"When I created Subclient's website, I used %sZend Framework%s for the back-"
-"end and %sBootstrap 2%s in the front-end."
-msgstr ""
-"Cuando creé la web de Subclient, usé %sZend Framework%s para la parte de "
-"servidor y %sBootstrap 2%s en el interfaz de usuario."
-
-#, php-format
-msgid ""
-"You can send me an email to %smoc.ayalecordnajela@ordnajela%s if you prefer."
-msgstr ""
-"Puedes enviarme un  email a %smoc.ayalecordnajela@ordnajela%s si lo "
-"prefieres."
-
-msgid "Zend Certified Engineer PHP 5.3"
-msgstr "Zend Certified Engineer PHP 5.3"
-
-msgid "Zend Framework"
-msgstr "Zend Framework"
-
-msgid "Zend Framework 2"
-msgstr "Zend Framework 2"
-
-msgid "Zend Framework 2 Certified Architect"
-msgstr "Zend Framework 2 Certified Architect"
 
 msgid "Zend Framework modules"
 msgstr "Módulos de Zend Framework"
@@ -431,24 +275,259 @@ msgid "a module to generate QR codes based on the %sEndroid QR code%s library."
 msgstr ""
 "un módulo para generar códigos QR basado en la librería %sEndroid QR code%s"
 
-msgid ""
-"a module to render yaml responses. This module is currently deprecated, "
-"since it is very rare that you need to render yaml responses."
-msgstr ""
-"un módulo para renderizar respuestas yaml. Este módulo esta actualmente "
-"obsoleto, ya que es raro que sea necesario renderizar respuestas en este "
-"formato."
+#~ msgid "Skills"
+#~ msgstr "Habilidades"
 
-msgid ""
-"a very simple module to manage assets. This is currently deprecated, since "
-"there are better front-end tools to manage the assets workflow."
-msgstr ""
-"un módulo para manejar assets de forma sencilla. Esto está actualmente "
-"obsoleto, ya que existen mejores herramientas de front-end para gestionar el "
-"flujo de trabajo con assets."
+#~ msgid "About me"
+#~ msgstr "Acerca de mi"
 
-msgid "jQuery"
-msgstr "jQuery"
+#~ msgid "Alejandro Celaya"
+#~ msgstr "Alejandro Celaya"
+
+#~ msgid "Alejandro Celaya Alastrue"
+#~ msgstr "Alejandro Celaya Alastrué"
+
+#~ msgid ""
+#~ "All the information is exposed through a command line interface and an "
+#~ "easy to integrate REST API."
+#~ msgstr ""
+#~ "Toda la información es expuesta a través de un interfaz en linea de "
+#~ "comandos y una API REST fácil de integrar."
+
+#~ msgid "Bootstrap"
+#~ msgstr "Bootstrap"
+
+#~ msgid ""
+#~ "Both Subclient and Subconnector are licensed under the %sGNU General "
+#~ "public license v3%s."
+#~ msgstr ""
+#~ "Tanto Subclient como Subconnector están licenciados bajo %sGNU General "
+#~ "public license v3%s."
+
+#~ msgid "CSS3"
+#~ msgstr "CSS3"
+
+#~ msgid "Comments"
+#~ msgstr "Comentarios"
+
+#~ msgid "Continuous integration"
+#~ msgstr "Integración continua"
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid "Error 404"
+#~ msgstr "Error 404"
+
+#~ msgid "Git"
+#~ msgstr "Git"
+
+#~ msgid "Good practices"
+#~ msgstr "Buenas prácticas"
+
+#~ msgid "HTML5"
+#~ msgstr "HTML5"
+
+#~ msgid ""
+#~ "I am experienced in Java Standard Edition too, wich I use for desktop "
+#~ "application development, allowing me to include a cross-platform desktop "
+#~ "client for any web application."
+#~ msgstr ""
+#~ "También tengo experiencia en Java Standard Edition, que uso para "
+#~ "desarrollar aplicaciones de escritorio, lo que me permite incluir "
+#~ "clientes de escritorio multiplataforma para cualquier aplicación web."
+
+#~ msgid ""
+#~ "I have a personal open source project too, %sSubclient%s, an audio and "
+#~ "video streaming application that works as a %sSubsonic%s desktop client. "
+#~ "Subsonic is an awesome server-side audio and video streamer I use for "
+#~ "music playback while I'm programming."
+#~ msgstr ""
+#~ "Tengo también un proyecto personal de código abierto, %sSubclient%s, una "
+#~ "aplicación de streaming de audio y video que funciona como cliente de "
+#~ "escritorio de %sSubsonic%s. Subsonic es una increible aplicación de "
+#~ "streaming que utilizo para reproducir música mientras programo."
+
+#~ msgid ""
+#~ "I have published some Zend Framework modules in my %sGithub%s account. "
+#~ "They are registered in the %sZend Framework modules%s page and %spackagist"
+#~ "%s, so they can be installed with %scomposer%s."
+#~ msgstr ""
+#~ "He publicado algunos módulos de Zend Framework en mi cuenta de %sGithub"
+#~ "%s. Todos están registrados en la página de %smódulos de Zend Framework%s "
+#~ "y %spackagist%s, por lo que pueden ser instalados con %scomposer%s."
+
+#~ msgid ""
+#~ "I use to use Zend Framework / Zend Expressive and Bootstrap in web "
+#~ "applications. They are powerful frameworks that guarantee a very "
+#~ "professional result."
+#~ msgstr ""
+#~ "Suelo utilizar Zend Framework /Zend Expressive y Bootstrap en "
+#~ "aplicaciones web. Son poderosos frameworks que garantizan un resultado "
+#~ "muy profesional."
+
+#~ msgid ""
+#~ "I will keep adding more of them to the list. Maybe jQuery plugins, "
+#~ "Bootstrap customizations or even java and PHP libraries. Time will tell."
+#~ msgstr ""
+#~ "Seguiré añadiendo más a la lista. Quizás algún plugin de jQuery, "
+#~ "personalizaciones para Bootstrap o incluso librerías de java y PHP. El "
+#~ "tiempo dirá."
+
+#~ msgid ""
+#~ "It is currently available on Windows and Linux. I would also like to make "
+#~ "an Android version in the future."
+#~ msgstr ""
+#~ "Actualmente está disponible en Windows y Linux. También me gustaría hacer "
+#~ "una versión para Android en el futuro."
+
+#~ msgid "Java SE"
+#~ msgstr "Java SE"
+
+#~ msgid "Javascript"
+#~ msgstr "Javascript"
+
+#~ msgid "Language"
+#~ msgstr "Idioma"
+
+#~ msgid "Others"
+#~ msgstr "Otros"
+
+#~ msgid "PHP"
+#~ msgstr "PHP"
+
+#~ msgid "PHP and Java developer"
+#~ msgstr "Programador PHP y Java"
+
+#~ msgid "Please contact me and I'll answer as soon as possible."
+#~ msgstr "Por favor contacta conmigo y te responderé lo antes posible."
+
+#~ msgid "Powered by %sZend Expressive%s and %sBootstrap 3%s"
+#~ msgstr "Powered by %sZend Expressive%s y %sBootstrap 3%s"
+
+#~ msgid "SEO"
+#~ msgstr "SEO"
+
+#~ msgid "Sass"
+#~ msgstr "Sass"
+
+#~ msgid "Scrum"
+#~ msgstr "Scrum"
+
+#~ msgid ""
+#~ "Sculpin is a static site generator based on Symfony components that "
+#~ "allowed me to create a blazing fast and very SEO-friendly blog."
+#~ msgstr ""
+#~ "Sculpin es un generador de sitios estáticos basado en componentes de "
+#~ "Symfony que me permitió crear un blog ultra rápido y amigable con el SEO."
+
+#~ msgid ""
+#~ "Shlink generates unique short codes that you can use to share longer URLs "
+#~ "under your own short domain. It tracks all the visits and then redirects "
+#~ "the visitor to the long URL."
+#~ msgstr ""
+#~ "Shlink genera códigos cortos únicos que puedes usar para compartir URLs "
+#~ "más largas bajo tu propio dominio corto. Hace un seguimiento de todas las "
+#~ "visitas y después redirige al visitante a la URL larga."
+
+#~ msgid ""
+#~ "Shlink is an open source project licensed under the %sMIT license%s and "
+#~ "hosted on %sGithub%s."
+#~ msgstr ""
+#~ "Shlink es un projecto de código abierto bajo la %slicencia MIT%s, y "
+#~ "alojado en %sGithub%s."
+
+#~ msgid ""
+#~ "Shlink's website is also made with Zend Expressive and a modern and "
+#~ "responsive HTML5 template."
+#~ msgstr ""
+#~ "El sitio web de Shlink también está hecho con Zend Expressive y una "
+#~ "plantilla HTML5 moderna y responsive."
+
+#~ msgid ""
+#~ "Subclient uses a library, Subconnector, that works as a Java SDK to "
+#~ "establish connections with Subsonic servers that can be downloaded from "
+#~ "the website too."
+#~ msgstr ""
+#~ "Subclient utiliza una librería, Subconnector, que funciona como un SDK de "
+#~ "Java para establecer conexiones con servidores Subsonic que también puede "
+#~ "ser descargada del sitio web."
+
+#~ msgid "Subversion"
+#~ msgstr "Subversion"
+
+#~ msgid "Task automation"
+#~ msgstr "Automatización de tareas"
+
+#~ msgid "Test Driven Development"
+#~ msgstr "Desarrollo dirigido por pruebas"
+
+#~ msgid "The contents of my blog are open source and can be found %shere%s."
+#~ msgstr ""
+#~ "Los contenidos de mi blog son de código abierto y se pueden encontrar "
+#~ "%saquí%s."
+
+#~ msgid ""
+#~ "This website however, is made with %sZend Expressive%s and %sBootstrap "
+#~ "3%s. Expressive is a microframework more suitable for small projects."
+#~ msgstr ""
+#~ "Esta página web, sin embargo, está hecha con %sZend Expressive%s y "
+#~ "%sBootstrap 3%s. Expressive es un microframework más adecuado para "
+#~ "proyectos pequeños."
+
+#~ msgid "Version control"
+#~ msgstr "Control de versiones"
+
+#~ msgid "Web back-end"
+#~ msgstr "Lado del servidor en web"
+
+#~ msgid "Web front-end"
+#~ msgstr "Interfaz de usuario en web"
+
+#~ msgid ""
+#~ "When I created Subclient's website, I used %sZend Framework%s for the "
+#~ "back-end and %sBootstrap 2%s in the front-end."
+#~ msgstr ""
+#~ "Cuando creé la web de Subclient, usé %sZend Framework%s para la parte de "
+#~ "servidor y %sBootstrap 2%s en el interfaz de usuario."
+
+#~ msgid ""
+#~ "You can send me an email to %smoc.ayalecordnajela@ordnajela%s if you "
+#~ "prefer."
+#~ msgstr ""
+#~ "Puedes enviarme un  email a %smoc.ayalecordnajela@ordnajela%s si lo "
+#~ "prefieres."
+
+#~ msgid "Zend Certified Engineer PHP 5.3"
+#~ msgstr "Zend Certified Engineer PHP 5.3"
+
+#~ msgid "Zend Framework"
+#~ msgstr "Zend Framework"
+
+#~ msgid "Zend Framework 2"
+#~ msgstr "Zend Framework 2"
+
+#~ msgid "Zend Framework 2 Certified Architect"
+#~ msgstr "Zend Framework 2 Certified Architect"
+
+#~ msgid ""
+#~ "a module to render yaml responses. This module is currently deprecated, "
+#~ "since it is very rare that you need to render yaml responses."
+#~ msgstr ""
+#~ "un módulo para renderizar respuestas yaml. Este módulo esta actualmente "
+#~ "obsoleto, ya que es raro que sea necesario renderizar respuestas en este "
+#~ "formato."
+
+#~ msgid ""
+#~ "a very simple module to manage assets. This is currently deprecated, "
+#~ "since there are better front-end tools to manage the assets workflow."
+#~ msgstr ""
+#~ "un módulo para manejar assets de forma sencilla. Esto está actualmente "
+#~ "obsoleto, ya que existen mejores herramientas de front-end para gestionar "
+#~ "el flujo de trabajo con assets."
+
+#~ msgid "jQuery"
+#~ msgstr "jQuery"
 
 #~ msgid "a module to render yaml responses."
 #~ msgstr "un módulo para renderizar respuestas yaml."
@@ -519,9 +598,6 @@ msgstr "jQuery"
 #~ msgid "File"
 #~ msgstr "Archivo"
 
-#~ msgid "Message"
-#~ msgstr "Mensaje"
-
 #~ msgid "Stack trace"
 #~ msgstr "Seguimiento de la pila (stack trace)"
 
@@ -584,9 +660,6 @@ msgstr "jQuery"
 
 #~ msgid "Fork Zend Framework 2 on GitHub"
 #~ msgstr "Hacer un Fork del Zend Framework 2 en GitHub"
-
-#~ msgid "Follow Development"
-#~ msgstr "Seguir el Desarrollo"
 
 #~ msgid ""
 #~ "Zend Framework 2 is under active development. If you are interested in "

@@ -5,7 +5,7 @@ set -e
 ## LOCAL OPERATIONS ##
 ######################
 
-deploycontent=$(readlink -f '../website_deploy')
+deploycontent=$(readlink -f '../alejandrocelaya.com_deploy')
 projectdir=$(pwd)
 
 # Copy everything to parent directory
@@ -25,7 +25,6 @@ npm install
 grunt
 
 # Remove everything that shouldn't be deployed
-rm -rf .sass-cache
 rm -rf node_modules
 rm -rf .env*
 rm -rf .git*
@@ -38,17 +37,9 @@ rm -rf README.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
-rm -rf config/autoload/*.local.php
-rm -rf config/autoload/*.local.php.dist
-rm -rf public/sass
-rm -rf public/css/bootstrap.min.css
-rm -rf public/js/bootstrap.min.js
-rm -rf public/js/contact.js
-rm -rf public/js/guiUtils.js
-rm -rf public/js/jquery.knob.js
-rm -rf public/js/jquery.min.js
-rm -rf public/js/main.js
-rm -rf public/js/skills.js
+rm -rf config/autoload/*.local.php{,.dist}
+rm -rf public/css/{animate,bootstrap,icomoon,style}.css
+rm -rf public/js/{bootstrap.min,jquery.min,jquery.easing.1.3,jquery.waypoints.min,main}.js
 rm -rf tests
 rm -rf build
 rm -rf bin
@@ -76,3 +67,6 @@ ssh root@alejandrocelaya.com "service nginx restart"
 # Delete deploy artifacts
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"
 ssh root@alejandrocelaya.com "rm $remotepath/deploy.sh"
+
+# Finally delete deployed content
+rm -rf "$deploycontent"
