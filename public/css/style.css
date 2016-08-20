@@ -584,6 +584,7 @@ body {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  margin: 0 auto;
 }
 #fh5co-projects .fh5co-project-item .fh5co-text {
   padding: 30px 10px 10px 20px;
