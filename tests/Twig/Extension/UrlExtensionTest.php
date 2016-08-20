@@ -29,8 +29,9 @@ class UrlExtensionTest extends TestCase
     {
         /** @var \Twig_SimpleFunction[] $funcs */
         $funcs = $this->extension->getFunctions();
-        $this->assertCount(1, $funcs);
+        $this->assertCount(2, $funcs);
         $this->assertEquals('assemble_url', $funcs[0]->getName());
+        $this->assertEquals('current_route', $funcs[1]->getName());
     }
 
     public function testAssembleUrl()
@@ -47,5 +48,11 @@ class UrlExtensionTest extends TestCase
         ));
         $result = $this->extension->getCurrentRouteResult();
         $this->assertInstanceOf(RouteResult::class, $result);
+    }
+
+    public function testGetCurrentRouteName()
+    {
+        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRouteMatch('foo', '', []));
+        $this->assertEquals('foo', $this->extension->getCurrentRouteName());
     }
 }

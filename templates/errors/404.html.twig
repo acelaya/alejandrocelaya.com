@@ -1,13 +1,37 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="well error-not-found text-center">
-        <h3 class="pull-right error-type">{{ translate('Error 404') }}</h3>
-        <div class="clearfix"></div>
-        <h1><b>{{ translate('Page not found') }}</b></h1>
-        <h3>{{ translate('The page you requested could not be found. Use your browser\'s Back button to navigate to the page you have previously come from or just press this button.') }}</h3>
-        <a class="btn btn-primary btn-lg" href="{{ assemble_url('home') }}">
-            <span class="fa fa-home"></span> {{ translate('Home') }}
-        </a>
-    </div>
+    <section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(/img/hero_bg.jpg);" data-next="yes">
+        <div class="fh5co-overlay"></div>
+        <div class="container">
+            <div class="fh5co-intro no-js-fullheight">
+                <div class="fh5co-intro-text">
+                    <div class="fh5co-center-position">
+                        <h2 class="animate-box">{{ translate('Oops!') }}</h2>
+                        <h3 class="animate-box">{{ translate('404. Page not found.') }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fh5co-learn-more animate-box">
+            <a href="#" class="scroll-btn">
+                <span class="arrow"><i class="icon-chevron-down"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="fh5co-testimonials">
+        <div class="container animate-box">
+            <ul class="slides text-center">
+                <li>
+                    <blockquote>
+                        <p>{{ translate('The page you requested could not be found. Use your browser\'s Back button to navigate to the page you have previously come from or just press this button.') }}</p>
+                        <a class="btn btn-primary btn-lg" href="{{ assemble_url('home') }}">
+                            {{ translate('Home') }}
+                        </a>
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+    </section>
 {% endblock %}

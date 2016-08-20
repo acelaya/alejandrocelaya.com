@@ -1,47 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ locale() }}">
+<html lang="{{ locale() }}" class="js">
     <head>
-        <title>{{ translate('Alejandro Celaya Alastrue - PHP and Java developer') }}</title>
+        <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') }}</title>
         <meta charset="utf-8">
-        <meta name="description" content="{{ translate('Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') }}">
+        <meta name="description" content="{{ translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alejandro Celaya Alastrué">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="theme-color" content="#2972b0">
+        <meta name="theme-color" content="#2a2d36">
+
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content=""/>
+        <meta property="og:image" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content=""/>
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
 
         {% include 'partials/stylesheets.html.twig' %}
-        <!--[if lt IE 9]>
-            <script type="text/javascript" src="/js/respond.min.js"></script>
-            <script type="text/javascript" src="/js/html5shiv.min.js"></script>
-        <![endif]-->
     </head>
     <body>
 
-        <header id="header">
-            {% include 'partials/header.html.twig' %}
-        </header>
-        <div id="wrap">
-            <div class="pull"></div>
-            <div id="logos">
-                <div class="image"></div>
-            </div>
-            <div class="container" id="content">
-                <div class="row">
-                    <div class="col-md-3">
-                        <aside id="aside" data-spy="affix" data-offset-top="160">
-                            {% include 'partials/aside.html.twig' %}
-                        </aside>
-                    </div>
-                    <div id="main" class="col-md-9">
-                        {% block content %}{% endblock %}
-                    </div>
+        <!-- Loader -->
+        <div class="fh5co-loader"></div>
+
+        <div id="fh5co-page">
+            <section id="fh5co-header">
+                <div class="container">
+                    <nav role="navigation">
+                        {{ render_menu() }}
+                        {{ render_langs_menu() }}
+                    </nav>
                 </div>
-            </div>
-            <div id="push"></div>
-        </div>
-        <footer id="footer">
+            </section>
+            <!-- #fh5co-header -->
+
+            {% block content '' %}
+
             {% include 'partials/footer.html.twig' %}
-        </footer>
+            <!-- END #fh5co-footer -->
+        </div>
+        <!-- END #fh5co-page -->
 
         {% include 'partials/javascripts.html.twig' %}
     </body>
