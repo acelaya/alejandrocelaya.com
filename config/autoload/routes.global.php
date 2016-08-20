@@ -23,15 +23,6 @@ return [
     'routes' => [
         $home,
         ArrayUtils::merge($home, [
-            'name' => 'skills',
-            'path' => '(/:lang)/skills/',
-            'options' => [
-                'defaults' => [
-                    'template' => 'skills.html.twig',
-                ],
-            ]
-        ]),
-        ArrayUtils::merge($home, [
             'name' => 'projects',
             'path' => '(/:lang)/projects/',
             'options' => [

@@ -1468,3 +1468,15 @@ body {
     width: 150px;
   }
 }
+
+.zf-modules-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none
+}
+
+.zf-modules-list .icon-check2 {
+  color: #8dc63f;
+  margin-right: 5px;
+  font-weight: bold;
+}

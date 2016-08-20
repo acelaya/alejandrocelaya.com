@@ -10,10 +10,6 @@ return [
                 'route' => 'home',
             ],
             [
-                'label' => FakeTranslator::translate('Skills'),
-                'route' => 'skills',
-            ],
-            [
                 'label' => FakeTranslator::translate('Projects'),
                 'route' => 'projects',
             ],

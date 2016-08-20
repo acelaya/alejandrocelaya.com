@@ -42,14 +42,17 @@ class NavigationExtension extends AbstractExtension
     {
         $pages = isset($this->config['menu']) ? $this->config['menu'] : [];
         $listElements = [];
-        $elementPattern = '<li><a href="%s" %s>%s</a></li>';
+        $elementPattern = '<li class="%s"><a href="%s" %s>%s</a></li>';
+        $currentRoute = $this->routeAssembler->getCurrentRouteResult();
 
         foreach ($pages as $page) {
+            $active = isset($page['route']) && $currentRoute->getMatchedRouteName() === $page['route'] ? 'active' : '';
             $target = isset($page['target']) ? 'target="_blank"' : '';
             $route = $page['uri'] ?? $this->routeAssembler->assembleUrl($page['route'], true);
 
             $listElements[] = sprintf(
                 $elementPattern,
+                $active,
                 $route,
                 $target,
                 $this->translator->translate($page['label'])
