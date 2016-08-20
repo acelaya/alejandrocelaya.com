@@ -26,7 +26,11 @@ grunt
 
 # Remove everything that shouldn't be deployed
 rm -rf node_modules
-rm -rf .*
+rm -rf .env*
+rm -rf .git*
+rm -rf .idea
+rm -rf .travis.yml
+rm -rf .scrutinizer.yml
 rm -rf composer.*
 rm -rf package.json
 rm -rf README.md
