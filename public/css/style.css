@@ -781,10 +781,12 @@ body {
 #fh5co-testimonials .slides {
   z-index: 99;
   list-style-type: none;
+  padding: 0;
 }
 #fh5co-testimonials .slides li blockquote {
   border-left: none;
   padding-left: 0;
+  padding-right: 0;
   font-size: 26px;
   line-height: 46px;
   margin-bottom: 0;
