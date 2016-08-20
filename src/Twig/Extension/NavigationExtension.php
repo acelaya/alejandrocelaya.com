@@ -34,6 +34,7 @@ class NavigationExtension extends AbstractExtension
         return [
             new \Twig_SimpleFunction('render_menu', [$this, 'renderMenu'], ['is_safe' => ['html']]),
             new \Twig_SimpleFunction('render_langs_menu', [$this, 'renderLanguagesMenu'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('render_social_menu', [$this, 'renderSocialMenu'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -41,11 +42,8 @@ class NavigationExtension extends AbstractExtension
     {
         $pages = isset($this->config['menu']) ? $this->config['menu'] : [];
         $listElements = [];
-        $elementPattern =
-            '<li>' .
-                '<a href="%s" %s>%s</a>' .
-            '</li>';
-        $currentRoute = $this->routeAssembler->getCurrentRouteResult();
+        $elementPattern = '<li><a href="%s" %s>%s</a></li>';
+
         foreach ($pages as $page) {
             $target = isset($page['target']) ? 'target="_blank"' : '';
             $route = $page['uri'] ?? $this->routeAssembler->assembleUrl($page['route'], true);
@@ -65,10 +63,7 @@ class NavigationExtension extends AbstractExtension
     {
         $pages = $this->config['lang_menu'] ?? [];
         $listElements = [];
-        $elementPattern =
-            '<li>' .
-                '<a href="%s">%s</a>' .
-            '</li>';
+        $elementPattern = '<li><a href="%s">%s</a></li>';
         $pageResult = $this->routeAssembler->getCurrentRouteResult();
 
         foreach ($pages as $page) {
@@ -76,13 +71,22 @@ class NavigationExtension extends AbstractExtension
             $routeName = $pageResult->isSuccess() ? null : 'home';
             $route = $this->routeAssembler->assembleUrl($routeName, $page['params']);
 
-            $listElements[] = sprintf(
-                $elementPattern,
-                $route,
-                $page['label']
-            );
+            $listElements[] = sprintf($elementPattern, $route, $page['label']);
         }
 
         return sprintf('<ul class="pull-right right-menu">%s</ul>', implode('', $listElements));
+    }
+
+    public function renderSocialMenu()
+    {
+        $pages = $this->config['social_menu'] ?? [];
+        $listElements = [];
+        $elementPattern = '<li><a target="_blank" href="%s"><i class="%s"></i></a></li>';
+
+        foreach ($pages as $page) {
+            $listElements[] = sprintf($elementPattern, $page['uri'], $page['icon']);
+        }
+
+        return sprintf('<ul class="fh5co-social">%s</ul>', implode('', $listElements));
     }
 }

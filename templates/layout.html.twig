@@ -38,49 +38,7 @@
             </section>
             <!-- #fh5co-header -->
 
-            <section id="fh5co-hero" class="js-fullheight" style="background-image: url(/img/hero_bg.jpg);" data-next="yes">
-                <div class="fh5co-overlay"></div>
-                <div class="container">
-                    <div class="fh5co-intro js-fullheight">
-                        <div class="fh5co-intro-text">
-                            <div class="fh5co-center-position">
-                                <div class="animate-box">
-                                    <img src="/img/me.jpg" class="me">
-                                    <h2>Alejandro Celaya<br>Full-stack developer</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fh5co-learn-more animate-box">
-                    <a href="#" class="scroll-btn">
-                        <span class="arrow"><i class="icon-chevron-down"></i></span>
-                    </a>
-                </div>
-            </section>
-
-            <section id="fh5co-testimonials">
-                <div class="container">
-                    <div class="row row-bottom-padded-sm">
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <div class="fh5co-label animate-box">Testimonials</div>
-                            <h2 class="fh5co-lead animate-box">Join the 1 Million Users using Our Products </h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center animate-box">
-                            <ul class="slides">
-                                <li>
-                                    <blockquote>
-                                        <p>&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo;</p>
-                                        <p><cite>&mdash; Steve Jobs</cite></p>
-                                    </blockquote>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {% block content '' %}
 
             <footer id="fh5co-footer">
                 <div class="container">
@@ -105,13 +63,7 @@
                         <div class="col-md-4 col-xs-12 animate-box">
                             <div class="fh5co-footer-widget">
                                 <h3>{{ translate('Follow me') }}</h3>
-                                <ul class="fh5co-social">
-                                    <li><a target="_blank" href="https://www.linkedin.com/in/alejandro-celaya-alastru%C3%A9-25755263"><i class="icon-linkedin"></i></a></li>
-                                    <li><a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590"><i class="icon-code"></i></a></li>
-                                    <li><a target="_blank" href="https://github.com/acelaya/"><i class="icon-github"></i></a></li>
-                                    <li><a target="_blank" href="https://twitter.com/acelayaa"><i class="icon-twitter"></i></a></li>
-                                    <li><a target="_blank" href="https://plus.google.com/+AlejandroCelaya?rel=author"><i class="icon-google-plus"></i></a></li>
-                                </ul>
+                                {{ render_social_menu() }}
                             </div>
                         </div>
 

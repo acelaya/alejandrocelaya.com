@@ -1454,3 +1454,17 @@ body {
   margin-bottom: 20px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+.fh5co-intro-text .fh5co-social li a {
+  font-size: 35px;
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .fh5co-intro-text .fh5co-social li a {
+    font-size: 25px;
+  }
+  .me {
+    width: 150px;
+  }
+}
