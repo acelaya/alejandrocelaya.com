@@ -780,6 +780,7 @@ body {
 }
 #fh5co-testimonials .slides {
   z-index: 99;
+  list-style-type: none;
 }
 #fh5co-testimonials .slides li blockquote {
   border-left: none;

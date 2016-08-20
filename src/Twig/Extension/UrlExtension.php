@@ -54,6 +54,6 @@ class UrlExtension extends AbstractExtension implements RouteAssemblerInterface
     public function getCurrentRouteName(): string
     {
         $routeResult = $this->getCurrentRouteResult();
-        return $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : null;
+        return $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : '';
     }
 }
