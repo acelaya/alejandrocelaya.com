@@ -6,38 +6,36 @@ return [
     'navigation' => [
         'menu' => [
             [
+                'label' => FakeTranslator::translate('Home'),
+                'route' => 'home',
+            ],
+            [
                 'label' => FakeTranslator::translate('Skills'),
                 'route' => 'skills',
-                'icon'  => 'fa-tags',
             ],
             [
                 'label' => FakeTranslator::translate('Projects'),
                 'route' => 'projects',
-                'icon'  => 'fa-cog',
             ],
             [
                 'label' => FakeTranslator::translate('Contact'),
                 'route' => 'contact',
-                'icon'  => 'fa fa-envelope',
             ],
             [
                 'label'     => FakeTranslator::translate('Blog'),
                 'uri'       => 'https://blog.alejandrocelaya.com',
-                'icon'      => 'fa-book',
                 'target'    => true,
             ]
         ],
         'lang_menu' => [
             [
-                'label'    => 'Español',
-                'class'    => 'es',
+                'label'    => 'Es',
                 'params'   => [
                     'lang' => 'es'
                 ]
             ],
             [
-                'label'    => 'English',
-                'class'    => 'en',
+                'label'    => 'En',
                 'params'   => [
                     'lang' => 'en'
                 ]

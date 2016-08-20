@@ -1,47 +1,137 @@
 <!DOCTYPE html>
-<html lang="{{ locale() }}">
+<html lang="{{ locale() }}" class="js">
     <head>
-        <title>{{ translate('Alejandro Celaya Alastrue - PHP and Java developer') }}</title>
+        <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') }}</title>
         <meta charset="utf-8">
-        <meta name="description" content="{{ translate('Alejandro Celaya, PHP web developer and Java developer in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') }}">
+        <meta name="description" content="{{ translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alejandro Celaya Alastrué">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="theme-color" content="#2972b0">
+        <meta name="theme-color" content="#2a2d36">
+
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content=""/>
+        <meta property="og:image" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content=""/>
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
 
         {% include 'partials/stylesheets.html.twig' %}
-        <!--[if lt IE 9]>
-            <script type="text/javascript" src="/js/respond.min.js"></script>
-            <script type="text/javascript" src="/js/html5shiv.min.js"></script>
-        <![endif]-->
     </head>
     <body>
 
-        <header id="header">
-            {% include 'partials/header.html.twig' %}
-        </header>
-        <div id="wrap">
-            <div class="pull"></div>
-            <div id="logos">
-                <div class="image"></div>
-            </div>
-            <div class="container" id="content">
-                <div class="row">
-                    <div class="col-md-3">
-                        <aside id="aside" data-spy="affix" data-offset-top="160">
-                            {% include 'partials/aside.html.twig' %}
-                        </aside>
-                    </div>
-                    <div id="main" class="col-md-9">
-                        {% block content %}{% endblock %}
+        <!-- Loader -->
+        <div class="fh5co-loader"></div>
+
+        <div id="fh5co-page">
+            <section id="fh5co-header">
+                <div class="container">
+                    <nav role="navigation">
+                        {{ render_menu() }}
+                        {{ render_langs_menu() }}
+                    </nav>
+                </div>
+            </section>
+            <!-- #fh5co-header -->
+
+            <section id="fh5co-hero" class="js-fullheight" style="background-image: url(/img/hero_bg.jpg);" data-next="yes">
+                <div class="fh5co-overlay"></div>
+                <div class="container">
+                    <div class="fh5co-intro js-fullheight">
+                        <div class="fh5co-intro-text">
+                            <div class="fh5co-center-position">
+                                <div class="animate-box">
+                                    <img src="/img/me.jpg" class="me">
+                                    <h2>Alejandro Celaya<br>Full-stack developer</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="push"></div>
+                <div class="fh5co-learn-more animate-box">
+                    <a href="#" class="scroll-btn">
+                        <span class="arrow"><i class="icon-chevron-down"></i></span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="fh5co-testimonials">
+                <div class="container">
+                    <div class="row row-bottom-padded-sm">
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            <div class="fh5co-label animate-box">Testimonials</div>
+                            <h2 class="fh5co-lead animate-box">Join the 1 Million Users using Our Products </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                            <ul class="slides">
+                                <li>
+                                    <blockquote>
+                                        <p>&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo;</p>
+                                        <p><cite>&mdash; Steve Jobs</cite></p>
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="fh5co-footer">
+                <div class="container">
+                    <div class="row row-bottom-padded-md">
+                        <div class="col-md-4 col-xs-12 animate-box">
+                            <div class="fh5co-footer-widget">
+                                <h3>{{ translate('Website') }}</h3>
+                                {{ render_menu('fh5co-links') }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-xs-12 animate-box">
+                            <div class="fh5co-footer-widget">
+                                <h3>{{ translate('Contact me') }}</h3>
+                                <p>
+                                    <a href="mailto:alejandro@alejandrocelaya.com">alejandro@alejandrocelaya.com</a> <br>
+                                    <a href="{{ assemble_url('contact', true) }}">{{ translate('Contact') }}</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-xs-12 animate-box">
+                            <div class="fh5co-footer-widget">
+                                <h3>{{ translate('Follow me') }}</h3>
+                                <ul class="fh5co-social">
+                                    <li><a target="_blank" href="https://www.linkedin.com/in/alejandro-celaya-alastru%C3%A9-25755263"><i class="icon-linkedin"></i></a></li>
+                                    <li><a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590"><i class="icon-code"></i></a></li>
+                                    <li><a target="_blank" href="https://github.com/acelaya/"><i class="icon-github"></i></a></li>
+                                    <li><a target="_blank" href="https://twitter.com/acelayaa"><i class="icon-twitter"></i></a></li>
+                                    <li><a target="_blank" href="https://plus.google.com/+AlejandroCelaya?rel=author"><i class="icon-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="fh5co-copyright animate-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="fh5co-left"><small>&copy; {{ 'now' | date('Y') }} Alejandro Celaya Alastrué.</small></p>
+                                <p class="fh5co-right"><small class="fh5co-right">{{ translate('Full-stack developer (PHP/JS)') }}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- END #fh5co-footer -->
         </div>
-        <footer id="footer">
-            {% include 'partials/footer.html.twig' %}
-        </footer>
+        <!-- END #fh5co-page -->
 
         {% include 'partials/javascripts.html.twig' %}
     </body>

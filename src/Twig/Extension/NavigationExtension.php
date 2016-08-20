@@ -37,31 +37,28 @@ class NavigationExtension extends AbstractExtension
         ];
     }
 
-    public function renderMenu(): string
+    public function renderMenu($class = 'pull-left left-menu'): string
     {
         $pages = isset($this->config['menu']) ? $this->config['menu'] : [];
         $listElements = [];
         $elementPattern =
-            '<li class="%s">' .
-                '<a href="%s" %s><i class="fa %s"></i> %s</a>' .
+            '<li>' .
+                '<a href="%s" %s>%s</a>' .
             '</li>';
         $currentRoute = $this->routeAssembler->getCurrentRouteResult();
         foreach ($pages as $page) {
-            $active = isset($page['route']) && $currentRoute->getMatchedRouteName() === $page['route'] ? 'active' : '';
             $target = isset($page['target']) ? 'target="_blank"' : '';
             $route = $page['uri'] ?? $this->routeAssembler->assembleUrl($page['route'], true);
 
             $listElements[] = sprintf(
                 $elementPattern,
-                $active,
                 $route,
                 $target,
-                $page['icon'],
                 $this->translator->translate($page['label'])
             );
         }
 
-        return sprintf('<ul class="nav navbar-nav main-menu">%s</ul>', implode('', $listElements));
+        return sprintf('<ul class="%s">%s</ul>', $class, implode('', $listElements));
     }
 
     public function renderLanguagesMenu(): string
@@ -70,7 +67,7 @@ class NavigationExtension extends AbstractExtension
         $listElements = [];
         $elementPattern =
             '<li>' .
-                '<a href="%s" class="%s">%s</a>' .
+                '<a href="%s">%s</a>' .
             '</li>';
         $pageResult = $this->routeAssembler->getCurrentRouteResult();
 
@@ -82,11 +79,10 @@ class NavigationExtension extends AbstractExtension
             $listElements[] = sprintf(
                 $elementPattern,
                 $route,
-                $page['class'],
                 $page['label']
             );
         }
 
-        return sprintf('<ul class="dropdown-menu langs-menu">%s</ul>', implode('', $listElements));
+        return sprintf('<ul class="pull-right right-menu">%s</ul>', implode('', $listElements));
     }
 }
