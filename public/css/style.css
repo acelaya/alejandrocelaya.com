@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   outline: none !important;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary[disabled] {
   background: #8dc63f;
   color: #fff;
   border: 2px solid #8dc63f;
@@ -1479,4 +1479,12 @@ body {
   color: #8dc63f;
   margin-right: 5px;
   font-weight: bold;
+}
+
+.certifications-list {
+  margin-top: 30px;
+}
+.certifications-list > li {
+  display: inline;
+  width: auto;
 }
