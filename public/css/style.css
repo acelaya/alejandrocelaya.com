@@ -535,6 +535,9 @@ body {
 #fh5co-projects, #fh5co-footer {
   background: #f9f9f9;
 }
+#fh5co-footer.white {
+  background: #fff;
+}
 #fh5co-footer .fh5co-copyright {
   background: #fff;
 }

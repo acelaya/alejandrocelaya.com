@@ -40,59 +40,7 @@
 
             {% block content '' %}
 
-            <footer id="fh5co-footer">
-                <div class="container">
-                    <div class="row row-bottom-padded-md">
-                        <div class="col-md-4 col-xs-12 animate-box">
-                            <div class="fh5co-footer-widget">
-                                <h3>{{ translate('Website') }}</h3>
-                                {{ render_menu('fh5co-links') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-12 animate-box">
-                            <div class="fh5co-footer-widget">
-                                <h3>{{ translate('Contact me') }}</h3>
-                                <p>
-                                    <a href="mailto:alejandro@alejandrocelaya.com">alejandro@alejandrocelaya.com</a> <br>
-                                    <a href="{{ assemble_url('contact', true) }}">{{ translate('Contact') }}</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-12 animate-box">
-                            <div class="fh5co-footer-widget">
-                                <h3>{{ translate('Follow me') }}</h3>
-                                {{ render_social_menu() }}
-                                <ul class="list-unstyled certifications-list">
-                                    <li>
-                                        <a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">
-                                            <img src="/img/zce.jpg">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">
-                                            <img src="/img/zfca.jpg">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="fh5co-copyright animate-box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p class="fh5co-left"><small>&copy; {{ 'now' | date('Y') }} Alejandro Celaya Alastrué.</small></p>
-                                <p class="fh5co-right"><small class="fh5co-right">{{ translate('Full-stack developer (PHP/JS)') }}</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            {% include 'partials/footer.html.twig' %}
             <!-- END #fh5co-footer -->
         </div>
         <!-- END #fh5co-page -->
