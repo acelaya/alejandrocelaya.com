@@ -82,6 +82,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
 
     // Default task.
-    grunt.registerTask('default', ['uglify', 'cssmin', 'processhtml']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'processhtml', 'string-replace']);
 
 };
