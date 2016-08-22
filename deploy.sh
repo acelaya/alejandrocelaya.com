@@ -42,7 +42,7 @@ rm -rf public/css/{animate,bootstrap,icomoon,style}.css
 rm -rf public/js/{bootstrap.min,jquery.min,jquery.easing.1.3,jquery.waypoints.min,main}.js
 rm -rf tests
 rm -rf build
-rm -rf bin
+rm -rf bin/twig-gettext-extractor
 
 #######################
 ## REMOTE OPERATIONS ##

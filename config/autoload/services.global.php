@@ -2,56 +2,60 @@
 use Acelaya\Expressive\Factory\SlimRouterFactory;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Template;
-use Acelaya\Website\Factory\CacheFactory;
-use Acelaya\Website\Factory\RecaptchaFactory;
-use Acelaya\Website\Factory\RendererFactory;
-use Acelaya\Website\Factory\RequestFactory;
-use Acelaya\Website\Factory\SwiftMailerFactory;
-use Acelaya\Website\Factory\TranslatorFactory;
+use Acelaya\Website\Console;
+use Acelaya\Website\Factory;
+use Acelaya\Website\Feed\BlogOptions;
+use Acelaya\Website\Feed\GuzzleClient;
+use Acelaya\Website\Feed\Service\BlogFeedConsumer;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
-use Acelaya\Website\Service\ContactService;
-use Acelaya\Website\Service\ContactServiceInterface;
-use Acelaya\Website\Service\RouteAssembler;
+use Acelaya\Website\Service;
 use Acelaya\ZsmAnnotatedServices\Factory\V3\AnnotatedFactory;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
 use ReCaptcha\ReCaptcha;
-use Zend\Expressive\Application;
-use Zend\Expressive\Container\ApplicationFactory;
-use Zend\Expressive\Container\TemplatedErrorHandlerFactory;
-use Zend\Expressive\Router\RouterInterface;
-use Zend\Expressive\Template\TemplateRendererInterface;
+use Symfony\Component\Console as Symfony;
+use Zend\Expressive;
 use Zend\I18n\Translator\Translator;
+use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
 
     'service_manager' => [
         'factories' => [
-            Application::class => ApplicationFactory::class,
+            Expressive\Application::class => Expressive\Container\ApplicationFactory::class,
 
             // Actions
             Contact::class => AnnotatedFactory::class,
             Template::class => AnnotatedFactory::class,
 
             // Services
-            TemplateRendererInterface::class => RendererFactory::class,
-            ServerRequestInterface::class => RequestFactory::class,
-            \Swift_Mailer::class => SwiftMailerFactory::class,
-            Translator::class => TranslatorFactory::class,
-            RouterInterface::class => SlimRouterFactory::class,
-            Cache::class => CacheFactory::class,
-            ReCaptcha::class => RecaptchaFactory::class,
-            RouteAssembler::class => AnnotatedFactory::class,
-            ContactService::class => AnnotatedFactory::class,
-            'Zend\Expressive\FinalHandler' => TemplatedErrorHandlerFactory::class,
+            Expressive\Template\TemplateRendererInterface::class => Factory\RendererFactory::class,
+            Expressive\Router\RouterInterface::class => SlimRouterFactory::class,
+            'Zend\Expressive\FinalHandler' => Expressive\Container\TemplatedErrorHandlerFactory::class,
+
+            ServerRequestInterface::class => Factory\RequestFactory::class,
+            \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
+            Translator::class => Factory\TranslatorFactory::class,
+            Cache::class => Factory\CacheFactory::class,
+            ReCaptcha::class => Factory\RecaptchaFactory::class,
+            Service\RouteAssembler::class => AnnotatedFactory::class,
+            Service\ContactService::class => AnnotatedFactory::class,
             ContactFilter::class => AnnotatedFactory::class,
+            GuzzleClient::class => InvokableFactory::class,
+            BlogFeedConsumer::class => AnnotatedFactory::class,
+
+            // Console
+            Symfony\Application::class => Console\Factory\ApplicationFactory::class,
+            Console\Command\LongTasksCommand::class => Console\Command\LongTaskCommandFactory::class,
+            Console\Task\BlogFeedConsumerTask::class => AnnotatedFactory::class,
 
             // Options
             MailOptions::class => MailOptionsFactory::class,
+            BlogOptions::class => AnnotatedFactory::class,
 
             // Middleware
             CacheMiddleware::class => AnnotatedFactory::class,
@@ -60,8 +64,8 @@ return [
         'aliases' => [
             'translator' => Translator::class,
             'request' => ServerRequestInterface::class,
-            'renderer' => TemplateRendererInterface::class,
-            ContactServiceInterface::class => ContactService::class,
+            'renderer' => Expressive\Template\TemplateRendererInterface::class,
+            Service\ContactServiceInterface::class => Service\ContactService::class,
             AnnotatedFactory::CACHE_SERVICE => Cache::class,
         ]
     ]
