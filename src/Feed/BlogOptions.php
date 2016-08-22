@@ -83,4 +83,9 @@ class BlogOptions extends AbstractOptions
         $this->elementsToDisplay = $elementsToDisplay;
         return $this;
     }
+
+    public function getCacheKey(): string
+    {
+        return sprintf('blog_feed_%s', $this->url);
+    }
 }

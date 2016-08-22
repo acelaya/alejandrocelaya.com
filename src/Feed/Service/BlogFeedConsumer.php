@@ -37,7 +37,7 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
 
     public function refreshFeed(): array
     {
-        $cacheId = 'blog_feed_' . $this->blogOptions->getUrl();
+        $cacheId = $this->blogOptions->getCacheKey();
         $feed = Reader::import($this->blogOptions->getFeed());
         $feed = $this->processFeed($feed);
 

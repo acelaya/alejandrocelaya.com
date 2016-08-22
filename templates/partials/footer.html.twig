@@ -1,24 +1,21 @@
 <footer id="fh5co-footer" class="{{ current_route() == 'projects' ? 'white' : '' }}">
     <div class="container">
         <div class="row row-bottom-padded-md">
-            <div class="col-md-4 col-xs-12 animate-box">
+            <div class="col-md-2 col-xs-12 animate-box">
                 <div class="fh5co-footer-widget">
                     <h3>{{ translate('Website') }}</h3>
                     {{ render_menu('fh5co-links') }}
                 </div>
             </div>
 
-            <div class="col-md-4 col-xs-12 animate-box">
+            <div class="col-md-7 col-xs-12 animate-box">
                 <div class="fh5co-footer-widget">
-                    <h3>{{ translate('Contact me') }}</h3>
-                    <p>
-                        <a href="mailto:alejandro@alejandrocelaya.com">alejandro@alejandrocelaya.com</a> <br>
-                        <a href="{{ assemble_url('contact', true) }}">{{ translate('Contact') }}</a>
-                    </p>
+                    <h3>{{ translate('Latest blog posts') }}</h3>
+                    {{ render_latest_blog_posts() }}
                 </div>
             </div>
 
-            <div class="col-md-4 col-xs-12 animate-box">
+            <div class="col-md-3 col-xs-12 animate-box">
                 <div class="fh5co-footer-widget">
                     <h3>{{ translate('Follow me') }}</h3>
                     {{ render_social_menu() }}
