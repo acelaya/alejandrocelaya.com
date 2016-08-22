@@ -74,6 +74,7 @@ ssh root@alejandrocelaya.com "service nginx restart"
 
 # Delete deploy artifacts
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"
+ssh root@alejandrocelaya.com "rm -rf $remotepath/data/cache/*"
 ssh root@alejandrocelaya.com "rm $remotepath/deploy.sh"
 
 # Finally delete deployed content
