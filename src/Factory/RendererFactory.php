@@ -1,11 +1,14 @@
 <?php
 namespace Acelaya\Website\Factory;
 
+use Acelaya\Website\Feed\BlogOptions;
+use Acelaya\Website\Feed\Twig\Extension\BlogExtension;
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\NavigationExtension;
 use Acelaya\Website\Twig\Extension\RecaptchaExtension;
 use Acelaya\Website\Twig\Extension\TranslatorExtension;
 use Acelaya\Website\Twig\Extension\UrlExtension;
+use Doctrine\Common\Cache\Cache;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Zend\Expressive\Template\TemplateRendererInterface as Renderer;
@@ -46,6 +49,7 @@ class RendererFactory implements FactoryInterface
             $container->get('config')['navigation']
         ));
         $twig->addExtension(new RecaptchaExtension($container->get('config')['recaptcha']));
+        $twig->addExtension(new BlogExtension($container->get(Cache::class), $container->get(BlogOptions::class)));
 
         return new TwigRenderer($twig);
     }

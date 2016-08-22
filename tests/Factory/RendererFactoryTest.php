@@ -2,7 +2,10 @@
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RendererFactory;
+use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Service\RouteAssembler;
+use Doctrine\Common\Cache\ArrayCache;
+use Doctrine\Common\Cache\Cache;
 use Interop\Container\ContainerInterface;
 use PHPUnit_Framework_TestCase as TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -29,6 +32,8 @@ class RendererFactoryTest extends TestCase
             'navigation' => [],
             'recaptcha' => []
         ]);
+        $this->container->get(Cache::class)->willReturn(new ArrayCache());
+        $this->container->get(BlogOptions::class)->willReturn(new BlogOptions());
         $this->container->get(RouteAssembler::class)->willReturn($this->prophesize(RouteAssembler::class)->reveal());
     }
 
