@@ -49,7 +49,10 @@ class RendererFactory implements FactoryInterface
             $container->get('config')['navigation']
         ));
         $twig->addExtension(new RecaptchaExtension($container->get('config')['recaptcha']));
-        $twig->addExtension(new BlogExtension($container->get(Cache::class), $container->get(BlogOptions::class)));
+        $twig->addExtension(new BlogExtension(
+            $container->get('Acelaya\Website\FeedCache'),
+            $container->get(BlogOptions::class)
+        ));
 
         return new TwigRenderer($twig);
     }

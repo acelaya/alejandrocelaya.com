@@ -32,7 +32,7 @@ class RendererFactoryTest extends TestCase
             'navigation' => [],
             'recaptcha' => []
         ]);
-        $this->container->get(Cache::class)->willReturn(new ArrayCache());
+        $this->container->get('Acelaya\Website\FeedCache')->willReturn(new ArrayCache());
         $this->container->get(BlogOptions::class)->willReturn(new BlogOptions());
         $this->container->get(RouteAssembler::class)->willReturn($this->prophesize(RouteAssembler::class)->reveal());
     }

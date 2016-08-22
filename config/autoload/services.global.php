@@ -4,9 +4,7 @@ use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Template;
 use Acelaya\Website\Console;
 use Acelaya\Website\Factory;
-use Acelaya\Website\Feed\BlogOptions;
-use Acelaya\Website\Feed\GuzzleClient;
-use Acelaya\Website\Feed\Service\BlogFeedConsumer;
+use Acelaya\Website\Feed;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
@@ -45,8 +43,9 @@ return [
             Service\RouteAssembler::class => AnnotatedFactory::class,
             Service\ContactService::class => AnnotatedFactory::class,
             ContactFilter::class => AnnotatedFactory::class,
-            GuzzleClient::class => InvokableFactory::class,
-            BlogFeedConsumer::class => AnnotatedFactory::class,
+            Feed\GuzzleClient::class => InvokableFactory::class,
+            Feed\Service\BlogFeedConsumer::class => AnnotatedFactory::class,
+            'Acelaya\Website\FeedCache' => Feed\Service\FeedCacheFactory::class,
 
             // Console
             Symfony\Application::class => Console\Factory\ApplicationFactory::class,
@@ -55,7 +54,7 @@ return [
 
             // Options
             MailOptions::class => MailOptionsFactory::class,
-            BlogOptions::class => AnnotatedFactory::class,
+            Feed\BlogOptions::class => AnnotatedFactory::class,
 
             // Middleware
             CacheMiddleware::class => AnnotatedFactory::class,

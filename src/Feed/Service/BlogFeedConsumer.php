@@ -26,7 +26,7 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
      * @param Cache\CacheProvider $cache
      * @param BlogOptions $blogOptions
      *
-     * @Inject({GuzzleClient::class, Cache\Cache::class, BlogOptions::class})
+     * @Inject({GuzzleClient::class, "Acelaya\Website\FeedCache", BlogOptions::class})
      */
     public function __construct(ClientInterface $httpClient, Cache\CacheProvider $cache, BlogOptions $blogOptions)
     {
