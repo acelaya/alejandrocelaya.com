@@ -37,9 +37,17 @@ rm -rf README.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
-rm -rf config/autoload/*.local.php{,.dist}
-rm -rf public/css/{animate,bootstrap,icomoon,style}.css
-rm -rf public/js/{bootstrap.min,jquery.min,jquery.easing.1.3,jquery.waypoints.min,main}.js
+rm -rf config/autoload/*.local.php
+rm -rf config/autoload/*.local.php.dist
+rm -rf public/css/animate.css
+rm -rf public/css/bootstrap.css
+rm -rf public/css/icomoon.css
+rm -rf public/css/style.css
+rm -rf public/js/bootstrap.min.js
+rm -rf public/js/jquery.min.js
+rm -rf public/js/jquery.easing.1.3.js
+rm -rf public/js/jquery.waypoints.min.js
+rm -rf public/js/main.js
 rm -rf tests
 rm -rf build
 rm -rf bin/twig-gettext-extractor
@@ -66,6 +74,7 @@ ssh root@alejandrocelaya.com "service nginx restart"
 
 # Delete deploy artifacts
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"
+ssh root@alejandrocelaya.com "rm -rf $remotepath/data/cache/*"
 ssh root@alejandrocelaya.com "rm $remotepath/deploy.sh"
 
 # Finally delete deployed content

@@ -14,25 +14,35 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
     /**
      * @var Cache\CacheProvider
      */
-    private $cache;
+    private $feedCache;
     /**
      * @var BlogOptions
      */
     private $blogOptions;
+    /**
+     * @var Cache\ClearableCache
+     */
+    private $templatesCache;
 
     /**
      * BlogFeedConsumer constructor.
      * @param ClientInterface $httpClient
-     * @param Cache\CacheProvider $cache
+     * @param Cache\Cache $feedCache
+     * @param Cache\ClearableCache $templatesCache
      * @param BlogOptions $blogOptions
      *
-     * @Inject({GuzzleClient::class, Cache\Cache::class, BlogOptions::class})
+     * @Inject({GuzzleClient::class, "Acelaya\Website\FeedCache", Cache\Cache::class, BlogOptions::class})
      */
-    public function __construct(ClientInterface $httpClient, Cache\CacheProvider $cache, BlogOptions $blogOptions)
-    {
+    public function __construct(
+        ClientInterface $httpClient,
+        Cache\Cache $feedCache,
+        Cache\ClearableCache $templatesCache,
+        BlogOptions $blogOptions
+    ) {
         Reader::setHttpClient($httpClient);
-        $this->cache = $cache;
+        $this->feedCache = $feedCache;
         $this->blogOptions = $blogOptions;
+        $this->templatesCache = $templatesCache;
     }
 
     public function refreshFeed(): array
@@ -42,20 +52,21 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
         $feed = $this->processFeed($feed);
 
         // If no feed has been cached yet, cache current one and return
-        if (! $this->cache->contains($cacheId)) {
-            $this->cache->save($cacheId, $feed);
+        if (! $this->feedCache->contains($cacheId)) {
+            $this->templatesCache->deleteAll();
+            $this->feedCache->save($cacheId, $feed);
             return $feed;
         }
 
         // Check if the last feed has changed, otherwise, return
-        $cachedFeed = $this->cache->fetch($cacheId);
+        $cachedFeed = $this->feedCache->fetch($cacheId);
         if ($cachedFeed[0]['link'] === $feed[0]['link']) {
             return $feed;
         }
 
         // If the feed has changed, clear all cached elements so that views are refreshed, and cache feed too
-        $this->cache->deleteAll();
-        $this->cache->save($cacheId, $feed);
+        $this->templatesCache->deleteAll();
+        $this->feedCache->save($cacheId, $feed);
         return $feed;
     }
 
