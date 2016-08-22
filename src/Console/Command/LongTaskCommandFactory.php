@@ -29,6 +29,7 @@ class LongTaskCommandFactory implements FactoryInterface
         foreach ($tasks as $key => $task) {
             if (! $container->has($task)) {
                 unset($tasks[$key]);
+                continue;
             }
 
             $tasks[$key] = $container->get($task);

@@ -63,7 +63,7 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
      * @param FeedInterface $feed
      * @return array
      */
-    public function processFeed(FeedInterface $feed): array
+    protected function processFeed(FeedInterface $feed): array
     {
         $data = [];
         $count = 0;
