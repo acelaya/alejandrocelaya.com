@@ -27,6 +27,9 @@ class BlogFeedConsumerTask implements LongTaskInterface
 
     public function run(InputInterface $input, OutputInterface $output)
     {
-
+        $feed = $this->blogFeedConsumer->refreshFeed();
+        if ($output->isVerbose()) {
+            $output->writeln(print_r($feed, true));
+        }
     }
 }
