@@ -71,7 +71,7 @@ class CacheMiddleware implements MiddlewareInterface
         // If the response is not cached, process the next middleware and get its response, then cache it
         $resp = $out($request, $response);
         if ($resp instanceof Response && $this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
-            $this->cache->save($request->getUri()->getPath(), $resp->getBody()->__toString());
+            $this->cache->save($currentRoutePath, $resp->getBody()->__toString());
         }
 
         return $resp;
