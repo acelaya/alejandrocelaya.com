@@ -37,7 +37,7 @@ class RendererFactory implements FactoryInterface
         $twig = new \Twig_Environment(new \Twig_Loader_Filesystem([
             __DIR__ . '/../../templates'
         ]), [
-            'cache' => getenv('APP_ENV') === 'pro' ? __DIR__ . '/../../data/cache' : false,
+            'cache' => getenv('APP_ENV') === 'pro' ? __DIR__ . '/../../data/cache/twig' : false,
         ]);
 
         // Add extensions

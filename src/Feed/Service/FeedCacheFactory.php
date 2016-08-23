@@ -24,6 +24,6 @@ class FeedCacheFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new FilesystemCache('data/cache');
+        return new FilesystemCache('data/cache/feed');
     }
 }

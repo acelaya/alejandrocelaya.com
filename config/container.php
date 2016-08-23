@@ -8,6 +8,9 @@ chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
 
 // Create a ServiceManager from service_manager config and register the merged config as a service
-$config = include __DIR__ . '/config.php';
-$config['service_manager']['services']['config'] = $config;
-return new ServiceManager($config['service_manager'] ?? []);
+return (function () {
+    $config = include __DIR__ . '/config.php';
+    $sm = new ServiceManager($config['service_manager'] ?? []);
+    $sm->setService('config', $config);
+    return $sm;
+})();
