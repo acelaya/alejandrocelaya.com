@@ -1,6 +1,7 @@
 <?php
 namespace AcelayaTest\Website\Factory;
 
+use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\Website\Factory\RendererFactory;
 use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Service\RouteAssembler;
@@ -32,7 +33,7 @@ class RendererFactoryTest extends TestCase
             'navigation' => [],
             'recaptcha' => []
         ]);
-        $this->container->get('Acelaya\Website\FeedCache')->willReturn(new ArrayCache());
+        $this->container->get(CacheFactory::FEED_CACHE)->willReturn(new ArrayCache());
         $this->container->get(BlogOptions::class)->willReturn(new BlogOptions());
         $this->container->get(RouteAssembler::class)->willReturn($this->prophesize(RouteAssembler::class)->reveal());
     }

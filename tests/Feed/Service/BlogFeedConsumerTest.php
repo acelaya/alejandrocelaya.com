@@ -20,11 +20,7 @@ class BlogFeedConsumerTest extends TestCase
     /**
      * @var Cache
      */
-    protected $feedCache;
-    /**
-     * @var Cache
-     */
-    protected $templatesCache;
+    protected $cache;
     /**
      * @var ObjectProphecy
      */
@@ -102,8 +98,7 @@ Something
 EOF
         ))->shouldBeCalledTimes(1);
 
-        $this->feedCache = new ArrayCache();
-        $this->templatesCache = new ArrayCache();
+        $this->cache = new ArrayCache();
         $this->options = new BlogOptions([
             'url' => 'foo',
             'feed' => 'bar',
@@ -112,8 +107,7 @@ EOF
 
         $this->service = new BlogFeedConsumer(
             $this->httpClient->reveal(),
-            $this->feedCache,
-            $this->templatesCache,
+            $this->cache,
             $this->options
         );
     }
@@ -123,9 +117,9 @@ EOF
      */
     public function nonCachedResultOnlySavesFeed()
     {
-        $this->assertFalse($this->feedCache->contains($this->options->getCacheKey()));
+        $this->assertFalse($this->cache->contains($this->options->getCacheKey()));
         $this->service->refreshFeed();
-        $this->assertTrue($this->feedCache->contains($this->options->getCacheKey()));
+        $this->assertTrue($this->cache->contains($this->options->getCacheKey()));
     }
 
     /**
@@ -133,7 +127,7 @@ EOF
      */
     public function cachedContentIsReturnedWhenEqualToProcessed()
     {
-        $this->feedCache->save($this->options->getCacheKey(), [[
+        $this->cache->save($this->options->getCacheKey(), [[
             'link' => 'https://blog.alejandrocelaya.com/entry-one/',
         ]]);
         $feed = $this->service->refreshFeed();
@@ -145,11 +139,11 @@ EOF
      */
     public function cacheIsDeletedWhenFeedHasChyanged()
     {
-        $this->templatesCache->save('foo', 'bar');
-        $this->feedCache->save($this->options->getCacheKey(), [[
+        $this->cache->save('foo', 'bar');
+        $this->cache->save($this->options->getCacheKey(), [[
             'link' => 'something else',
         ]]);
         $this->service->refreshFeed();
-        $this->assertFalse($this->templatesCache->contains('foo'));
+        $this->assertFalse($this->cache->contains('foo'));
     }
 }
