@@ -21,21 +21,30 @@ class CacheFactoryTest extends TestCase
     public function testCacheInProduction()
     {
         putenv('APP_ENV=pro');
-        $instance = $this->factory->__invoke(new ServiceManager(), '');
-//        $this->assertInstanceOf(ApcuCache::class, $instance);
-        $this->assertInstanceOf(Cache\FilesystemCache::class, $instance);
+        $instance = $this->factory->__invoke(new ServiceManager(['services' => [
+            'config' => [
+                'cache' => [
+                    'redis' => [],
+                ],
+            ],
+        ]]), '');
+        $this->assertInstanceOf(Cache\PredisCache::class, $instance);
     }
 
     public function testCachInDevelopment()
     {
         putenv('APP_ENV=dev');
-        $instance = $this->factory->__invoke(new ServiceManager(), '');
+        $instance = $this->factory->__invoke(new ServiceManager(['services' => [
+            'config' => [],
+        ]]), '');
         $this->assertInstanceOf(Cache\ArrayCache::class, $instance);
     }
 
     public function testCacheWithNoDefinedEnvironmentIsConsideredDev()
     {
-        $instance = $this->factory->__invoke(new ServiceManager(), '');
+        $instance = $this->factory->__invoke(new ServiceManager(['services' => [
+            'config' => [],
+        ]]), '');
         $this->assertInstanceOf(Cache\ArrayCache::class, $instance);
     }
 }
