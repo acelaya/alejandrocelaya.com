@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+    ac_website_nginx:
+        container_name: ac_website_nginx
+        build:
+            context: .
+            dockerfile: ./data/infra/nginx.Dockerfile
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/home/ac_website/www
+            - ./data/infra/vhost.conf:/etc/nginx/conf.d/ac_website-vhost.conf
+        links:
+            - ac_website_php
+
+    ac_website_php:
+        container_name: ac_website_php
+        build:
+            context: .
+            dockerfile: ./data/infra/php.Dockerfile
+        volumes:
+            - ./:/home/ac_website/www
+            - ./data/infra/php.ini:/usr/local/etc/php/php.ini
+        links:
+            - ac_website_redis
+
+    ac_website_redis:
+        container_name: ac_website_redis
+        build:
+            context: .
+            dockerfile: ./data/infra/redis.Dockerfile
+        ports:
+            - "6380:6379"
+        volumes:
+            - ./:/home/ac_website/www

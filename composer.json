@@ -45,11 +45,12 @@
         "zendframework/zend-session": "^2.6",
         "symfony/console": "^3.1",
         "guzzlehttp/guzzle": "^6.2",
-        "zendframework/zend-feed": "^2.7"
+        "zendframework/zend-feed": "^2.7",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
-        "phpunit/phpunit": "^4.8",
+        "phpunit/phpunit": "^5.0",
         "squizlabs/php_codesniffer": "^2.3",
         "symfony/var-dumper": "^2.7",
         "umpirsky/twig-gettext-extractor": "^1.1",

@@ -62,7 +62,7 @@ class CacheMiddleware implements MiddlewareInterface
         $currentRoute = $this->router->match($request);
         $currentRoutePath = $request->getUri()->getPath();
 
-        // If current route is a success route and it has been previously cached, write cached content and retur
+        // If current route is a success route and it has been previously cached, write cached content and return
         if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
             $response->getBody()->write($this->cache->fetch($currentRoutePath));
             return $response;
@@ -86,8 +86,7 @@ class CacheMiddleware implements MiddlewareInterface
      */
     protected function isResponseCacheable(Response $resp, array $routeParams = []): bool
     {
-        return $resp->getStatusCode() === 200
-            && isset($routeParams['cacheable'])
-            && $routeParams['cacheable'] === true;
+        $isCacheable = (bool) ($routeParams['cacheable'] ?? false);
+        return $resp->getStatusCode() === 200 && $isCacheable;
     }
 }
