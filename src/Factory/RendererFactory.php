@@ -37,7 +37,7 @@ class RendererFactory implements FactoryInterface
         $twig = new \Twig_Environment(new \Twig_Loader_Filesystem([
             __DIR__ . '/../../templates'
         ]), [
-            'cache' => getenv('APP_ENV') === 'pro' ? __DIR__ . '/../../data/cache' : false,
+            'cache' => getenv('APP_ENV') === 'pro' ? __DIR__ . '/../../data/cache/twig' : false,
         ]);
 
         // Add extensions
@@ -50,7 +50,7 @@ class RendererFactory implements FactoryInterface
         ));
         $twig->addExtension(new RecaptchaExtension($container->get('config')['recaptcha']));
         $twig->addExtension(new BlogExtension(
-            $container->get('Acelaya\Website\FeedCache'),
+            $container->get(CacheFactory::FEED_CACHE),
             $container->get(BlogOptions::class)
         ));
 

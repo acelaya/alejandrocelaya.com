@@ -71,6 +71,7 @@ ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
 # Restart nginx and php-fpm
 ssh root@alejandrocelaya.com "service php7.0-fpm restart"
 ssh root@alejandrocelaya.com "service nginx restart"
+ssh root@alejandrocelaya.com "service redis restart"
 
 # Delete deploy artifacts
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"

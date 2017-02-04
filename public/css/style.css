@@ -31,7 +31,7 @@ a {
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #8dc63f;
+  color: #61931a;
   outline: none;
   text-decoration: none;
 }

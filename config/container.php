@@ -1,4 +1,5 @@
 <?php
+use Dotenv\Dotenv;
 use Zend\ServiceManager\ServiceManager;
 
 // Change to the project root, to simplify resolving paths
@@ -7,7 +8,17 @@ chdir(dirname(__DIR__));
 // Setup autoloading
 require 'vendor/autoload.php';
 
+// Load environment variables
+if (class_exists(Dotenv::class)) {
+    $dotenv = new Dotenv(__DIR__ . '/..');
+    $dotenv->load();
+    $dotenv->required('APP_ENV')->allowedValues(['pro', 'dev']);
+}
+
 // Create a ServiceManager from service_manager config and register the merged config as a service
-$config = include __DIR__ . '/config.php';
-$config['service_manager']['services']['config'] = $config;
-return new ServiceManager($config['service_manager'] ?? []);
+return (function () {
+    $config = include __DIR__ . '/config.php';
+    $sm = new ServiceManager($config['service_manager'] ?? []);
+    $sm->setService('config', $config);
+    return $sm;
+})();

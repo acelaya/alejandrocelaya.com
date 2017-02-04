@@ -39,13 +39,13 @@ return [
             \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
             Translator::class => Factory\TranslatorFactory::class,
             Cache::class => Factory\CacheFactory::class,
+            Factory\CacheFactory::FEED_CACHE => Factory\CacheFactory::class,
             ReCaptcha::class => Factory\RecaptchaFactory::class,
             Service\RouteAssembler::class => AnnotatedFactory::class,
             Service\ContactService::class => AnnotatedFactory::class,
             ContactFilter::class => AnnotatedFactory::class,
             Feed\GuzzleClient::class => InvokableFactory::class,
             Feed\Service\BlogFeedConsumer::class => AnnotatedFactory::class,
-            'Acelaya\Website\FeedCache' => Feed\Service\FeedCacheFactory::class,
 
             // Console
             Symfony\Application::class => Console\Factory\ApplicationFactory::class,
