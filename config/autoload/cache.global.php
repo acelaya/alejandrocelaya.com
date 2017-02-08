@@ -1,8 +1,15 @@
 <?php
+use Acelaya\Website\Factory\CacheFactory;
+use Doctrine\Common\Cache\Cache;
+
 return [
 
     'cache' => [
-        'namespace' => 'https://www.alejandrocelaya.com',
+        'namespaces' => [
+            Cache::class => 'www.alejandrocelaya.com',
+            CacheFactory::FEED_CACHE => 'www.alejandrocelaya.com_rss',
+            CacheFactory::VIEWS_CACHE => 'www.alejandrocelaya.com_views',
+        ],
         'redis' => [
             'scheme' => 'tcp',
             'host' => getenv('REDIS_HOST') ?: '127.0.0.1',
