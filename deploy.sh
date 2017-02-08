@@ -68,7 +68,7 @@ ssh root@alejandrocelaya.com "mv $temp $remotepath"
 # Set write access
 ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
 
-# Restart nginx and php-fpm
+# Restart remote services
 ssh root@alejandrocelaya.com "service php7.0-fpm restart"
 ssh root@alejandrocelaya.com "service nginx restart"
 ssh root@alejandrocelaya.com "service redis restart"
@@ -77,6 +77,9 @@ ssh root@alejandrocelaya.com "service redis restart"
 ssh root@alejandrocelaya.com "rm $remotepath/data/cache/.gitignore"
 ssh root@alejandrocelaya.com "rm -rf $remotepath/data/cache/*"
 ssh root@alejandrocelaya.com "rm $remotepath/deploy.sh"
+
+# Run long tasks
+ssh root@alejandrocelaya.com "$remotepath/bin/cli website:long-tasks"
 
 # Finally delete deployed content
 rm -rf "$deploycontent"

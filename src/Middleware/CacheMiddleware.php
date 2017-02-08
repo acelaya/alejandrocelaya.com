@@ -1,6 +1,7 @@
 <?php
 namespace Acelaya\Website\Middleware;
 
+use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,7 +25,7 @@ class CacheMiddleware implements MiddlewareInterface
      * @param Cache $cache
      * @param RouterInterface $router
      *
-     * @Inject({Cache::class, RouterInterface::class})
+     * @Inject({CacheFactory::VIEWS_CACHE, RouterInterface::class})
      */
     public function __construct(Cache $cache, RouterInterface $router)
     {

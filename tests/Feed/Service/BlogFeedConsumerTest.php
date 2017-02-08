@@ -4,7 +4,7 @@ namespace AcelayaTest\Website\Feed\Service;
 use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Feed\Service\BlogFeedConsumer;
 use Doctrine\Common\Cache\ArrayCache;
-use Doctrine\Common\Cache\Cache;
+use Doctrine\Common\Cache;
 use PHPUnit_Framework_TestCase as TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -18,9 +18,13 @@ class BlogFeedConsumerTest extends TestCase
      */
     protected $service;
     /**
-     * @var Cache
+     * @var Cache\Cache
      */
-    protected $cache;
+    protected $feedCache;
+    /**
+     * @var Cache\ClearableCache
+     */
+    protected $viewsCache;
     /**
      * @var ObjectProphecy
      */
@@ -98,7 +102,8 @@ Something
 EOF
         ))->shouldBeCalledTimes(1);
 
-        $this->cache = new ArrayCache();
+        $this->feedCache = new ArrayCache();
+        $this->viewsCache = new ArrayCache();
         $this->options = new BlogOptions([
             'url' => 'foo',
             'feed' => 'bar',
@@ -107,7 +112,8 @@ EOF
 
         $this->service = new BlogFeedConsumer(
             $this->httpClient->reveal(),
-            $this->cache,
+            $this->feedCache,
+            $this->viewsCache,
             $this->options
         );
     }
@@ -117,9 +123,9 @@ EOF
      */
     public function nonCachedResultOnlySavesFeed()
     {
-        $this->assertFalse($this->cache->contains($this->options->getCacheKey()));
+        $this->assertFalse($this->feedCache->contains($this->options->getCacheKey()));
         $this->service->refreshFeed();
-        $this->assertTrue($this->cache->contains($this->options->getCacheKey()));
+        $this->assertTrue($this->feedCache->contains($this->options->getCacheKey()));
     }
 
     /**
@@ -127,7 +133,7 @@ EOF
      */
     public function cachedContentIsReturnedWhenEqualToProcessed()
     {
-        $this->cache->save($this->options->getCacheKey(), [[
+        $this->feedCache->save($this->options->getCacheKey(), [[
             'link' => 'https://blog.alejandrocelaya.com/entry-one/',
         ]]);
         $feed = $this->service->refreshFeed();
@@ -139,11 +145,11 @@ EOF
      */
     public function cacheIsDeletedWhenFeedHasChyanged()
     {
-        $this->cache->save('foo', 'bar');
-        $this->cache->save($this->options->getCacheKey(), [[
+        $this->viewsCache->save('foo', 'bar');
+        $this->feedCache->save($this->options->getCacheKey(), [[
             'link' => 'something else',
         ]]);
         $this->service->refreshFeed();
-        $this->assertFalse($this->cache->contains('foo'));
+        $this->assertFalse($this->viewsCache->contains('foo'));
     }
 }

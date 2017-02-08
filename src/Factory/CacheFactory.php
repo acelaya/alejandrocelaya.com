@@ -12,6 +12,7 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 class CacheFactory implements FactoryInterface
 {
     const FEED_CACHE = 'Acelaya\Website\FeedCache';
+    const VIEWS_CACHE = 'Acelaya\Website\ViewsCache';
 
     /**
      * Create an object
@@ -29,7 +30,7 @@ class CacheFactory implements FactoryInterface
     {
         $config = $container->get('config')['cache'] ?? [];
         $adapter = $this->getAdapter($config, $requestedName);
-        $adapter->setNamespace($config['namespace'] ?? 'https://www.alejandrocelaya.com');
+        $adapter->setNamespace($config['namespaces'][$requestedName] ?? 'www.alejandrocelaya.com');
 
         return $adapter;
     }
