@@ -69,7 +69,7 @@ ssh root@alejandrocelaya.com "mv $temp $remotepath"
 ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
 
 # Restart remote services
-ssh root@alejandrocelaya.com "service php7.0-fpm restart"
+ssh root@alejandrocelaya.com "service php7.1-fpm restart"
 ssh root@alejandrocelaya.com "service nginx restart"
 ssh root@alejandrocelaya.com "service redis restart"
 
