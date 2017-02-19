@@ -46,7 +46,7 @@ class BlogFeedConsumerTest extends TestCase
 <link href="https://blog.alejandrocelaya.com/"/>
 <updated>2016-08-16T20:17:20+02:00</updated>
 <id>https://blog.alejandrocelaya.com/</id>
-<generator uri="http://sculpin.io/">Sculpin</generator>
+<generator uri="http://spress.yosymfony.com/">Spress</generator>
 <entry>
 <title type="html">
 <![CDATA[
