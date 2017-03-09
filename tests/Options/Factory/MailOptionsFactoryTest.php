@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Options\Factory;
 
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
 
 class MailOptionsFactoryTest extends TestCase

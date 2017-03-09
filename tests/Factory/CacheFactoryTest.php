@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\CacheFactory;
 use Doctrine\Common\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
 
 class CacheFactoryTest extends TestCase

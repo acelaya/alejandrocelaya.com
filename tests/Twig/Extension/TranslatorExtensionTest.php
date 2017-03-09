@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Twig\Extension\TranslatorExtension;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\I18n\Translator\Translator;
 
 class TranslatorExtensionTest extends TestCase

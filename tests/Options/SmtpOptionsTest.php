@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Options;
 
 use Acelaya\Website\Options\SmtpOptions;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 class SmtpOptionsTest extends TestCase
 {

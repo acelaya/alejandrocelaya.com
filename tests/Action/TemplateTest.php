@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Template;
 use Doctrine\Common\Cache\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Twig\TwigRenderer;

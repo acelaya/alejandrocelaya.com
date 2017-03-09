@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Console\Command;
 
 use Acelaya\Website\Console\Command\LongTasksCommand;
 use Acelaya\Website\Console\Task\LongTaskInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

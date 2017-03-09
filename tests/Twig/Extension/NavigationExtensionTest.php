@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\NavigationExtension;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
 

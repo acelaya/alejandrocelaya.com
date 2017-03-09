@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Middleware;
 
 use Acelaya\Website\Middleware\LanguageMiddleware;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;

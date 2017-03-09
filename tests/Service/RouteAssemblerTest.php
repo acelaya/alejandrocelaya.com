@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Service;
 
 use Acelaya\Website\Service\RouteAssembler;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\MethodProphecy;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ServerRequestInterface;

@@ -4,7 +4,7 @@ namespace AcelayaTest\Website\Action;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\Response as RecaptchaResponse;

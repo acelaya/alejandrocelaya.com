@@ -5,7 +5,7 @@ use Acelaya\Website\Action\Template;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
