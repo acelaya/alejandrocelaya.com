@@ -4,13 +4,14 @@ namespace Acelaya\Website\Middleware;
 use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
+use Fig\Http\Message\StatusCodeInterface;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Router\RouterInterface;
 
-class CacheMiddleware implements MiddlewareInterface
+class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 {
     /**
      * @var RouterInterface
@@ -74,6 +75,6 @@ class CacheMiddleware implements MiddlewareInterface
     protected function isResponseCacheable(Response $resp, array $routeParams = []): bool
     {
         $isCacheable = (bool) ($routeParams['cacheable'] ?? false);
-        return $resp->getStatusCode() === 200 && $isCacheable;
+        return $resp->getStatusCode() === self::STATUS_OK && $isCacheable;
     }
 }
