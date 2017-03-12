@@ -20,12 +20,12 @@ class CacheFactoryTest extends TestCase
 
     public function testCacheInProduction()
     {
-        putenv('APP_ENV=pro');
         $instance = $this->factory->__invoke(new ServiceManager(['services' => [
             'config' => [
                 'cache' => [
                     'redis' => [],
                 ],
+                'debug' => false,
             ],
         ]]), '');
         $this->assertInstanceOf(Cache\PredisCache::class, $instance);
@@ -33,9 +33,10 @@ class CacheFactoryTest extends TestCase
 
     public function testCachInDevelopment()
     {
-        putenv('APP_ENV=dev');
         $instance = $this->factory->__invoke(new ServiceManager(['services' => [
-            'config' => [],
+            'config' => [
+                'debug' => true,
+            ],
         ]]), '');
         $this->assertInstanceOf(Cache\ArrayCache::class, $instance);
     }
