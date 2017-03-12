@@ -3,8 +3,8 @@ namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Template;
 use Doctrine\Common\Cache\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
-use Zend\Diactoros\Response;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Twig\TwigRenderer;
 
@@ -35,26 +35,26 @@ class TemplateTest extends TestCase
     public function testDispatch()
     {
         $request = (new ServerRequest())->withAttribute('template', 'foo.html.twig');
-        $resp = $this->template->dispatch($request, new Response());
+        $resp = $this->template->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertEquals('<h1>Hello!!</h1>', $resp->getBody()->__toString());
         $this->assertEquals(200, $resp->getStatusCode());
     }
 
     public function testDispatchWithoutTemplate()
     {
-        $resp = $this->template->dispatch(new ServerRequest(), new Response());
+        $resp = $this->template->dispatch(new ServerRequest(), $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertEquals('Error', $resp->getBody()->__toString());
         $this->assertEquals(404, $resp->getStatusCode());
     }
 
-    public function testDispatchAndInvokeAreTheSame()
+    public function testDispatchAndProcessAreTheSame()
     {
         $request = (new ServerRequest())->withAttribute('template', 'foo.html.twig');
-        $firstResp = $this->template->dispatch($request, new Response());
+        $firstResp = $this->template->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertEquals('<h1>Hello!!</h1>', $firstResp->getBody()->__toString());
         $this->assertEquals(200, $firstResp->getStatusCode());
 
-        $secondResp = $this->template->__invoke($request, new Response());
+        $secondResp = $this->template->process($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertEquals('<h1>Hello!!</h1>', $secondResp->getBody()->__toString());
         $this->assertEquals(200, $secondResp->getStatusCode());
     }

@@ -3,12 +3,15 @@ namespace Acelaya\Website\Action;
 
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
+use Fig\Http\Message\RequestMethodInterface;
+use Fig\Http\Message\StatusCodeInterface;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Template\TemplateRendererInterface;
-use Zend\Stratigility\MiddlewareInterface;
 
-abstract class AbstractAction implements MiddlewareInterface
+abstract class AbstractAction implements MiddlewareInterface, RequestMethodInterface, StatusCodeInterface
 {
     /**
      * @var TemplateRendererInterface
@@ -31,42 +34,25 @@ abstract class AbstractAction implements MiddlewareInterface
     }
 
     /**
-     * Process an incoming request and/or response.
-     *
-     * Accepts a server-side request and a response instance, and does
-     * something with them.
-     *
-     * If the response is not complete and/or further processing would not
-     * interfere with the work done in the middleware, or if the middleware
-     * wants to delegate to another process, it can use the `$out` callable
-     * if present.
-     *
-     * If the middleware does not return a value, execution of the current
-     * request is considered complete, and the response instance provided will
-     * be considered the response to return.
-     *
-     * Alternately, the middleware may return a response instance.
-     *
-     * Often, middleware will `return $out();`, with the assumption that a
-     * later middleware will return a response.
+     * Process an incoming server request and return a response, optionally delegating
+     * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param Response $response
-     * @param null|callable $out
-     * @return null|Response
+     * @param DelegateInterface $delegate
+     *
+     * @return Response
      */
-    public function __invoke(Request $request, Response $response, callable $out = null): Response
+    public function process(Request $request, DelegateInterface $delegate)
     {
-        return $this->dispatch($request, $response, $out);
+        return $this->dispatch($request, $delegate);
     }
 
     /**
      * Returns the content to render
      *
      * @param Request $request
-     * @param Response $response
-     * @param null|callable $next
-     * @return null|Response
+     * @param DelegateInterface $delegate
+     * @return Response
      */
-    abstract public function dispatch(Request $request, Response $response, callable $next = null): Response;
+    abstract public function dispatch(Request $request, DelegateInterface $delegate): Response;
 }

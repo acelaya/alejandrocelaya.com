@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RequestFactory;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\ServiceManager\ServiceManager;
 

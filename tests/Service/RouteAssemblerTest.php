@@ -2,11 +2,12 @@
 namespace AcelayaTest\Website\Service;
 
 use Acelaya\Website\Service\RouteAssembler;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\MethodProphecy;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\ServerRequest;
+use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
 
@@ -34,9 +35,9 @@ class RouteAssemblerTest extends TestCase
         $this->request = new ServerRequest();
         $this->prophecyRouter = $this->prophesize(RouterInterface::class);
         $this->prophecyRouter->match($this->request)->willReturn(
-            RouteResult::fromRouteMatch('home', function ($req, $resp) {
+            RouteResult::fromRoute(new Route('home', function ($req, $resp) {
                 return $resp;
-            }, $this->params)
+            }), $this->params)
         );
 
         $this->assembler = new RouteAssembler($this->prophecyRouter->reveal(), $this->request);

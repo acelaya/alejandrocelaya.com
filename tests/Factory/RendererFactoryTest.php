@@ -8,7 +8,7 @@ use Acelaya\Website\Service\RouteAssembler;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache;
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Expressive\Twig\TwigRenderer;
 use Zend\I18n\Translator\Translator;

@@ -5,7 +5,7 @@ use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Feed\Service\BlogFeedConsumer;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Feed\Reader\Http\ClientInterface;
@@ -46,7 +46,7 @@ class BlogFeedConsumerTest extends TestCase
 <link href="https://blog.alejandrocelaya.com/"/>
 <updated>2016-08-16T20:17:20+02:00</updated>
 <id>https://blog.alejandrocelaya.com/</id>
-<generator uri="http://sculpin.io/">Sculpin</generator>
+<generator uri="http://spress.yosymfony.com/">Spress</generator>
 <entry>
 <title type="html">
 <![CDATA[

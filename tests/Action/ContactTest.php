@@ -4,20 +4,17 @@ namespace AcelayaTest\Website\Action;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
-use PHPUnit_Framework_TestCase as TestCase;
-use Prophecy\Prophecy\ObjectProphecy;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use PHPUnit\Framework\TestCase;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\Response as RecaptchaResponse;
-use Symfony\Component\Intl\Data\Util\ArrayAccessibleResourceBundle;
 use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Diactoros\ServerRequest;
-use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Expressive\Twig\TwigRenderer;
-use Zend\Session\Container;
 
 class ContactTest extends TestCase
 {
@@ -77,7 +74,7 @@ EOF
     public function testGetRequestJustReturnsTheTemplate()
     {
         $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
-        $resp = $this->contact->dispatch($request, new Response());
+        $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertInstanceOf(HtmlResponse::class, $resp);
         $document = new \DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
@@ -93,7 +90,7 @@ EOF
                                        ->withUri(new Uri('/foo/bar'));
 
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
-        $resp = $this->contact->dispatch($request, new Response());
+        $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertInstanceOf(RedirectResponse::class, $resp);
         $this->assertEquals(['/foo/bar'], $resp->getHeader('Location'));
 
@@ -104,7 +101,7 @@ EOF
     {
         $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
         $this->session->offsetSet(Contact::PRG_DATA, []);
-        $resp = $this->contact->dispatch($request, new Response());
+        $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
 
         $this->assertInstanceOf(HtmlResponse::class, $resp);
@@ -119,7 +116,7 @@ EOF
     {
         $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
         $this->session->offsetSet(Contact::PRG_DATA, $this->fullData);
-        $resp = $this->contact->dispatch($request, new Response());
+        $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
 
         $this->assertInstanceOf(HtmlResponse::class, $resp);

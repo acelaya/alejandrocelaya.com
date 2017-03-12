@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Console\Factory;
 
 use Acelaya\Website\Console\Factory\ApplicationFactory;
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 
