@@ -53,12 +53,14 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 
         // If current route is a success route and it has been previously cached, write cached content and return
         if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
-            return new \Zend\Diactoros\Response($this->cache->fetch($currentRoutePath));
+            $resp = new \Zend\Diactoros\Response();
+            $resp->getBody()->write($this->cache->fetch($currentRoutePath));
+            return $resp;
         }
 
         // If the response is not cached, process the next middleware and get its response, then cache it
         $resp = $delegate->process($request);
-        if ($resp instanceof Response && $this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
+        if ($this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
             $this->cache->save($currentRoutePath, (string) $resp->getBody());
         }
 
