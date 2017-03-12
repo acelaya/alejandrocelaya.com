@@ -17,7 +17,7 @@ cd "$deploycontent"
 rm -rf vendor
 rm -rf composer.lock
 composer self-update
-composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
+composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction --ignore-platform-reqs
 
 # Run Grunt tasks
 rm -rf node_modules
