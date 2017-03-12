@@ -17,14 +17,16 @@ use Psr\Http\Message\ServerRequestInterface;
 use ReCaptcha\ReCaptcha;
 use Symfony\Component\Console as Symfony;
 use Zend\Expressive;
+use Zend\Expressive\Container;
 use Zend\I18n\Translator\Translator;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
 
     'service_manager' => [
         'factories' => [
-            Expressive\Application::class => Expressive\Container\ApplicationFactory::class,
+            Expressive\Application::class => Container\ApplicationFactory::class,
 
             // Actions
             Contact::class => AnnotatedFactory::class,
@@ -33,7 +35,8 @@ return [
             // Services
             Expressive\Template\TemplateRendererInterface::class => Factory\RendererFactory::class,
             Expressive\Router\RouterInterface::class => SlimRouterFactory::class,
-            'Zend\Expressive\FinalHandler' => Expressive\Container\TemplatedErrorHandlerFactory::class,
+            ErrorHandler::class => Expressive\Container\ErrorHandlerFactory::class,
+            Expressive\Middleware\ErrorResponseGenerator::class => Container\ErrorResponseGeneratorFactory::class,
 
             ServerRequestInterface::class => Factory\RequestFactory::class,
             \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
