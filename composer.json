@@ -53,7 +53,8 @@
         "squizlabs/php_codesniffer": "^2.3",
         "symfony/var-dumper": "^2.7",
         "umpirsky/twig-gettext-extractor": "^1.1",
-        "vlucas/phpdotenv": "^2.0"
+        "vlucas/phpdotenv": "^2.0",
+        "zendframework/zend-expressive-tooling": "^0.3.1"
     },
     "scripts": {
         "check": [
