@@ -29,7 +29,8 @@ class CacheFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null): Cache\Cache
     {
         $config = $container->get('config')['cache'] ?? [];
-        $adapter = $this->getAdapter($config, $requestedName);
+        $isDev = $container->get('config')['debug'] ?? true;
+        $adapter = $this->getAdapter($config, $requestedName, (bool) $isDev);
         $adapter->setNamespace($config['namespaces'][$requestedName] ?? 'www.alejandrocelaya.com');
 
         return $adapter;
@@ -37,11 +38,13 @@ class CacheFactory implements FactoryInterface
 
     /**
      * @param array $cacheConfig
+     * @param $requestedName
+     * @param bool $isDev
      * @return Cache\CacheProvider
      */
-    protected function getAdapter(array $cacheConfig, $requestedName): Cache\CacheProvider
+    protected function getAdapter(array $cacheConfig, $requestedName, bool $isDev): Cache\CacheProvider
     {
-        if (getenv('APP_ENV') === 'pro' || $requestedName === self::FEED_CACHE) {
+        if (! $isDev || $requestedName === self::FEED_CACHE) {
             $client = new Client($cacheConfig['redis']);
             return new Cache\PredisCache($client);
         }

@@ -5,7 +5,7 @@ use Acelaya\Website\Console\Command\LongTaskCommandFactory;
 use Acelaya\Website\Console\Command\LongTasksCommand;
 use Acelaya\Website\Console\Task\LongTaskInterface;
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 class LongTaskCommandFactoryTest extends TestCase
 {

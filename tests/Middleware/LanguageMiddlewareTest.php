@@ -2,10 +2,13 @@
 namespace AcelayaTest\Website\Middleware;
 
 use Acelaya\Website\Middleware\LanguageMiddleware;
-use PHPUnit_Framework_TestCase as TestCase;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
+use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\I18n\Translator\Translator;
@@ -29,19 +32,22 @@ class LanguageMiddlewareTest extends TestCase
     {
         $this->request = new ServerRequest();
         $router = $this->prophesize(RouterInterface::class);
-        $router->match($this->request)->willReturn(RouteResult::fromRouteMatch('home', function ($req, $resp) {
-            return $resp;
-        }, ['lang' => 'es']));
+
+        $route = new Route('/home', function () {
+            return new Response();
+        }, ['GET'], 'home');
+        $router->match($this->request)->willReturn(RouteResult::fromRoute($route, ['lang' => 'es']));
         $this->translator = Translator::factory(['locale' => 'en']);
         $this->middleware = new LanguageMiddleware($this->translator, $router->reveal());
     }
 
     public function testLanguage()
     {
+        $delegate = $this->prophesize(DelegateInterface::class);
+        $delegate->process(Argument::cetera())->willReturn(new Response());
+
         $this->assertEquals('en', $this->translator->getLocale());
-        $this->middleware->__invoke($this->request, new Response(), function ($req, $resp) {
-            return $resp;
-        });
+        $this->middleware->process($this->request, $delegate->reveal());
         $this->assertEquals('es', $this->translator->getLocale());
     }
 }

@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Console\Task;
 
 use Acelaya\Website\Console\Task\BlogFeedConsumerTask;
 use Acelaya\Website\Feed\Service\BlogFeedConsumer;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Input\InputInterface;

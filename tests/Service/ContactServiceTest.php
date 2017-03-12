@@ -3,7 +3,7 @@ namespace AcelayaTest\Website\Service;
 
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Twig\TwigRenderer;
 
 class ContactServiceTest extends TestCase

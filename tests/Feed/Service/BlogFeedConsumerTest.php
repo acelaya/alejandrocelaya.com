@@ -5,7 +5,7 @@ use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Feed\Service\BlogFeedConsumer;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Feed\Reader\Http\ClientInterface;

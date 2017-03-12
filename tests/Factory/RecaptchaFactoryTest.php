@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RecaptchaFactory;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use ReCaptcha\ReCaptcha;
 use Zend\ServiceManager\ServiceManager;
 

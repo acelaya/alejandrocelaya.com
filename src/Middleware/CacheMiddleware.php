@@ -4,12 +4,14 @@ namespace Acelaya\Website\Middleware;
 use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
+use Fig\Http\Message\StatusCodeInterface;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Router\RouterInterface;
-use Zend\Stratigility\MiddlewareInterface;
 
-class CacheMiddleware implements MiddlewareInterface
+class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 {
     /**
      * @var RouterInterface
@@ -34,45 +36,32 @@ class CacheMiddleware implements MiddlewareInterface
     }
 
     /**
-     * Process an incoming request and/or response.
-     *
-     * Accepts a server-side request and a response instance, and does
-     * something with them.
-     *
-     * If the response is not complete and/or further processing would not
-     * interfere with the work done in the middleware, or if the middleware
-     * wants to delegate to another process, it can use the `$out` callable
-     * if present.
-     *
-     * If the middleware does not return a value, execution of the current
-     * request is considered complete, and the response instance provided will
-     * be considered the response to return.
-     *
-     * Alternately, the middleware may return a response instance.
-     *
-     * Often, middleware will `return $out();`, with the assumption that a
-     * later middleware will return a response.
+     * Process an incoming server request and return a response, optionally delegating
+     * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param Response $response
-     * @param null|callable $out
-     * @return null|Response
+     * @param DelegateInterface $delegate
+     *
+     * @return Response
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      */
-    public function __invoke(Request $request, Response $response, callable $out = null): Response
+    public function process(Request $request, DelegateInterface $delegate)
     {
         $currentRoute = $this->router->match($request);
         $currentRoutePath = $request->getUri()->getPath();
 
         // If current route is a success route and it has been previously cached, write cached content and return
         if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
-            $response->getBody()->write($this->cache->fetch($currentRoutePath));
-            return $response;
+            $resp = new \Zend\Diactoros\Response();
+            $resp->getBody()->write($this->cache->fetch($currentRoutePath));
+            return $resp;
         }
 
         // If the response is not cached, process the next middleware and get its response, then cache it
-        $resp = $out($request, $response);
-        if ($resp instanceof Response && $this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
-            $this->cache->save($currentRoutePath, $resp->getBody()->__toString());
+        $resp = $delegate->process($request);
+        if ($this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
+            $this->cache->save($currentRoutePath, (string) $resp->getBody());
         }
 
         return $resp;
@@ -88,6 +77,6 @@ class CacheMiddleware implements MiddlewareInterface
     protected function isResponseCacheable(Response $resp, array $routeParams = []): bool
     {
         $isCacheable = (bool) ($routeParams['cacheable'] ?? false);
-        return $resp->getStatusCode() === 200 && $isCacheable;
+        return $resp->getStatusCode() === self::STATUS_OK && $isCacheable;
     }
 }

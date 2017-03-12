@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Form;
 
 use Acelaya\Website\Form\ContactFilter;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\Response;
 

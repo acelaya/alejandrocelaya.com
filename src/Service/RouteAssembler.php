@@ -46,7 +46,9 @@ class RouteAssembler implements RouteAssemblerInterface
         bool $inherit = false
     ): string {
         $routeResult = $this->getCurrentRouteResult();
-        $name = $name ?: $routeResult->getMatchedRouteName();
+        if ($name === null) {
+            $name = $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : 'home';
+        }
 
         if (is_bool($routeParams)) {
             $inherit = $routeParams;

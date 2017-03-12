@@ -3,8 +3,9 @@ namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\UrlExtension;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
+use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 
 class UrlExtensionTest extends TestCase
@@ -41,18 +42,19 @@ class UrlExtensionTest extends TestCase
 
     public function testGetCurrentRouteResult()
     {
-        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRouteMatch(
+        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRoute(new Route(
             'home',
-            'HelloWorld',
-            []
-        ));
+            'HelloWorld'
+        )));
         $result = $this->extension->getCurrentRouteResult();
         $this->assertInstanceOf(RouteResult::class, $result);
     }
 
     public function testGetCurrentRouteName()
     {
-        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRouteMatch('foo', '', []));
+        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(
+            RouteResult::fromRoute(new Route('foo', ''))
+        );
         $this->assertEquals('foo', $this->extension->getCurrentRouteName());
     }
 }

@@ -6,7 +6,6 @@ branches:
     - develop
 
 php:
-  - 7
   - 7.1
 
 before_script:
