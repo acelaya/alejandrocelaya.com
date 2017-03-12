@@ -4,6 +4,7 @@ namespace AcelayaTest\Website\Twig\Extension;
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Twig\Extension\NavigationExtension;
 use PHPUnit\Framework\TestCase;
+use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
 
@@ -20,11 +21,10 @@ class NavigationExtensionTest extends TestCase
         $routeAssemblerProphezy->assembleUrl('home', true)->willReturn('/foo/bar');
         $routeAssemblerProphezy->assembleUrl(null, ['lang' => 'es'])->willReturn('/es');
         $routeAssemblerProphezy->assembleUrl(null, ['lang' => 'en'])->willReturn('/en');
-        $routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRouteMatch(
+        $routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRoute(new Route(
             'home',
-            'HelloWorld',
-            []
-        ));
+            'HelloWorld'
+        )));
 
         $this->extension = new NavigationExtension(
             Translator::factory([]),
