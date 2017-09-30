@@ -73,3 +73,6 @@ RUN rm /tmp/xdebug.tar.gz
 RUN php -r "readfile('https://getcomposer.org/installer');" | php
 RUN chmod +x composer.phar
 RUN mv composer.phar /usr/local/bin/composer
+
+# Make home directory writable by anyone
+RUN chmod 777 /home
