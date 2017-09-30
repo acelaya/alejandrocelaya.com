@@ -71,6 +71,17 @@ module.exports = function(grunt) {
                     'templates/partials/stylesheets.html.twig': ['templates/partials/stylesheets.html.twig']
                 }
             }
+        },
+
+        imagemin: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/img',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'public/img'
+                }]
+            }
         }
 
     });
@@ -80,6 +91,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // Default task.
     grunt.registerTask('default', ['uglify', 'cssmin', 'processhtml', 'string-replace']);
