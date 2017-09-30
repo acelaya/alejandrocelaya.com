@@ -1,13 +1,12 @@
 <?php
-use Acelaya\Website\Action\Contact;
-use Acelaya\Website\Action\Template;
+use Acelaya\Website\Action;
 use Zend\Stdlib\ArrayUtils;
 
 $home = [
     'name' => 'home',
     'path' => '(/:lang)/',
     'allowed_methods' => ['GET'],
-    'middleware' => Template::class,
+    'middleware' => Action\Template::class,
     'options' => [
         'conditions' => [
             'lang' => 'en|es'
@@ -35,7 +34,7 @@ return [
             'name' => 'contact',
             'path' => '(/:lang)/contact/',
             'allowed_methods' => ['POST'],
-            'middleware' => Contact::class,
+            'middleware' => Action\Contact::class,
             'options' => [
                 'defaults' => [
                     'template' => 'contact.html.twig',
@@ -43,5 +42,18 @@ return [
                 ],
             ]
         ]),
-    ]
+
+        // Redirect old sitemap to new one
+        [
+            'name' => 'sitemap-redirect',
+            'path' => '/Sitemap.xml',
+            'allowed_methods' => ['GET'],
+            'middleware' => Action\Redirect::class,
+            'options' => [
+                'defaults' => [
+                    'to' => '/sitemap.xml'
+                ],
+            ],
+        ],
+    ],
 ];

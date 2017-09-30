@@ -6,7 +6,7 @@ use Zend\ServiceManager\ServiceManager;
 chdir(dirname(__DIR__));
 
 // Setup autoloading
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // Load environment variables
 if (class_exists(Dotenv::class)) {

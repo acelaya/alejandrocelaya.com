@@ -32,9 +32,7 @@ return [
             ],
             [
                 'label'    => 'En',
-                'params'   => [
-                    'lang' => 'en',
-                ],
+                'params'   => false,
             ],
         ],
         'social_menu' => [
