@@ -16,8 +16,7 @@ cd "$deploycontent"
 # Install dependencies
 rm -rf vendor
 rm -rf composer.lock
-composer self-update
-composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction --ignore-platform-reqs
+./indocker composer install --no-dev --optimize-autoloader --apcu-autoloader --prefer-dist --no-interaction --no-progress
 
 # Run Grunt tasks
 rm -rf node_modules
