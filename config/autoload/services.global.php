@@ -11,6 +11,7 @@ use Acelaya\Website\Middleware\LanguageMiddleware;
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
+use Acelaya\Website\Twig\Extension\TranslatorExtension;
 use Acelaya\ZsmAnnotatedServices\Factory\V3\AnnotatedFactory;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
@@ -20,6 +21,7 @@ use Zend\Expressive;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
 use Zend\I18n\Translator\Translator;
+use Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
@@ -51,6 +53,7 @@ return [
             ContactFilter::class => AnnotatedFactory::class,
             Feed\GuzzleClient::class => InvokableFactory::class,
             Feed\Service\BlogFeedConsumer::class => AnnotatedFactory::class,
+            TranslatorExtension::class => ConfigAbstractFactory::class,
 
             Cache::class => Factory\CacheFactory::class,
             Factory\CacheFactory::VIEWS_CACHE => Factory\CacheFactory::class,
@@ -76,6 +79,10 @@ return [
             Service\ContactServiceInterface::class => Service\ContactService::class,
             AnnotatedFactory::CACHE_SERVICE => Cache::class,
         ]
-    ]
+    ],
+
+    ConfigAbstractFactory::class => [
+        TranslatorExtension::class => ['translator'],
+    ],
 
 ];

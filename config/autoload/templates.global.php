@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use Acelaya\Website\Twig\Extension\TranslatorExtension;
+
 return [
 
     'templates' => [
@@ -11,7 +13,9 @@ return [
     ],
 
     'plates' => [
-        'extensions' => [],
+        'extensions' => [
+            TranslatorExtension::class,
+        ],
     ],
 
 ];

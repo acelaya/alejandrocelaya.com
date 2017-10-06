@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ locale() }}" class="js">
+<html lang="<?= $this->locale() ?>" class="js">
     <head>
-        <?php //$desc = translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') ?>
-        <?php $desc = 'Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce' ?>
-        <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') | raw }}</title>
+        <?php $desc = $this->e($this->translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce')) ?>
+        <title><?= $this->translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') ?></title>
         <meta charset="utf-8">
-        <meta name="description" content="<?= $this->e($desc) ?>">
+        <meta name="description" content="<?= $desc ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alejandro Celaya Alastrué">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,7 @@
         <meta property="og:title" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
         <meta property="og:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg"/>
         <meta property="og:site_name" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
-        <meta property="og:description" content="<?= $this->e($desc) ?>"/>
+        <meta property="og:description" content="<?= $desc ?>"/>
         <meta name="twitter:title" content="Alejandro Celaya Alastrué - Full-stack Developer" />
         <meta name="twitter:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg" />
         <meta name="twitter:url" content="{{ assemble_url(null, true) }}" />
