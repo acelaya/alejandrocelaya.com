@@ -2,7 +2,7 @@
 namespace Acelaya\Website\Feed\Twig\Extension;
 
 use Acelaya\Website\Feed\BlogOptions;
-use Acelaya\Website\Twig\Extension\AbstractExtension;
+use Acelaya\Website\Template\Extension\AbstractExtension;
 use Doctrine\Common\Cache\Cache;
 
 class BlogExtension extends AbstractExtension

@@ -1,7 +1,7 @@
 <?php
 namespace AcelayaTest\Website\Twig\Extension;
 
-use Acelaya\Website\Twig\Extension\RecaptchaExtension;
+use Acelaya\Website\Template\Extension\RecaptchaExtension;
 use PHPUnit\Framework\TestCase;
 
 class RecaptchaExtensionTest extends TestCase

@@ -11,7 +11,7 @@ use Acelaya\Website\Middleware\LanguageMiddleware;
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
-use Acelaya\Website\Twig\Extension\TranslatorExtension;
+use Acelaya\Website\Template\Extension\TranslatorExtension;
 use Acelaya\ZsmAnnotatedServices\Factory\V3\AnnotatedFactory;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;

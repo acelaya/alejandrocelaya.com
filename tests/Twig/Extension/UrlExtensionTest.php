@@ -2,7 +2,7 @@
 namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
-use Acelaya\Website\Twig\Extension\UrlExtension;
+use Acelaya\Website\Template\Extension\UrlExtension;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Expressive\Router\Route;

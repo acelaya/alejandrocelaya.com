@@ -1,5 +1,5 @@
 <?php
-namespace Acelaya\Website\Twig\Extension;
+namespace Acelaya\Website\Template\Extension;
 
 class RecaptchaExtension extends AbstractExtension
 {

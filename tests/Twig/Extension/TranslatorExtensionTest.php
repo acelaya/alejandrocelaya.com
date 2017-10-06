@@ -1,7 +1,7 @@
 <?php
 namespace AcelayaTest\Website\Twig\Extension;
 
-use Acelaya\Website\Twig\Extension\TranslatorExtension;
+use Acelaya\Website\Template\Extension\TranslatorExtension;
 use PHPUnit\Framework\TestCase;
 use Zend\I18n\Translator\Translator;
 

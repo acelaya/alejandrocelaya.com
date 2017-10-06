@@ -1,5 +1,5 @@
 <?php
-namespace Acelaya\Website\Twig\Extension;
+namespace Acelaya\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssemblerInterface;
 use Zend\Expressive\Router\RouteResult;

@@ -1,5 +1,5 @@
 <?php
-namespace Acelaya\Website\Twig\Extension;
+namespace Acelaya\Website\Template\Extension;
 
 abstract class AbstractExtension extends \Twig_Extension
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Acelaya\Website\Twig\Extension\TranslatorExtension;
+use Acelaya\Website\Template\Extension\TranslatorExtension;
 
 return [
 
