@@ -20,7 +20,7 @@ use Zend\I18n\Translator\Translator;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $twig = new Twig_Environment(new Twig\Gettext\Loader\Filesystem('/'), [
-    'cache'       => '/tmp/cache',
+    'cache'       => implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cache', uniqid('ac', true)]),
     'auto_reload' => true
 ]);
 // You can add more extensions here.
@@ -33,15 +33,38 @@ $twig->addExtension(new RecaptchaExtension([]));
 $twig->addExtension(new BlogExtension(new ArrayCache(), new BlogOptions()));
 
 array_shift($_SERVER['argv']);
-$addTemplate = false;
 
+$addTemplate = false;
+$setFunctions = false;
+$setFilters = false;
+$addTemplate = false;
+$setExecutable = false;
 $extractor = new Twig\Gettext\Extractor($twig);
 
 foreach ($_SERVER['argv'] as $arg) {
-    if ('--files' == $arg) {
+    if ('--files' === $arg) {
         $addTemplate = true;
-    } elseif ($addTemplate) {
+    } else if ($addTemplate) {
         $extractor->addTemplate(getcwd() . DIRECTORY_SEPARATOR . $arg);
+    } else if ('--exec' === $arg) {
+        $setExecutable = true;
+    } else if ($setExecutable) {
+        $extractor->setExecutable($arg);
+        $setExecutable = false;
+    } else if ('--functions' === $arg) {
+        $setFunctions = true;
+    } else if ($setFunctions) {
+        foreach (explode(',', $arg) as $functionName) {
+            $twig->addFunction(new \Twig_SimpleFunction($functionName, true));
+        }
+        $setFunctions = false;
+    } else if ('--filters' === $arg) {
+        $setFilters = true;
+    } else if ($setFilters) {
+        foreach (explode(',', $arg) as $filterName) {
+            $twig->addFilter(new \Twig_SimpleFilter($filterName, true));
+        }
+        $setFilters = false;
     } else {
         $extractor->addGettextParameter($arg);
     }
