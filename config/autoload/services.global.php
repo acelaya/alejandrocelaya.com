@@ -18,6 +18,7 @@ use ReCaptcha\ReCaptcha;
 use Symfony\Component\Console as Symfony;
 use Zend\Expressive;
 use Zend\Expressive\Container;
+use Zend\Expressive\Helper;
 use Zend\I18n\Translator\Translator;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Stratigility\Middleware\ErrorHandler;
@@ -33,10 +34,13 @@ return [
             Template::class => AnnotatedFactory::class,
 
             // Services
-            Expressive\Template\TemplateRendererInterface::class => Factory\RendererFactory::class,
+//            Expressive\Template\TemplateRendererInterface::class => Factory\RendererFactory::class,
+            Expressive\Template\TemplateRendererInterface::class => Expressive\Plates\PlatesRendererFactory::class,
             Expressive\Router\RouterInterface::class => SlimRouterFactory::class,
             ErrorHandler::class => Expressive\Container\ErrorHandlerFactory::class,
             Expressive\Middleware\ErrorResponseGenerator::class => Container\ErrorResponseGeneratorFactory::class,
+            Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
+            Helper\ServerUrlHelper::class => InvokableFactory::class,
 
             ServerRequestInterface::class => Factory\RequestFactory::class,
             \Swift_Mailer::class => Factory\SwiftMailerFactory::class,

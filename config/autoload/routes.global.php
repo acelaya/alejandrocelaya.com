@@ -12,7 +12,7 @@ $home = [
             'lang' => 'en|es'
         ],
         'defaults' => [
-            'template' => 'home.html.twig',
+            'template' => 'home',
             'cacheable' => true
         ],
     ]

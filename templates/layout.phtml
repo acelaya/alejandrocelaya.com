@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ locale() }}" class="js">
+    <head>
+        {% set desc = translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') %}
+        <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') | raw }}</title>
+        <meta charset="utf-8">
+        <meta name="description" content="<?= $this->e($desc) ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alejandro Celaya Alastrué">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#2a2d36">
+
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
+        <meta property="og:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg"/>
+        <meta property="og:site_name" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
+        <meta property="og:description" content="<?= $this->e($desc) ?>"/>
+        <meta name="twitter:title" content="Alejandro Celaya Alastrué - Full-stack Developer" />
+        <meta name="twitter:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg" />
+        <meta name="twitter:url" content="{{ assemble_url(null, true) }}" />
+        <meta name="twitter:card" content="{{ desc }}" />
+
+        <?php $this->insert('partials/stylesheets') ?>
+    </head>
+    <body>
+
+        <!-- Loader -->
+        <div class="fh5co-loader"></div>
+
+        <div id="fh5co-page">
+            <section id="fh5co-header">
+                <div class="container">
+                    <nav role="navigation">
+                        {{ render_menu() }}
+                        {{ render_langs_menu() }}
+                    </nav>
+                </div>
+            </section>
+            <!-- #fh5co-header -->
+
+            <?= $this->section('main', '') ?>
+
+            {% include 'partials/footer.html.twig' %}
+            <!-- END #fh5co-footer -->
+        </div>
+        <!-- END #fh5co-page -->
+
+        <?php $this->insert('partials/javascripts') ?>
+    </body>
+</html>
