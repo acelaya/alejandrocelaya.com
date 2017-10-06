@@ -12,7 +12,7 @@ $home = [
             'lang' => 'en|es'
         ],
         'defaults' => [
-            'template' => 'home',
+            'template' => 'Acelaya::home',
             'cacheable' => true
         ],
     ]

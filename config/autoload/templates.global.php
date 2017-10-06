@@ -6,7 +6,7 @@ return [
     'templates' => [
         'extension' => 'phtml',
         'paths' => [
-            __DIR__ . '/../../templates',
+            'Acelaya' => __DIR__ . '/../../templates',
         ],
     ],
 

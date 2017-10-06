@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ locale() }}" class="js">
     <head>
-        {% set desc = translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') %}
+        <?php //$desc = translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') ?>
+        <?php $desc = 'Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce' ?>
         <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') | raw }}</title>
         <meta charset="utf-8">
         <meta name="description" content="<?= $this->e($desc) ?>">
@@ -20,7 +21,7 @@
         <meta name="twitter:url" content="{{ assemble_url(null, true) }}" />
         <meta name="twitter:card" content="{{ desc }}" />
 
-        <?php $this->insert('partials/stylesheets') ?>
+        <?php $this->insert('Acelaya::partials/stylesheets') ?>
     </head>
     <body>
 
@@ -40,11 +41,11 @@
 
             <?= $this->section('main', '') ?>
 
-            {% include 'partials/footer.html.twig' %}
+            <?php $this->insert('Acelaya::partials/footer') ?>
             <!-- END #fh5co-footer -->
         </div>
         <!-- END #fh5co-page -->
 
-        <?php $this->insert('partials/javascripts') ?>
+        <?php $this->insert('Acelaya::partials/javascripts') ?>
     </body>
 </html>
