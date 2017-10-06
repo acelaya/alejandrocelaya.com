@@ -17,8 +17,8 @@
         <meta property="og:description" content="<?= $desc ?>"/>
         <meta name="twitter:title" content="Alejandro Celaya Alastrué - Full-stack Developer" />
         <meta name="twitter:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg" />
-        <meta name="twitter:url" content="{{ assemble_url(null, true) }}" />
-        <meta name="twitter:card" content="{{ desc }}" />
+        <meta name="twitter:url" content="<?= $this->assemble_url(null, true) ?>" />
+        <meta name="twitter:card" content="<?= $desc ?>" />
 
         <?php $this->insert('Acelaya::partials/stylesheets') ?>
     </head>
@@ -31,8 +31,8 @@
             <section id="fh5co-header">
                 <div class="container">
                     <nav role="navigation">
-                        {{ render_menu() }}
-                        {{ render_langs_menu() }}
+                        <?= $this->render_menu() ?>
+                        <?= $this->render_langs_menu() ?>
                     </nav>
                 </div>
             </section>

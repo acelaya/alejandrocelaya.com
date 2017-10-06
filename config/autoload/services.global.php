@@ -11,7 +11,7 @@ use Acelaya\Website\Middleware\LanguageMiddleware;
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
-use Acelaya\Website\Template\Extension\TranslatorExtension;
+use Acelaya\Website\Template\Extension;
 use Acelaya\ZsmAnnotatedServices\Factory\V3\AnnotatedFactory;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
@@ -53,7 +53,11 @@ return [
             ContactFilter::class => AnnotatedFactory::class,
             Feed\GuzzleClient::class => InvokableFactory::class,
             Feed\Service\BlogFeedConsumer::class => AnnotatedFactory::class,
-            TranslatorExtension::class => ConfigAbstractFactory::class,
+
+            // Template extensions
+            Extension\TranslatorExtension::class => ConfigAbstractFactory::class,
+            Extension\UrlExtension::class => ConfigAbstractFactory::class,
+            Extension\NavigationExtension::class => ConfigAbstractFactory::class,
 
             Cache::class => Factory\CacheFactory::class,
             Factory\CacheFactory::VIEWS_CACHE => Factory\CacheFactory::class,
@@ -82,7 +86,9 @@ return [
     ],
 
     ConfigAbstractFactory::class => [
-        TranslatorExtension::class => ['translator'],
+        Extension\TranslatorExtension::class => ['translator'],
+        Extension\UrlExtension::class => [Service\RouteAssembler::class],
+        Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class],
     ],
 
 ];

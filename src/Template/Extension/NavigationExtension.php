@@ -2,9 +2,11 @@
 namespace Acelaya\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssemblerInterface;
+use League\Plates\Engine;
+use League\Plates\Extension\ExtensionInterface;
 use Zend\I18n\Translator\TranslatorInterface;
 
-class NavigationExtension extends AbstractExtension
+class NavigationExtension implements ExtensionInterface
 {
     /**
      * @var TranslatorInterface
@@ -29,13 +31,11 @@ class NavigationExtension extends AbstractExtension
         $this->config = $config;
     }
 
-    public function getFunctions(): array
+    public function register(Engine $engine)
     {
-        return [
-            new \Twig_SimpleFunction('render_menu', [$this, 'renderMenu'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('render_langs_menu', [$this, 'renderLanguagesMenu'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('render_social_menu', [$this, 'renderSocialMenu'], ['is_safe' => ['html']]),
-        ];
+        $engine->registerFunction('render_menu', [$this, 'renderMenu']);
+        $engine->registerFunction('render_langs_menu', [$this, 'renderLanguagesMenu']);
+        $engine->registerFunction('render_social_menu', [$this, 'renderSocialMenu']);
     }
 
     public function renderMenu($class = 'pull-left left-menu'): string

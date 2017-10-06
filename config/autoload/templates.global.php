@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Acelaya\Website\Template\Extension\TranslatorExtension;
+use Acelaya\Website\Template\Extension;
 
 return [
 
@@ -14,7 +14,9 @@ return [
 
     'plates' => [
         'extensions' => [
-            TranslatorExtension::class,
+            Extension\TranslatorExtension::class,
+            Extension\UrlExtension::class,
+            Extension\NavigationExtension::class,
         ],
     ],
 
