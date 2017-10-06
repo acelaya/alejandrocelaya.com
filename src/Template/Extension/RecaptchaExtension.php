@@ -1,7 +1,10 @@
 <?php
 namespace Acelaya\Website\Template\Extension;
 
-class RecaptchaExtension extends AbstractExtension
+use League\Plates\Engine;
+use League\Plates\Extension\ExtensionInterface;
+
+class RecaptchaExtension implements ExtensionInterface
 {
     /**
      * @var array
@@ -13,12 +16,10 @@ class RecaptchaExtension extends AbstractExtension
         $this->config = $config;
     }
 
-    public function getFunctions(): array
+    public function register(Engine $engine)
     {
-        return [
-            new \Twig_SimpleFunction('recaptcha_public', [$this, 'getRecapcthaPublicKey']),
-            new \Twig_SimpleFunction('recaptcha_input', [$this, 'renderInput'], ['is_safe' => ['html']]),
-        ];
+        $engine->registerFunction('recaptcha_public', [$this, 'getRecapcthaPublicKey']);
+        $engine->registerFunction('recaptcha_input', [$this, 'renderInput']);
     }
 
     public function getRecapcthaPublicKey(): string

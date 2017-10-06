@@ -2,7 +2,7 @@
 <?php
 use Acelaya\Expressive\Router\SlimRouter;
 use Acelaya\Website\Feed\BlogOptions;
-use Acelaya\Website\Feed\Twig\Extension\BlogExtension;
+use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Template\Extension\NavigationExtension;
 use Acelaya\Website\Template\Extension\RecaptchaExtension;

@@ -1,10 +1,12 @@
 <?php
+
 use Acelaya\Expressive\Factory\SlimRouterFactory;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Action\Template;
 use Acelaya\Website\Console;
 use Acelaya\Website\Factory;
 use Acelaya\Website\Feed;
+use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
@@ -36,7 +38,6 @@ return [
             Template::class => AnnotatedFactory::class,
 
             // Services
-//            Expressive\Template\TemplateRendererInterface::class => Factory\RendererFactory::class,
             Expressive\Template\TemplateRendererInterface::class => Expressive\Plates\PlatesRendererFactory::class,
             Expressive\Router\RouterInterface::class => SlimRouterFactory::class,
             ErrorHandler::class => Expressive\Container\ErrorHandlerFactory::class,
@@ -58,6 +59,8 @@ return [
             Extension\TranslatorExtension::class => ConfigAbstractFactory::class,
             Extension\UrlExtension::class => ConfigAbstractFactory::class,
             Extension\NavigationExtension::class => ConfigAbstractFactory::class,
+            Extension\RecaptchaExtension::class => ConfigAbstractFactory::class,
+            BlogExtension::class => ConfigAbstractFactory::class,
 
             Cache::class => Factory\CacheFactory::class,
             Factory\CacheFactory::VIEWS_CACHE => Factory\CacheFactory::class,
@@ -76,19 +79,26 @@ return [
             CacheMiddleware::class => AnnotatedFactory::class,
             LanguageMiddleware::class => AnnotatedFactory::class,
         ],
+
         'aliases' => [
             'translator' => Translator::class,
             'request' => ServerRequestInterface::class,
             'renderer' => Expressive\Template\TemplateRendererInterface::class,
             Service\ContactServiceInterface::class => Service\ContactService::class,
             AnnotatedFactory::CACHE_SERVICE => Cache::class,
-        ]
+        ],
+
+        'abstract_factories' => [
+            Factory\DotNotationConfigAbstractFactory::class,
+        ],
     ],
 
     ConfigAbstractFactory::class => [
         Extension\TranslatorExtension::class => ['translator'],
         Extension\UrlExtension::class => [Service\RouteAssembler::class],
-        Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class],
+        Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class, 'config.navigation'],
+        Extension\RecaptchaExtension::class => ['config.recaptcha'],
+        BlogExtension::class => [Cache::class, Feed\BlogOptions::class],
     ],
 
 ];

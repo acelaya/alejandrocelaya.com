@@ -1,11 +1,12 @@
 <?php
-namespace Acelaya\Website\Feed\Twig\Extension;
+namespace Acelaya\Website\Feed\Template\Extension;
 
 use Acelaya\Website\Feed\BlogOptions;
-use Acelaya\Website\Template\Extension\AbstractExtension;
 use Doctrine\Common\Cache\Cache;
+use League\Plates\Engine;
+use League\Plates\Extension\ExtensionInterface;
 
-class BlogExtension extends AbstractExtension
+class BlogExtension implements ExtensionInterface
 {
     /**
      * @var Cache
@@ -27,15 +28,9 @@ class BlogExtension extends AbstractExtension
         $this->blogOptions = $blogOptions;
     }
 
-    public function getFunctions()
+    public function register(Engine $engine)
     {
-        return [
-            new \Twig_SimpleFunction(
-                'render_latest_blog_posts',
-                [$this, 'renderLatestBlogPosts'],
-                ['is_safe' => ['html']]
-            ),
-        ];
+        $engine->registerFunction('render_latest_blog_posts', [$this, 'renderLatestBlogPosts']);
     }
 
     public function renderLatestBlogPosts()
