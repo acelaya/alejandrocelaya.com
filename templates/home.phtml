@@ -27,39 +27,36 @@
         <div class="container">
             <div class="row row-bottom-padded-sm">
                 <div class="col-md-8 col-md-offset-2 text-center">
-                    <h2 class="fh5co-lead animate-box">{{ translate("Hello!<br>My name is Alejandro Celaya.") | raw }}</h2>
+                    <h2 class="fh5co-lead animate-box"><?= $this->translate('Hello!<br>My name is Alejandro Celaya.') ?></h2>
                 </div>
             </div>
             <div class="animate-box">
                 <ul class="slides text-justify">
                     <li>
                         <blockquote>
-                            <p>{{ translate('I live in Zaragoza, Spain, and I am a web developer since 2010.') }}</p>
-                            <p>{{ translate('I have worked in many kind of projects. From simple static webpages to fully managed web applications, web services or eCommerce applications.') }}</p>
+                            <p><?= $this->translate('I live in Zaragoza, Spain, and I am a web developer since 2010.') ?></p>
+                            <p><?= $this->translate('I have worked in many kind of projects. From simple static webpages to fully managed web applications, web services or eCommerce applications.') ?></p>
                             <p>
-                                {{
-                                    translate('I am focused on %1$sPHP%2$s and %1$sJavascript%2$s, but I\'ve also worked with other technologies, like %1$sJava%2$s and %1$sAndroid%2$s.') | format(
-                                        '<b>',
-                                        '</b>'
-                                    ) | raw
-                                }}
+                                <?= sprintf(
+                                    $this->translate('I am focused on %1$sPHP%2$s and %1$sJavascript%2$s, but I\'ve also worked with other technologies, like %1$sJava%2$s and %1$sAndroid%2$s.'),
+                                    '<b>',
+                                    '</b>'
+                                ) ?>
                             </p>
                             <p>
-                                {{
-                                    translate('I love open source software, and I contribute with it whenever I can, providing new features, bug fixes or improving documentation. I\'ve created my own OSS projects too, that can be found in my %sGithub%s account.') | format (
-                                        '<a target="_blank" href="https://github.com/acelaya">',
-                                        '</a>'
-                                    ) | raw
-                                }}
+                                <?= sprintf(
+                                    $this->translate('I love open source software, and I contribute with it whenever I can, providing new features, bug fixes or improving documentation. I\'ve created my own OSS projects too, that can be found in my %sGithub%s account.'),
+                                    '<a target="_blank" href="https://github.com/acelaya">',
+                                    '</a>'
+                                ) ?>
                             </p>
-                            <p>{{ translate('I\'m a passionate programmer. I love my job and always give my best. I\'m very committed with what I do, and always try to learn new things and be active.') }}</p>
+                            <p><?= $this->translate('I\'m a passionate programmer. I love my job and always give my best. I\'m very committed with what I do, and always try to learn new things and be active.') ?></p>
                             <p>
-                                {{
-                                    translate('In January 2013 I was included in the %1$sZend Certified Engineers%2$s group by passing the official certification exam (PHP 5.3). In May 2014 I passed the %1$sZend Framework 2 Certified Architect%2$s exam too.') | format(
-                                        '<a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">',
-                                        '</a>'
-                                    ) | raw
-                                }}
+                                <?= sprintf(
+                                    $this->translate('In January 2013 I was included in the %1$sZend Certified Engineers%2$s group by passing the official certification exam (PHP 5.3). In May 2014 I passed the %1$sZend Framework 2 Certified Architect%2$s exam too.'),
+                                    '<a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">',
+                                    '</a>'
+                                ) ?>
                             </p>
 
                         </blockquote>
