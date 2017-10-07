@@ -4,7 +4,8 @@ namespace AcelayaTest\Website\Service;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service\ContactService;
 use PHPUnit\Framework\TestCase;
-use Zend\Expressive\Twig\TwigRenderer;
+use Prophecy\Argument;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactServiceTest extends TestCase
 {
@@ -30,11 +31,10 @@ class ContactServiceTest extends TestCase
     public function setUp()
     {
         $mailer = new \Swift_Mailer(new \Swift_NullTransport());
-        $renderer = new TwigRenderer(new \Twig_Environment(new \Twig_Loader_Array([
-            ContactService::TEMPLATE => '<p>{{ email }}</p>'
-        ])));
+        $renderer = $this->prophesize(TemplateRendererInterface::class);
+        $renderer->render(ContactService::TEMPLATE, Argument::cetera())->willReturn('<p>{{ email }}</p>');
 
-        $this->service = new ContactService($mailer, $renderer, new MailOptions($this->config));
+        $this->service = new ContactService($mailer, $renderer->reveal(), new MailOptions($this->config));
     }
 
     public function testSend()
