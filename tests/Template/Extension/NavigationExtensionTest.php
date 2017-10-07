@@ -1,5 +1,5 @@
 <?php
-namespace AcelayaTest\Website\Twig\Extension;
+namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Template\Extension\NavigationExtension;

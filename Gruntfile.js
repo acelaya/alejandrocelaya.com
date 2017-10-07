@@ -52,8 +52,8 @@ module.exports = function(grunt) {
             },
             main: {
                 files: {
-                    'templates/partials/javascripts.html.twig': ['templates/partials/javascripts.html.twig'],
-                    'templates/partials/stylesheets.html.twig': ['templates/partials/stylesheets.html.twig']
+                    'templates/partials/javascripts.phtml': ['templates/partials/javascripts.phtml'],
+                    'templates/partials/stylesheets.phtml': ['templates/partials/stylesheets.phtml']
                 }
             }
         },
@@ -67,8 +67,8 @@ module.exports = function(grunt) {
                     }]
                 },
                 files : {
-                    'templates/partials/javascripts.html.twig': ['templates/partials/javascripts.html.twig'],
-                    'templates/partials/stylesheets.html.twig': ['templates/partials/stylesheets.html.twig']
+                    'templates/partials/javascripts.phtml': ['templates/partials/javascripts.phtml'],
+                    'templates/partials/stylesheets.phtml': ['templates/partials/stylesheets.phtml']
                 }
             }
         },
