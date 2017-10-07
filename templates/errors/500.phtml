@@ -1,1 +1,37 @@
-500
+<?php $this->layout('Acelaya::layout') ?>
+
+<?php $this->start('main') ?>
+    <section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(/img/hero_bg.jpg);" data-next="yes">
+        <div class="fh5co-overlay"></div>
+        <div class="container">
+            <div class="fh5co-intro no-js-fullheight">
+                <div class="fh5co-intro-text">
+                    <div class="fh5co-center-position">
+                        <h2 class="animate-box"><?= $this->translate('Oops!') ?></h2>
+                        <h3 class="animate-box"><?= $this->translate('Unexpected error.') ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fh5co-learn-more animate-box">
+            <a href="#" class="scroll-btn">
+                <span class="arrow"><i class="icon-chevron-down"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="fh5co-testimonials">
+        <div class="container animate-box">
+            <ul class="slides text-center">
+                <li>
+                    <blockquote>
+                        <p><?= $this->translate('The page you requested has produced an unexpected error. Use your browser\'s Back button to navigate to the page you have previously come from or just press this button.') ?></p>
+                        <a class="btn btn-primary btn-lg" href="<?= $this->assemble_url('home') ?>">
+                            <?= $this->translate('Home') ?>
+                        </a>
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+    </section>
+<?php $this->end() ?>
