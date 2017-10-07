@@ -31,7 +31,6 @@
     "require": {
         "php": "^7.1",
         "acelaya/expressive-slim-router": "^3.0",
-        "acelaya/zsm-annotated-services": "^1.0",
         "doctrine/cache": "^1.4",
         "google/recaptcha": "^1.1",
         "swiftmailer/swiftmailer": "^5.4",

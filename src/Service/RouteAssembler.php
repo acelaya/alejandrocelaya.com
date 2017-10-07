@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Service;
 
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
@@ -19,13 +18,6 @@ class RouteAssembler implements RouteAssemblerInterface
      */
     protected $request;
 
-    /**
-     * RouteAssembler constructor.
-     * @param RouterInterface $router
-     * @param ServerRequestInterface $request
-     *
-     * @Inject({RouterInterface::class, ServerRequestInterface::class})
-     */
     public function __construct(RouterInterface $router, ServerRequestInterface $request)
     {
         $this->router = $router;
