@@ -2,7 +2,9 @@
 namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Template\Extension\TranslatorExtension;
+use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Zend\I18n\Translator\Translator;
 
 class TranslatorExtensionTest extends TestCase
@@ -22,37 +24,14 @@ class TranslatorExtensionTest extends TestCase
         $this->extension = new TranslatorExtension($this->translator);
     }
 
-    public function testGetFunctions()
+    public function testRegister()
     {
-        /** @var \Twig_SimpleFunction[] $funcs */
-        $funcs = $this->extension->getFunctions();
-        $this->assertCount(3, $funcs);
-        $this->assertEquals('translate', $funcs[0]->getName());
-        $this->assertEquals('translate_plural', $funcs[1]->getName());
-        $this->assertEquals('locale', $funcs[2]->getName());
-    }
+        $engine = $this->prophesize(Engine::class);
 
-    public function testTranslate()
-    {
-        $message = 'foo bar';
-        $this->assertEquals($this->translator->translate($message), $this->extension->translate($message));
-    }
+        $engine->registerFunction('translate', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('translate_plural', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('locale', Argument::type('callable'))->shouldBeCalledTimes(1);
 
-    public function testTranslatePlural()
-    {
-        $singular = 'foo bar';
-        $plural = 'bar foo';
-        $number = 1;
-        $this->assertEquals(
-            $this->translator->translatePlural($singular, $plural, $number),
-            $this->extension->translatePlural($singular, $plural, $number)
-        );
-    }
-
-    public function testGetLocale()
-    {
-        $this->assertEquals('en', $this->extension->getLocale());
-        $this->translator->setLocale('es');
-        $this->assertEquals('es', $this->extension->getLocale());
+        $this->extension->register($engine->reveal());
     }
 }

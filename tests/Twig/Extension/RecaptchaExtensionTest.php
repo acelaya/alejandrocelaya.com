@@ -2,7 +2,9 @@
 namespace AcelayaTest\Website\Twig\Extension;
 
 use Acelaya\Website\Template\Extension\RecaptchaExtension;
+use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 
 class RecaptchaExtensionTest extends TestCase
 {
@@ -18,12 +20,14 @@ class RecaptchaExtensionTest extends TestCase
         ]);
     }
 
-    public function testGetFunctions()
+    public function testRegister()
     {
-        $funcs = $this->extension->getFunctions();
-        $this->assertCount(2, $funcs);
-        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[0]);
-        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[1]);
+        $engine = $this->prophesize(Engine::class);
+
+        $engine->registerFunction('recaptcha_public', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('recaptcha_input', Argument::type('callable'))->shouldBeCalledTimes(1);
+
+        $this->extension->register($engine->reveal());
     }
 
     public function testGetRecaptchaPublicKey()
