@@ -1,0 +1,14 @@
+<?php
+declare(strict_types=1);
+
+return [
+
+    'mail' => [
+        'smtp' => [
+            'server' => 'ac_website_mailhog',
+            'port' => 1025,
+            'ssl' => false,
+        ],
+    ],
+
+];
