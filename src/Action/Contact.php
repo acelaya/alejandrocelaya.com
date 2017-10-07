@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Acelaya\Website\Action;
 
 use Acelaya\Website\Form\ContactFilter;
@@ -78,7 +80,7 @@ class Contact extends Template
         if (! $filter->isValid()) {
             return $this->createTemplateResponse($request, [
                 'errors' => $filter->getMessages(),
-                'currentData' => $params
+                'currentData' => $params,
             ]);
         }
 

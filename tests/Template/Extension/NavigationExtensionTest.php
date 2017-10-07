@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
@@ -36,31 +38,31 @@ class NavigationExtensionTest extends TestCase
                     [
                         'route' => 'home',
                         'icon' => 'house',
-                        'label' => 'Home'
+                        'label' => 'Home',
                     ],
                     [
                         'uri' => 'http://foo.com',
                         'target' => true,
                         'label' => 'Blog',
-                        'icon' => 'book'
-                    ]
+                        'icon' => 'book',
+                    ],
                 ],
                 'lang_menu' => [
                     [
                         'label'    => 'Español',
                         'class'    => 'es',
                         'params'   => [
-                            'lang' => 'es'
-                        ]
+                            'lang' => 'es',
+                        ],
                     ],
                     [
                         'label'    => 'English',
                         'class'    => 'en',
                         'params'   => [
-                            'lang' => 'en'
-                        ]
+                            'lang' => 'en',
+                        ],
                     ],
-                ]
+                ],
             ]
         );
     }

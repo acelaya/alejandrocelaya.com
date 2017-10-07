@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
+
 namespace Acelaya\Website\Service;
 
 use Zend\Expressive\Router\RouteResult;
-use Zend\Expressive\Router\RouterInterface;
 
 interface RouteAssemblerInterface
 {

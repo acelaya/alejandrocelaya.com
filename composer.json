@@ -55,7 +55,8 @@
         "squizlabs/php_codesniffer": "^3.1",
         "symfony/var-dumper": "^2.7",
         "vlucas/phpdotenv": "^2.0",
-        "zendframework/zend-expressive-tooling": "^0.3.1"
+        "zendframework/zend-expressive-tooling": "^0.4",
+        "slevomat/coding-standard": "^4.0"
     },
     "scripts": {
         "check": [
@@ -64,8 +65,7 @@
         ],
         "cs": "phpcs",
         "cs-fix": "phpcbf",
-        "serve": "php -S 0.0.0.0:8000 -t public/",
         "test": "phpunit --coverage-clover build/clover.xml --colors=always",
-        "pretty-test": "phpunit -c tests/phpunit.xml --coverage-html build/coverage"
+        "pretty-test": "phpunit --coverage-html build/coverage"
     }
 }

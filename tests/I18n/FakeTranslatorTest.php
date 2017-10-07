@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\I18n;
 
 use Acelaya\Website\I18n\FakeTranslator;

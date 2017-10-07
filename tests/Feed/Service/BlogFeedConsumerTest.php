@@ -1,10 +1,12 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Feed\Service;
 
 use Acelaya\Website\Feed\BlogOptions;
 use Acelaya\Website\Feed\Service\BlogFeedConsumer;
-use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache;
+use Doctrine\Common\Cache\ArrayCache;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;

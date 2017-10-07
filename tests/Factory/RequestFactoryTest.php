@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RequestFactory;

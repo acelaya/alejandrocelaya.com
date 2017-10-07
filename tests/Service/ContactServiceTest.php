@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Service;
 
 use Acelaya\Website\Options\MailOptions;
@@ -17,7 +19,7 @@ class ContactServiceTest extends TestCase
      * @var array
      */
     protected $messageData = [
-        'email' => 'alejandro@alejandrocelaya.com'
+        'email' => 'alejandro@alejandrocelaya.com',
     ];
     /**
      * @var array

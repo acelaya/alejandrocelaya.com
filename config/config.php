@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 use Zend\Config\Factory;
 use Zend\Stdlib\Glob;
 

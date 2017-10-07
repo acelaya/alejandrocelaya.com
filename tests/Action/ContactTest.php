@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Contact;
@@ -38,7 +40,7 @@ class ContactTest extends TestCase
         ContactFilter::EMAIL => 'alejandro@alejandrocelaya.com',
         ContactFilter::SUBJECT => 'My contact',
         ContactFilter::COMMENTS => 'Hello!!',
-        ContactFilter::RECAPTCHA => 'good'
+        ContactFilter::RECAPTCHA => 'good',
     ];
 
     public function setUp()
