@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Acelaya\Expressive\Factory\SlimRouterFactory;
 use Acelaya\Website\Action\Contact;

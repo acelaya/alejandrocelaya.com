@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\SwiftMailerFactory;
@@ -27,9 +28,9 @@ class SwiftMailerFactoryTest extends TestCase
                     'port' => 25,
                     'ssl' => 'ssl',
                     'username' => 'john@foo.com',
-                    'password' => '12345'
-                ]
-            ]
+                    'password' => '12345',
+                ],
+            ],
         ]);
 
         /** @var \Swift_Mailer $mailer */

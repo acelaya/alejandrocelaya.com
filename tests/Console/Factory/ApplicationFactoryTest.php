@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Console\Factory;
 
 use Acelaya\Website\Console\Factory\ApplicationFactory;

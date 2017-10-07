@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Template\Extension\RecaptchaExtension;
@@ -16,7 +17,7 @@ class RecaptchaExtensionTest extends TestCase
     public function setUp()
     {
         $this->extension = new RecaptchaExtension([
-            'public_key' => 'my_key'
+            'public_key' => 'my_key',
         ]);
     }
 

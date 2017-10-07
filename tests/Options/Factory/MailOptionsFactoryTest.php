@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Options\Factory;
 
 use Acelaya\Website\Options\Factory\MailOptionsFactory;
@@ -23,9 +24,9 @@ class MailOptionsFactoryTest extends TestCase
         $sm = new ServiceManager([
             'services' => [
                 'config' => [
-                    'mail' => []
-                ]
-            ]
+                    'mail' => [],
+                ],
+            ],
         ]);
         $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(MailOptions::class, $instance);

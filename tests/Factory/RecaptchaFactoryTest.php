@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\RecaptchaFactory;
@@ -23,8 +24,8 @@ class RecaptchaFactoryTest extends TestCase
         $sm = new ServiceManager();
         $sm->setService('config', [
             'recaptcha' => [
-                'private_key' => 'foo'
-            ]
+                'private_key' => 'foo',
+            ],
         ]);
         $instance = $this->factory->__invoke($sm, '');
         $this->assertInstanceOf(ReCaptcha::class, $instance);

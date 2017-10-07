@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 return [
 
     'translator' => [
@@ -7,9 +8,9 @@ return [
             [
                 'type' => 'gettext',
                 'base_dir' => __DIR__ . '/../../data/language',
-                'pattern' => '%s.mo'
-            ]
-        ]
-    ]
+                'pattern' => '%s.mo',
+            ],
+        ],
+    ],
 
 ];

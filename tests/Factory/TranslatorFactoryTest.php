@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\TranslatorFactory;
@@ -22,7 +23,7 @@ class TranslatorFactoryTest extends TestCase
     {
         $sm = new ServiceManager();
         $sm->setService('config', [
-            'translator' => []
+            'translator' => [],
         ]);
 
         $instance = $this->factory->__invoke($sm, '');

@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Feed;
 
 use Acelaya\Website\Feed\GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Diactoros\Response;
 

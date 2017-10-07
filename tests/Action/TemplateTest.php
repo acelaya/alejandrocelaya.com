@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Template;
@@ -13,7 +14,7 @@ class TemplateTest extends TestCase
 {
     private const TEMPLATES_CONTENT_MAP = [
         'Acelaya::foo' => '<h1>Hello!!</h1>',
-        'Acelaya::errors/404' => 'Error'
+        'Acelaya::errors/404' => 'Error',
     ];
 
     /**

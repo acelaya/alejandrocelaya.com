@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 return [
 
     'mail' => [
@@ -12,6 +13,6 @@ return [
         'from' => getenv('EMAIL_USERNAME'),
         'to' => getenv('EMAIL_USERNAME'),
         'subject' => 'Alejandro Celaya | Contact form',
-    ]
+    ],
 
 ];

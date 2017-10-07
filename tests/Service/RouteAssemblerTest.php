@@ -1,9 +1,9 @@
 <?php
+declare(strict_types=1);
 namespace AcelayaTest\Website\Service;
 
 use Acelaya\Website\Service\RouteAssembler;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Prophecy\MethodProphecy;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\ServerRequest;
