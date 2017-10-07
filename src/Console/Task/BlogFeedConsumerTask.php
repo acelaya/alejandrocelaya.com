@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Console\Task;
 
-use Acelaya\Website\Feed\Service\BlogFeedConsumer;
 use Acelaya\Website\Feed\Service\BlogFeedConsumerInterface;
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -16,12 +14,6 @@ class BlogFeedConsumerTask implements LongTaskInterface
      */
     private $blogFeedConsumer;
 
-    /**
-     * BlogFeedConsumerTask constructor.
-     * @param BlogFeedConsumerInterface $blogFeedConsumer
-     *
-     * @Inject({BlogFeedConsumer::class})
-     */
     public function __construct(BlogFeedConsumerInterface $blogFeedConsumer)
     {
         $this->blogFeedConsumer = $blogFeedConsumer;

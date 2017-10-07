@@ -3,10 +3,7 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Feed\Service;
 
-use Acelaya\Website\Factory\CacheFactory;
 use Acelaya\Website\Feed\BlogOptions;
-use Acelaya\Website\Feed\GuzzleClient;
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache;
 use Zend\Feed\Reader\Feed\FeedInterface;
 use Zend\Feed\Reader\Http\ClientInterface;
@@ -27,15 +24,6 @@ class BlogFeedConsumer implements BlogFeedConsumerInterface
      */
     private $viewsCache;
 
-    /**
-     * BlogFeedConsumer constructor.
-     * @param ClientInterface $httpClient
-     * @param Cache\Cache $feedCache,
-     * @param Cache\ClearableCache $viewsCache,
-     * @param BlogOptions $blogOptions
-     *
-     * @Inject({GuzzleClient::class, CacheFactory::FEED_CACHE, CacheFactory::VIEWS_CACHE, BlogOptions::class})
-     */
     public function __construct(
         ClientInterface $httpClient,
         Cache\Cache $feedCache,

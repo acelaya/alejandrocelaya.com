@@ -3,18 +3,18 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Middleware;
 
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Expressive\Router\RouterInterface;
+use Zend\I18n\Translator\Translator;
 use Zend\I18n\Translator\TranslatorInterface;
 
 class LanguageMiddleware implements MiddlewareInterface
 {
     /**
-     * @var TranslatorInterface
+     * @var TranslatorInterface|Translator
      */
     protected $translator;
     /**
@@ -22,13 +22,6 @@ class LanguageMiddleware implements MiddlewareInterface
      */
     protected $router;
 
-    /**
-     * LanguageMiddleware constructor.
-     * @param TranslatorInterface $translator
-     * @param RouterInterface $router
-     *
-     * @Inject({"translator", RouterInterface::class})
-     */
     public function __construct(TranslatorInterface $translator, RouterInterface $router)
     {
         $this->translator = $translator;

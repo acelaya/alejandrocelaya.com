@@ -15,7 +15,6 @@ use Acelaya\Website\Options\Factory\MailOptionsFactory;
 use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
-use Acelaya\ZsmAnnotatedServices\Factory\V3\AnnotatedFactory;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
 use ReCaptcha\ReCaptcha;
@@ -35,8 +34,8 @@ return [
             Expressive\Application::class => Container\ApplicationFactory::class,
 
             // Actions
-            Contact::class => AnnotatedFactory::class,
-            Template::class => AnnotatedFactory::class,
+            Contact::class => ConfigAbstractFactory::class,
+            Template::class => ConfigAbstractFactory::class,
 
             // Services
             Expressive\Template\TemplateRendererInterface::class => Expressive\Plates\PlatesRendererFactory::class,
@@ -50,11 +49,11 @@ return [
             \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
             Translator::class => Factory\TranslatorFactory::class,
             ReCaptcha::class => Factory\RecaptchaFactory::class,
-            Service\RouteAssembler::class => AnnotatedFactory::class,
-            Service\ContactService::class => AnnotatedFactory::class,
-            ContactFilter::class => AnnotatedFactory::class,
+            Service\RouteAssembler::class => ConfigAbstractFactory::class,
+            Service\ContactService::class => ConfigAbstractFactory::class,
+            ContactFilter::class => ConfigAbstractFactory::class,
             Feed\GuzzleClient::class => InvokableFactory::class,
-            Feed\Service\BlogFeedConsumer::class => AnnotatedFactory::class,
+            Feed\Service\BlogFeedConsumer::class => ConfigAbstractFactory::class,
 
             // Template extensions
             Extension\TranslatorExtension::class => ConfigAbstractFactory::class,
@@ -70,15 +69,15 @@ return [
             // Console
             Symfony\Application::class => Console\Factory\ApplicationFactory::class,
             Console\Command\LongTasksCommand::class => Console\Command\LongTaskCommandFactory::class,
-            Console\Task\BlogFeedConsumerTask::class => AnnotatedFactory::class,
+            Console\Task\BlogFeedConsumerTask::class => ConfigAbstractFactory::class,
 
             // Options
             MailOptions::class => MailOptionsFactory::class,
-            Feed\BlogOptions::class => AnnotatedFactory::class,
+            Feed\BlogOptions::class => ConfigAbstractFactory::class,
 
             // Middleware
-            CacheMiddleware::class => AnnotatedFactory::class,
-            LanguageMiddleware::class => AnnotatedFactory::class,
+            CacheMiddleware::class => ConfigAbstractFactory::class,
+            LanguageMiddleware::class => ConfigAbstractFactory::class,
         ],
 
         'aliases' => [
@@ -86,7 +85,6 @@ return [
             'request' => ServerRequestInterface::class,
             'renderer' => Expressive\Template\TemplateRendererInterface::class,
             Service\ContactServiceInterface::class => Service\ContactService::class,
-            AnnotatedFactory::CACHE_SERVICE => Cache::class,
         ],
 
         'abstract_factories' => [
@@ -100,6 +98,21 @@ return [
         Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class, 'config.navigation'],
         Extension\RecaptchaExtension::class => ['config.recaptcha'],
         BlogExtension::class => [Cache::class, Feed\BlogOptions::class],
+        Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
+        Template::class => ['renderer'],
+        Service\RouteAssembler::class => [Expressive\Router\RouterInterface::class, 'request'],
+        Service\ContactService::class => [Swift_Mailer::class, 'renderer', MailOptions::class],
+        ContactFilter::class => [ReCaptcha::class],
+        Feed\Service\BlogFeedConsumer::class => [
+            Feed\GuzzleClient::class,
+            Factory\CacheFactory::FEED_CACHE,
+            Factory\CacheFactory::VIEWS_CACHE,
+            Feed\BlogOptions::class,
+        ],
+        Console\Task\BlogFeedConsumerTask::class => [Feed\Service\BlogFeedConsumer::class],
+        Feed\BlogOptions::class => ['config.blog'],
+        CacheMiddleware::class => [Factory\CacheFactory::VIEWS_CACHE, Expressive\Router\RouterInterface::class],
+        LanguageMiddleware::class => ['translator', Expressive\Router\RouterInterface::class],
     ],
 
 ];

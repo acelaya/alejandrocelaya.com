@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Middleware;
 
-use Acelaya\Website\Factory\CacheFactory;
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Doctrine\Common\Cache\Cache;
 use Fig\Http\Message\StatusCodeInterface;
 use Interop\Http\ServerMiddleware\DelegateInterface;
@@ -24,13 +22,6 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
      */
     protected $cache;
 
-    /**
-     * CacheMiddleware constructor.
-     * @param Cache $cache
-     * @param RouterInterface $router
-     *
-     * @Inject({CacheFactory::VIEWS_CACHE, RouterInterface::class})
-     */
     public function __construct(Cache $cache, RouterInterface $router)
     {
         $this->cache = $cache;
