@@ -36,6 +36,8 @@ rm -rf README.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
+rm -rf config/autoload/local.php
+rm -rf config/autoload/local.php.dist
 rm -rf config/autoload/*.local.php
 rm -rf config/autoload/*.local.php.dist
 rm -rf public/css/animate.css
