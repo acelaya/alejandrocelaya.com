@@ -41,6 +41,11 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
      */
     public function process(Request $request, DelegateInterface $delegate)
     {
+        // Bypass cache if provided bypass-cache param
+        if (array_key_exists('bypass-cache', $request->getQueryParams())) {
+            return $delegate->process($request);
+        }
+
         $currentRoute = $this->router->match($request);
         $currentRoutePath = $request->getUri()->getPath();
 
