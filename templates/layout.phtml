@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ locale() }}" class="js">
+<html lang="<?= $this->locale() ?>" class="js">
     <head>
-        {% set desc = translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce') %}
-        <title>{{ translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') | raw }}</title>
+        <?php $desc = $this->e($this->translate('Alejandro Celaya, full-stack developer (PHP/JS) in Zaragoza, Spain. I have worked with web applications, web services and e-commerce')) ?>
+        <title><?= $this->translate('Alejandro Celaya Alastrué &mdash; Full-stack Developer') ?></title>
         <meta charset="utf-8">
-        <meta name="description" content="{{ desc }}">
+        <meta name="description" content="<?= $desc ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alejandro Celaya Alastrué">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,15 +13,14 @@
         <!-- Facebook and Twitter integration -->
         <meta property="og:title" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
         <meta property="og:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg"/>
-        {#<meta property="og:url" content="{{ assemble_url(null, true) }}"/>#}
         <meta property="og:site_name" content="Alejandro Celaya Alastrué - Full-stack Developer"/>
-        <meta property="og:description" content="{{ desc }}"/>
+        <meta property="og:description" content="<?= $desc ?>"/>
         <meta name="twitter:title" content="Alejandro Celaya Alastrué - Full-stack Developer" />
         <meta name="twitter:image" content="https://www.alejandrocelaya.com/img/hero_bg.jpg" />
-        <meta name="twitter:url" content="{{ assemble_url(null, true) }}" />
-        <meta name="twitter:card" content="{{ desc }}" />
+        <meta name="twitter:url" content="<?= $this->assemble_url(null, true) ?>" />
+        <meta name="twitter:card" content="<?= $desc ?>" />
 
-        {% include 'partials/stylesheets.html.twig' %}
+        <?php $this->insert('Acelaya::partials/stylesheets') ?>
     </head>
     <body>
 
@@ -32,20 +31,20 @@
             <section id="fh5co-header">
                 <div class="container">
                     <nav role="navigation">
-                        {{ render_menu() }}
-                        {{ render_langs_menu() }}
+                        <?= $this->render_menu() ?>
+                        <?= $this->render_langs_menu() ?>
                     </nav>
                 </div>
             </section>
             <!-- #fh5co-header -->
 
-            {% block content '' %}
+            <?= $this->section('main', '') ?>
 
-            {% include 'partials/footer.html.twig' %}
+            <?php $this->insert('Acelaya::partials/footer') ?>
             <!-- END #fh5co-footer -->
         </div>
         <!-- END #fh5co-page -->
 
-        {% include 'partials/javascripts.html.twig' %}
+        <?php $this->insert('Acelaya::partials/javascripts') ?>
     </body>
 </html>

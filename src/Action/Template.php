@@ -8,7 +8,7 @@ use Zend\Diactoros\Response\HtmlResponse;
 
 class Template extends AbstractAction
 {
-    const NOT_FOUND_TEMPLATE = 'errors/404.html.twig';
+    const NOT_FOUND_TEMPLATE = 'Acelaya::errors/404';
 
     /**
      * Returns the content to render

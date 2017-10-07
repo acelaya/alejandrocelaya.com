@@ -1,9 +1,11 @@
 <?php
-namespace AcelayaTest\Website\Twig\Extension;
+namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
-use Acelaya\Website\Twig\Extension\UrlExtension;
+use Acelaya\Website\Template\Extension\UrlExtension;
+use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
@@ -26,28 +28,14 @@ class UrlExtensionTest extends TestCase
         $this->extension = new UrlExtension($this->routeAssemblerProphezy->reveal());
     }
 
-    public function testGetFunctions()
+    public function testRegister()
     {
-        /** @var \Twig_SimpleFunction[] $funcs */
-        $funcs = $this->extension->getFunctions();
-        $this->assertCount(2, $funcs);
-        $this->assertEquals('assemble_url', $funcs[0]->getName());
-        $this->assertEquals('current_route', $funcs[1]->getName());
-    }
+        $engine = $this->prophesize(Engine::class);
 
-    public function testAssembleUrl()
-    {
-        $this->assertEquals('/foo/bar', $this->extension->assembleUrl('home'));
-    }
+        $engine->registerFunction('assemble_url', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('current_route', Argument::type('callable'))->shouldBeCalledTimes(1);
 
-    public function testGetCurrentRouteResult()
-    {
-        $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRoute(new Route(
-            'home',
-            'HelloWorld'
-        )));
-        $result = $this->extension->getCurrentRouteResult();
-        $this->assertInstanceOf(RouteResult::class, $result);
+        $this->extension->register($engine->reveal());
     }
 
     public function testGetCurrentRouteName()

@@ -6,6 +6,7 @@ use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\Response as RecaptchaResponse;
 use Zend\Diactoros\Response\HtmlResponse;
@@ -14,7 +15,6 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
 use Zend\Expressive\Template\TemplateRendererInterface;
-use Zend\Expressive\Twig\TwigRenderer;
 
 class ContactTest extends TestCase
 {
@@ -48,23 +48,28 @@ class ContactTest extends TestCase
         $service = $this->prophesize(ContactService::class);
         $service->send($this->fullData)->willReturn(true);
 
-        $this->renderer = new TwigRenderer(new \Twig_Environment(new \Twig_Loader_Array([
-            'contact.html.twig' => <<<EOF
-{% if errors is defined %}
-    <p class="error-message">Error</p>
-{% elseif success is defined %}
-    <p class="success-message">Success</p>
-{% endif %}
+        $this->renderer = $this->prophesize(TemplateRendererInterface::class);
+        $this->renderer->render(Argument::cetera())->will(function (array $args) {
+            $content = <<<EOF
 <p class="content">Content</p>
-EOF
-        ])));
+EOF;
+            $templateParams = array_pop($args);
+
+            if (isset($templateParams['errors'])) {
+                $content = '<p class="error-message">Error</p>' . PHP_EOL . $content;
+            } elseif (isset($templateParams['success'])) {
+                $content = '<p class="success-message">Success</p>' . PHP_EOL . $content;
+            }
+
+            return $content;
+        });
 
         $recaptcha = $this->prophesize(ReCaptcha::class);
         $recaptcha->verify('good')->willReturn(new RecaptchaResponse(true));
         $recaptcha->verify('bad')->willReturn(new RecaptchaResponse(false));
 
         $this->contact = new Contact(
-            $this->renderer,
+            $this->renderer->reveal(),
             $service->reveal(),
             new ContactFilter($recaptcha->reveal()),
             $this->session
@@ -73,7 +78,7 @@ EOF
 
     public function testGetRequestJustReturnsTheTemplate()
     {
-        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
+        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'Acelaya::contact');
         $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertInstanceOf(HtmlResponse::class, $resp);
         $document = new \DOMDocument();
@@ -99,7 +104,7 @@ EOF
 
     public function testInvalidPostDataReturnsErrorResponse()
     {
-        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
+        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'Acelaya::contact');
         $this->session->offsetSet(Contact::PRG_DATA, []);
         $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
@@ -114,7 +119,7 @@ EOF
 
     public function testValidPostSendsContactAndReturnsSuccess()
     {
-        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'contact.html.twig');
+        $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'Acelaya::contact');
         $this->session->offsetSet(Contact::PRG_DATA, $this->fullData);
         $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));

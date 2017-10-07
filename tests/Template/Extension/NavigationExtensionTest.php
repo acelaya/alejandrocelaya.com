@@ -1,9 +1,11 @@
 <?php
-namespace AcelayaTest\Website\Twig\Extension;
+namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
-use Acelaya\Website\Twig\Extension\NavigationExtension;
+use Acelaya\Website\Template\Extension\NavigationExtension;
+use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
@@ -63,13 +65,15 @@ class NavigationExtensionTest extends TestCase
         );
     }
 
-    public function testGetFunctions()
+    public function testRegister()
     {
-        $funcs = $this->extension->getFunctions();
-        $this->assertCount(3, $funcs);
-        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[0]);
-        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[1]);
-        $this->assertInstanceOf(\Twig_SimpleFunction::class, $funcs[2]);
+        $engine = $this->prophesize(Engine::class);
+
+        $engine->registerFunction('render_menu', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('render_langs_menu', Argument::type('callable'))->shouldBeCalledTimes(1);
+        $engine->registerFunction('render_social_menu', Argument::type('callable'))->shouldBeCalledTimes(1);
+
+        $this->extension->register($engine->reveal());
     }
 
     public function testRenderMenu()

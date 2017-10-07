@@ -8,7 +8,7 @@ use Zend\Expressive\Template\TemplateRendererInterface;
 
 class ContactService implements ContactServiceInterface
 {
-    const TEMPLATE = 'emails/contact.html.twig';
+    const TEMPLATE = 'Acelaya::emails/contact';
 
     /**
      * @var Swift_Mailer

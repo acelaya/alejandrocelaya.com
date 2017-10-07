@@ -12,7 +12,7 @@ $home = [
             'lang' => 'en|es'
         ],
         'defaults' => [
-            'template' => 'home.html.twig',
+            'template' => 'Acelaya::home',
             'cacheable' => true
         ],
     ]
@@ -26,7 +26,7 @@ return [
             'path' => '(/:lang)/projects/',
             'options' => [
                 'defaults' => [
-                    'template' => 'projects.html.twig',
+                    'template' => 'Acelaya::projects',
                 ],
             ]
         ]),
@@ -37,7 +37,7 @@ return [
             'middleware' => Action\Contact::class,
             'options' => [
                 'defaults' => [
-                    'template' => 'contact.html.twig',
+                    'template' => 'Acelaya::contact',
                     'cacheable' => false
                 ],
             ]
