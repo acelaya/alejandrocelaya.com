@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Acelaya\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssemblerInterface;

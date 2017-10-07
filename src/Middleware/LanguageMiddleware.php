@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Acelaya\Website\Middleware;
 
 use Acelaya\ZsmAnnotatedServices\Annotation\Inject;

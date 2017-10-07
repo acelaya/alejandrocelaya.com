@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace AcelayaTest\Website\Middleware;
 
 use Acelaya\Website\Middleware\LanguageMiddleware;

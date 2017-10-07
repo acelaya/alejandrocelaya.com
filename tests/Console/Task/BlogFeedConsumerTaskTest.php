@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace AcelayaTest\Website\Console\Task;
 
 use Acelaya\Website\Console\Task\BlogFeedConsumerTask;
