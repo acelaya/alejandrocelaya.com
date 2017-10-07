@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 use Acelaya\Website\Factory\CacheFactory;
 use Doctrine\Common\Cache\Cache;
 

@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
 use Zend\Expressive\Application;
