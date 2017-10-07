@@ -65,8 +65,7 @@
         ],
         "cs": "phpcs",
         "cs-fix": "phpcbf",
-        "serve": "php -S 0.0.0.0:8000 -t public/",
         "test": "phpunit --coverage-clover build/clover.xml --colors=always",
-        "pretty-test": "phpunit -c tests/phpunit.xml --coverage-html build/coverage"
+        "pretty-test": "phpunit --coverage-html build/coverage"
     }
 }
