@@ -12,6 +12,7 @@ use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
+use Zend\Diactoros\ServerRequestFactory;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
@@ -89,5 +90,21 @@ class CacheMiddlewareTest extends TestCase
         $this->assertFalse($this->cache->contains('/foo'));
         $this->middleware->process($this->request, $delegate->reveal());
         $this->assertTrue($this->cache->contains('/foo'));
+    }
+
+    /**
+     * @test
+     */
+    public function cacheIsMypassedIfQueryParamIsOProvided()
+    {
+        $response = new Response();
+        $delegate = $this->prophesize(DelegateInterface::class);
+        $delegate->process(Argument::any())->willReturn($response)->shouldBeCalledTimes(1);
+
+        $request = ServerRequestFactory::fromGlobals()->withQueryParams(['bypass-cache' => true]);
+
+        $this->router->match(Argument::cetera())->shouldNotBeCalled();
+
+        $this->middleware->process($request, $delegate->reveal());
     }
 }
