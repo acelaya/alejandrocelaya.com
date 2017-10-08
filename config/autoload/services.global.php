@@ -17,6 +17,7 @@ use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
 use Doctrine\Common\Cache\Cache;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerInterface;
 use ReCaptcha\ReCaptcha;
 use Symfony\Component\Console as Symfony;
 use Zend\Expressive;
@@ -44,6 +45,7 @@ return [
             Expressive\Middleware\ErrorResponseGenerator::class => Container\ErrorResponseGeneratorFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
             Helper\ServerUrlHelper::class => InvokableFactory::class,
+            LoggerInterface::class => Factory\LoggerFactory::class,
 
             ServerRequestInterface::class => Factory\RequestFactory::class,
             \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
@@ -89,6 +91,12 @@ return [
 
         'abstract_factories' => [
             Factory\DotNotationConfigAbstractFactory::class,
+        ],
+
+        'delegators' => [
+            ErrorHandler::class => [
+                Factory\ErrorHandlerDelegator::class,
+            ],
         ],
     ],
 
