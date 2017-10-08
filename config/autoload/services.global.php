@@ -97,7 +97,7 @@ return [
         Extension\UrlExtension::class => [Service\RouteAssembler::class],
         Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class, 'config.navigation'],
         Extension\RecaptchaExtension::class => ['config.recaptcha'],
-        BlogExtension::class => [Cache::class, Feed\BlogOptions::class],
+        BlogExtension::class => [Factory\CacheFactory::FEED_CACHE, Feed\BlogOptions::class],
         Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
         Template::class => ['renderer'],
         Service\RouteAssembler::class => [Expressive\Router\RouterInterface::class, 'request'],
