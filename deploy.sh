@@ -71,6 +71,7 @@ ssh root@alejandrocelaya.com "mv $temp $remotepath"
 
 # Set write access
 ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
+ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/log"
 
 # Restart remote services
 ssh root@alejandrocelaya.com "service php7.1-fpm restart"
