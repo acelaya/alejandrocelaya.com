@@ -63,6 +63,16 @@ class NavigationExtensionTest extends TestCase
                         ],
                     ],
                 ],
+                'social_menu' => [
+                    [
+                        'uri' => 'https://github.com',
+                        'icon' => 'github',
+                    ],
+                    [
+                        'uri' => 'https://twitter.com',
+                        'icon' => 'twitter',
+                    ],
+                ],
             ]
         );
     }
@@ -111,5 +121,22 @@ class NavigationExtensionTest extends TestCase
 
         $this->assertEquals('/es', $document->firstChild->firstChild->getAttribute('href'));
         $this->assertEquals('/en', $document->lastChild->firstChild->getAttribute('href'));
+    }
+
+    /**
+     * @test
+     */
+    public function renderSocialMenuReturnsExpectedInfo()
+    {
+        $result = $this->extension->renderSocialMenu();
+
+        $this->assertContains(
+            '<li><a target="_blank" href="https://github.com"><i class="github"></i></a></li>',
+            $result
+        );
+        $this->assertContains(
+            '<li><a target="_blank" href="https://twitter.com"><i class="twitter"></i></a></li>',
+            $result
+        );
     }
 }
