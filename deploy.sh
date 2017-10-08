@@ -31,11 +31,15 @@ rm -rf .idea
 rm -rf .travis.yml
 rm -rf .scrutinizer.yml
 rm -rf composer.*
+rm -rf docker-compose.*
+rm -rf docker-compose.*
+rm -rf indocker
 rm -rf package.json
 rm -rf README.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
+rm -rf *.xml
 rm -rf config/autoload/local.php
 rm -rf config/autoload/local.php.dist
 rm -rf config/autoload/*.local.php
