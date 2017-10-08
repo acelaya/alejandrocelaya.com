@@ -55,6 +55,7 @@ rm -rf public/js/jquery.waypoints.min.js
 rm -rf public/js/main.js
 rm -rf tests
 rm -rf build
+rm -rf data/log/*.log
 
 #######################
 ## REMOTE OPERATIONS ##
