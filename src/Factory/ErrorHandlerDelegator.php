@@ -15,6 +15,11 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 class ErrorHandlerDelegator implements DelegatorFactoryInterface
 {
     /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
      * A factory that creates delegates of a given service
      *
      * @param  ContainerInterface $container
@@ -29,18 +34,22 @@ class ErrorHandlerDelegator implements DelegatorFactoryInterface
      */
     public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
     {
-        /** @var LoggerInterface $logger */
-        $logger = $container->get(LoggerInterface::class);
+        $this->container = $container;
 
         /** @var ErrorHandler $errorHandler */
         $errorHandler = $callback();
-        $errorHandler->attachListener(function (\Throwable $e, ServerRequestInterface $request) use ($logger) {
-            $logger->error(sprintf(
-                'An error occurred while processing request for URI "%s"',
-                (string) $request->getUri()
-            ) . PHP_EOL . $e);
-        });
+        $errorHandler->attachListener([$this, 'logError']);
 
         return $errorHandler;
+    }
+
+    public function logError(\Throwable $e, ServerRequestInterface $request): void
+    {
+        /** @var LoggerInterface $logger */
+        $logger = $this->container->get(LoggerInterface::class);
+        $logger->error(sprintf(
+            'An error occurred while processing request for URI "%s"',
+            (string) $request->getUri()
+        ) . PHP_EOL . $e);
     }
 }
