@@ -36,6 +36,7 @@ rm -rf docker-compose.*
 rm -rf indocker
 rm -rf package.json
 rm -rf README.md
+rm -rf CHANGELOG.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
