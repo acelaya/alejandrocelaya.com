@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace AcelayaTest\Website\Options;
 
 use Acelaya\Website\Options\MailOptions;
@@ -18,7 +20,7 @@ class MailOptionsTest extends TestCase
             'smtp' => [],
             'from' => 'from',
             'to' => 'to',
-            'subject' => 'subject'
+            'subject' => 'subject',
         ];
         $this->options = new MailOptions($data);
 

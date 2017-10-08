@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 use Acelaya\Website\Action;
 use Zend\Stdlib\ArrayUtils;
 
@@ -9,13 +11,13 @@ $home = [
     'middleware' => Action\Template::class,
     'options' => [
         'conditions' => [
-            'lang' => 'en|es'
+            'lang' => 'en|es',
         ],
         'defaults' => [
-            'template' => 'home.html.twig',
-            'cacheable' => true
+            'template' => 'Acelaya::home',
+            'cacheable' => true,
         ],
-    ]
+    ],
 ];
 
 return [
@@ -26,9 +28,9 @@ return [
             'path' => '(/:lang)/projects/',
             'options' => [
                 'defaults' => [
-                    'template' => 'projects.html.twig',
+                    'template' => 'Acelaya::projects',
                 ],
-            ]
+            ],
         ]),
         ArrayUtils::merge($home, [
             'name' => 'contact',
@@ -37,10 +39,10 @@ return [
             'middleware' => Action\Contact::class,
             'options' => [
                 'defaults' => [
-                    'template' => 'contact.html.twig',
-                    'cacheable' => false
+                    'template' => 'Acelaya::contact',
+                    'cacheable' => false,
                 ],
-            ]
+            ],
         ]),
 
         // Redirect old sitemap to new one
@@ -51,7 +53,7 @@ return [
             'middleware' => Action\Redirect::class,
             'options' => [
                 'defaults' => [
-                    'to' => '/sitemap.xml'
+                    'to' => '/sitemap.xml',
                 ],
             ],
         ],

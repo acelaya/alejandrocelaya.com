@@ -31,11 +31,18 @@ rm -rf .idea
 rm -rf .travis.yml
 rm -rf .scrutinizer.yml
 rm -rf composer.*
+rm -rf docker-compose.*
+rm -rf docker-compose.*
+rm -rf indocker
 rm -rf package.json
 rm -rf README.md
+rm -rf CHANGELOG.md
 rm -rf LICENSE
 rm -rf Makefile
 rm -rf Gruntfile.js
+rm -rf *.xml
+rm -rf config/autoload/local.php
+rm -rf config/autoload/local.php.dist
 rm -rf config/autoload/*.local.php
 rm -rf config/autoload/*.local.php.dist
 rm -rf public/css/animate.css
@@ -49,7 +56,7 @@ rm -rf public/js/jquery.waypoints.min.js
 rm -rf public/js/main.js
 rm -rf tests
 rm -rf build
-rm -rf bin/twig-gettext-extractor
+rm -rf data/log/*.log
 
 #######################
 ## REMOTE OPERATIONS ##
@@ -66,6 +73,7 @@ ssh root@alejandrocelaya.com "mv $temp $remotepath"
 
 # Set write access
 ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/cache"
+ssh root@alejandrocelaya.com "chown www-data:www-data $remotepath/data/log"
 
 # Restart remote services
 ssh root@alejandrocelaya.com "service php7.1-fpm restart"

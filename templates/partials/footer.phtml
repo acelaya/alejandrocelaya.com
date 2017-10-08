@@ -1,0 +1,51 @@
+<footer id="fh5co-footer" class="<?= $this->current_route() === 'projects' ? 'white' : '' ?>">
+    <div class="container">
+        <div class="row row-bottom-padded-md">
+            <div class="col-md-2 col-xs-12 animate-box">
+                <div class="fh5co-footer-widget">
+                    <h3><?= $this->translate('Website') ?></h3>
+                    <?= $this->render_menu('fh5co-links') ?>
+                </div>
+            </div>
+
+            <div class="col-md-7 col-xs-12 animate-box">
+                <div class="fh5co-footer-widget">
+                    <h3><?= $this->translate('Latest blog posts') ?></h3>
+                    <?= $this->render_latest_blog_posts() ?>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-xs-12 animate-box">
+                <div class="fh5co-footer-widget">
+                    <h3><?= $this->translate('Follow me') ?></h3>
+                    <?= $this->render_social_menu() ?>
+                    <ul class="list-unstyled certifications-list">
+                        <li>
+                            <a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">
+                                <img src="/img/zce.jpg">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.zend.com/en/yellow-pages/ZEND021590">
+                                <img src="/img/zfca.jpg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fh5co-copyright animate-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="fh5co-left"><small>&copy; <?= date('Y') ?> Alejandro Celaya Alastrué.</small></p>
+                    <p class="fh5co-right">
+                        <small class="fh5co-right"><?= $this->translate('Full-stack developer (PHP/JS)') ?></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

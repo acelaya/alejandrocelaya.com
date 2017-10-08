@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
+
 namespace Acelaya\Website\Action;
 
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactServiceInterface;
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -28,15 +29,6 @@ class Contact extends Template
      */
     protected $session;
 
-    /**
-     * Contact constructor.
-     * @param TemplateRendererInterface $renderer
-     * @param ContactServiceInterface $contactService
-     * @param ContactFilter $contactFilter
-     * @param \ArrayAccess|null $session
-     *
-     * @Inject({TemplateRendererInterface::class, ContactServiceInterface::class, ContactFilter::class})
-     */
     public function __construct(
         TemplateRendererInterface $renderer,
         ContactServiceInterface $contactService,
@@ -78,7 +70,7 @@ class Contact extends Template
         if (! $filter->isValid()) {
             return $this->createTemplateResponse($request, [
                 'errors' => $filter->getMessages(),
-                'currentData' => $params
+                'currentData' => $params,
             ]);
         }
 

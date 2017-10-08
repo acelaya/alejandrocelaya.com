@@ -24,6 +24,7 @@ services:
             - ./data/infra/php.ini:/usr/local/etc/php/php.ini
         links:
             - ac_website_redis
+            - ac_website_mailhog
 
     ac_website_redis:
         container_name: ac_website_redis
@@ -34,3 +35,9 @@ services:
             - "6380:6379"
         volumes:
             - ./:/home/ac_website/www
+
+    ac_website_mailhog:
+        container_name: ac_website_mailhog
+        image: mailhog/mailhog:latest
+        ports:
+            - "8125:8025"

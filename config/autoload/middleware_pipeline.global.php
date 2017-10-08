@@ -1,6 +1,7 @@
 <?php
-use Acelaya\Website\Middleware\CacheMiddleware;
-use Acelaya\Website\Middleware\LanguageMiddleware;
+declare(strict_types=1);
+
+use Acelaya\Website\Middleware;
 use Zend\Expressive\Application;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
@@ -9,9 +10,9 @@ return [
     'middleware_pipeline' => [
         'always' => [
             'middleware' => [
-                LanguageMiddleware::class,
                 ErrorHandler::class,
-                CacheMiddleware::class,
+                Middleware\CacheMiddleware::class,
+                Middleware\LanguageMiddleware::class,
             ],
             'priority' => 10000,
         ],
@@ -23,6 +24,6 @@ return [
             ],
             'priority' => 1,
         ],
-    ]
+    ],
 
 ];

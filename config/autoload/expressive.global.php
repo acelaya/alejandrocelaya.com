@@ -1,11 +1,15 @@
 <?php
+declare(strict_types=1);
+
+use Acelaya\Website\Action\Template;
+
 return [
 
     'zend-expressive' => [
         'error_handler' => [
-            'template_404' => 'errors/404.html.twig',
-            'template_error' => 'errors/500.html.twig'
-        ]
-    ]
+            'template_404' => Template::NOT_FOUND_TEMPLATE,
+            'template_error' => 'Acelaya::errors/500',
+        ],
+    ],
 
 ];

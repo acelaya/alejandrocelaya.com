@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Acelaya\Website\Console\Command;
 
 use Interop\Container\ContainerInterface;

@@ -1,5 +1,21 @@
 ## CHANGELOG
 
+### 4.0.0
+
+**Enhancements:**
+
+* [39: Add translations in error pages matching the language based on the path](https://github.com/acelaya/website-expressive/issues/39)
+* [40: Remove annotated factories and replace by config abstract factory](https://github.com/acelaya/website-expressive/issues/40)
+* [41: Replace twig by plates](https://github.com/acelaya/website-expressive/issues/41)
+* [42: Improve code strictness](https://github.com/acelaya/website-expressive/issues/42)
+* [43: Add mailhog to debug emails](https://github.com/acelaya/website-expressive/issues/43)
+* [47: Improve code coverage](https://github.com/acelaya/website-expressive/issues/47)
+
+**Bugfixes:**
+
+* [48: Fix contact form not working](https://github.com/acelaya/website-expressive/issues/48)
+* [49: Fix latest blog posts not properly loaded](https://github.com/acelaya/website-expressive/issues/49)
+
 ### 2.1.0
 
 **Enhancements:**

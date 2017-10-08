@@ -1,7 +1,8 @@
 <?php
+declare(strict_types=1);
+
 namespace Acelaya\Website\Feed;
 
-use Acelaya\ZsmAnnotatedServices\Annotation\Inject;
 use Zend\Stdlib\AbstractOptions;
 
 class BlogOptions extends AbstractOptions
@@ -18,17 +19,6 @@ class BlogOptions extends AbstractOptions
      * @var int
      */
     protected $elementsToDisplay = 5;
-
-    /**
-     * BlogFeedOptions constructor.
-     * @param null $options
-     *
-     * @Inject({"config.blog"})
-     */
-    public function __construct($options = null)
-    {
-        parent::__construct($options);
-    }
 
     /**
      * @return string

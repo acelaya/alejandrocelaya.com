@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Application;
@@ -11,6 +13,4 @@ if (getenv('APP_ENV') === 'dev') {
 
 /** @var ContainerInterface $container */
 $container = include __DIR__ . '/../config/container.php';
-/** @var Application $app */
-$app = $container->get(Application::class);
-$app->run($container->get(ServerRequestInterface::class));
+$app = $container->get(Application::class)->run($container->get(ServerRequestInterface::class));
