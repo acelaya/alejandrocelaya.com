@@ -49,7 +49,7 @@ class ContactService implements ContactServiceInterface
      */
     private function createMessage(array $messageData): \Swift_Mime_MimePart
     {
-        return \Swift_Message::newInstance($this->options->getSubject())
+        return (new \Swift_Message($this->options->getSubject()))
                              ->setTo($this->options->getTo())
                              ->setFrom($this->options->getFrom())
                              ->setReplyTo($messageData['email'])

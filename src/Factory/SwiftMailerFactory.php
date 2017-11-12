@@ -27,7 +27,7 @@ class SwiftMailerFactory implements FactoryInterface
     {
         $mailConfig = $container->get('config')['mail'];
         $smtp = $mailConfig['smtp'];
-        $transport = \Swift_SmtpTransport::newInstance($smtp['server'], $smtp['port'], $smtp['ssl'])
+        $transport = (new \Swift_SmtpTransport($smtp['server'], $smtp['port'], $smtp['ssl']))
                                          ->setUsername($smtp['username'])
                                          ->setPassword($smtp['password']);
         return new \Swift_Mailer($transport);
