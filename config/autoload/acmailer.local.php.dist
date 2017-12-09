@@ -1,0 +1,20 @@
+<?php
+declare(strict_types=1);
+
+return [
+
+    'acmailer_options' => [
+        'mail_services' => [
+            'default' => [
+                'transport_options' => [
+                    'host' => 'ac_website_mailhog',
+                    'port' => 1025,
+                    'connection_config' => [
+                        'ssl' => null,
+                    ],
+                ],
+            ],
+        ],
+    ],
+
+];

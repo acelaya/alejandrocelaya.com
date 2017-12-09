@@ -19,7 +19,7 @@ if (class_exists(Dotenv::class)) {
 // Create a ServiceManager from service_manager config and register the merged config as a service
 return (function () {
     $config = include __DIR__ . '/config.php';
-    $sm = new ServiceManager($config['service_manager'] ?? []);
+    $sm = new ServiceManager($config['dependencies'] ?? []);
     $sm->setService('config', $config);
     return $sm;
 })();

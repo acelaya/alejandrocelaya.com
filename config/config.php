@@ -8,5 +8,5 @@ use Zend\ConfigAggregator;
 
 return (new ConfigAggregator\ConfigAggregator([
     AcMailer\ConfigProvider::class,
-    new ConfigAggregator\PhpFileProvider(__DIR__ . '/autoload/{,*.}{global,local}.php'),
+    new ConfigAggregator\PhpFileProvider(__DIR__ . '/autoload/{{,*.}global,{,*.}local}.php'),
 ], __DIR__ . '/../data/cache/config_cache.php'))->getMergedConfig();

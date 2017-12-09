@@ -30,7 +30,7 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
 
-    'service_manager' => [
+    'dependencies' => [
         'factories' => [
             Expressive\Application::class => Container\ApplicationFactory::class,
 
@@ -109,7 +109,7 @@ return [
         Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
         Template::class => ['renderer'],
         Service\RouteAssembler::class => [Expressive\Router\RouterInterface::class, 'request'],
-        Service\ContactService::class => [Swift_Mailer::class, 'renderer', MailOptions::class],
+        Service\ContactService::class => ['acmailer.mailservice.default'],
         ContactFilter::class => [ReCaptcha::class],
         Feed\Service\BlogFeedConsumer::class => [
             Feed\GuzzleClient::class,

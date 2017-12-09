@@ -3,32 +3,23 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Service;
 
-use Acelaya\Website\Options\MailOptions;
-use Swift_Mailer;
-use Zend\Expressive\Template\TemplateRendererInterface;
+use AcMailer\Exception\EmailNotFoundException;
+use AcMailer\Exception\InvalidArgumentException;
+use AcMailer\Exception\MailException;
+use AcMailer\Service\MailServiceInterface;
 
 class ContactService implements ContactServiceInterface
 {
-    const TEMPLATE = 'Acelaya::emails/contact';
+    public const TEMPLATE = 'Acelaya::emails/contact';
 
     /**
-     * @var Swift_Mailer
+     * @var MailServiceInterface
      */
-    protected $mailer;
-    /**
-     * @var TemplateRendererInterface
-     */
-    protected $renderer;
-    /**
-     * @var MailOptions
-     */
-    protected $options;
+    private $mailService;
 
-    public function __construct(Swift_Mailer $mailer, TemplateRendererInterface $renderer, MailOptions $options)
+    public function __construct(MailServiceInterface $mailService)
     {
-        $this->mailer = $mailer;
-        $this->renderer = $renderer;
-        $this->options = $options;
+        $this->mailService = $mailService;
     }
 
     /**
@@ -36,32 +27,16 @@ class ContactService implements ContactServiceInterface
      *
      * @param array $messageData
      * @return bool
+     * @throws MailException
+     * @throws InvalidArgumentException
+     * @throws EmailNotFoundException
      */
     public function send(array $messageData): bool
     {
-        $result = $this->mailer->send($this->createMessage($messageData));
-        return $result === 1;
-    }
-
-    /**
-     * @param array $messageData
-     * @return \Swift_Mime_MimePart
-     */
-    private function createMessage(array $messageData): \Swift_Mime_MimePart
-    {
-        return (new \Swift_Message($this->options->getSubject()))
-                             ->setTo($this->options->getTo())
-                             ->setFrom($this->options->getFrom())
-                             ->setReplyTo($messageData['email'])
-                             ->setBody($this->composeBody($messageData), 'text/html');
-    }
-
-    /**
-     * @param array $messageData
-     * @return string
-     */
-    private function composeBody(array $messageData): string
-    {
-        return $this->renderer->render(self::TEMPLATE, $messageData);
+        $result = $this->mailService->send('contact', [
+            'reply_to' => $messageData['email'],
+            'template_params' => $messageData,
+        ]);
+        return $result->isValid();
     }
 }

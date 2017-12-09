@@ -4,7 +4,7 @@ use Zend\Expressive\Middleware;
 
 return [
 
-    'service_manager' => [
+    'dependencies' => [
         'factories' => [
             'Zend\Expressive\Whoops' => Container\WhoopsFactory::class,
             'Zend\Expressive\WhoopsPageHandler' => Container\WhoopsPageHandlerFactory::class,
