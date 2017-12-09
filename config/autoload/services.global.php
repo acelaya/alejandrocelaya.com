@@ -11,8 +11,6 @@ use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
-use Acelaya\Website\Options\Factory\MailOptionsFactory;
-use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
 use Doctrine\Common\Cache\Cache;
@@ -30,7 +28,7 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
 
-    'service_manager' => [
+    'dependencies' => [
         'factories' => [
             Expressive\Application::class => Container\ApplicationFactory::class,
 
@@ -48,7 +46,6 @@ return [
             LoggerInterface::class => Factory\LoggerFactory::class,
 
             ServerRequestInterface::class => Factory\RequestFactory::class,
-            \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
             Translator::class => Factory\TranslatorFactory::class,
             ReCaptcha::class => Factory\RecaptchaFactory::class,
             Service\RouteAssembler::class => ConfigAbstractFactory::class,
@@ -74,7 +71,6 @@ return [
             Console\Task\BlogFeedConsumerTask::class => ConfigAbstractFactory::class,
 
             // Options
-            MailOptions::class => MailOptionsFactory::class,
             Feed\BlogOptions::class => ConfigAbstractFactory::class,
 
             // Middleware
@@ -109,7 +105,7 @@ return [
         Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
         Template::class => ['renderer'],
         Service\RouteAssembler::class => [Expressive\Router\RouterInterface::class, 'request'],
-        Service\ContactService::class => [Swift_Mailer::class, 'renderer', MailOptions::class],
+        Service\ContactService::class => ['acmailer.mailservice.default'],
         ContactFilter::class => [ReCaptcha::class],
         Feed\Service\BlogFeedConsumer::class => [
             Feed\GuzzleClient::class,
