@@ -11,8 +11,6 @@ use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Acelaya\Website\Middleware\LanguageMiddleware;
-use Acelaya\Website\Options\Factory\MailOptionsFactory;
-use Acelaya\Website\Options\MailOptions;
 use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
 use Doctrine\Common\Cache\Cache;
@@ -48,7 +46,6 @@ return [
             LoggerInterface::class => Factory\LoggerFactory::class,
 
             ServerRequestInterface::class => Factory\RequestFactory::class,
-            \Swift_Mailer::class => Factory\SwiftMailerFactory::class,
             Translator::class => Factory\TranslatorFactory::class,
             ReCaptcha::class => Factory\RecaptchaFactory::class,
             Service\RouteAssembler::class => ConfigAbstractFactory::class,
@@ -74,7 +71,6 @@ return [
             Console\Task\BlogFeedConsumerTask::class => ConfigAbstractFactory::class,
 
             // Options
-            MailOptions::class => MailOptionsFactory::class,
             Feed\BlogOptions::class => ConfigAbstractFactory::class,
 
             // Middleware
