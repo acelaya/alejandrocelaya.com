@@ -5,7 +5,6 @@ namespace Acelaya\Website\Action;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 
 class Template extends AbstractAction
@@ -16,10 +15,9 @@ class Template extends AbstractAction
      * Returns the content to render
      *
      * @param Request $request
-     * @param RequestHandlerInterface $delegate
      * @return null|Response
      */
-    public function dispatch(Request $request, RequestHandlerInterface $delegate): Response
+    public function dispatch(Request $request): Response
     {
         return $this->createTemplateResponse($request);
     }

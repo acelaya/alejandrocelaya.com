@@ -8,11 +8,10 @@ use Fig\Http\Message\RequestMethodInterface;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-abstract class AbstractAction implements MiddlewareInterface, RequestMethodInterface, StatusCodeInterface
+abstract class AbstractAction implements RequestHandlerInterface, RequestMethodInterface, StatusCodeInterface
 {
     /**
      * @var TemplateRendererInterface
@@ -33,21 +32,19 @@ abstract class AbstractAction implements MiddlewareInterface, RequestMethodInter
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param RequestHandlerInterface $handler
      *
      * @return Response
      */
-    public function process(Request $request, RequestHandlerInterface $handler): Response
+    public function handle(Request $request): Response
     {
-        return $this->dispatch($request, $handler);
+        return $this->dispatch($request);
     }
 
     /**
      * Returns the content to render
      *
      * @param Request $request
-     * @param RequestHandlerInterface $handler
      * @return Response
      */
-    abstract public function dispatch(Request $request, RequestHandlerInterface $handler): Response;
+    abstract public function dispatch(Request $request): Response;
 }
