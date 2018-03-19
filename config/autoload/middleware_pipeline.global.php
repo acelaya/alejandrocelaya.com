@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use Acelaya\Website\Middleware;
+use Zend\Expressive\Handler\NotFoundHandler;
 use Zend\Expressive\Router;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
@@ -21,6 +22,7 @@ return [
                 Middleware\CacheMiddleware::class,
                 Middleware\LanguageMiddleware::class,
                 Router\Middleware\DispatchMiddleware::class,
+                NotFoundHandler::class,
             ],
             'priority' => 1,
         ],
