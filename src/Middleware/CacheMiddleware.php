@@ -9,23 +9,18 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Expressive\Router\RouterInterface;
+use Zend\Expressive\Router\RouteResult;
 
 class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 {
-    /**
-     * @var RouterInterface
-     */
-    protected $router;
     /**
      * @var Cache
      */
     protected $cache;
 
-    public function __construct(Cache $cache, RouterInterface $router)
+    public function __construct(Cache $cache)
     {
         $this->cache = $cache;
-        $this->router = $router;
     }
 
     /**
@@ -46,12 +41,13 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
             return $handler->handle($request);
         }
 
-        $currentRoute = $this->router->match($request);
+        /** @var RouteResult $currentRoute */
+        $currentRoute = $request->getAttribute(RouteResult::class);
         $currentRoutePath = $request->getUri()->getPath();
 
         // If current route is a success route and it has been previously cached, write cached content and return
         if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
-            $resp = new \Zend\Diactoros\Response();
+            $resp = (new \Zend\Diactoros\Response())->withHeader('content-type', 'text/html');
             $resp->getBody()->write($this->cache->fetch($currentRoutePath));
             return $resp;
         }

@@ -11,8 +11,6 @@ return [
         'always' => [
             'middleware' => [
                 ErrorHandler::class,
-                Middleware\CacheMiddleware::class,
-                Middleware\LanguageMiddleware::class,
             ],
             'priority' => 10000,
         ],
@@ -20,6 +18,8 @@ return [
         'routing' => [
             'middleware' => [
                 Router\Middleware\RouteMiddleware::class,
+                Middleware\CacheMiddleware::class,
+                Middleware\LanguageMiddleware::class,
                 Router\Middleware\DispatchMiddleware::class,
             ],
             'priority' => 1,

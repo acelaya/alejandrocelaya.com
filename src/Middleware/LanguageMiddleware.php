@@ -8,7 +8,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouteResult;
-use Zend\Expressive\Router\RouterInterface;
 use Zend\I18n\Translator\Translator;
 use Zend\I18n\Translator\TranslatorInterface;
 
@@ -18,15 +17,10 @@ class LanguageMiddleware implements MiddlewareInterface
      * @var TranslatorInterface|Translator
      */
     protected $translator;
-    /**
-     * @var RouterInterface
-     */
-    protected $router;
 
-    public function __construct(TranslatorInterface $translator, RouterInterface $router)
+    public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
-        $this->router = $router;
     }
 
     /**
@@ -40,7 +34,8 @@ class LanguageMiddleware implements MiddlewareInterface
      */
     public function process(Request $request, RequestHandlerInterface $handler): Response
     {
-        $matchedRoute = $this->router->match($request);
+        /** @var RouteResult $matchedRoute */
+        $matchedRoute = $request->getAttribute(RouteResult::class);
         $lang = $matchedRoute->isFailure()
             ? $this->matchLanguageFromPath($request)
             : $this->matchLanguageFromParams($matchedRoute);

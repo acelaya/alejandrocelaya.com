@@ -7,8 +7,7 @@ use Acelaya\Website\Factory;
 use Acelaya\Website\Feed;
 use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Form\ContactFilter;
-use Acelaya\Website\Middleware\CacheMiddleware;
-use Acelaya\Website\Middleware\LanguageMiddleware;
+use Acelaya\Website\Middleware;
 use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
 use Doctrine\Common\Cache\Cache;
@@ -60,8 +59,8 @@ return [
             Feed\BlogOptions::class => ConfigAbstractFactory::class,
 
             // Middleware
-            CacheMiddleware::class => ConfigAbstractFactory::class,
-            LanguageMiddleware::class => ConfigAbstractFactory::class,
+            Middleware\CacheMiddleware::class => ConfigAbstractFactory::class,
+            Middleware\LanguageMiddleware::class => ConfigAbstractFactory::class,
         ],
 
         'aliases' => [
@@ -104,8 +103,8 @@ return [
         ],
         Console\Task\BlogFeedConsumerTask::class => [Feed\Service\BlogFeedConsumer::class],
         Feed\BlogOptions::class => ['config.blog'],
-        CacheMiddleware::class => [Factory\CacheFactory::VIEWS_CACHE, Expressive\Router\RouterInterface::class],
-        LanguageMiddleware::class => ['translator', Expressive\Router\RouterInterface::class],
+        Middleware\CacheMiddleware::class => [Factory\CacheFactory::VIEWS_CACHE],
+        Middleware\LanguageMiddleware::class => ['translator'],
     ],
 
 ];
