@@ -26,9 +26,8 @@ class RedirectTest extends TestCase
      */
     public function redirectIsReturned()
     {
-        $resp = $this->action->process(
-            ServerRequestFactory::fromGlobals()->withAttribute('to', '/somewhere'),
-            $this->prophesize(DelegateInterface::class)->reveal()
+        $resp = $this->action->handle(
+            ServerRequestFactory::fromGlobals()->withAttribute('to', '/somewhere')
         );
 
         $this->assertInstanceOf(RedirectResponse::class, $resp);

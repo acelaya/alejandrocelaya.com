@@ -8,6 +8,7 @@ use Acelaya\Website\Template\Extension\NavigationExtension;
 use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Psr\Http\Server\MiddlewareInterface;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
@@ -27,7 +28,7 @@ class NavigationExtensionTest extends TestCase
         $routeAssemblerProphezy->assembleUrl(null, ['lang' => 'en'])->willReturn('/en');
         $routeAssemblerProphezy->getCurrentRouteResult()->willReturn(RouteResult::fromRoute(new Route(
             'home',
-            'HelloWorld'
+            $this->prophesize(MiddlewareInterface::class)->reveal()
         )));
 
         $this->extension = new NavigationExtension(
