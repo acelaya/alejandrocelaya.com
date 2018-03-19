@@ -4,18 +4,16 @@ declare(strict_types=1);
 namespace AcelayaTest\Website\Middleware;
 
 use Acelaya\Website\Middleware\LanguageMiddleware;
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Prophecy\Prophecy\MethodProphecy;
-use Prophecy\Prophecy\ObjectProphecy;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
-use Zend\Expressive\Router\RouterInterface;
 use Zend\I18n\Translator\Translator;
+use function Zend\Stratigility\middleware;
 
 class LanguageMiddlewareTest extends TestCase
 {
@@ -27,30 +25,25 @@ class LanguageMiddlewareTest extends TestCase
      * @var Translator
      */
     protected $translator;
-    /**
-     * @var ObjectProphecy
-     */
-    protected $router;
 
     public function setUp()
     {
-        $this->router = $this->prophesize(RouterInterface::class);
         $this->translator = Translator::factory(['locale' => 'en']);
-
-        $this->middleware = new LanguageMiddleware($this->translator, $this->router->reveal());
+        $this->middleware = new LanguageMiddleware($this->translator);
     }
 
     public function testLanguage()
     {
-        $request = ServerRequestFactory::fromGlobals();
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::cetera())->willReturn(new Response());
 
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::cetera())->willReturn(new Response());
-
-        $route = new Route('/home', function () {
+        $route = new Route('/home', middleware(function () {
             return new Response();
-        }, ['GET'], 'home');
-        $this->router->match($request)->willReturn(RouteResult::fromRoute($route, ['lang' => 'es']));
+        }), ['GET'], 'home');
+        $request = ServerRequestFactory::fromGlobals()->withAttribute(
+            RouteResult::class,
+            RouteResult::fromRoute($route, ['lang' => 'es'])
+        );
 
         $this->assertEquals('en', $this->translator->getLocale());
         $this->middleware->process($request, $delegate->reveal());
@@ -62,18 +55,18 @@ class LanguageMiddlewareTest extends TestCase
      */
     public function languageIsMatchedFromPathIfRouteIsNotSuccess()
     {
-        $request = ServerRequestFactory::fromGlobals()->withUri(new Uri('/fr/something'));
 
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::cetera())->willReturn(new Response());
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::cetera())->willReturn(new Response());
 
-        /** @var MethodProphecy $match */
-        $match = $this->router->match($request)->willReturn(RouteResult::fromRouteFailure());
+        $request = ServerRequestFactory::fromGlobals()->withUri(new Uri('/fr/something'))
+                                                      ->withAttribute(
+                                                          RouteResult::class,
+                                                          RouteResult::fromRouteFailure(null)
+                                                      );
 
         $this->assertEquals('en', $this->translator->getLocale());
         $this->middleware->process($request, $delegate->reveal());
         $this->assertEquals('fr', $this->translator->getLocale());
-
-        $match->shouldHaveBeenCalled();
     }
 }

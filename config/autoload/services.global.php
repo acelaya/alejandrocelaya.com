@@ -1,16 +1,13 @@
 <?php
 declare(strict_types=1);
 
-use Acelaya\Expressive\Factory\SlimRouterFactory;
-use Acelaya\Website\Action\Contact;
-use Acelaya\Website\Action\Template;
+use Acelaya\Website\Action;
 use Acelaya\Website\Console;
 use Acelaya\Website\Factory;
 use Acelaya\Website\Feed;
 use Acelaya\Website\Feed\Template\Extension\BlogExtension;
 use Acelaya\Website\Form\ContactFilter;
-use Acelaya\Website\Middleware\CacheMiddleware;
-use Acelaya\Website\Middleware\LanguageMiddleware;
+use Acelaya\Website\Middleware;
 use Acelaya\Website\Service;
 use Acelaya\Website\Template\Extension;
 use Doctrine\Common\Cache\Cache;
@@ -19,8 +16,6 @@ use Psr\Log\LoggerInterface;
 use ReCaptcha\ReCaptcha;
 use Symfony\Component\Console as Symfony;
 use Zend\Expressive;
-use Zend\Expressive\Container;
-use Zend\Expressive\Helper;
 use Zend\I18n\Translator\Translator;
 use Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -30,22 +25,12 @@ return [
 
     'dependencies' => [
         'factories' => [
-            Expressive\Application::class => Container\ApplicationFactory::class,
-
             // Actions
-            Contact::class => ConfigAbstractFactory::class,
-            Template::class => ConfigAbstractFactory::class,
+            Action\Contact::class => ConfigAbstractFactory::class,
+            Action\Template::class => ConfigAbstractFactory::class,
 
             // Services
-            Expressive\Template\TemplateRendererInterface::class => Expressive\Plates\PlatesRendererFactory::class,
-            Expressive\Router\RouterInterface::class => SlimRouterFactory::class,
-            ErrorHandler::class => Expressive\Container\ErrorHandlerFactory::class,
-            Expressive\Middleware\ErrorResponseGenerator::class => Container\ErrorResponseGeneratorFactory::class,
-            Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
-            Helper\ServerUrlHelper::class => InvokableFactory::class,
             LoggerInterface::class => Factory\LoggerFactory::class,
-
-            ServerRequestInterface::class => Factory\RequestFactory::class,
             Translator::class => Factory\TranslatorFactory::class,
             ReCaptcha::class => Factory\RecaptchaFactory::class,
             Service\RouteAssembler::class => ConfigAbstractFactory::class,
@@ -74,8 +59,8 @@ return [
             Feed\BlogOptions::class => ConfigAbstractFactory::class,
 
             // Middleware
-            CacheMiddleware::class => ConfigAbstractFactory::class,
-            LanguageMiddleware::class => ConfigAbstractFactory::class,
+            Middleware\CacheMiddleware::class => ConfigAbstractFactory::class,
+            Middleware\LanguageMiddleware::class => ConfigAbstractFactory::class,
         ],
 
         'aliases' => [
@@ -93,6 +78,9 @@ return [
             ErrorHandler::class => [
                 Factory\ErrorHandlerDelegator::class,
             ],
+            Expressive\Application::class => [
+                Expressive\Container\ApplicationConfigInjectionDelegator::class,
+            ],
         ],
     ],
 
@@ -102,8 +90,8 @@ return [
         Extension\NavigationExtension::class => ['translator', Service\RouteAssembler::class, 'config.navigation'],
         Extension\RecaptchaExtension::class => ['config.recaptcha'],
         BlogExtension::class => [Factory\CacheFactory::FEED_CACHE, Feed\BlogOptions::class],
-        Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
-        Template::class => ['renderer'],
+        Action\Contact::class => ['renderer', Service\ContactService::class, ContactFilter::class],
+        Action\Template::class => ['renderer'],
         Service\RouteAssembler::class => [Expressive\Router\RouterInterface::class, 'request'],
         Service\ContactService::class => ['acmailer.mailservice.default'],
         ContactFilter::class => [ReCaptcha::class],
@@ -115,8 +103,8 @@ return [
         ],
         Console\Task\BlogFeedConsumerTask::class => [Feed\Service\BlogFeedConsumer::class],
         Feed\BlogOptions::class => ['config.blog'],
-        CacheMiddleware::class => [Factory\CacheFactory::VIEWS_CACHE, Expressive\Router\RouterInterface::class],
-        LanguageMiddleware::class => ['translator', Expressive\Router\RouterInterface::class],
+        Middleware\CacheMiddleware::class => [Factory\CacheFactory::VIEWS_CACHE],
+        Middleware\LanguageMiddleware::class => ['translator'],
     ],
 
 ];

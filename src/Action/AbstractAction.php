@@ -6,13 +6,12 @@ namespace Acelaya\Website\Action;
 use Doctrine\Common\Cache\Cache;
 use Fig\Http\Message\RequestMethodInterface;
 use Fig\Http\Message\StatusCodeInterface;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-abstract class AbstractAction implements MiddlewareInterface, RequestMethodInterface, StatusCodeInterface
+abstract class AbstractAction implements RequestHandlerInterface, RequestMethodInterface, StatusCodeInterface
 {
     /**
      * @var TemplateRendererInterface
@@ -33,21 +32,19 @@ abstract class AbstractAction implements MiddlewareInterface, RequestMethodInter
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
      *
      * @return Response
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function handle(Request $request): Response
     {
-        return $this->dispatch($request, $delegate);
+        return $this->dispatch($request);
     }
 
     /**
      * Returns the content to render
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
      * @return Response
      */
-    abstract public function dispatch(Request $request, DelegateInterface $delegate): Response;
+    abstract public function dispatch(Request $request): Response;
 }

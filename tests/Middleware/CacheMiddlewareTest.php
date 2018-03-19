@@ -6,16 +6,16 @@ namespace AcelayaTest\Website\Middleware;
 use Acelaya\Website\Middleware\CacheMiddleware;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache;
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
-use Zend\Expressive\Router\RouterInterface;
+use function Zend\Stratigility\middleware;
 
 class CacheMiddlewareTest extends TestCase
 {
@@ -35,23 +35,22 @@ class CacheMiddlewareTest extends TestCase
     public function setUp()
     {
         $this->cache = new ArrayCache();
-        $this->request = new ServerRequest([], [], '/foo');
-        $this->router = $this->prophesize(RouterInterface::class);
-        $this->router->match($this->request)->willReturn(
-            RouteResult::fromRoute(new Route('/home', function () {
+        $this->request = (new ServerRequest([], [], '/foo'))->withAttribute(
+            RouteResult::class,
+            RouteResult::fromRoute(new Route('/home', middleware(function () {
                 return new Response();
-            }))
+            })))
         );
 
-        $this->middleware = new CacheMiddleware($this->cache, $this->router->reveal());
+        $this->middleware = new CacheMiddleware($this->cache);
     }
 
     public function testWithNoCacheNextIsInvoked()
     {
         $response = new Response();
         $invoked = false;
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::any())->will(function () use (&$invoked, $response) {
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::any())->will(function () use (&$invoked, $response) {
             $invoked = true;
             return $response;
         });
@@ -65,8 +64,8 @@ class CacheMiddlewareTest extends TestCase
     {
         $response = new Response();
         $invoked = false;
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::any())->will(function () use (&$invoked, $response) {
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::any())->will(function () use (&$invoked, $response) {
             $invoked = true;
             return $response;
         });
@@ -79,16 +78,18 @@ class CacheMiddlewareTest extends TestCase
     public function testWithNoCacheResponseIsCached()
     {
         $response = new Response();
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::any())->willReturn($response);
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::any())->willReturn($response);
 
-        $route = new Route('/home', function ($req) {
+        $route = new Route('/home', middleware(function ($req) {
             return new Response();
-        }, ['GET'], 'home');
-        $this->router->match($this->request)->willReturn(RouteResult::fromRoute($route, ['cacheable' => true]));
+        }), ['GET'], 'home');
 
         $this->assertFalse($this->cache->contains('/foo'));
-        $this->middleware->process($this->request, $delegate->reveal());
+        $this->middleware->process($this->request->withAttribute(
+            RouteResult::class,
+            RouteResult::fromRoute($route, ['cacheable' => true])
+        ), $delegate->reveal());
         $this->assertTrue($this->cache->contains('/foo'));
     }
 
@@ -98,12 +99,10 @@ class CacheMiddlewareTest extends TestCase
     public function cacheIsMypassedIfQueryParamIsOProvided()
     {
         $response = new Response();
-        $delegate = $this->prophesize(DelegateInterface::class);
-        $delegate->process(Argument::any())->willReturn($response)->shouldBeCalledTimes(1);
+        $delegate = $this->prophesize(RequestHandlerInterface::class);
+        $delegate->handle(Argument::any())->willReturn($response)->shouldBeCalledTimes(1);
 
         $request = ServerRequestFactory::fromGlobals()->withQueryParams(['bypass-cache' => true]);
-
-        $this->router->match(Argument::cetera())->shouldNotBeCalled();
 
         $this->middleware->process($request, $delegate->reveal());
     }

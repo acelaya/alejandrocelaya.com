@@ -11,6 +11,7 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
+use function Zend\Stratigility\middleware;
 
 class RouteAssemblerTest extends TestCase
 {
@@ -36,12 +37,14 @@ class RouteAssemblerTest extends TestCase
         $this->request = new ServerRequest();
         $this->prophecyRouter = $this->prophesize(RouterInterface::class);
         $this->prophecyRouter->match($this->request)->willReturn(
-            RouteResult::fromRoute(new Route('home', function ($req, $resp) {
+            RouteResult::fromRoute(new Route('home', middleware(function ($req, $resp) {
                 return $resp;
-            }), $this->params)
+            })), $this->params)
         );
 
-        $this->assembler = new RouteAssembler($this->prophecyRouter->reveal(), $this->request);
+        $this->assembler = new RouteAssembler($this->prophecyRouter->reveal(), function () {
+            return $this->request;
+        });
     }
 
     public function testWithoutAnyParam()
