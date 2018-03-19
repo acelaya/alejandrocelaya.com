@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Middleware;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\I18n\Translator\Translator;
@@ -34,11 +34,11 @@ class LanguageMiddleware implements MiddlewareInterface
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      *
      * @return Response
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function process(Request $request, RequestHandlerInterface $handler): Response
     {
         $matchedRoute = $this->router->match($request);
         $lang = $matchedRoute->isFailure()
@@ -46,7 +46,7 @@ class LanguageMiddleware implements MiddlewareInterface
             : $this->matchLanguageFromParams($matchedRoute);
 
         $this->translator->setLocale($lang);
-        return $delegate->process($request);
+        return $handler->handle($request);
     }
 
     private function matchLanguageFromPath(Request $request): string
@@ -55,8 +55,7 @@ class LanguageMiddleware implements MiddlewareInterface
         $parts = array_filter(explode('/', $path), function (string $value) {
             return ! empty($value);
         });
-        $langPart = strtolower(array_shift($parts) ?? '');
-        return $langPart;
+        return strtolower(array_shift($parts) ?? '');
     }
 
     private function matchLanguageFromParams(RouteResult $routeResult): string

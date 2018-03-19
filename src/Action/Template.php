@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Action;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 
 class Template extends AbstractAction
@@ -16,10 +16,10 @@ class Template extends AbstractAction
      * Returns the content to render
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $delegate
      * @return null|Response
      */
-    public function dispatch(Request $request, DelegateInterface $delegate): Response
+    public function dispatch(Request $request, RequestHandlerInterface $delegate): Response
     {
         return $this->createTemplateResponse($request);
     }

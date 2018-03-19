@@ -27,7 +27,6 @@ return [
                         'ssl' => 'tls',
                     ],
                 ],
-                //'mail_listeners' => [],
             ],
         ],
     ],

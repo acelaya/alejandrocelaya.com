@@ -1,16 +1,21 @@
 <?php
 declare(strict_types=1);
 
-use Interop\Container\ContainerInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Application;
 
-// Set error reporting
-if (getenv('APP_ENV') === 'dev') {
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+// Delegate static file requests back to the PHP built-in webserver
+if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
+    return false;
 }
 
-/** @var ContainerInterface $container */
-$container = include __DIR__ . '/../config/container.php';
-$app = $container->get(Application::class)->run($container->get(ServerRequestInterface::class));
+chdir(dirname(__DIR__));
+require 'vendor/autoload.php';
+
+/**
+ * Self-called anonymous function that creates its own scope and keep the global namespace clean.
+ */
+(function () {
+    /** @var \Psr\Container\ContainerInterface $container */
+    $container = require 'config/container.php';
+    $container->get(Application::class)->run();
+})();

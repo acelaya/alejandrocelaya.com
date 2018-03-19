@@ -5,10 +5,10 @@ namespace Acelaya\Website\Middleware;
 
 use Doctrine\Common\Cache\Cache;
 use Fig\Http\Message\StatusCodeInterface;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouterInterface;
 
 class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
@@ -33,17 +33,17 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      *
      * @return Response
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function process(Request $request, RequestHandlerInterface $handler): Response
     {
         // Bypass cache if provided bypass-cache param
         if (array_key_exists('bypass-cache', $request->getQueryParams())) {
-            return $delegate->process($request);
+            return $handler->handle($request);
         }
 
         $currentRoute = $this->router->match($request);
@@ -57,7 +57,7 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
         }
 
         // If the response is not cached, process the next middleware and get its response, then cache it
-        $resp = $delegate->process($request);
+        $resp = $handler->handle($request);
         if ($this->isResponseCacheable($resp, $currentRoute->getMatchedParams())) {
             $this->cache->save($currentRoutePath, (string) $resp->getBody());
         }

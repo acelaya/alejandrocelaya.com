@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use Acelaya\Website\Middleware;
-use Zend\Expressive\Application;
+use Zend\Expressive\Router;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
@@ -19,8 +19,8 @@ return [
 
         'routing' => [
             'middleware' => [
-                Application::ROUTING_MIDDLEWARE,
-                Application::DISPATCH_MIDDLEWARE,
+                Router\Middleware\RouteMiddleware::class,
+                Router\Middleware\DispatchMiddleware::class,
             ],
             'priority' => 1,
         ],
