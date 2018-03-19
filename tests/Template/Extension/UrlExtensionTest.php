@@ -9,6 +9,7 @@ use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
+use Psr\Http\Server\MiddlewareInterface;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 
@@ -43,7 +44,7 @@ class UrlExtensionTest extends TestCase
     public function testGetCurrentRouteName()
     {
         $this->routeAssemblerProphezy->getCurrentRouteResult()->willReturn(
-            RouteResult::fromRoute(new Route('foo', ''))
+            RouteResult::fromRoute(new Route('foo', $this->prophesize(MiddlewareInterface::class)->reveal()))
         );
         $this->assertEquals('foo', $this->extension->getCurrentRouteName());
     }

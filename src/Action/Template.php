@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Acelaya\Website\Action;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Diactoros\Response\HtmlResponse;
@@ -16,10 +15,9 @@ class Template extends AbstractAction
      * Returns the content to render
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
      * @return null|Response
      */
-    public function dispatch(Request $request, DelegateInterface $delegate): Response
+    public function dispatch(Request $request): Response
     {
         return $this->createTemplateResponse($request);
     }

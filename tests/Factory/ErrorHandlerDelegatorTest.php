@@ -31,7 +31,9 @@ class ErrorHandlerDelegatorTest extends TestCase
     public function serviceIsProperlyDecorated()
     {
         $errorHandler = $this->delegator->__invoke(new ServiceManager(), '', function () {
-            return new ErrorHandler(new Response());
+            return new ErrorHandler(function () {
+                return new Response();
+            });
         });
 
         $ref = new \ReflectionObject($errorHandler);

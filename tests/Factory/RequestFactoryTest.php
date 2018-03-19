@@ -11,7 +11,7 @@ use Zend\ServiceManager\ServiceManager;
 class RequestFactoryTest extends TestCase
 {
     /**
-     * @var Requestfactory
+     * @var RequestFactory
      */
     protected $factory;
 

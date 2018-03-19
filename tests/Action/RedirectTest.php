@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Redirect;
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Diactoros\ServerRequestFactory;
@@ -26,9 +25,8 @@ class RedirectTest extends TestCase
      */
     public function redirectIsReturned()
     {
-        $resp = $this->action->process(
-            ServerRequestFactory::fromGlobals()->withAttribute('to', '/somewhere'),
-            $this->prophesize(DelegateInterface::class)->reveal()
+        $resp = $this->action->handle(
+            ServerRequestFactory::fromGlobals()->withAttribute('to', '/somewhere')
         );
 
         $this->assertInstanceOf(RedirectResponse::class, $resp);
