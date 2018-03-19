@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Redirect;
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Diactoros\ServerRequestFactory;

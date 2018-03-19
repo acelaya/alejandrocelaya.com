@@ -5,7 +5,6 @@ namespace AcelayaTest\Website\Action;
 
 use Acelaya\Website\Action\Template;
 use Doctrine\Common\Cache\Cache;
-use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Zend\Diactoros\ServerRequest;
