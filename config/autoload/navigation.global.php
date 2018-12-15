@@ -39,7 +39,7 @@ return [
         ],
         'social_menu' => [
             [
-                'uri' => 'https://www.linkedin.com/in/alejandro-celaya-alastru%C3%A9-25755263',
+                'uri' => 'https://www.linkedin.com/in/alejandro-celaya-alastrue/',
                 'icon' => 'icon-linkedin',
             ],
             [

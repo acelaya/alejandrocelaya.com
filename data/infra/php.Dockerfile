@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.2.2-fpm-alpine
 MAINTAINER Alejandro Celaya <alejandro@alejandrocelaya.com>
 
 RUN apk update
@@ -18,9 +18,6 @@ RUN docker-php-ext-install intl
 
 RUN apk add --no-cache --virtual zlib-dev
 RUN docker-php-ext-install zip
-
-RUN apk add --no-cache --virtual libmcrypt-dev
-RUN docker-php-ext-install mcrypt
 
 RUN apk add --no-cache --virtual libpng-dev
 RUN docker-php-ext-install gd
@@ -60,7 +57,7 @@ RUN rm /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini
 RUN echo extension=apcu.so > /usr/local/etc/php/conf.d/20-php-ext-apcu.ini
 
 # Install xdebug
-ADD https://pecl.php.net/get/xdebug-2.5.0 /tmp/xdebug.tar.gz
+ADD https://pecl.php.net/get/xdebug-2.6.0 /tmp/xdebug.tar.gz
 RUN mkdir -p /usr/src/php/ext/xdebug\
   && tar xf /tmp/xdebug.tar.gz -C /usr/src/php/ext/xdebug --strip-components=1
 # configure and install
