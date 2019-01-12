@@ -8,7 +8,7 @@ branches:
 php:
   - 7.2
 
-before_script:
+install:
   - composer self-update
   - composer install --no-interaction
   - npm install
@@ -18,6 +18,6 @@ script:
   - composer check
   - grunt
 
-after_script:
+after_success:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/clover.xml
