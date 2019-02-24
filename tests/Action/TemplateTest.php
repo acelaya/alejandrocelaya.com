@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Template\TemplateRendererInterface;
+
 use function array_shift;
 
 class TemplateTest extends TestCase

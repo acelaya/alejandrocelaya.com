@@ -7,6 +7,7 @@ use Acelaya\Website\Feed\BlogOptions;
 use Doctrine\Common\Cache\Cache;
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
+
 use function implode;
 use function sprintf;
 

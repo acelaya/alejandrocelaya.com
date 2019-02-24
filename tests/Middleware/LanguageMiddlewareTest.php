@@ -13,6 +13,7 @@ use Zend\Diactoros\Uri;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
+
 use function Zend\Stratigility\middleware;
 
 class LanguageMiddlewareTest extends TestCase

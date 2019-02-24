@@ -12,7 +12,9 @@ use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\DelegatorFactoryInterface;
 use Zend\Stratigility\Middleware\ErrorHandler;
+
 use const PHP_EOL;
+
 use function sprintf;
 
 class ErrorHandlerDelegator implements DelegatorFactoryInterface

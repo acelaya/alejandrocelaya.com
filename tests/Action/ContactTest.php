@@ -19,7 +19,9 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
 use Zend\Expressive\Template\TemplateRendererInterface;
+
 use const PHP_EOL;
+
 use function array_pop;
 
 class ContactTest extends TestCase

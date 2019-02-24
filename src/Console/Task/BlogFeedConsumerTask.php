@@ -6,6 +6,7 @@ namespace Acelaya\Website\Console\Task;
 use Acelaya\Website\Feed\Service\BlogFeedConsumerInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
 use function print_r;
 
 class BlogFeedConsumerTask implements LongTaskInterface

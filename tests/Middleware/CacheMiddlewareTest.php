@@ -15,6 +15,7 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
+
 use function Zend\Stratigility\middleware;
 
 class CacheMiddlewareTest extends TestCase

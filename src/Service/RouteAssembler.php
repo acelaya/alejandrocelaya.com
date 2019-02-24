@@ -6,6 +6,7 @@ namespace Acelaya\Website\Service;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
+
 use function array_merge;
 use function http_build_query;
 use function is_bool;
@@ -40,9 +41,8 @@ class RouteAssembler implements RouteAssemblerInterface
         bool $inherit = false
     ): string {
         $routeResult = $this->getCurrentRouteResult();
-        $factory = $this->requestFactory;
         /** @var ServerRequestInterface $request */
-        $request = $factory();
+        $request = ($this->requestFactory)();
 
         if ($name === null) {
             $name = $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : 'home';
@@ -72,9 +72,8 @@ class RouteAssembler implements RouteAssemblerInterface
      */
     public function getCurrentRouteResult(): RouteResult
     {
-        $factory = $this->requestFactory;
         /** @var ServerRequestInterface $request */
-        $request = $factory();
+        $request = ($this->requestFactory)();
         return $this->router->match($request);
     }
 }

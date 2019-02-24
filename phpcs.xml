@@ -8,6 +8,11 @@
 
     <!-- inherit rules from: -->
     <rule ref="Shlinkio"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
+        <properties>
+            <property name="linesCountBetweenUseTypes" value="1" />
+        </properties>
+    </rule>
 
     <!-- Paths to check -->
     <file>src</file>

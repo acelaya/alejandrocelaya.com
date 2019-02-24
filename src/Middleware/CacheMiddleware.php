@@ -9,7 +9,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Zend\Diactoros\Response as DiactorosResponse;
 use Zend\Expressive\Router\RouteResult;
+
 use function array_key_exists;
 
 class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
@@ -46,7 +48,7 @@ class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 
         // If current route is a success route and it has been previously cached, write cached content and return
         if ($currentRoute->isSuccess() && $this->cache->contains($currentRoutePath)) {
-            $resp = (new \Zend\Diactoros\Response())->withHeader('content-type', 'text/html');
+            $resp = (new DiactorosResponse())->withHeader('content-type', 'text/html');
             $resp->getBody()->write($this->cache->fetch($currentRoutePath));
             return $resp;
         }

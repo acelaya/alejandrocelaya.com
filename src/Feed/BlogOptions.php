@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Acelaya\Website\Feed;
 
 use Zend\Stdlib\AbstractOptions;
+
 use function sprintf;
 
 class BlogOptions extends AbstractOptions
