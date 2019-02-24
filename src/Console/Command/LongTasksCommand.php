@@ -10,9 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class LongTasksCommand extends Command
 {
-    /**
-     * @var LongTaskInterface[]
-     */
+    /** @var LongTaskInterface[] */
     protected $tasks;
 
     /**

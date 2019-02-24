@@ -10,9 +10,7 @@ use Zend\Diactoros\ServerRequestFactory;
 
 class RedirectTest extends TestCase
 {
-    /**
-     * @var Redirect
-     */
+    /** @var Redirect */
     private $action;
 
     public function setUp()

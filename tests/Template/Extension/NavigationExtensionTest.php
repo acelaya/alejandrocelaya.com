@@ -5,6 +5,7 @@ namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Template\Extension\NavigationExtension;
+use DOMDocument;
 use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
@@ -15,9 +16,7 @@ use Zend\I18n\Translator\Translator;
 
 class NavigationExtensionTest extends TestCase
 {
-    /**
-     * @var NavigationExtension
-     */
+    /** @var NavigationExtension */
     protected $extension;
 
     public function setUp()
@@ -91,7 +90,7 @@ class NavigationExtensionTest extends TestCase
 
     public function testRenderMenu()
     {
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($this->extension->renderMenu());
         // Discard html and body
         $document = $document->documentElement->firstChild->firstChild;
@@ -109,7 +108,7 @@ class NavigationExtensionTest extends TestCase
 
     public function testRenderLanguagesMenu()
     {
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($this->extension->renderLanguagesMenu());
         // Discard html and body
         $document = $document->documentElement->firstChild->firstChild;

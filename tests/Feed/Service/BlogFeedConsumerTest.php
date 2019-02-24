@@ -15,25 +15,15 @@ use Zend\Feed\Reader\Http\Response;
 
 class BlogFeedConsumerTest extends TestCase
 {
-    /**
-     * @var BlogFeedConsumer
-     */
+    /** @var BlogFeedConsumer */
     protected $service;
-    /**
-     * @var Cache\Cache
-     */
+    /** @var Cache\Cache */
     protected $feedCache;
-    /**
-     * @var Cache\ClearableCache
-     */
+    /** @var Cache\ClearableCache */
     protected $viewsCache;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $httpClient;
-    /**
-     * @var BlogOptions
-     */
+    /** @var BlogOptions */
     protected $options;
 
     public function setUp()

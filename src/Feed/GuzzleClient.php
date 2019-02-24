@@ -11,9 +11,7 @@ use Zend\Feed\Reader\Http\ResponseInterface;
 
 class GuzzleClient implements FeedReaderHttpClientInterface
 {
-    /**
-     * @var GuzzleClientInterface
-     */
+    /** @var GuzzleClientInterface */
     private $client;
 
     /**

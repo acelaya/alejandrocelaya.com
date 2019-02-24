@@ -19,17 +19,11 @@ use function Zend\Stratigility\middleware;
 
 class CacheMiddlewareTest extends TestCase
 {
-    /**
-     * @var CacheMiddleware
-     */
+    /** @var CacheMiddleware */
     protected $middleware;
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     protected $cache;
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     protected $request;
 
     public function setUp()

@@ -11,9 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class LongTaskCommandFactoryTest extends TestCase
 {
-    /**
-     * @var LongTaskCommandFactory
-     */
+    /** @var LongTaskCommandFactory */
     protected $factory;
 
     public function setUp()

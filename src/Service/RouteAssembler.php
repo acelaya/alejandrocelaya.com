@@ -6,16 +6,16 @@ namespace Acelaya\Website\Service;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
+use function array_merge;
+use function http_build_query;
+use function is_bool;
+use function sprintf;
 
 class RouteAssembler implements RouteAssemblerInterface
 {
-    /**
-     * @var RouterInterface
-     */
+    /** @var RouterInterface */
     protected $router;
-    /**
-     * @var callable
-     */
+    /** @var callable */
     protected $requestFactory;
 
     public function __construct(RouterInterface $router, callable $requestFactory)

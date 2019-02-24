@@ -13,13 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class LongTasksCommandTest extends TestCase
 {
     protected $command;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $input;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $output;
 
     public function setUp()

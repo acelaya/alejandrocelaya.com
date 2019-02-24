@@ -11,17 +11,11 @@ use Zend\Feed\Reader\Reader;
 
 class BlogFeedConsumer implements BlogFeedConsumerInterface
 {
-    /**
-     * @var BlogOptions
-     */
+    /** @var BlogOptions */
     private $blogOptions;
-    /**
-     * @var Cache\Cache
-     */
+    /** @var Cache\Cache */
     private $feedCache;
-    /**
-     * @var Cache\ClearableCache
-     */
+    /** @var Cache\ClearableCache */
     private $viewsCache;
 
     public function __construct(

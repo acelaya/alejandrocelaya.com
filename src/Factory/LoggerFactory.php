@@ -11,6 +11,7 @@ use Monolog\Logger;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
+use const PHP_EOL;
 
 class LoggerFactory implements FactoryInterface
 {

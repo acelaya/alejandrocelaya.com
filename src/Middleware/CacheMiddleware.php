@@ -10,12 +10,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouteResult;
+use function array_key_exists;
 
 class CacheMiddleware implements MiddlewareInterface, StatusCodeInterface
 {
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     protected $cache;
 
     public function __construct(Cache $cache)

@@ -12,17 +12,11 @@ use Prophecy\Argument;
 
 class BlogExtensionTest extends TestCase
 {
-    /**
-     * @var BlogExtension
-     */
+    /** @var BlogExtension */
     private $extension;
-    /**
-     * @var ArrayCache
-     */
+    /** @var ArrayCache */
     private $cache;
-    /**
-     * @var BlogOptions
-     */
+    /** @var BlogOptions */
     private $options;
 
     public function setUp()

@@ -10,9 +10,7 @@ use Zend\ServiceManager\ServiceManager;
 
 class RequestFactoryTest extends TestCase
 {
-    /**
-     * @var RequestFactory
-     */
+    /** @var RequestFactory */
     protected $factory;
 
     public function setUp()

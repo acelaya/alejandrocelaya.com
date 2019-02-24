@@ -11,25 +11,18 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Router\RouterInterface;
+use function array_merge;
 use function Zend\Stratigility\middleware;
 
 class RouteAssemblerTest extends TestCase
 {
-    /**
-     * @var RouteAssembler
-     */
+    /** @var RouteAssembler */
     protected $assembler;
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     protected $request;
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $params = ['foo' => 'bar', 'baz' => 'foo'];
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $prophecyRouter;
 
     public function setUp()

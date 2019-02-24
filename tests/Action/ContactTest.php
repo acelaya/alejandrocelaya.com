@@ -6,6 +6,8 @@ namespace AcelayaTest\Website\Action;
 use Acelaya\Website\Action\Contact;
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactService;
+use ArrayObject;
+use DOMDocument;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
@@ -17,24 +19,18 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Uri;
 use Zend\Expressive\Template\TemplateRendererInterface;
+use const PHP_EOL;
+use function array_pop;
 
 class ContactTest extends TestCase
 {
-    /**
-     * @var Contact
-     */
+    /** @var Contact */
     protected $contact;
-    /**
-     * @var TemplateRendererInterface
-     */
+    /** @var TemplateRendererInterface */
     protected $renderer;
-    /**
-     * @var \ArrayAccess;
-     */
+    /** @var \ArrayAccess; */
     protected $session;
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $fullData = [
         ContactFilter::NAME => 'Alejandro Celaya',
         ContactFilter::EMAIL => 'alejandro@alejandrocelaya.com',
@@ -45,7 +41,7 @@ class ContactTest extends TestCase
 
     public function setUp()
     {
-        $this->session = new \ArrayObject();
+        $this->session = new ArrayObject();
 
         $service = $this->prophesize(ContactService::class);
         $service->send($this->fullData)->willReturn(true);
@@ -83,7 +79,7 @@ EOF;
         $request = (new ServerRequest([], [], null, 'GET'))->withAttribute('template', 'Acelaya::contact');
         $resp = $this->contact->dispatch($request, $this->prophesize(DelegateInterface::class)->reveal());
         $this->assertInstanceOf(HtmlResponse::class, $resp);
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
         // Get first paragraph
         $document = $document->documentElement->firstChild->firstChild;
@@ -112,7 +108,7 @@ EOF;
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
 
         $this->assertInstanceOf(HtmlResponse::class, $resp);
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
         // Get first paragraph
         $document = $document->documentElement->firstChild->firstChild;
@@ -127,7 +123,7 @@ EOF;
         $this->assertFalse($this->session->offsetExists(Contact::PRG_DATA));
 
         $this->assertInstanceOf(HtmlResponse::class, $resp);
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($resp->getBody()->__toString());
         // Get first paragraph
         $document = $document->documentElement->firstChild->firstChild;

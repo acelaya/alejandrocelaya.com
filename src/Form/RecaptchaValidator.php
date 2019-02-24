@@ -9,9 +9,7 @@ use Zend\Validator\Exception;
 
 class RecaptchaValidator extends AbstractValidator
 {
-    /**
-     * @var ReCaptcha
-     */
+    /** @var ReCaptcha */
     protected $recaptcha;
 
     public function __construct(ReCaptcha $recaptcha)

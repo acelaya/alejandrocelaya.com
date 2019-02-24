@@ -20,13 +20,9 @@ class ContactServiceTest extends TestCase
         'email' => 'alejandro@alejandrocelaya.com',
     ];
 
-    /**
-     * @var ContactService
-     */
+    /** @var ContactService */
     protected $service;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $mailService;
 
     public function setUp()

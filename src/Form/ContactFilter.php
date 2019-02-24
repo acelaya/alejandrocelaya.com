@@ -17,9 +17,7 @@ class ContactFilter extends InputFilter
     const COMMENTS = 'comments';
     const RECAPTCHA = 'g-recaptcha-response';
 
-    /**
-     * @var ReCaptcha
-     */
+    /** @var ReCaptcha */
     protected $recaptcha;
 
     public function __construct(ReCaptcha $recaptcha)

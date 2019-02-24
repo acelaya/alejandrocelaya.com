@@ -10,12 +10,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
 use Zend\I18n\Translator\TranslatorInterface;
+use function array_filter;
+use function array_shift;
+use function explode;
+use function strtolower;
 
 class LanguageMiddleware implements MiddlewareInterface
 {
-    /**
-     * @var TranslatorInterface|Translator
-     */
+    /** @var TranslatorInterface|Translator */
     protected $translator;
 
     public function __construct(TranslatorInterface $translator)

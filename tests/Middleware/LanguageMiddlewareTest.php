@@ -17,13 +17,9 @@ use function Zend\Stratigility\middleware;
 
 class LanguageMiddlewareTest extends TestCase
 {
-    /**
-     * @var LanguageMiddleware
-     */
+    /** @var LanguageMiddleware */
     protected $middleware;
-    /**
-     * @var Translator
-     */
+    /** @var Translator */
     protected $translator;
 
     public function setUp()

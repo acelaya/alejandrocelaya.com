@@ -4,15 +4,14 @@ declare(strict_types=1);
 namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Template\Extension\RecaptchaExtension;
+use DOMDocument;
 use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
 class RecaptchaExtensionTest extends TestCase
 {
-    /**
-     * @var RecaptchaExtension
-     */
+    /** @var RecaptchaExtension */
     protected $extension;
 
     public function setUp()
@@ -39,7 +38,7 @@ class RecaptchaExtensionTest extends TestCase
 
     public function testRenderInput()
     {
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($this->extension->renderInput());
         // Discard HTML
         $head = $document->documentElement->firstChild;

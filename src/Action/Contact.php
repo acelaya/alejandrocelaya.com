@@ -5,6 +5,7 @@ namespace Acelaya\Website\Action;
 
 use Acelaya\Website\Form\ContactFilter;
 use Acelaya\Website\Service\ContactServiceInterface;
+use ArrayAccess;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Diactoros\Response\RedirectResponse;
@@ -15,24 +16,18 @@ class Contact extends Template
 {
     const PRG_DATA = 'prg_contact_data';
 
-    /**
-     * @var ContactServiceInterface
-     */
+    /** @var ContactServiceInterface */
     protected $contactService;
-    /**
-     * @var ContactFilter
-     */
+    /** @var ContactFilter */
     protected $contactFilter;
-    /**
-     * @var \ArrayAccess
-     */
+    /** @var \ArrayAccess */
     protected $session;
 
     public function __construct(
         TemplateRendererInterface $renderer,
         ContactServiceInterface $contactService,
         ContactFilter $contactFilter,
-        \ArrayAccess $session = null
+        ArrayAccess $session = null
     ) {
         parent::__construct($renderer);
         $this->contactService = $contactService;

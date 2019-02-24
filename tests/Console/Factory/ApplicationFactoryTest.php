@@ -11,9 +11,7 @@ use Symfony\Component\Console\Command\Command;
 
 class ApplicationFactoryTest extends TestCase
 {
-    /**
-     * @var ApplicationFactory
-     */
+    /** @var ApplicationFactory */
     protected $factory;
 
     public function setUp()

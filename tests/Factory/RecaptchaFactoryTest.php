@@ -10,9 +10,7 @@ use Zend\ServiceManager\ServiceManager;
 
 class RecaptchaFactoryTest extends TestCase
 {
-    /**
-     * @var RecaptchaFactory
-     */
+    /** @var RecaptchaFactory */
     protected $factory;
 
     public function setUp()

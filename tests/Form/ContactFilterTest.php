@@ -10,9 +10,7 @@ use ReCaptcha\Response;
 
 class ContactFilterTest extends TestCase
 {
-    /**
-     * @var ContactFilter
-     */
+    /** @var ContactFilter */
     protected $filter;
 
     public function setUp()
