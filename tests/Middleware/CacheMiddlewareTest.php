@@ -26,7 +26,7 @@ class CacheMiddlewareTest extends TestCase
     /** @var ServerRequestInterface */
     protected $request;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->cache = new ArrayCache();
         $this->request = (new ServerRequest([], [], '/foo'))->withAttribute(

@@ -20,7 +20,7 @@ class ErrorHandlerDelegatorTest extends TestCase
     /** @var ErrorHandlerDelegator */
     private $delegator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->delegator = new ErrorHandlerDelegator();
     }

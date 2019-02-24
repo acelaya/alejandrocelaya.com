@@ -19,7 +19,7 @@ class NavigationExtensionTest extends TestCase
     /** @var NavigationExtension */
     protected $extension;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $routeAssemblerProphezy = $this->prophesize(RouteAssembler::class);
         $routeAssemblerProphezy->assembleUrl('home', true)->willReturn('/foo/bar');
@@ -130,11 +130,11 @@ class NavigationExtensionTest extends TestCase
     {
         $result = $this->extension->renderSocialMenu();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<li><a target="_blank" href="https://github.com"><i class="github"></i></a></li>',
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<li><a target="_blank" href="https://twitter.com"><i class="twitter"></i></a></li>',
             $result
         );

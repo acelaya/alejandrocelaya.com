@@ -13,7 +13,7 @@ class RequestFactoryTest extends TestCase
     /** @var RequestFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new RequestFactory();
     }

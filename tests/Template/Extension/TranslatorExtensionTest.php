@@ -16,7 +16,7 @@ class TranslatorExtensionTest extends TestCase
     /** @var Translator */
     protected $translator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->translator = Translator::factory(['locale' => 'en']);
         $this->extension = new TranslatorExtension($this->translator);

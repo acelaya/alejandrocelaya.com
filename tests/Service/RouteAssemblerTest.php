@@ -25,7 +25,7 @@ class RouteAssemblerTest extends TestCase
     /** @var ObjectProphecy */
     protected $prophecyRouter;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->request = new ServerRequest();
         $this->prophecyRouter = $this->prophesize(RouterInterface::class);

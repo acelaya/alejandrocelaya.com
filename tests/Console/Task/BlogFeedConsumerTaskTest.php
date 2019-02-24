@@ -18,7 +18,7 @@ class BlogFeedConsumerTaskTest extends TestCase
     /** @var ObjectProphecy */
     protected $blogFeedConsumer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->blogFeedConsumer = $this->prophesize(BlogFeedConsumer::class);
         $this->task = new BlogFeedConsumerTask($this->blogFeedConsumer->reveal());

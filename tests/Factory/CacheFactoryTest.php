@@ -13,7 +13,7 @@ class CacheFactoryTest extends TestCase
     /** @var CacheFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new CacheFactory();
     }

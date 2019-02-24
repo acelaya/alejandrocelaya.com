@@ -15,7 +15,7 @@ class LoggerFactoryTest extends TestCase
     /** @var LoggerFactory */
     private $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new LoggerFactory();
     }

@@ -13,7 +13,7 @@ class ContactFilterTest extends TestCase
     /** @var ContactFilter */
     protected $filter;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $recaptcha = $this->prophesize(ReCaptcha::class);
         $recaptcha->verify('foo')->willReturn(new Response(true));

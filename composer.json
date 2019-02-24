@@ -38,8 +38,7 @@
         "guzzlehttp/guzzle": "^6.2",
         "monolog/monolog": "^1.23",
         "predis/predis": "^1.1",
-        "roave/security-advisories": "dev-master",
-        "symfony/console": "^3.1",
+        "symfony/console": "^4.2.3",
         "zendframework/zend-config-aggregator": "^1.0",
         "zendframework/zend-diactoros": "^2.1.1",
         "zendframework/zend-expressive": "^3.0",
@@ -52,8 +51,10 @@
         "zendframework/zend-session": "^2.6"
     },
     "require-dev": {
+        "ext-dom": "*",
         "filp/whoops": "^2.0",
         "phpunit/phpunit": "^8.0",
+        "roave/security-advisories": "dev-master",
         "shlinkio/php-coding-standard": "~1.0.0",
         "symfony/dotenv": "^4.2",
         "symfony/var-dumper": "^4.2",

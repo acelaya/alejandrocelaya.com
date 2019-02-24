@@ -20,7 +20,7 @@ class UrlExtensionTest extends TestCase
     /** @var ObjectProphecy */
     protected $routeAssemblerProphezy;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->routeAssemblerProphezy = $this->prophesize(RouteAssembler::class);
         $this->routeAssemblerProphezy->assembleUrl('home', [], [], false)->willReturn('/foo/bar');

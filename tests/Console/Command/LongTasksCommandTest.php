@@ -18,7 +18,7 @@ class LongTasksCommandTest extends TestCase
     /** @var ObjectProphecy */
     protected $output;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->input = $this->prophesize(InputInterface::class)->reveal();
         $this->output = $this->prophesize(OutputInterface::class)->reveal();

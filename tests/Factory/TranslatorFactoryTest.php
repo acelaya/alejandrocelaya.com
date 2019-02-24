@@ -13,7 +13,7 @@ class TranslatorFactoryTest extends TestCase
     /** @var TranslatorFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new TranslatorFactory();
     }

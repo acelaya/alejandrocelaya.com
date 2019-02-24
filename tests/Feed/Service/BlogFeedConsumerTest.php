@@ -26,7 +26,7 @@ class BlogFeedConsumerTest extends TestCase
     /** @var BlogOptions */
     protected $options;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->httpClient = $this->prophesize(ClientInterface::class);
         $this->httpClient->get(Argument::any())->willReturn(new Response(200, <<<EOF

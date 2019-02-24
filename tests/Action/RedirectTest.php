@@ -13,7 +13,7 @@ class RedirectTest extends TestCase
     /** @var Redirect */
     private $action;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->action = new Redirect();
     }

@@ -16,7 +16,7 @@ class GuzzleClientTest extends TestCase
     /** @var ObjectProphecy */
     protected $guzzle;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->guzzle = $this->prophesize(ClientInterface::class);
         $this->client = new GuzzleClient($this->guzzle->reveal());

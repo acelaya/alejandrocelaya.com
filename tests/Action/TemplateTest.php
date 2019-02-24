@@ -23,7 +23,7 @@ class TemplateTest extends TestCase
     /** @var Cache */
     protected $cache;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $templates = $this->prophesize(TemplateRendererInterface::class);
         $templates->render(Argument::cetera())->will(function (array $args) {

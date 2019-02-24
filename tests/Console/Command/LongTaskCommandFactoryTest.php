@@ -14,7 +14,7 @@ class LongTaskCommandFactoryTest extends TestCase
     /** @var LongTaskCommandFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new LongTaskCommandFactory();
     }

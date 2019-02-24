@@ -22,7 +22,7 @@ class LanguageMiddlewareTest extends TestCase
     /** @var Translator */
     protected $translator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->translator = Translator::factory(['locale' => 'en']);
         $this->middleware = new LanguageMiddleware($this->translator);

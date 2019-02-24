@@ -25,7 +25,7 @@ class ContactServiceTest extends TestCase
     /** @var ObjectProphecy */
     protected $mailService;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->mailService = $this->prophesize(MailServiceInterface::class);
         $this->service = new ContactService($this->mailService->reveal());

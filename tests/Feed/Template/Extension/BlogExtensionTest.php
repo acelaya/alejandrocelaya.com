@@ -19,7 +19,7 @@ class BlogExtensionTest extends TestCase
     /** @var BlogOptions */
     private $options;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->cache = new ArrayCache();
         $this->options = new BlogOptions();
@@ -67,7 +67,7 @@ class BlogExtensionTest extends TestCase
 
         $result = $this->extension->renderLatestBlogPosts();
 
-        $this->assertContains('<li><a target="_blank" href="foo">bar</a></li>', $result);
-        $this->assertContains('<li><a target="_blank" href="foo2">bar2</a></li>', $result);
+        $this->assertStringContainsString('<li><a target="_blank" href="foo">bar</a></li>', $result);
+        $this->assertStringContainsString('<li><a target="_blank" href="foo2">bar2</a></li>', $result);
     }
 }

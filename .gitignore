@@ -3,10 +3,10 @@ vendor
 .idea
 build
 .env
-.sass-cache
 node_modules
 public/css/main.min.css
 public/js/main.min.js
 config/autoload/*local.php
 some content
 docker-compose.override.yml
+.phpunit.result.cache

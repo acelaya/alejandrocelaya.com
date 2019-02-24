@@ -13,7 +13,7 @@ class RecaptchaFactoryTest extends TestCase
     /** @var RecaptchaFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new RecaptchaFactory();
     }

@@ -14,7 +14,7 @@ class RecaptchaExtensionTest extends TestCase
     /** @var RecaptchaExtension */
     protected $extension;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->extension = new RecaptchaExtension([
             'public_key' => 'my_key',
@@ -45,7 +45,7 @@ class RecaptchaExtensionTest extends TestCase
         $body = $document->documentElement->lastChild;
 
         $this->assertEquals('script', $head->firstChild->tagName);
-        $this->assertContains('hl=en', $head->firstChild->getAttribute('src'));
+        $this->assertStringContainsString('hl=en', $head->firstChild->getAttribute('src'));
 
         $this->assertEquals('div', $body->firstChild->tagName);
         $this->assertEquals('my_key', $body->firstChild->getAttribute('data-sitekey'));

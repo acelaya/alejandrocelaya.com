@@ -39,7 +39,7 @@ class ContactTest extends TestCase
         ContactFilter::RECAPTCHA => 'good',
     ];
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->session = new ArrayObject();
 
