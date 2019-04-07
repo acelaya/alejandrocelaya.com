@@ -5,19 +5,15 @@ namespace Acelaya\Website\Feed;
 
 use Zend\Stdlib\AbstractOptions;
 
+use function sprintf;
+
 class BlogOptions extends AbstractOptions
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $url = '';
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $feed = '';
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $elementsToDisplay = 5;
 
     /**

@@ -8,14 +8,15 @@ use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
 
+use function sys_get_temp_dir;
+use function tempnam;
+
 class LoggerFactoryTest extends TestCase
 {
-    /**
-     * @var LoggerFactory
-     */
+    /** @var LoggerFactory */
     private $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new LoggerFactory();
     }

@@ -7,16 +7,19 @@ use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
+use Throwable;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\DelegatorFactoryInterface;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
+use const PHP_EOL;
+
+use function sprintf;
+
 class ErrorHandlerDelegator implements DelegatorFactoryInterface
 {
-    /**
-     * @var ContainerInterface
-     */
+    /** @var ContainerInterface */
     private $container;
 
     /**
@@ -43,7 +46,7 @@ class ErrorHandlerDelegator implements DelegatorFactoryInterface
         return $errorHandler;
     }
 
-    public function logError(\Throwable $e, ServerRequestInterface $request): void
+    public function logError(Throwable $e, ServerRequestInterface $request): void
     {
         /** @var LoggerInterface $logger */
         $logger = $this->container->get(LoggerInterface::class);

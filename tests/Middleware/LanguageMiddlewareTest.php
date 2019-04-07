@@ -13,20 +13,17 @@ use Zend\Diactoros\Uri;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
 use Zend\I18n\Translator\Translator;
+
 use function Zend\Stratigility\middleware;
 
 class LanguageMiddlewareTest extends TestCase
 {
-    /**
-     * @var LanguageMiddleware
-     */
+    /** @var LanguageMiddleware */
     protected $middleware;
-    /**
-     * @var Translator
-     */
+    /** @var Translator */
     protected $translator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->translator = Translator::factory(['locale' => 'en']);
         $this->middleware = new LanguageMiddleware($this->translator);

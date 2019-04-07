@@ -13,16 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class BlogFeedConsumerTaskTest extends TestCase
 {
-    /**
-     * @var BlogFeedConsumerTask
-     */
+    /** @var BlogFeedConsumerTask */
     protected $task;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $blogFeedConsumer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->blogFeedConsumer = $this->prophesize(BlogFeedConsumer::class);
         $this->task = new BlogFeedConsumerTask($this->blogFeedConsumer->reveal());

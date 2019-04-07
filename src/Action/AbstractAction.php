@@ -13,13 +13,9 @@ use Zend\Expressive\Template\TemplateRendererInterface;
 
 abstract class AbstractAction implements RequestHandlerInterface, RequestMethodInterface, StatusCodeInterface
 {
-    /**
-     * @var TemplateRendererInterface
-     */
+    /** @var TemplateRendererInterface */
     protected $renderer;
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     protected $cache;
 
     public function __construct(TemplateRendererInterface $renderer)

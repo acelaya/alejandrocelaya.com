@@ -8,15 +8,14 @@ use Doctrine\Common\Cache\Cache;
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
 
+use function implode;
+use function sprintf;
+
 class BlogExtension implements ExtensionInterface
 {
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     private $cache;
-    /**
-     * @var BlogOptions
-     */
+    /** @var BlogOptions */
     private $blogOptions;
 
     /**

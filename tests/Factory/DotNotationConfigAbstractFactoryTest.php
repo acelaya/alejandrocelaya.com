@@ -10,12 +10,10 @@ use Zend\ServiceManager\ServiceManager;
 
 class DotNotationConfigAbstractFactoryTest extends TestCase
 {
-    /**
-     * @var DotNotationConfigAbstractFactory
-     */
+    /** @var DotNotationConfigAbstractFactory */
     private $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new DotNotationConfigAbstractFactory();
     }

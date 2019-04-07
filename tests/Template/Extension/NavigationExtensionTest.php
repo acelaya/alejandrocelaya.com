@@ -5,6 +5,7 @@ namespace AcelayaTest\Website\Template\Extension;
 
 use Acelaya\Website\Service\RouteAssembler;
 use Acelaya\Website\Template\Extension\NavigationExtension;
+use DOMDocument;
 use League\Plates\Engine;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
@@ -15,12 +16,10 @@ use Zend\I18n\Translator\Translator;
 
 class NavigationExtensionTest extends TestCase
 {
-    /**
-     * @var NavigationExtension
-     */
+    /** @var NavigationExtension */
     protected $extension;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $routeAssemblerProphezy = $this->prophesize(RouteAssembler::class);
         $routeAssemblerProphezy->assembleUrl('home', true)->willReturn('/foo/bar');
@@ -91,7 +90,7 @@ class NavigationExtensionTest extends TestCase
 
     public function testRenderMenu()
     {
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($this->extension->renderMenu());
         // Discard html and body
         $document = $document->documentElement->firstChild->firstChild;
@@ -109,7 +108,7 @@ class NavigationExtensionTest extends TestCase
 
     public function testRenderLanguagesMenu()
     {
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         $document->loadHTML($this->extension->renderLanguagesMenu());
         // Discard html and body
         $document = $document->documentElement->firstChild->firstChild;
@@ -131,11 +130,11 @@ class NavigationExtensionTest extends TestCase
     {
         $result = $this->extension->renderSocialMenu();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<li><a target="_blank" href="https://github.com"><i class="github"></i></a></li>',
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<li><a target="_blank" href="https://twitter.com"><i class="twitter"></i></a></li>',
             $result
         );

@@ -13,16 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 class LongTasksCommandTest extends TestCase
 {
     protected $command;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $input;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $output;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->input = $this->prophesize(InputInterface::class)->reveal();
         $this->output = $this->prophesize(OutputInterface::class)->reveal();

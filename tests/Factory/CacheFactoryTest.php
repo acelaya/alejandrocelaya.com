@@ -10,12 +10,10 @@ use Zend\ServiceManager\ServiceManager;
 
 class CacheFactoryTest extends TestCase
 {
-    /**
-     * @var CacheFactory
-     */
+    /** @var CacheFactory */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->factory = new CacheFactory();
     }

@@ -4,10 +4,12 @@ declare(strict_types=1);
 namespace AcelayaTest\Website\Factory;
 
 use Acelaya\Website\Factory\ErrorHandlerDelegator;
+use Exception;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\MethodProphecy;
 use Psr\Log\LoggerInterface;
+use ReflectionObject;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\ServiceManager\ServiceManager;
@@ -15,12 +17,10 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 
 class ErrorHandlerDelegatorTest extends TestCase
 {
-    /**
-     * @var ErrorHandlerDelegator
-     */
+    /** @var ErrorHandlerDelegator */
     private $delegator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->delegator = new ErrorHandlerDelegator();
     }
@@ -36,7 +36,7 @@ class ErrorHandlerDelegatorTest extends TestCase
             });
         });
 
-        $ref = new \ReflectionObject($errorHandler);
+        $ref = new ReflectionObject($errorHandler);
         $prop = $ref->getProperty('listeners');
         $prop->setAccessible(true);
 
@@ -51,7 +51,7 @@ class ErrorHandlerDelegatorTest extends TestCase
     {
         $logger = $this->prophesize(LoggerInterface::class);
 
-        $ref = new \ReflectionObject($this->delegator);
+        $ref = new ReflectionObject($this->delegator);
         $prop = $ref->getProperty('container');
         $prop->setAccessible(true);
         $prop->setValue($this->delegator, new ServiceManager(['services' => [
@@ -62,7 +62,7 @@ class ErrorHandlerDelegatorTest extends TestCase
         $error = $logger->error(Argument::cetera())->will(function () {
         });
 
-        $this->delegator->logError(new \Exception('Error'), ServerRequestFactory::fromGlobals());
+        $this->delegator->logError(new Exception('Error'), ServerRequestFactory::fromGlobals());
 
         $error->shouldHaveBeenCalled();
     }

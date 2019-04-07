@@ -15,16 +15,12 @@ use Zend\Expressive\Router\RouteResult;
 
 class UrlExtensionTest extends TestCase
 {
-    /**
-     * @var UrlExtension
-     */
+    /** @var UrlExtension */
     protected $extension;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $routeAssemblerProphezy;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->routeAssemblerProphezy = $this->prophesize(RouteAssembler::class);
         $this->routeAssemblerProphezy->assembleUrl('home', [], [], false)->willReturn('/foo/bar');

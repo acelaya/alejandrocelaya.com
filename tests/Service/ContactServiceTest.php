@@ -20,16 +20,12 @@ class ContactServiceTest extends TestCase
         'email' => 'alejandro@alejandrocelaya.com',
     ];
 
-    /**
-     * @var ContactService
-     */
+    /** @var ContactService */
     protected $service;
-    /**
-     * @var ObjectProphecy
-     */
+    /** @var ObjectProphecy */
     protected $mailService;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->mailService = $this->prophesize(MailServiceInterface::class);
         $this->service = new ContactService($this->mailService->reveal());

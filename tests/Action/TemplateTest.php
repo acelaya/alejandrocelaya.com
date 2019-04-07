@@ -10,6 +10,8 @@ use Prophecy\Argument;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
+use function array_shift;
+
 class TemplateTest extends TestCase
 {
     private const TEMPLATES_CONTENT_MAP = [
@@ -17,16 +19,12 @@ class TemplateTest extends TestCase
         'Acelaya::errors/404' => 'Error',
     ];
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     protected $cache;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $templates = $this->prophesize(TemplateRendererInterface::class);
         $templates->render(Argument::cetera())->will(function (array $args) {

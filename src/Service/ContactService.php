@@ -12,9 +12,7 @@ class ContactService implements ContactServiceInterface
 {
     public const TEMPLATE = 'Acelaya::emails/contact';
 
-    /**
-     * @var MailServiceInterface
-     */
+    /** @var MailServiceInterface */
     private $mailService;
 
     public function __construct(MailServiceInterface $mailService)

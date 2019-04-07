@@ -38,10 +38,9 @@
         "guzzlehttp/guzzle": "^6.2",
         "monolog/monolog": "^1.23",
         "predis/predis": "^1.1",
-        "roave/security-advisories": "dev-master",
-        "symfony/console": "^3.1",
+        "symfony/console": "^4.2.3",
         "zendframework/zend-config-aggregator": "^1.0",
-        "zendframework/zend-diactoros": "^1.7.1",
+        "zendframework/zend-diactoros": "^2.1.1",
         "zendframework/zend-expressive": "^3.0",
         "zendframework/zend-expressive-helpers": "^5.0",
         "zendframework/zend-expressive-platesrenderer": "^2.0",
@@ -52,12 +51,13 @@
         "zendframework/zend-session": "^2.6"
     },
     "require-dev": {
+        "ext-dom": "*",
         "filp/whoops": "^2.0",
-        "phpunit/phpunit": "^7.0",
-        "slevomat/coding-standard": "^4.0",
-        "squizlabs/php_codesniffer": "^3.1",
-        "symfony/dotenv": "^4.0",
-        "symfony/var-dumper": "^4.0",
+        "phpunit/phpunit": "^8.0",
+        "roave/security-advisories": "dev-master",
+        "shlinkio/php-coding-standard": "~1.1.0",
+        "symfony/dotenv": "^4.2",
+        "symfony/var-dumper": "^4.2",
         "zendframework/zend-component-installer": "^2.1",
         "zendframework/zend-expressive-tooling": "^1.0"
     },
@@ -67,10 +67,9 @@
             "@test"
         ],
         "cs": "phpcs",
-        "cs-fix": "phpcbf",
-        "test": "phpunit --coverage-clover build/clover.xml --colors=always",
-        "pretty-test": "phpunit --coverage-html build/coverage",
-        "expressive": "expressive"
+        "cs:fix": "phpcbf",
+        "test": "phpunit --coverage-clover build/clover.xml --colors=always --testdox",
+        "test:pretty": "phpunit --coverage-html build/coverage --testdox"
     },
     "config": {
         "sort-packages": true

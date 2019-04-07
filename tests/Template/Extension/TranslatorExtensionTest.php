@@ -11,16 +11,12 @@ use Zend\I18n\Translator\Translator;
 
 class TranslatorExtensionTest extends TestCase
 {
-    /**
-     * @var TranslatorExtension
-     */
+    /** @var TranslatorExtension */
     protected $extension;
-    /**
-     * @var Translator
-     */
+    /** @var Translator */
     protected $translator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->translator = Translator::factory(['locale' => 'en']);
         $this->extension = new TranslatorExtension($this->translator);

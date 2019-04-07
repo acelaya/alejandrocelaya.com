@@ -8,9 +8,7 @@ use League\Plates\Extension\ExtensionInterface;
 
 class RecaptchaExtension implements ExtensionInterface
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $config;
 
     public function __construct(array $config)

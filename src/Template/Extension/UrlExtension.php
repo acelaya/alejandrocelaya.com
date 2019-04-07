@@ -9,9 +9,7 @@ use League\Plates\Extension\ExtensionInterface;
 
 class UrlExtension implements ExtensionInterface
 {
-    /**
-     * @var RouteAssemblerInterface
-     */
+    /** @var RouteAssemblerInterface */
     protected $routeAssembler;
 
     public function __construct(RouteAssemblerInterface $routeAssembler)

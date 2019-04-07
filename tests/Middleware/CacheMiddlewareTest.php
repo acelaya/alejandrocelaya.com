@@ -15,24 +15,19 @@ use Zend\Diactoros\ServerRequest;
 use Zend\Diactoros\ServerRequestFactory;
 use Zend\Expressive\Router\Route;
 use Zend\Expressive\Router\RouteResult;
+
 use function Zend\Stratigility\middleware;
 
 class CacheMiddlewareTest extends TestCase
 {
-    /**
-     * @var CacheMiddleware
-     */
+    /** @var CacheMiddleware */
     protected $middleware;
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     protected $cache;
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     protected $request;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->cache = new ArrayCache();
         $this->request = (new ServerRequest([], [], '/foo'))->withAttribute(
