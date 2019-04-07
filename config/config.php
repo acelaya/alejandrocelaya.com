@@ -13,7 +13,6 @@ return (new ConfigAggregator\ConfigAggregator([
     Expressive\Router\ConfigProvider::class,
     Expressive\Plates\ConfigProvider::class,
     Expressive\Helper\ConfigProvider::class,
-    Expressive\Swoole\ConfigProvider::class,
     AcelayaRouter\ConfigProvider::class,
     AcMailer\ConfigProvider::class,
     new ConfigAggregator\PhpFileProvider(__DIR__ . '/autoload/{{,*.}global,{,*.}local}.php'),
