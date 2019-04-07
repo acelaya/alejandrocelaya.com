@@ -26,6 +26,20 @@ services:
       - ac_website_redis
       - ac_website_mailhog
 
+  ac_website_swoole:
+    container_name: ac_website_swoole
+    build:
+      context: .
+      dockerfile: ./data/infra/swoole.Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/home/ac_website/www
+      - ./data/infra/php.ini:/usr/local/etc/php/php.ini
+    links:
+      - ac_website_redis
+      - ac_website_mailhog
+
   ac_website_redis:
     container_name: ac_website_redis
     build:

@@ -15,14 +15,13 @@ use function sprintf;
 class RouteAssembler implements RouteAssemblerInterface
 {
     /** @var RouterInterface */
-    protected $router;
-    /** @var callable */
-    protected $requestFactory;
+    private $router;
+    /** @var ServerRequestInterface */
+    private $request;
 
-    public function __construct(RouterInterface $router, callable $requestFactory)
+    public function __construct(RouterInterface $router)
     {
         $this->router = $router;
-        $this->requestFactory = $requestFactory;
     }
 
     /**
@@ -41,8 +40,6 @@ class RouteAssembler implements RouteAssemblerInterface
         bool $inherit = false
     ): string {
         $routeResult = $this->getCurrentRouteResult();
-        /** @var ServerRequestInterface $request */
-        $request = ($this->requestFactory)();
 
         if ($name === null) {
             $name = $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : 'home';
@@ -60,7 +57,7 @@ class RouteAssembler implements RouteAssemblerInterface
 
         if ($inherit) {
             $routeParams = array_merge($routeResult->getMatchedParams(), $routeParams);
-            $queryParams = array_merge($request->getQueryParams(), $queryParams);
+            $queryParams = array_merge($this->request->getQueryParams(), $queryParams);
         }
 
         $queryString = empty($queryParams) ? '' : sprintf('?%s', http_build_query($queryParams));
@@ -72,8 +69,11 @@ class RouteAssembler implements RouteAssemblerInterface
      */
     public function getCurrentRouteResult(): RouteResult
     {
-        /** @var ServerRequestInterface $request */
-        $request = ($this->requestFactory)();
-        return $this->router->match($request);
+        return $this->router->match($this->request);
+    }
+
+    public function setRequest(ServerRequestInterface $request): void
+    {
+        $this->request = $request;
     }
 }
