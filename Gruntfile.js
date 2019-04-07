@@ -1,11 +1,10 @@
-module.exports = function(grunt) {
+module.exports = grunt => {
 
-    // Get command line arguments
-    var cssFile = grunt.option('css-file') || 'public/css/main.min.css',
-        jsFile = grunt.option('js-file') || 'public/js/main.min.js',
-        cssFilesTemplate = {},
-        jsFilesTemplate = {},
-        currentTimestamp = new Date().getTime();
+    const cssFile = grunt.option('css-file') || 'public/css/main.min.css';
+    const jsFile = grunt.option('js-file') || 'public/js/main.min.js';
+    const cssFilesTemplate = {};
+    const jsFilesTemplate = {};
+    const currentTimestamp = new Date().getTime();
 
     cssFilesTemplate[cssFile] = [
         'public/css/animate.css',
@@ -21,13 +20,10 @@ module.exports = function(grunt) {
         'public/js/main.js'
     ];
 
-    // Project configuration.
     grunt.initConfig({
 
-        // Load configuration
         pkg: grunt.file.readJSON('package.json'),
 
-        // Minify app JS files into one file dropping console object
         uglify: {
             options: {
                 compress: {
@@ -39,7 +35,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Minify CSS files
         cssmin: {
             main: {
                 files: cssFilesTemplate
@@ -47,9 +42,6 @@ module.exports = function(grunt) {
         },
 
         processhtml: {
-            options: {
-                // Task-specific options go here.
-            },
             main: {
                 files: {
                     'templates/partials/javascripts.phtml': ['templates/partials/javascripts.phtml'],
@@ -63,7 +55,7 @@ module.exports = function(grunt) {
                 options: {
                     replacements: [{
                         pattern: /(.js|.css)\?v/ig,
-                        replacement: '$1?v=' + currentTimestamp
+                        replacement: `$1?v=${currentTimestamp}`
                     }]
                 },
                 files : {
@@ -86,14 +78,12 @@ module.exports = function(grunt) {
 
     });
 
-    // Load the plugins
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-    // Default task.
-    grunt.registerTask('default', ['uglify', 'cssmin', 'processhtml', 'string-replace']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'processhtml', 'string-replace' /*, 'imagemin' */]);
 
 };

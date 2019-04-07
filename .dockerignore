@@ -1,0 +1,14 @@
+composer.lock
+vendor
+.env
+*.md
+.php*.*
+*.yml
+php*.xml
+LICENSE
+indocker
+config/autoload/*local*
+tests
+data/infra
+build
+data/log/*.log
