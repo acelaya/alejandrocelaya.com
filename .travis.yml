@@ -2,11 +2,10 @@ language: php
 
 branches:
   only:
-    - master
-    - develop
+    - /.*/
 
 php:
-  - 7.2
+  - 7.3
 
 install:
   - composer self-update
