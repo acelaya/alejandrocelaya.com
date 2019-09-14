@@ -1,4 +1,4 @@
-FROM composer:1.8.4 as composer
+FROM composer:1.9.0 as composer
 COPY . /website
 RUN cd /website && \
     composer install --no-dev --optimize-autoloader --apcu-autoloader --prefer-dist --no-interaction --no-progress && \
