@@ -16,10 +16,6 @@ return [
                 'route' => 'projects',
             ],
             [
-                'label' => FakeTranslator::translate('Contact'),
-                'route' => 'contact',
-            ],
-            [
                 'label'     => FakeTranslator::translate('Blog'),
                 'uri'       => 'https://blog.alejandrocelaya.com',
                 'target'    => true,
