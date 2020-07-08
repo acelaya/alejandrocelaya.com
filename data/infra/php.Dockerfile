@@ -9,14 +9,9 @@ ENV XDEBUG_VERSION "2.7.0RC1"
 RUN apk update
 
 # Install common php extensions
-RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install iconv
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install calendar
-
-RUN apk add --no-cache --virtual sqlite-libs
-RUN apk add --no-cache --virtual sqlite-dev
-RUN docker-php-ext-install pdo_sqlite
 
 RUN apk add --no-cache --virtual icu-dev
 RUN docker-php-ext-install intl

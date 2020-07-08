@@ -115,17 +115,6 @@
 
     };
 
-    var initContactForm = function() {
-        var $contactForm = $('form#contactForm');
-        if ($contactForm.size() === 0) {
-            return;
-        }
-
-        $contactForm.submit(function(e) {
-            $contactForm.find('[type=submit]').button('loading');
-        });
-    };
-
 
     // Animations
 
@@ -166,7 +155,6 @@
         mobileMenuOutsideClick();
         offcanvasMenu();
         burgerMenu();
-        initContactForm();
 
         // Animate
         contentWayPoint();

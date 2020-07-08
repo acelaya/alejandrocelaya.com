@@ -32,18 +32,6 @@ return [
                 ],
             ],
         ]),
-        ArrayUtils::merge($home, [
-            'name' => 'contact',
-            'path' => '(/:lang)/contact/',
-            'allowed_methods' => ['POST'],
-            'middleware' => Action\Contact::class,
-            'options' => [
-                'defaults' => [
-                    'template' => 'Acelaya::contact',
-                    'cacheable' => false,
-                ],
-            ],
-        ]),
 
         // Redirect old sitemap to new one
         [
@@ -54,6 +42,41 @@ return [
             'options' => [
                 'defaults' => [
                     'to' => '/sitemap.xml',
+                ],
+            ],
+        ],
+
+        // Redirect contact page to home
+        [
+            'name' => 'contact-redirect',
+            'path' => '/contact/',
+            'allowed_methods' => ['GET'],
+            'middleware' => Action\Redirect::class,
+            'options' => [
+                'defaults' => [
+                    'to' => '/',
+                ],
+            ],
+        ],
+        [
+            'name' => 'contact-redirect-en',
+            'path' => '/en/contact/',
+            'allowed_methods' => ['GET'],
+            'middleware' => Action\Redirect::class,
+            'options' => [
+                'defaults' => [
+                    'to' => '/en/',
+                ],
+            ],
+        ],
+        [
+            'name' => 'contact-redirect-es',
+            'path' => '/es/contact/',
+            'allowed_methods' => ['GET'],
+            'middleware' => Action\Redirect::class,
+            'options' => [
+                'defaults' => [
+                    'to' => '/es/',
                 ],
             ],
         ],
