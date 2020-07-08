@@ -1,7 +1,7 @@
 {
     "name": "acelaya/mywebsite-expressive",
     "description": "My personal website built on top of Zend Expressive",
-    "type": "Project",
+    "type": "project",
     "license": "MIT",
     "keywords": [
         "zend",
